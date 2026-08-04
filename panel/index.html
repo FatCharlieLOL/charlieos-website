@@ -1050,13 +1050,143 @@
 
 
 
-    /* Heatmap */
+    /* Heatmap — Horizontal Bar Chart */
 
-    .heatmap-svg { width: 100%; border: 1px solid var(--admin-border); border-radius: var(--radius-md); background: var(--admin-bg); }
+    :root {
+      --hm-card-bg:         #1a1c23;
+      --hm-card-border:     rgba(255, 255, 255, 0.06);
+      --hm-card-radius:     12px;
+      --hm-rank-color:      #6b6f76;
+      --hm-rank-size:       11px;
+      --hm-label-color:     #e0e0e0;
+      --hm-label-size:      13px;
+      --hm-value-color:     #C9A96E;
+      --hm-value-size:      13px;
+      --hm-bar-height:      6px;
+      --hm-bar-radius:      3px;
+      --hm-bar-track-bg:    rgba(255, 255, 255, 0.04);
+      --hm-bar-fill-from:   rgba(201, 169, 110, 0.25);
+      --hm-bar-fill-to:     #C9A96E;
+      --hm-bar-top1-from:   rgba(201, 169, 110, 0.4);
+      --hm-bar-top1-to:     #e2c68a;
+      --hm-row-gap:         16px;
+      --hm-row-hover-bg:    rgba(255, 255, 255, 0.03);
+      --hm-legend-color:    #4a4d54;
+    }
 
-    .heatmap-legend { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--admin-text-secondary); margin-top: 8px; justify-content: center; }
+    .heatmap-bar-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--hm-row-gap);
+      padding: 12px 16px 8px;
+    }
 
-    .heatmap-gradient { width: 120px; height: 8px; border-radius: var(--radius-full); background: linear-gradient(to right, #3B82F6, #F59E0B, #EF4444); }
+    .heatmap-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 8px;
+      border-radius: var(--hm-card-radius);
+      transition: background-color 0.2s;
+      opacity: 0;
+      transform: translateY(6px);
+      animation: hm-row-enter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    .heatmap-bar-row:hover {
+      background-color: var(--hm-row-hover-bg);
+    }
+
+    .hm-rank {
+      width: 28px;
+      font-size: var(--hm-rank-size);
+      font-weight: 600;
+      color: var(--hm-rank-color);
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .heatmap-bar-row.is-top1 .hm-rank {
+      color: #e2c68a;
+    }
+
+    .hm-label {
+      width: 180px;
+      font-size: var(--hm-label-size);
+      color: var(--hm-label-color);
+      flex-shrink: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .hm-value {
+      width: 60px;
+      font-size: var(--hm-value-size);
+      font-weight: 600;
+      color: var(--hm-value-color);
+      text-align: right;
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .hm-bar-wrap {
+      flex: 1;
+      height: var(--hm-bar-height);
+      background: var(--hm-bar-track-bg);
+      border-radius: var(--hm-bar-radius);
+      overflow: hidden;
+    }
+
+    .hm-bar-fill {
+      height: 100%;
+      border-radius: var(--hm-bar-radius);
+      background: linear-gradient(90deg, var(--hm-bar-fill-from), var(--hm-bar-fill-to));
+      transform: scaleX(0);
+      transform-origin: left center;
+      animation: hm-bar-grow 0.6s ease-out forwards;
+    }
+
+    .heatmap-bar-row.is-top1 .hm-bar-fill {
+      background: linear-gradient(90deg, var(--hm-bar-top1-from), var(--hm-bar-top1-to));
+    }
+
+    .heatmap-legend {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--hm-legend-color);
+      margin-top: 8px;
+      justify-content: center;
+    }
+
+    .heatmap-gradient {
+      width: 120px;
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--hm-bar-fill-from), var(--hm-bar-fill-to));
+    }
+
+    @keyframes hm-row-enter {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes hm-bar-grow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(var(--bar-target, 1)); }
+    }
+
+    /* Responsive: <768px */
+    @media (max-width: 767px) {
+      .hm-rank { display: none; }
+      .hm-label { font-size: 12px; width: 140px; }
+      .hm-value { font-size: 12px; width: 50px; }
+      .hm-bar-wrap { height: 5px; }
+      .heatmap-bar-list { gap: 12px; padding: 8px 12px 6px; }
+      .heatmap-bar-row { gap: 8px; }
+    }
 
 
 
@@ -4283,71 +4413,25 @@
 
 
   function renderHeatmap(data) {
-
-    var maxClicks = Math.max.apply(null, data.map(function(d){ return d.clicks; }));
-
-    var isDark = (document.documentElement.getAttribute('data-theme') || 'light') === 'dark';
-
-    var cBlock = isDark ? 'rgba(255,255,255,0.05)' : '#F0F0F0';
-
-    var cHero = isDark ? 'rgba(201,169,110,0.08)' : '#F5F0E8';
-
-    var cProducts = isDark ? 'rgba(42,157,143,0.08)' : '#E8F5F1';
-
-    var cText = isDark ? '#6B7280' : '#999';
-
-    var svg = '<svg class="heatmap-svg" viewBox="0 0 400 300" style="height:300px">';
-
-    // Page layout blocks
-
-    svg += '<rect x="0" y="0" width="400" height="40" fill="' + cBlock + '" rx="4"/>'; // Header
-
-    svg += '<rect x="0" y="44" width="400" height="70" fill="' + cHero + '" rx="4"/>'; // Hero
-
-    svg += '<rect x="0" y="118" width="400" height="60" fill="' + cProducts + '" rx="4"/>'; // Products
-
-    svg += '<rect x="0" y="182" width="400" height="50" fill="' + cHero + '" rx="4"/>'; // Science
-
-    svg += '<rect x="0" y="236" width="400" height="40" fill="' + cProducts + '" rx="4"/>'; // Testimonials
-
-    svg += '<rect x="0" y="280" width="400" height="20" fill="' + cBlock + '" rx="4"/>'; // Footer
-
-    // Labels
-
-    svg += '<text x="8" y="24" font-size="9" fill="' + cText + '">' + t('analytics.heatmapHeader') + '</text>';
-
-    svg += '<text x="8" y="80" font-size="9" fill="' + cText + '">' + t('analytics.heatmapHero') + '</text>';
-
-    svg += '<text x="8" y="148" font-size="9" fill="' + cText + '">' + t('analytics.heatmapProducts') + '</text>';
-
-    svg += '<text x="8" y="208" font-size="9" fill="' + cText + '">' + t('analytics.heatmapScience') + '</text>';
-
-    svg += '<text x="8" y="258" font-size="9" fill="' + cText + '">' + t('analytics.heatmapTestimonials') + '</text>';
-
-    // Heat points
-
-    data.forEach(function(d) {
-
-      var cx = d.x * 4, cy = d.y * 3;
-
-      var r = 5 + Math.log(d.clicks / maxClicks + 1) * 25;
-
-      var intensity = d.clicks / maxClicks;
-
-      var color = intensity > 0.66 ? '#EF4444' : intensity > 0.33 ? '#F59E0B' : '#3B82F6';
-
+    // Sort by clicks descending
+    var sorted = data.slice().sort(function(a, b) { return b.clicks - a.clicks; });
+    var maxClicks = sorted[0].clicks;
+    var html = '<div class="heatmap-bar-list">';
+    sorted.forEach(function(d, i) {
+      var pct = (d.clicks / maxClicks * 100).toFixed(1);
       var lbl = d.labelKey ? t(d.labelKey) : d.label;
-
-      svg += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="' + color + '" opacity="0.5"><title>' + lbl + ': ' + d.clicks + ' ' + t('analytics.clicks') + '</title></circle>';
-
-      svg += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="1" opacity="0.8"><title>' + lbl + ': ' + d.clicks + ' ' + t('analytics.clicks') + '</title></circle>';
-
+      var isTop1 = (i === 0);
+      var delay = (i * 60) + 'ms';
+      var barDelay = (i * 100 + 100) + 'ms';
+      html += '<div class="heatmap-bar-row' + (isTop1 ? ' is-top1' : '') + '" style="animation-delay:' + delay + '">';
+      html += '<span class="hm-rank">#' + (i + 1) + '</span>';
+      html += '<span class="hm-label">' + lbl + '</span>';
+      html += '<span class="hm-value">' + d.clicks.toLocaleString() + '</span>';
+      html += '<div class="hm-bar-wrap"><div class="hm-bar-fill" style="--bar-target:' + (pct / 100) + ';animation-delay:' + barDelay + '"></div></div>';
+      html += '</div>';
     });
-
-    svg += '</svg>';
-
-    document.getElementById('heatmapContainer').innerHTML = svg;
-
+    html += '</div>';
+    document.getElementById('heatmapContainer').innerHTML = html;
   }
 
 

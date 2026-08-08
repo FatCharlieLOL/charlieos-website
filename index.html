@@ -2425,6 +2425,8 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
 .checkout-success p { color: rgba(18, 41, 62, 0.6); font-size: 0.92rem; margin: 0.3rem 0; }
 .checkout-success .order-id { font-weight: 800; color: #0066CC; }
 .checkout-success .btn { margin-top: 1.4rem; }
+.success-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; margin-top: 1.4rem; }
+.success-actions .btn { margin-top: 0; }
 
 .toast {
   position: fixed;
@@ -2446,6 +2448,11 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
 
 .tier-more { text-align: center; margin-top: 1.5rem; }
 .cred-more { text-align: center; margin-top: 2.2rem; }
+
+@media (max-width: 1180px) {
+  .nav-links { gap: 1.1rem; }
+  .nav-links a { font-size: 0.88rem; }
+}
 
 @media (max-width: 768px) {
   .cart-drawer { width: 100vw; border-radius: 0; }
@@ -2486,6 +2493,7 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
       <a href="#products" data-i18n="nav.products">Products</a>
       <a href="product.html" data-i18n="nav.productScience">Product &amp; Science</a>
       <a href="quality.html" data-i18n="nav.quality">Quality</a>
+      <a href="order.html" data-i18n="nav.order">Track Order</a>
       <a href="#story" data-i18n="nav.story">Our Story</a>
       <a href="#testimonials" data-i18n="nav.reviews">Reviews</a>
       <a href="#cta" class="nav-cta" data-i18n="nav.cta">Get Started</a>
@@ -3121,7 +3129,10 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
         <h3 data-i18n="checkout.successTitle">Order Confirmed!</h3>
         <p><span data-i18n="checkout.orderNo">Order</span> <span class="order-id" id="success-order-id"></span></p>
         <p data-i18n="checkout.successNote">A confirmation email will be sent to you. This is a demo — no real payment was processed.</p>
-        <button type="button" class="btn btn-primary" id="success-close" data-i18n="checkout.done">Done</button>
+        <div class="success-actions">
+          <a href="order.html" class="btn btn-primary" id="success-view" data-i18n="checkout.viewOrder">View Order</a>
+          <button type="button" class="btn btn-secondary" id="success-close" data-i18n="checkout.done">Done</button>
+        </div>
       </div>
     </div>
   </div>
@@ -3287,6 +3298,7 @@ var siteI18n = {
   'nav.home': { en: 'Home', tw: '首頁' },
   'nav.productScience': { en: 'Product & Science', tw: '產品與科學' },
   'nav.quality': { en: 'Quality', tw: '品質' },
+  'nav.order': { en: 'Track Order', tw: '訂單查詢' },
   'nav.story': { en: 'Our Story', tw: '品牌故事' },
   'nav.process': { en: 'How It Works', tw: '運作原理' },
   'nav.reviews': { en: 'Reviews', tw: '客戶評價' },
@@ -3455,6 +3467,7 @@ var siteI18n = {
   'checkout.orderNo': { en: 'Order', tw: '訂單編號' },
   'checkout.successNote': { en: 'A confirmation email will be sent to you. This is a demo — no real payment was processed.', tw: '確認郵件將寄送給您。此為演示流程，並未真正扣款。' },
   'checkout.done': { en: 'Done', tw: '完成' },
+  'checkout.viewOrder': { en: 'View Order', tw: '查看訂單' },
   'checkout.required': { en: 'Please fill in all required fields.', tw: '請填寫所有必填欄位。' },
   'checkout.invalidEmail': { en: 'Please enter a valid email address.', tw: '請輸入有效的電子郵件地址。' },
   'checkout.processing': { en: 'Processing…', tw: '處理中…' },
@@ -3521,6 +3534,7 @@ function applyLanguage(lang) {
   if (typeof renderOrderSummary === 'function') renderOrderSummary();
   if (typeof renderPayMethods === 'function') renderPayMethods();
   if (typeof updatePayBtn === 'function') updatePayBtn();
+  if (typeof renderOrderPage === 'function') renderOrderPage();
 
   // 语言切换会改变文字长度与布局，需要重算滚动触发位置
   if (window.ScrollTrigger) {
@@ -3828,6 +3842,8 @@ function showPaymentSuccess(orderData) {
   document.getElementById('checkout-form').hidden = true;
   document.getElementById('checkout-success').hidden = false;
   document.getElementById('success-order-id').textContent = orderData.orderId;
+  var viewBtn = document.getElementById('success-view');
+  if (viewBtn) viewBtn.setAttribute('href', 'order.html?order=' + encodeURIComponent(orderData.orderId));
 }
 
 function placeOrder(e) {

@@ -1,0 +1,4190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheng Peptide Biotechnology — Trust & Quality</title>
+<meta name="description" content="SMT patent ZL201210517035.3, 2024 awards and independent laboratory certifications — patents, awards and lab reports in one place.">
+<meta name="keywords" content="Sheng Peptide, SMT, peptide, nano active peptide, cellular repair, cellular renewal, biotechnology, Singapore, 100% absorption">
+<meta name="author" content="Sheng Peptide Biotechnology (S) Pte Ltd">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sheng Peptide Biotechnology — Unlock Your Cells' Full Potential">
+<meta property="og:description" content="Nano active peptide technology for deep cellular renewal. 12 years of R&D, 100% absorption, real results.">
+<meta property="og:site_name" content="Sheng Peptide Biotechnology (S) Pte Ltd">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C10 9 6 14 6 19a10 10 0 0 0 20 0c0-5-4-10-10-16z' fill='%2300B4D8'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Sheng Peptide Biotechnology (S) Pte Ltd",
+  "description": "Nano active peptide technology for cellular renewal. 12+ years of research and development.",
+  "award": "2024 Channel 8 Singapore Award",
+  "slogan": "Unlock Your Cells' Full Potential"
+}
+</script>
+
+<style>
+/* ============================================================
+   SMT 首页 — Ocean Wave v2.0 (by Chuck, designed by Tina)
+   ============================================================ */
+:root {
+  /* === 海洋色系 === */
+  --ocean-deep: #0A1628;
+  --ocean-mid: #0B3D6B;
+  --ocean-light: #1A6B8A;
+  --teal-primary: #00B4D8;
+  --teal-light: #48CAE4;
+  --teal-pale: #90E0EF;
+  --wave-white: #F0F8FF;
+  --foam-white: #FFFFFF;
+  --coral-accent: #FF6B6B;
+  --coral-hover: #FF5252;
+  --gold-accent: #FFD700;
+
+  /* === 字体 === */
+  --font-primary: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+  --font-body: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+
+  /* === 圆角 / 阴影 === */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+  --shadow-soft: 0 4px 24px rgba(0, 180, 216, 0.08);
+  --shadow-medium: 0 8px 32px rgba(0, 180, 216, 0.12);
+  --shadow-strong: 0 12px 48px rgba(0, 180, 216, 0.18);
+  --shadow-glow: 0 0 40px rgba(0, 180, 216, 0.35);
+
+  /* === 动画 === */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.4s;
+  --duration-slow: 0.6s;
+  --duration-wave: 8s;
+
+  /* === 布局 === */
+  --container-max: 1200px;
+  --container-narrow: 800px;
+  --section-padding: clamp(4rem, 10vh, 8rem) clamp(1rem, 5vw, 4rem);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--ocean-deep);
+  color: var(--wave-white);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+.container { max-width: var(--container-max); margin: 0 auto; padding: 0 1.5rem; }
+
+/* ============================================================
+   1. 全局波浪背景层
+   ============================================================ */
+.ocean-wave-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(11, 61, 107, 0.55), transparent 60%),
+    radial-gradient(900px 500px at 0% 100%, rgba(0, 180, 216, 0.10), transparent 55%),
+    linear-gradient(180deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -40px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(144, 224, 239, 0.9), rgba(0, 180, 216, 0.25));
+  border: 1px solid rgba(144, 224, 239, 0.35);
+  will-change: transform, opacity;
+}
+
+@keyframes bubble-rise {
+  0%   { transform: translateY(0) scale(0.2); opacity: 0; }
+  12%  { opacity: 0.65; }
+  85%  { opacity: 0.3; }
+  100% { transform: translateY(-105vh) scale(1.05); opacity: 0; }
+}
+
+/* ============================================================
+   2. 顶部导航
+   ============================================================ */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0.9rem 1.5rem;
+  background: rgba(10, 22, 40, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(144, 224, 239, 0.12);
+  transition: background var(--duration-normal) var(--ease-out-expo);
+}
+
+.nav-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  color: var(--wave-white);
+}
+
+.logo svg { width: 34px; height: 34px; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: rgba(240, 248, 255, 0.78);
+  position: relative;
+  transition: color var(--duration-fast) ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -5px;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--teal-primary), var(--teal-light));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.nav-links a:hover { color: var(--foam-white); }
+.nav-links a:hover::after { transform: scaleX(1); }
+
+.nav-cta {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.55rem 1.3rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--coral-accent), var(--coral-hover));
+  color: var(--foam-white);
+  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.35);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255, 107, 107, 0.5); }
+
+.nav-toggle {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  width: 40px; height: 40px;
+  position: relative;
+}
+
+.nav-toggle span {
+  position: absolute;
+  left: 8px; right: 8px;
+  height: 2px;
+  background: var(--wave-white);
+  border-radius: 2px;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+.nav-toggle span:nth-child(1) { top: 12px; }
+.nav-toggle span:nth-child(2) { top: 19px; }
+.nav-toggle span:nth-child(3) { top: 26px; }
+.nav-toggle.active span:nth-child(1) { top: 19px; transform: rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { top: 19px; transform: rotate(-45deg); }
+
+/* ============================================================
+   3. Hero Section
+   ============================================================ */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 7rem 1.5rem 12rem;
+  overflow: hidden;
+}
+
+.hero-grid {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 180, 216, 0.12);
+  border: 1px solid rgba(0, 180, 216, 0.35);
+  color: var(--teal-light);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+.hero-badge::before {
+  content: "";
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--teal-primary);
+  box-shadow: 0 0 12px var(--teal-primary);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero-title {
+  font-family: var(--font-primary);
+  font-size: clamp(2.4rem, 5vw, 4.3rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  background: linear-gradient(120deg, var(--foam-white) 30%, var(--teal-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.4rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: rgba(240, 248, 255, 0.75);
+  max-width: 30rem;
+  margin-bottom: 2.2rem;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.95rem 2.1rem;
+  border-radius: var(--radius-full);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  will-change: transform;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+  color: var(--ocean-deep);
+  box-shadow: 0 8px 30px rgba(0, 180, 216, 0.4);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-glow); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--wave-white);
+  border: 1.5px solid rgba(144, 224, 239, 0.4);
+}
+.btn-secondary:hover { border-color: var(--teal-light); transform: translateY(-3px); background: rgba(0, 180, 216, 0.08); }
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.hero-stats .mini-stat strong {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--teal-light);
+}
+.hero-stats .mini-stat span {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(240, 248, 255, 0.6);
+}
+
+/* --- 产品展示区（居中） --- */
+.hero-product-showcase {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image-wrapper {
+  position: relative;
+  z-index: 2;
+  animation: product-float 6s var(--ease-spring) infinite;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
+}
+
+.product-glow {
+  position: absolute;
+  inset: -12%;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(0, 180, 216, 0.5) 0%, rgba(0, 180, 216, 0.18) 45%, transparent 70%);
+  border-radius: 50%;
+  animation: glow-pulse 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes product-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-16px) rotate(1.2deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.06); }
+}
+
+.floating-element {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(144, 224, 239, 0.25);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--teal-pale);
+  box-shadow: var(--shadow-soft);
+  animation: product-float 7s var(--ease-spring) infinite;
+}
+
+.floating-element svg { width: 20px; height: 20px; }
+.float-1 { top: 8%; left: -6%; animation-delay: -1.5s; }
+.float-2 { bottom: 14%; right: -4%; animation-delay: -3s; }
+
+/* --- Hero 底部波浪 --- */
+.hero-waves {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 220px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.wave-layer {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 200%;
+  height: 100%;
+  animation: wave-flow var(--duration-wave) linear infinite;
+  will-change: transform;
+}
+
+.wave-layer svg { width: 100%; height: 100%; }
+
+.wave-1 { animation-duration: 8s; opacity: 0.55; z-index: 3; }
+.wave-2 { animation-duration: 12s; opacity: 0.38; animation-delay: -2s; z-index: 2; }
+.wave-3 { animation-duration: 16s; opacity: 0.22; animation-delay: -4s; z-index: 1; }
+
+@keyframes wave-flow {
+  0%   { transform: translateX(0) translateY(0); }
+  50%  { transform: translateX(-25%) translateY(-5px); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
+
+/* --- 滚动指示器 --- */
+.scroll-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 2.2rem;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(240, 248, 255, 0.6);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator .chevron {
+  width: 20px; height: 20px;
+  border-right: 2px solid var(--teal-light);
+  border-bottom: 2px solid var(--teal-light);
+  transform: rotate(45deg);
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  50% { transform: translateX(-50%) translateY(10px); opacity: 0.55; }
+}
+
+/* ============================================================
+   4. 通用 Section / 滚动动画
+   ============================================================ */
+.section {
+  position: relative;
+  padding: var(--section-padding);
+}
+
+.section-header {
+  text-align: center;
+  max-width: var(--container-narrow);
+  margin: 0 auto 3.5rem;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 0.9rem;
+}
+
+.section-title {
+  font-family: var(--font-primary);
+  font-size: clamp(1.7rem, 3.5vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--wave-white);
+}
+
+.section-sub {
+  margin-top: 1rem;
+  color: rgba(240, 248, 255, 0.7);
+  font-size: 1.02rem;
+}
+
+/* 入场动画基类 */
+.reveal, .reveal-scale, .reveal-left, .reveal-right, .stagger-item {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.reveal {
+  transform: translateY(40px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.reveal-scale {
+  transform: scale(0.9) translateY(20px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-back);
+}
+
+.reveal-left {
+  transform: translateX(-60px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.reveal-right {
+  transform: translateX(60px);
+  transition: opacity var(--duration-slow) var(--ease-out-expo),
+              transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.reveal.visible, .reveal-scale.visible,
+.reveal-left.visible, .reveal-right.visible,
+.stagger-container.visible .stagger-item {
+  opacity: 1;
+  transform: translateX(0) translateY(0) scale(1);
+}
+
+.stagger-item {
+  transform: translateY(30px);
+  transition: opacity var(--duration-normal) var(--ease-out-expo),
+              transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.stagger-container.visible .stagger-item:nth-child(1) { transition-delay: 0s; }
+.stagger-container.visible .stagger-item:nth-child(2) { transition-delay: 0.12s; }
+.stagger-container.visible .stagger-item:nth-child(3) { transition-delay: 0.24s; }
+.stagger-container.visible .stagger-item:nth-child(4) { transition-delay: 0.36s; }
+
+/* ============================================================
+   5. 品牌故事 Section
+   ============================================================ */
+.story-section { background: rgba(11, 61, 107, 0.18); }
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.story-content p {
+  color: rgba(240, 248, 255, 0.78);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.story-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(144, 224, 239, 0.15);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.2rem;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+.stat-item:hover { transform: translateY(-5px); border-color: rgba(0, 180, 216, 0.5); box-shadow: var(--shadow-medium); }
+
+.stat-value {
+  font-family: var(--font-primary);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--teal-light);
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(240, 248, 255, 0.65);
+  margin-top: 0.3rem;
+}
+
+/* 时间线视觉 */
+.story-visual {
+  position: relative;
+  padding: 1rem;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2.2rem;
+  border-left: 2px solid rgba(0, 180, 216, 0.3);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 1.8rem 0.4rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -2.35rem;
+  top: 0.4rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--teal-primary);
+  box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.15), 0 0 16px var(--teal-primary);
+}
+
+.timeline-item .tl-year {
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--teal-light);
+}
+
+.timeline-item p {
+  color: rgba(240, 248, 255, 0.7);
+  font-size: 0.92rem;
+}
+
+.award-badge {
+  margin-top: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.4rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.12), rgba(255, 215, 0, 0.04));
+  border: 1px solid rgba(255, 215, 0, 0.35);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.12);
+}
+
+.award-badge svg { width: 34px; height: 34px; color: var(--gold-accent); }
+
+.award-badge .award-text strong {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  color: var(--gold-accent);
+  letter-spacing: 0.02em;
+}
+
+.award-badge .award-text span {
+  font-size: 0.8rem;
+  color: rgba(240, 248, 255, 0.65);
+}
+
+/* ============================================================
+   6. 三步流程 Section
+   ============================================================ */
+.process-section { background: rgba(10, 22, 40, 0.4); }
+
+.process-steps {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.step-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(144, 224, 239, 0.14);
+  border-radius: var(--radius-lg);
+  padding: 2.4rem 1.8rem 1.8rem;
+  text-align: center;
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.step-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-strong);
+  border-color: rgba(0, 180, 216, 0.45);
+}
+
+.step-number {
+  position: absolute;
+  top: 0.6rem; right: 1rem;
+  font-family: var(--font-primary);
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(0, 180, 216, 0.16);
+  line-height: 1;
+}
+
+.step-icon {
+  width: 72px; height: 72px;
+  margin: 0 auto 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 180, 216, 0.12);
+  border: 1px solid rgba(0, 180, 216, 0.35);
+  box-shadow: 0 0 24px rgba(0, 180, 216, 0.15);
+  transition: transform var(--duration-normal) var(--ease-out-back);
+}
+
+.step-card:hover .step-icon { transform: scale(1.12); }
+.step-icon svg { width: 34px; height: 34px; color: var(--teal-light); }
+
+.step-card h3 {
+  font-family: var(--font-primary);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--wave-white);
+  margin-bottom: 0.7rem;
+}
+
+.step-card p {
+  font-size: 0.95rem;
+  color: rgba(240, 248, 255, 0.68);
+}
+
+.step-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.2rem;
+}
+
+.step-connector svg {
+  width: 44px; height: 44px;
+  color: var(--teal-primary);
+  animation: connector-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes connector-pulse {
+  0%, 100% { opacity: 0.4; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(6px); }
+}
+
+/* ============================================================
+   7. 客户评价 Section
+   ============================================================ */
+.testimonials-section {
+  background:
+    linear-gradient(rgba(72, 202, 228, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(72, 202, 228, 0.035) 1px, transparent 1px),
+    rgba(11, 61, 107, 0.18);
+  background-size: 48px 48px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.testimonial-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(144, 224, 239, 0.14);
+  border-left: 3px solid var(--teal-primary);
+  border-radius: var(--radius-xl);
+  padding: 2.2rem 1.8rem 1.8rem;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-strong);
+}
+
+.quote-icon {
+  position: absolute;
+  top: 1.2rem; right: 1.5rem;
+  font-family: Georgia, serif;
+  font-size: 4.2rem;
+  line-height: 1;
+  color: rgba(0, 180, 216, 0.22);
+}
+
+.testimonial-card blockquote {
+  font-size: 0.98rem;
+  color: rgba(240, 248, 255, 0.85);
+  font-style: italic;
+  margin-bottom: 1.4rem;
+  min-height: 6.5em;
+}
+
+.rating {
+  display: flex;
+  gap: 0.2rem;
+  margin-bottom: 1.2rem;
+  color: var(--gold-accent);
+}
+
+.rating svg { width: 18px; height: 18px; animation: star-glow 2.4s ease-in-out infinite; }
+.rating svg:nth-child(2) { animation-delay: 0.2s; }
+.rating svg:nth-child(3) { animation-delay: 0.4s; }
+.rating svg:nth-child(4) { animation-delay: 0.6s; }
+.rating svg:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes star-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(255, 215, 0, 0)); }
+  50% { filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8)); }
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.avatar {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--ocean-deep);
+  background: linear-gradient(135deg, var(--avatar-a, #48CAE4), var(--avatar-b, #0B3D6B));
+  border: 2px solid rgba(144, 224, 239, 0.5);
+  flex-shrink: 0;
+}
+
+.author-info strong {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: 0.98rem;
+  color: var(--wave-white);
+}
+
+.author-info span {
+  font-size: 0.82rem;
+  color: rgba(240, 248, 255, 0.6);
+}
+
+/* ============================================================
+   8. 资质与专利占位区（新增）
+   ============================================================ */
+.credentials-section { background: rgba(6, 13, 24, 0.35); }
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.placeholder-card {
+  position: relative;
+  border: 2px dashed rgba(144, 224, 239, 0.45);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  text-align: center;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+  overflow: hidden;
+}
+
+.placeholder-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 180, 216, 0.7);
+  box-shadow: 0 0 40px rgba(0, 180, 216, 0.12);
+  background: rgba(0, 180, 216, 0.05);
+}
+
+.placeholder-icon {
+  width: 84px; height: 84px;
+  margin: 0 auto 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 180, 216, 0.1);
+  border: 1px solid rgba(0, 180, 216, 0.35);
+}
+
+.placeholder-icon svg { width: 40px; height: 40px; color: var(--teal-light); }
+
+.placeholder-card:hover .placeholder-icon svg {
+  animation: icon-wiggle 0.7s var(--ease-out-back);
+}
+
+@keyframes icon-wiggle {
+  0% { transform: rotate(0); }
+  30% { transform: rotate(-12deg); }
+  60% { transform: rotate(10deg); }
+  100% { transform: rotate(0); }
+}
+
+.placeholder-card h3 {
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--wave-white);
+  margin-bottom: 0.6rem;
+}
+
+.placeholder-card p {
+  font-size: 0.95rem;
+  color: rgba(240, 248, 255, 0.6);
+  font-style: italic;
+  margin-bottom: 1.4rem;
+}
+
+.placeholder-badge {
+  display: inline-block;
+  padding: 0.35rem 1.1rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 107, 107, 0.12);
+  border: 1px solid rgba(255, 107, 107, 0.45);
+  color: var(--coral-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   9. CTA Section
+   ============================================================ */
+.cta-section {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(700px 360px at 50% 0%, rgba(0, 180, 216, 0.14), transparent 65%),
+    var(--ocean-deep);
+}
+
+.cta-content {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  padding: 5rem 0 6rem;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-content h2 {
+  font-family: var(--font-primary);
+  font-size: clamp(1.9rem, 4vw, 3.1rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--foam-white);
+  text-shadow: 0 0 40px rgba(0, 180, 216, 0.35);
+  margin-bottom: 1.2rem;
+}
+
+.cta-content p {
+  color: rgba(240, 248, 255, 0.72);
+  font-size: 1.05rem;
+  max-width: 34rem;
+  margin: 0 auto 2.4rem;
+}
+
+.btn-coral {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: 1.08rem;
+  padding: 1.1rem 2.8rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--coral-accent), var(--coral-hover));
+  color: var(--foam-white);
+  box-shadow: 0 10px 36px rgba(255, 107, 107, 0.4);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.btn-coral:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(255, 107, 107, 0.6);
+}
+
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 2.8rem;
+}
+
+.trust-badges span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: rgba(240, 248, 255, 0.55);
+}
+
+.trust-badges svg { width: 16px; height: 16px; color: var(--teal-light); }
+
+/* CTA 顶部波浪装饰 */
+.cta-wave-decoration {
+  position: absolute;
+  top: -1px; left: 0; right: 0;
+  height: 60px;
+  pointer-events: none;
+}
+
+.cta-wave-decoration svg { width: 100%; height: 100%; }
+
+/* ============================================================
+   10. Footer
+   ============================================================ */
+.site-footer {
+  position: relative;
+  background: #060D18;
+  border-top: 1px solid rgba(144, 224, 239, 0.08);
+}
+
+.footer-wave-top {
+  position: absolute;
+  top: -1px; left: 0; right: 0;
+  height: 48px;
+  pointer-events: none;
+}
+
+.footer-wave-top svg { width: 100%; height: 100%; }
+
+.footer-content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 2.5rem;
+}
+
+.footer-brand p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(240, 248, 255, 0.6);
+  max-width: 22rem;
+}
+
+.link-group h4 {
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--wave-white);
+  margin-bottom: 1.1rem;
+  letter-spacing: 0.03em;
+}
+
+.link-group li { margin-bottom: 0.6rem; }
+
+.link-group a {
+  font-size: 0.9rem;
+  color: rgba(240, 248, 255, 0.62);
+  position: relative;
+  transition: color var(--duration-fast) ease;
+}
+
+.link-group a:hover { color: var(--teal-light); }
+
+.footer-newsletter h4 {
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--wave-white);
+  margin-bottom: 1.1rem;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.4rem;
+}
+
+.subscribe-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(144, 224, 239, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--wave-white);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+}
+
+.subscribe-form input:focus {
+  border-color: var(--teal-primary);
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.18);
+}
+
+.subscribe-form button {
+  padding: 0.75rem 1.3rem;
+  border-radius: var(--radius-full);
+  border: none;
+  background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+  color: var(--ocean-deep);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.subscribe-form button:hover { box-shadow: var(--shadow-glow); transform: translateY(-2px); }
+
+.footer-bottom {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 1.6rem 1.5rem;
+  border-top: 1px solid rgba(144, 224, 239, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: rgba(240, 248, 255, 0.5);
+}
+
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-links a {
+  width: 38px; height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(144, 224, 239, 0.2);
+  color: rgba(240, 248, 255, 0.7);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.social-links a:hover {
+  color: var(--ocean-deep);
+  background: var(--teal-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+.social-links svg { width: 17px; height: 17px; }
+
+/* ============================================================
+   11. 响应式
+   ============================================================ */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-subtitle { margin-left: auto; margin-right: auto; }
+  .hero-cta-group { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-product-showcase { order: -1; max-width: 340px; margin: 0 auto; }
+  .float-1 { left: -2%; }
+  .float-2 { right: -2%; }
+  .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+  .testimonials-grid .testimonial-card:last-child { grid-column: 1 / -1; }
+  .process-steps { grid-template-columns: 1fr; }
+  .step-connector { transform: rotate(90deg); padding: 0.4rem 0; }
+  .footer-content { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0; right: 0; bottom: 0;
+    width: min(78vw, 320px);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.6rem;
+    padding: 2rem;
+    background: rgba(10, 22, 40, 0.97);
+    backdrop-filter: blur(18px);
+    border-left: 1px solid rgba(144, 224, 239, 0.15);
+    transform: translateX(100%);
+    transition: transform var(--duration-normal) var(--ease-out-expo);
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-toggle { display: block; z-index: 110; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonials-grid .testimonial-card:last-child { grid-column: auto; }
+  .credentials-grid { grid-template-columns: 1fr; }
+  .story-stats { grid-template-columns: 1fr; }
+  .hero-waves { height: 160px; }
+  .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+  .hero-cta-group .btn { width: 100%; justify-content: center; }
+  .trust-badges { gap: 1rem; }
+  .footer-bottom { justify-content: center; text-align: center; }
+}
+
+/* ============================================================
+   11b. 海洋升级：证书与专利高级展示墙
+   ============================================================ */
+.credentials-section {
+  position: relative;
+  background:
+    radial-gradient(900px 480px at 50% -8%, rgba(0, 180, 216, 0.12), transparent 62%),
+    rgba(6, 13, 24, 0.35);
+  padding-top: 0;
+}
+
+.credential-tide {
+  position: relative;
+  height: 90px;
+  margin: 0 -1.5rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.credential-tide svg {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 200%;
+  height: 100%;
+  animation: wave-flow 14s linear infinite;
+  will-change: transform;
+}
+
+.credentials-wall {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.cred-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.cred-main-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(144, 224, 239, 0.18);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              border-color var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo);
+  will-change: transform;
+}
+
+.cred-main-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 180, 216, 0.55);
+  box-shadow: var(--shadow-strong);
+}
+
+.cred-main-card--gold:hover {
+  border-color: rgba(255, 215, 0, 0.55);
+  box-shadow: 0 12px 48px rgba(255, 215, 0, 0.16);
+}
+
+.cred-img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.cred-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out-expo);
+}
+
+.cred-main-card:hover .cred-img { transform: scale(1.05); }
+
+.cred-img-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(6, 13, 24, 0.9) 100%);
+}
+
+.cred-badge {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(6, 13, 24, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--foam-white);
+}
+
+.cred-badge--gold {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.22), rgba(255, 215, 0, 0.08));
+  border-color: rgba(255, 215, 0, 0.55);
+  color: #FFE9A8;
+}
+
+.cred-badge svg { width: 14px; height: 14px; }
+
+.cred-card-body {
+  position: relative;
+  padding: 1.6rem 1.8rem 1.9rem;
+}
+
+.cred-card-title {
+  font-family: var(--font-primary);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--wave-white);
+  margin-bottom: 0.55rem;
+}
+
+.cred-card-title small {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-top: 0.35rem;
+}
+
+.cred-main-card--gold .cred-card-title small { color: #E6C26A; }
+
+.cred-card-text {
+  font-size: 0.95rem;
+  color: rgba(240, 248, 255, 0.72);
+  line-height: 1.65;
+}
+
+.cred-meta {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  font-size: 0.78rem;
+  color: rgba(240, 248, 255, 0.55);
+  letter-spacing: 0.03em;
+}
+
+.cred-meta span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.cred-meta svg { width: 14px; height: 14px; color: var(--teal-light); }
+
+.cert-strip-label {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 auto 1.6rem;
+  max-width: 720px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(240, 248, 255, 0.55);
+}
+
+.cert-strip-label::before,
+.cert-strip-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(144, 224, 239, 0.35));
+}
+
+.cert-strip-label::after {
+  background: linear-gradient(90deg, rgba(144, 224, 239, 0.35), transparent);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.1rem;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(144, 224, 239, 0.14);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              border-color var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo);
+  will-change: transform;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 180, 216, 0.5);
+  box-shadow: var(--shadow-medium);
+}
+
+.cert-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cert-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: saturate(0.92);
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.cert-card:hover .cert-thumb img { transform: scale(1.06); }
+
+.cert-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 1.1rem;
+}
+
+.cert-name {
+  font-family: var(--font-primary);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--wave-white);
+  line-height: 1.3;
+}
+
+.cert-sub {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: rgba(240, 248, 255, 0.55);
+  line-height: 1.5;
+}
+
+.cert-link {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--teal-light);
+  transition: color var(--duration-fast) ease, gap var(--duration-fast) ease;
+}
+
+.cert-link:hover { color: var(--foam-white); gap: 0.55rem; }
+.cert-link svg { width: 14px; height: 14px; }
+
+@media (max-width: 1024px) {
+  .cert-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .cred-main-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .cert-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .cert-name { font-size: 0.88rem; }
+  .cred-card-body { padding: 1.3rem 1.3rem 1.5rem; }
+}
+
+/* ============================================================
+  12. 无障碍：减少动态效果
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .reveal, .reveal-scale, .reveal-left, .reveal-right, .stagger-item { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   v2.2 — 苹果清新风（Apple Fresh）覆盖层
+   浅色海洋：冰白底 + 苹果蓝，毛玻璃导航，大圆角轻阴影
+   ============================================================ */
+:root {
+  /* 浅色海洋色系（覆盖深色） */
+  --ocean-deep: #F4FAFD;            /* 页面底色：冰白 */
+  --ocean-mid: #E3F2FB;             /* 区块底色：浅海蓝 */
+  --ocean-light: #7FB9E8;
+  --teal-primary: #0A84FF;          /* 苹果蓝（主色） */
+  --teal-light: #0071E3;            /* 强调蓝（文字可读） */
+  --teal-pale: #5AC8FA;
+  --wave-white: #12293E;            /* 主文字：深海军蓝黑 */
+  --foam-white: #FFFFFF;
+  --coral-accent: #FF6B5E;          /* 珊瑚色：仅购买按钮/徽章 */
+  --coral-hover: #FF4F42;
+  --gold-accent: #C9A227;           /* 奖牌金：仅奖项 */
+
+  /* 苹果式轻阴影（蓝调） */
+  --shadow-soft: 0 4px 20px rgba(18, 41, 62, 0.06);
+  --shadow-medium: 0 10px 34px rgba(18, 41, 62, 0.09);
+  --shadow-strong: 0 18px 52px rgba(18, 41, 62, 0.13);
+  --shadow-glow: 0 0 36px rgba(10, 132, 255, 0.28);
+}
+
+/* --- 基础层 --- */
+body { background: var(--ocean-deep); color: var(--wave-white); }
+
+.ocean-wave-bg {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(10, 132, 255, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 0% 100%, rgba(90, 200, 250, 0.16), transparent 55%),
+    linear-gradient(180deg, #F8FCFF 0%, #EAF6FE 100%);
+}
+
+.bubble {
+  background: radial-gradient(circle at 30% 30%, rgba(90, 200, 250, 0.75), rgba(10, 132, 255, 0.18));
+  border: 1px solid rgba(90, 200, 250, 0.45);
+}
+
+:focus-visible { outline: 2px solid var(--teal-primary); outline-offset: 2px; }
+
+/* --- 顶部导航：毛玻璃 --- */
+.site-nav {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px) saturate(1.6);
+  -webkit-backdrop-filter: blur(18px) saturate(1.6);
+  border-bottom: 1px solid rgba(18, 41, 62, 0.08);
+  box-shadow: 0 4px 24px rgba(18, 41, 62, 0.05);
+}
+
+.nav-links a { color: rgba(18, 41, 62, 0.72); }
+.nav-links a:hover { color: #0B1F33; }
+
+.nav-cta {
+  background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(10, 132, 255, 0.32);
+}
+.nav-cta:hover { box-shadow: 0 8px 26px rgba(10, 132, 255, 0.42); }
+
+.nav-toggle span { background: var(--wave-white); }
+
+/* 语言切换 */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-left: 0.5rem;
+}
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: rgba(18, 41, 62, 0.55);
+  padding: 0.32rem 0.6rem;
+  border-radius: var(--radius-full);
+  transition: all var(--duration-fast) ease;
+}
+.lang-btn:hover { color: var(--teal-primary); }
+.lang-btn--active {
+  background: var(--teal-primary);
+  color: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(10, 132, 255, 0.32);
+}
+.lang-btn--active:hover { color: #FFFFFF; }
+.lang-divider { color: rgba(18, 41, 62, 0.28); font-size: 0.78rem; }
+
+/* --- Hero：浅色清新 --- */
+.hero-section {
+  background:
+    radial-gradient(900px 520px at 82% 18%, rgba(90, 200, 250, 0.18), transparent 60%),
+    radial-gradient(760px 420px at 8% 92%, rgba(10, 132, 255, 0.08), transparent 60%);
+}
+
+.hero-badge {
+  background: rgba(10, 132, 255, 0.08);
+  border: 1px solid rgba(10, 132, 255, 0.30);
+  color: #0066CC;
+}
+
+.hero-title {
+  background: linear-gradient(120deg, #0B1F33 25%, #0A84FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle { color: rgba(18, 41, 62, 0.66); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+  color: #FFFFFF;
+  box-shadow: 0 8px 28px rgba(10, 132, 255, 0.35);
+}
+.btn-primary:hover { box-shadow: var(--shadow-glow); }
+
+.btn-secondary {
+  color: var(--wave-white);
+  border: 1.5px solid rgba(18, 41, 62, 0.25);
+}
+.btn-secondary:hover {
+  border-color: var(--teal-primary);
+  background: rgba(10, 132, 255, 0.06);
+}
+
+.hero-stats .mini-stat strong { color: #0066CC; }
+.hero-stats .mini-stat span { color: rgba(18, 41, 62, 0.58); }
+
+.product-image-wrapper {
+  filter: drop-shadow(0 24px 44px rgba(10, 132, 255, 0.28));
+}
+.product-glow {
+  background: radial-gradient(circle, rgba(90, 200, 250, 0.5) 0%, rgba(90, 200, 250, 0.2) 45%, transparent 70%);
+}
+
+.floating-element {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(18, 41, 62, 0.10);
+  color: #0066CC;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Hero 底部波浪（浅色） */
+.wave-1 svg path { fill: #A9E1FF; }
+.wave-2 svg path { fill: #7DC9F5; }
+.wave-3 svg path { fill: #55AEE8; }
+
+.scroll-indicator { color: rgba(18, 41, 62, 0.5); }
+.scroll-indicator .chevron { border-color: #0071E3; }
+
+/* --- 通用 Section --- */
+.section-label { color: #0066CC; }
+.section-sub { color: rgba(18, 41, 62, 0.66); }
+
+.story-section { background: rgba(10, 132, 255, 0.05); }
+.story-content p { color: rgba(18, 41, 62, 0.74); }
+
+.stat-item {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  box-shadow: var(--shadow-soft);
+}
+.stat-item:hover { border-color: rgba(10, 132, 255, 0.4); }
+.stat-value { color: #0066CC; }
+.stat-label { color: rgba(18, 41, 62, 0.6); }
+
+.timeline { border-left-color: rgba(10, 132, 255, 0.35); }
+.timeline-item::before {
+  background: var(--teal-primary);
+  box-shadow: 0 0 0 4px rgba(10, 132, 255, 0.16), 0 0 14px rgba(10, 132, 255, 0.45);
+}
+.timeline-item .tl-year { color: #0066CC; }
+.timeline-item p { color: rgba(18, 41, 62, 0.68); }
+
+.award-badge {
+  background: linear-gradient(135deg, rgba(201, 162, 39, 0.14), rgba(201, 162, 39, 0.04));
+  border: 1px solid rgba(201, 162, 39, 0.42);
+  box-shadow: 0 0 28px rgba(201, 162, 39, 0.14);
+}
+.award-badge .award-text span { color: rgba(18, 41, 62, 0.62); }
+
+.process-section {
+  background: linear-gradient(180deg, rgba(10, 132, 255, 0.05), rgba(90, 200, 250, 0.06));
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  box-shadow: var(--shadow-soft);
+}
+.step-card:hover { border-color: rgba(10, 132, 255, 0.4); }
+.step-number { color: rgba(10, 132, 255, 0.13); }
+.step-icon {
+  background: rgba(10, 132, 255, 0.08);
+  border: 1px solid rgba(10, 132, 255, 0.30);
+  box-shadow: 0 0 22px rgba(10, 132, 255, 0.14);
+}
+.step-card p { color: rgba(18, 41, 62, 0.68); }
+
+.testimonials-section {
+  background:
+    linear-gradient(rgba(10, 132, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 132, 255, 0.045) 1px, transparent 1px),
+    rgba(10, 132, 255, 0.045);
+  background-size: 48px 48px;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  border-left: 3px solid var(--teal-primary);
+  box-shadow: var(--shadow-soft);
+}
+.testimonial-card:hover { box-shadow: var(--shadow-medium); }
+.quote-icon { color: rgba(10, 132, 255, 0.18); }
+.testimonial-card blockquote { color: rgba(18, 41, 62, 0.84); }
+.avatar { color: #FFFFFF; border-color: rgba(255, 255, 255, 0.65); }
+.author-info span { color: rgba(18, 41, 62, 0.6); }
+
+/* --- 证书墙（浅色） --- */
+.credentials-section {
+  background:
+    radial-gradient(900px 480px at 50% -8%, rgba(90, 200, 250, 0.18), transparent 62%),
+    rgba(10, 132, 255, 0.04);
+}
+.credential-tide svg path:first-child { fill: rgba(10, 132, 255, 0.12); }
+.credential-tide svg path:last-child { fill: rgba(90, 200, 250, 0.16); }
+
+.cred-main-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(18, 41, 62, 0.09);
+  box-shadow: var(--shadow-soft);
+}
+.cred-main-card:hover { border-color: rgba(10, 132, 255, 0.4); }
+.cred-main-card--gold:hover { border-color: rgba(201, 162, 39, 0.5); }
+.cred-card-text { color: rgba(18, 41, 62, 0.72); }
+.cred-meta { color: rgba(18, 41, 62, 0.58); }
+
+.cert-strip-label { color: rgba(18, 41, 62, 0.58); }
+.cert-strip-label::before,
+.cert-strip-label::after { background: linear-gradient(90deg, transparent, rgba(10, 132, 255, 0.35)); }
+.cert-strip-label::after { background: linear-gradient(90deg, rgba(10, 132, 255, 0.35), transparent); }
+
+.cert-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  box-shadow: var(--shadow-soft);
+}
+.cert-card:hover { border-color: rgba(10, 132, 255, 0.4); }
+.cert-thumb { background: rgba(10, 132, 255, 0.05); }
+.cert-sub { color: rgba(18, 41, 62, 0.58); }
+.cert-link:hover { color: #0A3A66; }
+
+/* --- CTA（浅蓝渐变面板） --- */
+.cta-section {
+  background:
+    radial-gradient(700px 360px at 50% 0%, rgba(90, 200, 250, 0.28), transparent 65%),
+    linear-gradient(180deg, #EAF6FE 0%, #F8FCFF 100%);
+}
+.cta-wave-decoration svg path { fill: #EAF6FE; }
+.cta-content h2 { color: #0B1F33; text-shadow: 0 0 34px rgba(10, 132, 255, 0.18); }
+.cta-content p { color: rgba(18, 41, 62, 0.7); }
+
+.btn-coral {
+  background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+  color: #FFFFFF;
+  box-shadow: 0 10px 32px rgba(10, 132, 255, 0.36);
+}
+.btn-coral:hover { box-shadow: 0 16px 44px rgba(10, 132, 255, 0.48); }
+
+.trust-badges span { color: rgba(18, 41, 62, 0.58); }
+
+/* --- Footer（浅色） --- */
+.site-footer {
+  background: #F1F7FC;
+  border-top: 1px solid rgba(18, 41, 62, 0.06);
+}
+.footer-wave-top svg path { fill: #F8FCFF; }
+.footer-brand p { color: rgba(18, 41, 62, 0.62); }
+.link-group a { color: rgba(18, 41, 62, 0.65); }
+.link-group a:hover { color: var(--teal-primary); }
+
+.subscribe-form input {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.16);
+  color: var(--wave-white);
+}
+.subscribe-form input:focus {
+  border-color: var(--teal-primary);
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.16);
+}
+.subscribe-form button {
+  background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+  color: #FFFFFF;
+}
+
+.footer-bottom { border-top-color: rgba(18, 41, 62, 0.1); }
+.footer-bottom p { color: rgba(18, 41, 62, 0.55); }
+
+.social-links a {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.14);
+  color: rgba(18, 41, 62, 0.7);
+}
+.social-links a:hover {
+  color: #FFFFFF;
+  background: var(--teal-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+/* --- 移动端导航面板（浅色） --- */
+@media (max-width: 768px) {
+  .nav-links {
+    background: rgba(255, 255, 255, 0.97);
+    border-left: 1px solid rgba(18, 41, 62, 0.1);
+    box-shadow: -8px 0 32px rgba(18, 41, 62, 0.08);
+  }
+}
+
+/* ============================================================
+   v2.2 — 产品全屏覆盖区
+   ============================================================ */
+.products-pin {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 520px at 85% 0%, rgba(90, 200, 250, 0.20), transparent 60%),
+    radial-gradient(760px 420px at 0% 100%, rgba(10, 132, 255, 0.10), transparent 55%),
+    linear-gradient(180deg, #F8FCFF 0%, #EAF6FE 100%);
+}
+
+.products-panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  will-change: transform;
+}
+
+.products-inner {
+  width: 100%;
+  padding: 5.5rem 1.5rem 4rem;
+}
+
+.products-header { margin-bottom: 2.8rem; }
+
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.tier-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo),
+              border-color var(--duration-normal) var(--ease-out-expo);
+  will-change: transform;
+}
+
+.tier-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-medium);
+  border-color: rgba(10, 132, 255, 0.35);
+}
+
+.tier-card--featured {
+  border: 1.5px solid rgba(10, 132, 255, 0.35);
+  box-shadow: 0 16px 48px rgba(10, 132, 255, 0.14);
+}
+
+.tier-img-wrap {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: rgba(10, 132, 255, 0.05);
+}
+
+.tier-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out-expo);
+}
+
+.tier-card:hover .tier-img { transform: scale(1.05); }
+
+.tier-badge {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  z-index: 2;
+  padding: 0.32rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(10, 132, 255, 0.35);
+}
+
+.tier-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.6rem 1.5rem 1.8rem;
+}
+
+.tier-name {
+  font-family: var(--font-primary);
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--wave-white);
+  margin-bottom: 0.45rem;
+}
+
+.tier-desc {
+  font-size: 0.88rem;
+  color: rgba(18, 41, 62, 0.62);
+  line-height: 1.55;
+  margin-bottom: 1.1rem;
+}
+
+.tier-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.tier-currency {
+  font-family: var(--font-primary);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #0066CC;
+}
+
+.tier-amount {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #0B1F33;
+  letter-spacing: -0.02em;
+}
+
+.tier-original {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(18, 41, 62, 0.4);
+}
+
+.tier-btn {
+  margin-top: auto;
+  padding: 0.82rem 2.4rem;
+  font-size: 0.95rem;
+  background: linear-gradient(135deg, var(--coral-accent), var(--coral-hover));
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(255, 107, 94, 0.35);
+}
+.tier-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(255, 107, 94, 0.46);
+}
+
+.tier-note {
+  margin: 2rem auto 0;
+  max-width: 640px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(18, 41, 62, 0.5);
+}
+
+@media (max-width: 1024px) {
+  .tier-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .tier-img-wrap { aspect-ratio: 4 / 3; }
+  .tier-amount { font-size: 2.1rem; }
+}
+
+@media (max-width: 820px) {
+  .products-inner { padding: 4.8rem 1.2rem 2.8rem; }
+  .products-header { margin-bottom: 1.8rem; }
+  .tier-grid {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.6rem;
+  }
+  .tier-card {
+    flex: 0 0 min(76vw, 300px);
+    scroll-snap-align: center;
+  }
+  .tier-img-wrap { aspect-ratio: 4 / 3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .products-panel { transform: none; }
+}
+
+/* ============================================================
+   v2.3 — 结账修复 + 动效协调 + 对齐
+   ============================================================ */
+/* --- 修复瓶身 SVG 隐形（0×0 历史问题） --- */
+.product-image {
+  width: min(300px, 100%);
+  height: auto;
+}
+
+/* 瓶子漂浮更轻 */
+@keyframes product-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(0.6deg); }
+}
+
+/* 浮动徽章：归位 + 轻微呼吸 */
+.floating-element {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+.float-1 { top: 4%; left: -4%; animation-delay: -1.5s; }
+.float-2 { bottom: 10%; right: -2%; animation-delay: -3s; }
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* --- 产品覆盖区：波浪形顶边（像海浪盖上来） --- */
+.products-wave-top {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 58px;
+  z-index: 3;
+  pointer-events: none;
+}
+.products-wave-top svg { width: 100%; height: 100%; }
+.products-wave-top svg path:first-child { fill: #CFEAFE; }
+.products-wave-top svg path:last-child { fill: #F8FCFF; }
+
+/* --- 导航购物车按钮 --- */
+.cart-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(10, 132, 255, 0.08);
+  color: #0066CC;
+  cursor: pointer;
+  transition: background var(--duration-fast) ease, transform var(--duration-fast) ease;
+}
+.cart-btn:hover { background: rgba(10, 132, 255, 0.16); transform: translateY(-1px); }
+.cart-btn svg { width: 20px; height: 20px; }
+.cart-badge {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--coral-accent);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(255, 107, 94, 0.4);
+  line-height: 1;
+}
+.cart-badge:empty { display: none; }
+
+/* --- 购物车抽屉 --- */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(18, 41, 62, 0.28);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.drawer-overlay.open { opacity: 1; visibility: visible; }
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 210;
+  width: min(420px, 100vw);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: -14px 0 52px rgba(18, 41, 62, 0.16);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(105%);
+  transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+  border-radius: 24px 0 0 24px;
+}
+.cart-drawer.open { transform: translateX(0); }
+
+.cart-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 1.6rem 1rem;
+  border-bottom: 1px solid rgba(18, 41, 62, 0.08);
+}
+.cart-drawer-header h3 {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--wave-white);
+}
+.drawer-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(18, 41, 62, 0.06);
+  color: var(--wave-white);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background var(--duration-fast) ease;
+}
+.drawer-close:hover { background: rgba(18, 41, 62, 0.12); }
+
+.cart-drawer-body { flex: 1; overflow-y: auto; padding: 0.4rem 1.6rem; }
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  height: 100%;
+  color: rgba(18, 41, 62, 0.5);
+  text-align: center;
+  padding: 2rem 0;
+}
+.cart-empty svg { width: 56px; height: 56px; color: rgba(10, 132, 255, 0.35); }
+.cart-empty p { font-size: 0.95rem; }
+
+.cart-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid rgba(18, 41, 62, 0.07);
+}
+.cart-item-thumb {
+  width: 78px;
+  height: 62px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: rgba(10, 132, 255, 0.06);
+}
+.cart-item-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.cart-item-info { flex: 1; min-width: 0; }
+.cart-item-name {
+  font-weight: 700;
+  color: var(--wave-white);
+  font-size: 0.95rem;
+}
+.cart-item-tier {
+  font-size: 0.8rem;
+  color: rgba(18, 41, 62, 0.55);
+  margin: 0.15rem 0 0.5rem;
+}
+.cart-item-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.qty-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  border: 1px solid rgba(18, 41, 62, 0.14);
+  border-radius: 999px;
+  padding: 0.18rem 0.3rem;
+}
+.qty-btn {
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(10, 132, 255, 0.08);
+  color: #0066CC;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1;
+}
+.qty-btn:hover { background: rgba(10, 132, 255, 0.16); }
+.qty-value { min-width: 26px; text-align: center; font-weight: 700; color: var(--wave-white); font-size: 0.9rem; }
+.cart-item-price { font-weight: 800; color: var(--wave-white); font-size: 0.95rem; white-space: nowrap; }
+.cart-item-remove {
+  margin-top: 0.45rem;
+  border: none;
+  background: none;
+  color: rgba(255, 107, 94, 0.9);
+  font-size: 0.78rem;
+  cursor: pointer;
+  padding: 0;
+}
+.cart-item-remove:hover { color: var(--coral-hover); }
+
+.cart-drawer-footer {
+  padding: 1.1rem 1.6rem 1.5rem;
+  border-top: 1px solid rgba(18, 41, 62, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+}
+.cart-summary { margin-bottom: 1rem; }
+.cart-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: rgba(18, 41, 62, 0.65);
+  padding: 0.22rem 0;
+}
+.cart-row--total {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--wave-white);
+  border-top: 1px dashed rgba(18, 41, 62, 0.14);
+  margin-top: 0.35rem;
+  padding-top: 0.6rem;
+}
+.cart-checkout-btn { width: 100%; justify-content: center; }
+
+/* --- 结账弹窗 --- */
+.checkout-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(18, 41, 62, 0.34);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 4vh 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.checkout-overlay.open { opacity: 1; visibility: visible; }
+.checkout-modal {
+  width: min(680px, 100%);
+  background: #FFFFFF;
+  border-radius: 28px;
+  box-shadow: 0 24px 80px rgba(18, 41, 62, 0.22);
+  padding: 1.6rem 2rem 2rem;
+  position: relative;
+  transform: translateY(24px) scale(0.98);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  margin: auto 0;
+}
+.checkout-overlay.open .checkout-modal { transform: none; }
+.checkout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+.checkout-header h3 {
+  font-family: var(--font-primary);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--wave-white);
+}
+.checkout-body { max-height: calc(92vh - 130px); overflow-y: auto; padding-right: 0.2rem; }
+.checkout-section { margin-bottom: 1.4rem; }
+.checkout-section h4 {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--wave-white);
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.02em;
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+.form-field {
+  width: 100%;
+  padding: 0.78rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(18, 41, 62, 0.16);
+  background: #F7FAFD;
+  font-size: 0.92rem;
+  color: var(--wave-white);
+  outline: none;
+  transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease, background var(--duration-fast) ease;
+}
+.form-field:focus {
+  border-color: var(--teal-primary);
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.15);
+  background: #FFFFFF;
+}
+.form-field.full { grid-column: 1 / -1; }
+.pay-methods { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.7rem; }
+.pay-method {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.9rem 0.4rem;
+  border: 1.5px solid rgba(18, 41, 62, 0.12);
+  border-radius: 16px;
+  background: #F7FAFD;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(18, 41, 62, 0.7);
+  transition: all var(--duration-fast) ease;
+}
+.pay-method:hover { border-color: rgba(10, 132, 255, 0.4); }
+.pay-method.selected {
+  border-color: var(--teal-primary);
+  background: rgba(10, 132, 255, 0.08);
+  color: #0066CC;
+  box-shadow: 0 4px 16px rgba(10, 132, 255, 0.14);
+}
+.pay-method .pay-logo { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.01em; }
+.pay-method .pay-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 2px solid rgba(18, 41, 62, 0.25);
+  transition: all var(--duration-fast) ease;
+}
+.pay-method.selected .pay-dot { background: var(--teal-primary); border-color: var(--teal-primary); }
+.card-fields {
+  margin-top: 0.8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.7rem;
+}
+.checkout-summary {
+  background: #F7FAFD;
+  border-radius: 18px;
+  padding: 1rem 1.2rem;
+  margin: 1.2rem 0 1rem;
+}
+.pay-btn { width: 100%; justify-content: center; padding: 1rem; font-size: 1.02rem; }
+.pay-btn:disabled { opacity: 0.6; cursor: wait; }
+.checkout-note {
+  text-align: center;
+  font-size: 0.76rem;
+  color: rgba(18, 41, 62, 0.45);
+  margin-top: 0.6rem;
+}
+.checkout-success { text-align: center; padding: 2rem 1rem 1rem; }
+.success-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  background: rgba(52, 199, 89, 0.12);
+  color: #34C759;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.success-icon svg { width: 36px; height: 36px; }
+.checkout-success h3 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--wave-white);
+  margin-bottom: 0.5rem;
+}
+.checkout-success p { color: rgba(18, 41, 62, 0.6); font-size: 0.92rem; margin: 0.3rem 0; }
+.checkout-success .order-id { font-weight: 800; color: #0066CC; }
+.checkout-success .btn { margin-top: 1.4rem; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2.2rem;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 400;
+  background: rgba(18, 41, 62, 0.92);
+  color: #FFFFFF;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  box-shadow: 0 8px 28px rgba(18, 41, 62, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.toast.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+
+.tier-more { text-align: center; margin-top: 1.5rem; }
+.cred-more { text-align: center; margin-top: 2.2rem; }
+
+@media (max-width: 768px) {
+  .cart-drawer { width: 100vw; border-radius: 0; }
+  .pay-methods { grid-template-columns: repeat(3, 1fr); }
+  .form-grid { grid-template-columns: 1fr; }
+  .card-fields { grid-template-columns: 1fr; }
+  .checkout-modal { padding: 1.3rem 1.2rem 1.6rem; }
+}
+/* ============================================================
+   science-pages 补充样式（product.html / quality.html）
+   ============================================================ */
+.hero-media {
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(18, 41, 62, 0.16);
+  max-width: 420px;
+  margin: 0 auto;
+  aspect-ratio: 4 / 3;
+}
+.nav-links a.nav-active { color: #0B1F33; }
+.nav-links a.nav-active::after { transform: scaleX(1); }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero-grid--center .hero-content { max-width: 820px; margin: 0 auto; text-align: center; }
+.hero-grid--center .hero-subtitle { margin-left: auto; margin-right: auto; }
+.hero-grid--center .hero-cta-group { justify-content: center; }
+
+.science-section { background: rgba(10, 132, 255, 0.04); }
+.sci-story {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-bottom: 2.4rem;
+}
+.sci-story-item {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  border-radius: 22px;
+  padding: 1.5rem 1.5rem 1.6rem;
+  box-shadow: var(--shadow-soft);
+}
+.sci-year {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #0066CC;
+  margin-bottom: 0.6rem;
+}
+.sci-story-item p { font-size: 0.95rem; color: rgba(18, 41, 62, 0.72); }
+.sci-def {
+  background: linear-gradient(135deg, rgba(10, 132, 255, 0.08), rgba(90, 200, 250, 0.08));
+  border: 1px solid rgba(10, 132, 255, 0.18);
+  border-radius: 26px;
+  padding: 2rem 2.2rem;
+  margin-bottom: 2.2rem;
+}
+.sci-def h3 { font-family: var(--font-primary); font-size: 1.3rem; font-weight: 800; color: var(--wave-white); margin-bottom: 0.7rem; }
+.sci-def p { color: rgba(18, 41, 62, 0.75); font-size: 1rem; line-height: 1.75; }
+
+.func-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.4rem;
+}
+.func-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  border-radius: 20px;
+  padding: 1.3rem 1.4rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--duration-normal) var(--ease-out-expo), box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+.func-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-medium); }
+.func-card h4 { font-family: var(--font-primary); font-size: 1rem; font-weight: 800; color: #0066CC; margin-bottom: 0.4rem; }
+.func-card p { font-size: 0.86rem; color: rgba(18, 41, 62, 0.66); line-height: 1.6; }
+
+.mech-panel {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  border-radius: 28px;
+  padding: 2.4rem 2rem;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+.mech-panel h3 { font-family: var(--font-primary); font-size: 1.45rem; font-weight: 800; color: var(--wave-white); margin-bottom: 0.5rem; }
+.mech-sub { color: rgba(18, 41, 62, 0.62); max-width: 40rem; margin: 0 auto 2rem; font-size: 0.98rem; }
+.mech-panel .process-steps { margin-bottom: 0; }
+
+.data-section { background: linear-gradient(180deg, #EAF6FE 0%, #F8FCFF 100%); }
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 2.2rem;
+}
+.data-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  border-radius: 24px;
+  padding: 1.8rem 1.4rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--duration-normal) var(--ease-out-expo), box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+.data-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-medium); }
+.data-card strong {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0B1F33;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.data-card span { font-size: 0.86rem; color: rgba(18, 41, 62, 0.62); line-height: 1.5; display: block; }
+
+.zero-panel {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  border-radius: 28px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+.zero-panel h3 { font-family: var(--font-primary); font-size: 1.25rem; font-weight: 800; color: var(--wave-white); margin-bottom: 1.3rem; }
+.zero-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; }
+.zero-chip {
+  padding: 0.55rem 1.15rem;
+  border-radius: 999px;
+  background: rgba(10, 132, 255, 0.07);
+  border: 1px solid rgba(10, 132, 255, 0.22);
+  color: #0066CC;
+  font-weight: 700;
+  font-size: 0.86rem;
+}
+
+.benefits-section { background: rgba(10, 132, 255, 0.04); }
+.benefit-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.benefit-chip {
+  padding: 0.7rem 1.3rem;
+  border-radius: 18px;
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  box-shadow: var(--shadow-soft);
+  color: rgba(18, 41, 62, 0.78);
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: all var(--duration-fast) ease;
+}
+.benefit-chip:hover { border-color: rgba(10, 132, 255, 0.4); color: #0066CC; transform: translateY(-2px); }
+
+.usage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.usage-visual img {
+  border-radius: 28px;
+  box-shadow: var(--shadow-medium);
+  width: 100%;
+}
+.usage-content .section-label { margin-bottom: 0.6rem; }
+.usage-content p { color: rgba(18, 41, 62, 0.72); margin: 1rem 0 1.4rem; line-height: 1.75; }
+.usage-list { margin-bottom: 1.8rem; }
+.usage-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: rgba(18, 41, 62, 0.7);
+  font-size: 0.95rem;
+  margin-bottom: 0.65rem;
+}
+.usage-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.5em;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--teal-primary);
+}
+
+.evidence-section { background: linear-gradient(180deg, #EAF6FE 0%, #F8FCFF 100%); }
+.evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.evidence-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  border-radius: 26px;
+  padding: 2rem 1.7rem 1.8rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--duration-normal) var(--ease-out-expo), box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+.evidence-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-medium); }
+.evidence-badge {
+  align-self: flex-start;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(52, 199, 89, 0.12);
+  border: 1px solid rgba(52, 199, 89, 0.35);
+  color: #248A3D;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.evidence-badge--team { background: rgba(10, 132, 255, 0.1); border-color: rgba(10, 132, 255, 0.3); color: #0066CC; }
+.evidence-badge--study { background: rgba(201, 162, 39, 0.12); border-color: rgba(201, 162, 39, 0.4); color: #8F6B1D; }
+.evidence-card h3 { font-family: var(--font-primary); font-size: 1.15rem; font-weight: 800; color: var(--wave-white); margin-bottom: 0.6rem; }
+.evidence-card p { font-size: 0.92rem; color: rgba(18, 41, 62, 0.68); line-height: 1.7; }
+.evidence-btn { margin-top: auto; align-self: flex-start; padding: 0.7rem 1.4rem; font-size: 0.88rem; margin-top: 1.2rem; }
+.study-list { margin-top: 0.5rem; }
+.study-list li {
+  position: relative;
+  padding-left: 1.3rem;
+  font-size: 0.9rem;
+  color: rgba(18, 41, 62, 0.68);
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+.study-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.55em;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--teal-primary);
+  opacity: 0.7;
+}
+
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  border-radius: 18px;
+  margin-bottom: 0.8rem;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+.faq-item summary {
+  cursor: pointer;
+  padding: 1.1rem 1.4rem;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--wave-white);
+  list-style: none;
+  position: relative;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 1.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--teal-primary);
+  font-size: 1.3rem;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq-item p { padding: 0 1.4rem 1.2rem; color: rgba(18, 41, 62, 0.68); font-size: 0.94rem; line-height: 1.7; }
+
+/* --- quality.html --- */
+.patent-section { background: rgba(10, 132, 255, 0.04); }
+.qual-feature {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.qual-feature-img {
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+}
+.qual-feature-img img { width: 100%; display: block; }
+.qual-feature-body h3 { font-family: var(--font-primary); font-size: 1.4rem; font-weight: 800; color: var(--wave-white); margin-bottom: 0.8rem; }
+.qual-feature-body p { color: rgba(18, 41, 62, 0.72); line-height: 1.75; margin-bottom: 0.8rem; }
+.qual-meta { font-weight: 700; color: #0066CC !important; font-size: 0.9rem; }
+.qual-note {
+  font-size: 0.88rem;
+  background: rgba(10, 132, 255, 0.07);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  color: rgba(18, 41, 62, 0.68);
+}
+.awards-section { background: linear-gradient(180deg, #EAF6FE 0%, #F8FCFF 100%); }
+.cred-img-wrap--solid {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #EAF6FE, #D6EEFF);
+  color: #0A84FF;
+}
+.cred-img-wrap--solid svg { width: 96px; height: 96px; }
+.cert-section { background: rgba(10, 132, 255, 0.04); }
+.meaning-section { background: linear-gradient(180deg, #EAF6FE 0%, #F8FCFF 100%); }
+.meaning-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.meaning-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  border-radius: 22px;
+  padding: 1.5rem 1.5rem 1.6rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--duration-normal) var(--ease-out-expo), box-shadow var(--duration-normal) var(--ease-out-expo);
+}
+.meaning-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-medium); }
+.meaning-card h3 { font-family: var(--font-primary); font-size: 1.05rem; font-weight: 800; color: #0066CC; margin-bottom: 0.55rem; }
+.meaning-card p { font-size: 0.9rem; color: rgba(18, 41, 62, 0.68); line-height: 1.7; }
+.company-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 41, 62, 0.08);
+  border-radius: 30px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  max-width: 820px;
+  margin: 0 auto;
+}
+.company-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0 2.2rem;
+  text-align: left;
+}
+.company-grid div {
+  background: #F7FAFD;
+  border-radius: 18px;
+  padding: 1.3rem 1.5rem;
+}
+.company-grid h4 { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(18, 41, 62, 0.5); margin-bottom: 0.4rem; }
+.company-grid p { font-weight: 700; color: var(--wave-white); font-size: 0.98rem; }
+
+@media (max-width: 1024px) {
+  .sci-story { grid-template-columns: 1fr; }
+  .func-grid { grid-template-columns: repeat(2, 1fr); }
+  .data-grid { grid-template-columns: repeat(2, 1fr); }
+  .evidence-grid { grid-template-columns: 1fr; }
+  .meaning-grid { grid-template-columns: repeat(2, 1fr); }
+  .usage-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .qual-feature { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .func-grid { grid-template-columns: 1fr; }
+  .data-grid { grid-template-columns: 1fr; }
+  .meaning-grid { grid-template-columns: 1fr; }
+  .company-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 全局海洋波浪背景 -->
+<div class="ocean-wave-bg" aria-hidden="true">
+  <div class="particles" id="particles"></div>
+</div>
+
+<!-- ============ 顶部导航 ============ -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#hero" class="logo" aria-label="SMT Home" data-i18n-aria="aria.logo">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#00B4D8"/>
+            <stop offset="1" stop-color="#48CAE4"/>
+          </linearGradient>
+        </defs>
+        <path d="M16 3C9.5 9.5 6 15 6 19.5A10 10 0 0 0 26 19.5C26 15 22.5 9.5 16 3z" fill="url(#logoGrad)"/>
+        <circle cx="11" cy="22" r="1.4" fill="#90E0EF" opacity="0.9"/>
+        <circle cx="17" cy="26" r="1" fill="#90E0EF" opacity="0.7"/>
+        <circle cx="22" cy="21" r="1.8" fill="#90E0EF" opacity="0.8"/>
+      </svg>
+      <span>SMT</span>
+    </a>
+        <nav class="nav-links" id="nav-menu" aria-label="Main navigation" data-i18n-aria="aria.nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="product.html" data-i18n="nav.productScience">Product & Science</a>
+      <a href="quality.html" class="nav-active" data-i18n="nav.quality">Quality</a>
+      <a href="index.html#story" data-i18n="nav.story">Our Story</a>
+      <a href="index.html#testimonials" data-i18n="nav.reviews">Reviews</a>
+      <a href="index.html#cta" class="nav-cta" data-i18n="nav.cta">Get Started</a>
+    </nav>
+    <button type="button" class="cart-btn" id="cart-btn" aria-label="Open cart" data-i18n-aria="cart.openAria">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <span class="cart-badge" id="cart-count" aria-hidden="true"></span>
+    </button>
+    <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="aria.lang">
+      <button type="button" class="lang-btn lang-btn--active" data-lang="en" aria-pressed="true">EN</button>
+      <span class="lang-divider" aria-hidden="true">/</span>
+      <button type="button" class="lang-btn" data-lang="tw" aria-pressed="false">繁體</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" data-i18n-aria="aria.toggle" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- ============ Hero ============ -->
+  <section class="hero-section" id="hero">
+    <div class="hero-grid hero-grid--center">
+      <div class="hero-content">
+        <span class="hero-badge" data-i18n="qual.heroBadge">Trust &amp; Quality</span>
+        <h1 class="hero-title" data-i18n="qual.heroTitle">Certified Excellence</h1>
+        <p class="hero-subtitle" style="max-width:38rem">
+          <span data-i18n="qual.heroSub">Patents, awards and independent laboratory testing — transparency in every detail.</span>
+        </p>
+        <div class="hero-cta-group">
+          <a href="#patent" class="btn btn-primary" data-i18n="qual.cta1">View Patents</a>
+          <a href="#certifications" class="btn btn-secondary" data-i18n="qual.cta2">View Certifications</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span data-i18n="hero.scroll">Scroll</span>
+      <div class="chevron"></div>
+    </div>
+  </section>
+
+  <!-- ============ 专利 ============ -->
+  <section class="section patent-section" id="patent">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="cred.patentBadge">China Invention Patent</span>
+        <h2 class="section-title" data-i18n="qual.patentTitle">ZL201210517035.3</h2>
+        <p class="section-sub" data-i18n="cred.patentSub">Invention Patent · 发明专利</p>
+      </div>
+      <div class="qual-feature reveal">
+        <div class="qual-feature-img">
+          <img src="assets/credentials/patent.jpg" alt="SMT 纳米级小分子活性肽 中国发明专利证书 ZL201210517035.3" data-i18n-alt="cred.patentAlt" loading="lazy">
+        </div>
+        <div class="qual-feature-body">
+          <h3 data-i18n="qual.patentName">Nano-Scale Micro-Molecule Active Peptide Technology</h3>
+          <p data-i18n="cred.patentBody">SMT 纳米级小分子活性肽 — nano-scale micro-molecule active peptide technology protected by a China national invention patent.</p>
+          <p class="qual-meta" data-i18n="cred.patentMeta">SMT Peptides · Case No. 1906-02870</p>
+          <p class="qual-note" data-i18n="qual.patentNote">A granted invention patent means the core technology has passed a strict examination of novelty, inventiveness and practical applicability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 奖项 ============ -->
+  <section class="section awards-section" id="awards">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="qual.awardsEyebrow">Awards</span>
+        <h2 class="section-title" data-i18n="qual.awardsTitle">Recognised for Wellness Innovation</h2>
+      </div>
+      <div class="cred-main-grid">
+        <article class="cred-main-card cred-main-card--gold">
+          <div class="cred-img-wrap">
+            <span class="cred-badge cred-badge--gold">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 8 5-3 5 3-2-8"/></svg>
+              <span data-i18n="cred.awardBadge">2024 Honouree</span>
+            </span>
+            <img class="cred-img" src="assets/credentials/award.jpg" alt="SMT 生命肽 2024 Technology for Good 获奖证书" data-i18n-alt="cred.awardAlt" loading="lazy">
+          </div>
+          <div class="cred-card-body">
+            <h3 class="cred-card-title"><span data-i18n="cred.awardTitle">Technology for Good</span><small data-i18n="cred.awardSub">2024 Award Honouree</small></h3>
+            <p class="cred-card-text" data-i18n="cred.awardBody">Recognised at the 2024 Technology for Good awards for bringing science-backed cellular wellness to communities.</p>
+          </div>
+        </article>
+        <article class="cred-main-card">
+          <div class="cred-img-wrap">
+            <span class="cred-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a7 7 0 0 1 4.9 12c-.8.8-1 1.5-1 3h-7.8c0-1.5-.2-2.2-1-3A7 7 0 0 1 12 2z"/></svg>
+              <span data-i18n="qual.channelBadge">Channel 8</span>
+            </span>
+            <div class="cred-img-wrap--solid">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M6 5h12l-1 9a3 3 0 0 1-3 2.5H10A3 3 0 0 1 7 14z"/><path d="M6 5L4 2"/><path d="M18 5l2-3"/><path d="M5 10h14"/></svg>
+            </div>
+          </div>
+          <div class="cred-card-body">
+            <h3 class="cred-card-title"><span data-i18n="story.awardTitle">2024 Channel 8 Singapore</span><small data-i18n="story.awardSub">Recognised for wellness innovation</small></h3>
+            <p class="cred-card-text" data-i18n="story.tl3">Honoured at the Channel 8 Singapore awards for innovation in wellness.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 检测认证 ============ -->
+  <section class="section cert-section" id="certifications">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="cred.certLabel">Official Certifications</span>
+        <h2 class="section-title" data-i18n="qual.certTitle">Independently Tested</h2>
+        <p class="section-sub" data-i18n="qual.certSub">Every batch is tested by independent laboratories. Click any report to view the original PDF.</p>
+      </div>
+      <div class="cert-grid">
+        <a class="cert-card" href="assets/credentials/cert-tuv-amino.pdf" target="_blank" rel="noopener">
+          <div class="cert-thumb"><img src="assets/credentials/cert-tuv-amino.png" alt="TÜV SÜD 氨基酸检测报告" data-i18n-alt="cred.cert1Alt" loading="lazy"></div>
+          <div class="cert-body">
+            <div class="cert-name" data-i18n="cred.cert1.name">TÜV SÜD PSB</div>
+            <div class="cert-sub" data-i18n="cred.cert1.sub">Amino Acid Analysis · 2023</div>
+            <span class="cert-link"><span data-i18n="cred.view">查看报告</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+          </div>
+        </a>
+        <a class="cert-card" href="assets/credentials/cert-tuv-metal.pdf" target="_blank" rel="noopener">
+          <div class="cert-thumb"><img src="assets/credentials/cert-tuv-metal.png" alt="TÜV SÜD 重金属检测报告" data-i18n-alt="cred.cert2Alt" loading="lazy"></div>
+          <div class="cert-body">
+            <div class="cert-name" data-i18n="cred.cert2.name">TÜV SÜD PSB</div>
+            <div class="cert-sub" data-i18n="cred.cert2.sub">Heavy Metal Safety · 2022</div>
+            <span class="cert-link"><span data-i18n="cred.view">查看报告</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+          </div>
+        </a>
+        <a class="cert-card" href="assets/credentials/cert-sgs.pdf" target="_blank" rel="noopener">
+          <div class="cert-thumb"><img src="assets/credentials/cert-sgs.png" alt="SGS 检测报告" data-i18n-alt="cred.cert3Alt" loading="lazy"></div>
+          <div class="cert-body">
+            <div class="cert-name" data-i18n="cred.cert3.name">SGS</div>
+            <div class="cert-sub" data-i18n="cred.cert3.sub">Quality Test Report · 2023</div>
+            <span class="cert-link"><span data-i18n="cred.view">查看报告</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+          </div>
+        </a>
+        <a class="cert-card" href="assets/credentials/cert-coa.pdf" target="_blank" rel="noopener">
+          <div class="cert-thumb"><img src="assets/credentials/cert-coa.png" alt="COA 分析证书" data-i18n-alt="cred.cert4Alt" loading="lazy"></div>
+          <div class="cert-body">
+            <div class="cert-name" data-i18n="cred.cert4.name">Certificate of Analysis</div>
+            <div class="cert-sub" data-i18n="cred.cert4.sub">COA · Dec 2023</div>
+            <span class="cert-link"><span data-i18n="cred.view">查看报告</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+          </div>
+        </a>
+        <a class="cert-card" href="assets/credentials/cert-msds.pdf" target="_blank" rel="noopener">
+          <div class="cert-thumb"><img src="assets/credentials/cert-msds.png" alt="MSDS 安全数据表" data-i18n-alt="cred.cert5Alt" loading="lazy"></div>
+          <div class="cert-body">
+            <div class="cert-name" data-i18n="cred.cert5.name">MSDS</div>
+            <div class="cert-sub" data-i18n="cred.cert5.sub">Material Safety Data Sheet · 2023</div>
+            <span class="cert-link"><span data-i18n="cred.view">查看报告</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 通俗解读 ============ -->
+  <section class="section meaning-section" id="meaning">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="qual.meaningEyebrow">Plain Language</span>
+        <h2 class="section-title" data-i18n="qual.meaningTitle">Why These Credentials Matter</h2>
+      </div>
+      <div class="meaning-grid stagger-container">
+        <article class="meaning-card stagger-item">
+          <h3 data-i18n="cred.cert1.name">TÜV SÜD PSB</h3>
+          <p data-i18n="qual.meaningTuv">An independent German testing body verified the amino acid profile and heavy metal safety (As/Cd/Pb/Hg &lt;0.1 ppm, within HSA limits).</p>
+        </article>
+        <article class="meaning-card stagger-item">
+          <h3 data-i18n="cred.cert3.name">SGS</h3>
+          <p data-i18n="qual.meaningSgs">One of the world's largest testing and certification organisations issued the quality test report for the nano-active peptide.</p>
+        </article>
+        <article class="meaning-card stagger-item">
+          <h3 data-i18n="cred.cert4.name">COA</h3>
+          <p data-i18n="qual.meaningCoa">The Certificate of Analysis confirms the composition and quality of each batch of nano-active peptide.</p>
+        </article>
+        <article class="meaning-card stagger-item">
+          <h3 data-i18n="cred.cert5.name">MSDS</h3>
+          <p data-i18n="qual.meaningMsds">The Material Safety Data Sheet (UN GHS Rev.9) documents safe handling, storage and transport information.</p>
+        </article>
+        <article class="meaning-card stagger-item">
+          <h3 data-i18n="cred.patentBadge">China Invention Patent</h3>
+          <p data-i18n="qual.meaningPatent">ZL201210517035.3 protects the nano-scale micro-molecule active peptide technology — the core of what makes SMT different.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 公司信息 ============ -->
+  <section class="section company-section" id="company">
+    <div class="container">
+      <div class="company-card reveal">
+        <span class="section-label" data-i18n="qual.operatorEyebrow">Company</span>
+        <h2 class="section-title" data-i18n="qual.operatorTitle">Who Stands Behind SMT</h2>
+        <div class="company-grid">
+          <div>
+            <h4 data-i18n="qual.operatorLabel">Operator</h4>
+            <p>Sheng Peptide Biotechnology (S) Pte Ltd</p>
+          </div>
+          <div>
+            <h4 data-i18n="qual.manufacturerLabel">Production &amp; Testing</h4>
+            <p>True Peptide Biotechnology (Dalian) Co., Ltd.</p>
+          </div>
+        </div>
+        <a href="index.html" class="btn btn-primary" data-i18n="qual.homeBtn">Back to Homepage</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<!-- ============ 购物车抽屉（v2.3） ============ -->
+<div class="drawer-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart" data-i18n-aria="cart.title">
+  <div class="cart-drawer-header">
+    <h3 data-i18n="cart.title">Your Cart</h3>
+    <button type="button" class="drawer-close" id="cart-close" aria-label="Close" data-i18n-aria="common.close">×</button>
+  </div>
+  <div class="cart-drawer-body">
+    <div class="cart-empty" id="cart-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <p data-i18n="cart.empty">Your cart is empty</p>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+  </div>
+  <div class="cart-drawer-footer" id="cart-footer" hidden>
+    <div class="cart-summary">
+      <div class="cart-row"><span data-i18n="cart.subtotal">Subtotal</span><span id="cart-subtotal">SGD 0.00</span></div>
+      <div class="cart-row"><span data-i18n="cart.gst">GST (9%)</span><span id="cart-gst">SGD 0.00</span></div>
+      <div class="cart-row cart-row--total"><span data-i18n="cart.total">Total</span><span id="cart-total">SGD 0.00</span></div>
+    </div>
+    <button type="button" class="btn btn-primary cart-checkout-btn" id="cart-checkout" data-i18n="cart.checkout">Checkout</button>
+  </div>
+</aside>
+
+<!-- ============ 结账弹窗（v2.3） ============ -->
+<div class="checkout-overlay" id="checkout-overlay">
+  <div class="checkout-modal" role="dialog" aria-modal="true" aria-label="Checkout" data-i18n-aria="checkout.title">
+    <div class="checkout-header">
+      <h3 data-i18n="checkout.title">Checkout</h3>
+      <button type="button" class="drawer-close" id="checkout-close" aria-label="Close" data-i18n-aria="common.close">×</button>
+    </div>
+    <div class="checkout-body">
+      <form id="checkout-form" novalidate>
+        <div class="checkout-section">
+          <h4 data-i18n="checkout.contact">Contact</h4>
+          <div class="form-grid">
+            <input class="form-field full" name="name" type="text" autocomplete="name" placeholder="Full name" data-i18n-ph="checkout.namePh" aria-label="Full name" data-i18n-aria="checkout.namePh" required>
+            <input class="form-field" name="email" type="email" autocomplete="email" placeholder="Email" data-i18n-ph="checkout.emailPh" aria-label="Email" data-i18n-aria="checkout.emailPh" required>
+            <input class="form-field" name="phone" type="tel" autocomplete="tel" placeholder="Phone" data-i18n-ph="checkout.phonePh" aria-label="Phone" data-i18n-aria="checkout.phonePh" required>
+          </div>
+        </div>
+        <div class="checkout-section">
+          <h4 data-i18n="checkout.delivery">Delivery</h4>
+          <div class="form-grid">
+            <input class="form-field full" name="address" type="text" autocomplete="street-address" placeholder="Address" data-i18n-ph="checkout.addressPh" aria-label="Address" data-i18n-aria="checkout.addressPh" required>
+            <input class="form-field" name="city" type="text" autocomplete="address-level2" placeholder="City" data-i18n-ph="checkout.cityPh" aria-label="City" data-i18n-aria="checkout.cityPh" required>
+            <input class="form-field" name="postal" type="text" autocomplete="postal-code" placeholder="Postal code" data-i18n-ph="checkout.postalPh" aria-label="Postal code" data-i18n-aria="checkout.postalPh">
+            <select class="form-field full" name="country" id="checkout-country" data-i18n-aria="checkout.country">
+              <option value="OTHER" selected data-i18n="country.other">Other / Worldwide</option>
+              <option value="SG" data-i18n="country.SG">Singapore</option>
+              <option value="MY" data-i18n="country.MY">Malaysia</option>
+              <option value="CN" data-i18n="country.CN">China</option>
+              <option value="TW" data-i18n="country.TW">Taiwan</option>
+              <option value="HK" data-i18n="country.HK">Hong Kong</option>
+              <option value="US" data-i18n="country.US">United States</option>
+              <option value="GB" data-i18n="country.GB">United Kingdom</option>
+              <option value="AU" data-i18n="country.AU">Australia</option>
+              <option value="JP" data-i18n="country.JP">Japan</option>
+              <option value="KR" data-i18n="country.KR">South Korea</option>
+            </select>
+          </div>
+        </div>
+        <div class="checkout-section">
+          <h4 data-i18n="checkout.payment">Payment</h4>
+          <div class="pay-methods" id="pay-methods"></div>
+          <div class="card-fields" id="card-fields" hidden>
+            <input class="form-field" name="cardNumber" placeholder="Card number" data-i18n-ph="checkout.cardPh" aria-label="Card number" data-i18n-aria="checkout.cardPh" inputmode="numeric">
+            <input class="form-field" name="cardExpiry" placeholder="MM/YY" data-i18n-ph="checkout.expiryPh" aria-label="Expiry" data-i18n-aria="checkout.expiryPh">
+            <input class="form-field" name="cardCvc" placeholder="CVC" data-i18n-ph="checkout.cvcPh" aria-label="CVC" data-i18n-aria="checkout.cvcPh" inputmode="numeric">
+          </div>
+        </div>
+        <div class="checkout-summary">
+          <div class="cart-row"><span data-i18n="cart.subtotal">Subtotal</span><span id="co-subtotal">SGD 0.00</span></div>
+          <div class="cart-row"><span data-i18n="cart.gst">GST (9%)</span><span id="co-gst">SGD 0.00</span></div>
+          <div class="cart-row cart-row--total"><span data-i18n="cart.total">Total</span><span id="co-total">SGD 0.00</span></div>
+        </div>
+        <button type="submit" class="btn btn-primary pay-btn" id="pay-btn">Pay SGD 0.00</button>
+        <p class="checkout-note" data-i18n="checkout.demoNote">Demo payment — no real charge is made.</p>
+      </form>
+      <div class="checkout-success" id="checkout-success" hidden>
+        <div class="success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3 data-i18n="checkout.successTitle">Order Confirmed!</h3>
+        <p><span data-i18n="checkout.orderNo">Order</span> <span class="order-id" id="success-order-id"></span></p>
+        <p data-i18n="checkout.successNote">A confirmation email will be sent to you. This is a demo — no real payment was processed.</p>
+        <button type="button" class="btn btn-primary" id="success-close" data-i18n="checkout.done">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="footer-wave-top" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none">
+      <path d="M0,24 C240,0 480,48 720,24 C960,0 1200,48 1440,24 L1440,48 L0,48 Z" fill="#060D18"/>
+    </svg>
+  </div>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <a href="#hero" class="logo">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M16 3C9.5 9.5 6 15 6 19.5A10 10 0 0 0 26 19.5C26 15 22.5 9.5 16 3z" fill="#00B4D8"/>
+          <circle cx="11" cy="22" r="1.4" fill="#90E0EF" opacity="0.9"/>
+          <circle cx="17" cy="26" r="1" fill="#90E0EF" opacity="0.7"/>
+          <circle cx="22" cy="21" r="1.8" fill="#90E0EF" opacity="0.8"/>
+        </svg>
+        <span>SMT</span>
+      </a>
+      <p data-i18n="footer.brandBody">Science-backed nano active peptide technology for deep cellular renewal — engineered in Singapore with 12+ years of research.</p>
+    </div>
+    <div class="link-group">
+      <h4 data-i18n="footer.productsTitle">Products</h4>
+      <ul>
+        <li><a href="product.html#products" data-i18n="footer.p1">Nano Active Peptide</a></li>
+        <li><a href="product.html#science" data-i18n="footer.p2">Cellular Repair Formula</a></li>
+        <li><a href="product.html#products" data-i18n="footer.p3">Wellness Bundles</a></li>
+      </ul>
+    </div>
+    <div class="link-group">
+      <h4 data-i18n="footer.companyTitle">Company</h4>
+      <ul>
+        <li><a href="index.html#story" data-i18n="footer.c1">Our Story</a></li>
+        <li><a href="quality.html" data-i18n="footer.c2">Quality &amp; Licenses</a></li>
+        <li><a href="quality.html#patent" data-i18n="footer.c3">Patents</a></li>
+      </ul>
+    </div>
+    <div class="footer-newsletter">
+      <h4 data-i18n="footer.newsTitle">Stay Updated</h4>
+      <form class="subscribe-form" id="subscribe-form" novalidate>
+        <input type="email" id="subscribe-email" placeholder="Your email address" data-i18n-ph="footer.placeholder" aria-label="Email address" data-i18n-aria="aria.email" required>
+        <button type="submit" data-i18n="footer.join">Join</button>
+      </form>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l-.5 3H14v9h-3v-9H8V9h3V7a4 4 0 0 1 4-4h3v3h-2c-1.1 0-2 .9-2 2v1z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.3l-4.9-6.4L5 21H1.9l7.3-8.3L1.5 3h6.4l4.4 5.9L17.5 3zm-1.1 16h1.7L7.2 4.7H5.4L16.4 19z"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.4-.4-5c-.2-.9-.9-1.6-1.8-1.8C19.2 4.8 12 4.8 12 4.8s-7.2 0-8.8.4c-.9.2-1.6.9-1.8 1.8C1 8.6 1 12 1 12s0 3.4.4 5c.2.9.9 1.6 1.8 1.8 1.6.4 8.8.4 8.8.4s7.2 0 8.8-.4c-.9-.2-.9-1.6-1.8-1.8.4-1.6.4-5 .4-5zM9.8 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p><span aria-hidden="true">©</span> <span id="year">2026</span> <span data-i18n="footer.copyright">Sheng Peptide Biotechnology (S) Pte Ltd. All rights reserved.</span></p>
+    <p data-i18n="footer.credit">Designed by Tina · Built by Chuck</p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   Ocean Wave v2.0 — 交互脚本
+   ============================================================ */
+
+// --- 1. 滚动入场动画（Intersection Observer） ---
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right, .stagger-container')
+  .forEach((el) => revealObserver.observe(el));
+
+// --- 2. 统计数字滚动计数 ---
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseInt(el.dataset.count, 10);
+    const suffix = el.dataset.suffix || '';
+    let current = 0;
+    const step = Math.max(1, Math.round(target / 45));
+    const tick = () => {
+      current = Math.min(target, current + step);
+      el.textContent = current + suffix;
+      if (current < target) requestAnimationFrame(tick);
+    };
+    tick();
+    countObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-value[data-count]').forEach((el) => countObserver.observe(el));
+
+// --- 3. 气泡粒子生成 ---
+const particleLayer = document.getElementById('particles');
+if (particleLayer) {
+  for (let i = 0; i < 12; i++) {
+    const bubble = document.createElement('span');
+    bubble.className = 'bubble';
+    const size = 5 + Math.random() * 20;
+    bubble.style.width = size + 'px';
+    bubble.style.height = size + 'px';
+    bubble.style.left = Math.random() * 100 + '%';
+    bubble.style.setProperty('--bubble-delay', (Math.random() * -8) + 's');
+    bubble.style.animationDuration = (7 + Math.random() * 9) + 's';
+    bubble.style.opacity = (0.06 + Math.random() * 0.14).toFixed(2);
+    particleLayer.appendChild(bubble);
+  }
+}
+
+// --- 4. 移动端导航 ---
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    const open = navMenu.classList.toggle('open');
+    navToggle.classList.toggle('active', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+  // 点击链接后收起菜单
+  navMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+// --- 5. Footer 年份 ---
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>
+
+<script>
+/* ============================================================
+   v2.2 — i18n 双语（English / 繁體中文）+ 订阅表单
+   ============================================================ */
+var SITE_LANGS = ['en', 'tw'];
+var currentLang = 'en';
+
+var siteI18n = {
+  'nav.products': { en: 'Products', tw: '產品' },
+  'nav.home': { en: 'Home', tw: '首頁' },
+  'nav.productScience': { en: 'Product & Science', tw: '產品與科學' },
+  'nav.quality': { en: 'Quality', tw: '品質' },
+  'nav.story': { en: 'Our Story', tw: '品牌故事' },
+  'nav.process': { en: 'How It Works', tw: '運作原理' },
+  'nav.reviews': { en: 'Reviews', tw: '客戶評價' },
+  'nav.quality': { en: 'Quality', tw: '品質認證' },
+  'nav.cta': { en: 'Get Started', tw: '立即開始' },
+  'aria.nav': { en: 'Main navigation', tw: '主要導覽' },
+  'aria.lang': { en: 'Language', tw: '語言' },
+  'aria.toggle': { en: 'Toggle menu', tw: '切換選單' },
+  'aria.logo': { en: 'SMT Home', tw: 'SMT 首頁' },
+  'aria.original': { en: 'Original price', tw: '原價' },
+
+  'hero.badge': { en: 'Nano Active Peptide', tw: '奈米活性胜肽' },
+  'hero.title': { en: "Unlock Your Cells' Full Potential", tw: '釋放細胞的無限潛能' },
+  'hero.subtitle': { en: "Sheng Peptide's nano-active peptide formula powers deep cellular renewal — 12 years of research, 100% absorption, real results.", tw: '勝肽生技的奈米活性胜肽配方，啟動深層細胞修護——12 年研發、100% 吸收、真實成效。' },
+  'hero.cta1': { en: 'Discover Now', tw: '立即探索' },
+  'hero.cta2': { en: 'Learn More', tw: '了解更多' },
+  'hero.stat1': { en: 'Years of R&D', tw: '年研發經驗' },
+  'hero.stat2': { en: 'Absorption Rate', tw: '吸收率' },
+  'hero.stat3': { en: 'Channel 8 Award', tw: '頻道8大獎' },
+  'hero.bottleAlt': { en: 'SMT Nano Active Peptide bottle', tw: 'SMT 奈米活性胜肽瓶' },
+  'hero.float1': { en: '100% Absorption', tw: '100% 吸收' },
+  'hero.float2': { en: '12+ Years R&D', tw: '12+ 年研發' },
+  'hero.scroll': { en: 'Scroll', tw: '向下捲動' },
+
+  'products.eyebrow': { en: 'Products', tw: '產品' },
+  'products.title': { en: 'Choose Your Supply', tw: '選擇您的方案' },
+  'products.sub': { en: 'Three smart choices, one nano-active formula.', tw: '三種聰明選擇，同一奈米活性配方。' },
+  'products.learnMore': { en: 'Learn More About the Science', tw: '深入了解科學' },
+  'tier.trial.name': { en: 'Trial Pack', tw: '試用裝' },
+  'tier.trial.desc': { en: 'A 10-day starter pack to feel the difference.', tw: '10 天入門裝，親身感受改變。' },
+  'tier.trial.alt': { en: 'SMT Nano Active Peptide Trial Pack', tw: 'SMT 奈米活性胜肽 試用裝' },
+  'tier.one.name': { en: '1-Month Supply', tw: '1 個月用量' },
+  'tier.one.desc': { en: 'One month of daily nano-active support.', tw: '一個月的每日奈米活性支持。' },
+  'tier.one.alt': { en: 'SMT Nano Active Peptide 1-Month Supply', tw: 'SMT 奈米活性胜肽 1 個月用量' },
+  'tier.three.name': { en: '3-Month Supply', tw: '3 個月用量' },
+  'tier.three.desc': { en: 'Our best-value full renewal course.', tw: '最超值的完整修護週期。' },
+  'tier.three.alt': { en: 'SMT Nano Active Peptide 3-Month Supply', tw: 'SMT 奈米活性胜肽 3 個月用量' },
+  'tier.select': { en: 'Add to Cart', tw: '加入購物車' },
+  'tier.badge.best': { en: 'Best Value', tw: '最超值' },
+  'tier.note': { en: 'Prices in SGD · GST 9% applies at checkout', tw: '價格以新幣計算 · 結帳時另加 9% 消費稅' },
+  'aria.products': { en: 'Products', tw: '產品' },
+
+  'story.label': { en: 'Our Story', tw: '品牌故事' },
+  'story.title': { en: 'Born from a Mission to Transform Health', tw: '源於一份改變健康的使命' },
+  'story.body': { en: 'For over 12 years, our scientists have dedicated themselves to a single mission: unlocking the regenerative potential of every cell. Through cutting-edge nano-active peptide technology, we engineered a delivery system that achieves 100% absorption — bringing laboratory-grade cellular repair into everyday wellness.', tw: '12 年來，我們的科學家專注於同一使命：釋放每個細胞的再生潛能。透過尖端的奈米活性胜肽技術，我們打造出達到 100% 吸收的傳輸系統，將實驗室等級的細胞修護帶入日常健康。' },
+  'story.stat1': { en: 'Years of Research & Development', tw: '年研究與開發' },
+  'story.stat2': { en: 'Absorption Efficiency', tw: '吸收效率' },
+  'story.tl1': { en: 'Founded with a vision of peptide-driven cellular renewal.', tw: '以胜肽驅動細胞更新的願景創立。' },
+  'story.tl2': { en: 'Nano-encapsulation delivery platform reaches laboratory breakthrough.', tw: '奈米包覆傳輸平台達成實驗室重大突破。' },
+  'story.tl3': { en: 'Honoured at the Channel 8 Singapore awards for innovation in wellness.', tw: '獲頒新加坡頻道8健康創新獎。' },
+  'story.awardTitle': { en: '2024 Channel 8 Singapore', tw: '2024 新加坡頻道8' },
+  'story.awardSub': { en: 'Recognised for wellness innovation', tw: '健康創新領域之肯定' },
+
+  'process.label': { en: 'How It Works', tw: '運作原理' },
+  'process.title': { en: 'Three Steps to Cellular Renewal', tw: '細胞更新的三個步驟' },
+  'process.sub': { en: 'A precisely engineered pathway from intake to repair.', tw: '從攝取到修護的精準路徑。' },
+  'process.step1.title': { en: 'Intake', tw: '攝取' },
+  'process.step1.body': { en: 'A single daily dose delivers bio-active peptides in a nano-stabilised matrix, ready for immediate uptake.', tw: '每日一次，以奈米穩定基質承載生物活性胜肽，立即吸收利用。' },
+  'process.step2.title': { en: '100% Absorption', tw: '100% 吸收' },
+  'process.step2.body': { en: 'Nano-encapsulation shields peptides through digestion and transports them directly to the cells that need them.', tw: '奈米包覆保護胜肽通過消化系統，直送最需要的細胞。' },
+  'process.step3.title': { en: 'Cellular Repair', tw: '細胞修護' },
+  'process.step3.body': { en: "Bio-active peptides activate the body's natural repair pathways, restoring cellular function and vitality.", tw: '生物活性胜肽啟動身體天然修護機制，恢復細胞功能與活力。' },
+
+  'testi.label': { en: 'Testimonials', tw: '客戶評價' },
+  'testi.title': { en: 'What Our Customers Say', tw: '客戶怎麼說' },
+  'testi.quote1': { en: 'After three months, my energy is steadier and my skin looks noticeably brighter. The absorption really makes a difference — I actually feel the results.', tw: '三個月後，我的精力更穩定，肌膚明顯更明亮。吸收效果真的不同——我真切感受到成果。' },
+  'testi.quote2': { en: 'As a clinician, I appreciate the science behind this formula. The nano-active peptide delivery is genuinely well designed for cellular uptake and efficacy.', tw: '身為臨床醫師，我欣賞這款配方背後的科學。奈米活性胜肽傳輸在細胞吸收與功效上設計得相當出色。' },
+  'testi.quote3': { en: "Recovery after training has been dramatically faster. I'm 46 and training like I'm in my 30s again — the cellular repair really delivers.", tw: '訓練後的恢復明顯加快。我 46 歲，卻像 30 多歲時一樣訓練——細胞修護真的有效。' },
+  'testi.rating': { en: '5 out of 5 stars', tw: '5 星好評' },
+  'testi.role1': { en: 'Verified Customer', tw: '真實客戶' },
+  'testi.role2': { en: 'Clinical Nutritionist', tw: '臨床營養師' },
+  'testi.role3': { en: 'Athletic Recovery', tw: '運動恢復' },
+
+  'cred.label': { en: 'Trust & Quality', tw: '信任與品質' },
+  'cred.title': { en: 'Certified Excellence', tw: '認證卓越' },
+  'cred.sub': { en: 'Transparency in every detail — patents, awards and independent lab certifications.', tw: '每個細節公開透明——專利、獎項與獨立實驗室認證。' },
+  'cred.patentBadge': { en: 'China Invention Patent', tw: '中國發明專利' },
+  'cred.patentAlt': { en: 'SMT 纳米级小分子活性肽 中国发明专利证书 ZL201210517035.3', tw: 'SMT 奈米級小分子活性胜肽 中國發明專利證書 ZL201210517035.3' },
+  'cred.patentTitle': { en: 'ZL201210517035.3', tw: 'ZL201210517035.3' },
+  'cred.patentSub': { en: 'Invention Patent · 发明专利', tw: '發明專利' },
+  'cred.patentBody': { en: 'SMT 纳米级小分子活性肽 — nano-scale micro-molecule active peptide technology protected by a China national invention patent.', tw: 'SMT 奈米級小分子活性胜肽——受中國國家發明專利保護的奈米級微小分子胜肽技術。' },
+  'cred.patentMeta': { en: 'SMT Peptides · Case No. 1906-02870', tw: 'SMT 胜肽 · 案號 1906-02870' },
+  'cred.awardBadge': { en: '2024 Honouree', tw: '2024 獲獎者' },
+  'cred.awardAlt': { en: 'SMT 生命肽 2024 Technology for Good 获奖证书', tw: 'SMT 生命胜肽 2024 科技向善獲獎證書' },
+  'cred.awardTitle': { en: 'Technology for Good', tw: '科技向善' },
+  'cred.awardSub': { en: '2024 Award Honouree', tw: '2024 年度獲獎者' },
+  'cred.awardBody': { en: 'Recognised at the 2024 Technology for Good awards for bringing science-backed cellular wellness to communities.', tw: '於 2024 年「科技向善」獎項中，因將科學實證的細胞健康帶入社區而獲表揚。' },
+  'cred.awardMeta': { en: 'Sheng Peptide Biotechnology (S) Pte Ltd', tw: 'Sheng Peptide Biotechnology (S) Pte Ltd' },
+  'cred.certLabel': { en: 'Official Certifications', tw: '官方認證' },
+  'cred.seeAll': { en: 'View All Credentials', tw: '查看完整資質' },
+  'cred.view': { en: '查看报告', tw: '查看報告' },
+  'cred.cert1.name': { en: 'TÜV SÜD PSB', tw: 'TÜV SÜD PSB' },
+  'cred.cert1.sub': { en: 'Amino Acid Analysis · 2023', tw: '氨基酸檢測 · 2023' },
+  'cred.cert1Alt': { en: 'TÜV SÜD 氨基酸检测报告', tw: 'TÜV SÜD 氨基酸檢測報告' },
+  'cred.cert2.name': { en: 'TÜV SÜD PSB', tw: 'TÜV SÜD PSB' },
+  'cred.cert2.sub': { en: 'Heavy Metal Safety · 2022', tw: '重金屬安全檢測 · 2022' },
+  'cred.cert2Alt': { en: 'TÜV SÜD 重金属检测报告', tw: 'TÜV SÜD 重金屬檢測報告' },
+  'cred.cert3.name': { en: 'SGS', tw: 'SGS' },
+  'cred.cert3.sub': { en: 'Quality Test Report · 2023', tw: '品質檢測報告 · 2023' },
+  'cred.cert3Alt': { en: 'SGS 检测报告', tw: 'SGS 檢測報告' },
+  'cred.cert4.name': { en: 'Certificate of Analysis', tw: '分析證書' },
+  'cred.cert4.sub': { en: 'COA · Dec 2023', tw: 'COA · 2023 年 12 月' },
+  'cred.cert4Alt': { en: 'COA 分析证书', tw: 'COA 分析證書' },
+  'cred.cert5.name': { en: 'MSDS', tw: 'MSDS' },
+  'cred.cert5.sub': { en: 'Material Safety Data Sheet · 2023', tw: '物質安全資料表 · 2023' },
+  'cred.cert5Alt': { en: 'MSDS 安全数据表', tw: 'MSDS 安全資料表' },
+
+  'cta.title': { en: 'Ready to Transform Your Health?', tw: '準備好改變您的健康了嗎？' },
+  'cta.body': { en: 'Join thousands who have already experienced science-backed cellular renewal. Begin your journey to a more vibrant you today.', tw: '加入數以千計已體驗科學實證細胞更新的行列。從今天開始，邁向更有活力的自己。' },
+  'cta.btn': { en: 'Get Started Today', tw: '今天就開始' },
+  'cta.secure': { en: 'Secure Checkout', tw: '安全結帳' },
+  'cta.lab': { en: 'Lab-Certified Quality', tw: '實驗室認證品質' },
+  'cta.global': { en: 'Global Shipping', tw: '全球配送' },
+
+  'footer.brandBody': { en: 'Science-backed nano active peptide technology for deep cellular renewal — engineered in Singapore with 12+ years of research.', tw: '以科學實證的奈米活性胜肽技術，實現深層細胞更新——於新加坡研發，12 年以上研究經驗。' },
+  'footer.productsTitle': { en: 'Products', tw: '產品' },
+  'footer.p1': { en: 'Nano Active Peptide', tw: '奈米活性胜肽' },
+  'footer.p2': { en: 'Cellular Repair Formula', tw: '細胞修護配方' },
+  'footer.p3': { en: 'Wellness Bundles', tw: '健康組合' },
+  'footer.companyTitle': { en: 'Company', tw: '公司' },
+  'footer.c1': { en: 'Our Story', tw: '品牌故事' },
+  'footer.c2': { en: 'Quality & Licenses', tw: '品質與證照' },
+  'footer.c3': { en: 'Patents', tw: '專利' },
+  'footer.newsTitle': { en: 'Stay Updated', tw: '掌握最新消息' },
+  'footer.placeholder': { en: 'Your email address', tw: '您的電子郵件' },
+  'footer.join': { en: 'Join', tw: '訂閱' },
+  'footer.thanks': { en: 'Thank you for subscribing!', tw: '感謝您的訂閱！' },
+  'footer.invalidEmail': { en: 'Please enter a valid email address.', tw: '請輸入有效的電子郵件地址。' },
+  'footer.copyright': { en: 'Sheng Peptide Biotechnology (S) Pte Ltd. All rights reserved.', tw: 'Sheng Peptide Biotechnology (S) Pte Ltd 版權所有。' },
+  'footer.credit': { en: 'Designed by Tina · Built by Chuck', tw: '設計 Tina · 開發 Chuck' },
+  'aria.email': { en: 'Email address', tw: '電子郵件地址' },
+
+  'meta.title': { en: "Sheng Peptide Biotechnology (S) Pte Ltd — Unlock Your Cells' Full Potential", tw: 'Sheng Peptide Biotechnology (S) Pte Ltd — 釋放細胞的無限潛能' },
+  'meta.desc': { en: 'Sheng Peptide Biotechnology (S) Pte Ltd: 12+ years of R&D in nano active peptide technology. Intake → 100% Absorption → Cellular Repair. Awarded at 2024 Channel 8 Singapore.', tw: 'Sheng Peptide Biotechnology (S) Pte Ltd：12 年以上奈米活性胜肽技術研發。攝取 → 100% 吸收 → 細胞修護。獲頒 2024 新加坡頻道8獎項。' },
+  'og.title': { en: "Sheng Peptide Biotechnology — Unlock Your Cells' Full Potential", tw: 'Sheng Peptide Biotechnology — 釋放細胞的無限潛能' },
+  'og.desc': { en: 'Nano active peptide technology for deep cellular renewal. 12 years of R&D, 100% absorption, real results.', tw: '奈米活性胜肽技術，實現深層細胞更新。12 年研發、100% 吸收、真實成效。' },
+
+  'cart.openAria': { en: 'Open cart', tw: '開啟購物車' },
+  'cart.title': { en: 'Your Cart', tw: '您的購物車' },
+  'cart.empty': { en: 'Your cart is empty', tw: '您的購物車是空的' },
+  'cart.subtotal': { en: 'Subtotal', tw: '小計' },
+  'cart.gst': { en: 'GST (9%)', tw: '消費稅 (9%)' },
+  'cart.total': { en: 'Total', tw: '總計' },
+  'cart.checkout': { en: 'Checkout', tw: '前往結帳' },
+  'cart.added': { en: 'Added to cart', tw: '已加入購物車' },
+  'cart.remove': { en: 'Remove', tw: '移除' },
+  'common.close': { en: 'Close', tw: '關閉' },
+
+  'checkout.title': { en: 'Checkout', tw: '結帳' },
+  'checkout.contact': { en: 'Contact', tw: '聯絡資訊' },
+  'checkout.namePh': { en: 'Full name', tw: '姓名' },
+  'checkout.emailPh': { en: 'Email', tw: '電子郵件' },
+  'checkout.phonePh': { en: 'Phone', tw: '電話' },
+  'checkout.delivery': { en: 'Delivery', tw: '配送地址' },
+  'checkout.addressPh': { en: 'Address', tw: '地址' },
+  'checkout.cityPh': { en: 'City', tw: '城市' },
+  'checkout.postalPh': { en: 'Postal code', tw: '郵遞區號' },
+  'checkout.country': { en: 'Country / Region', tw: '國家 / 地區' },
+  'checkout.payment': { en: 'Payment', tw: '付款方式' },
+  'checkout.cardPh': { en: 'Card number', tw: '卡號' },
+  'checkout.expiryPh': { en: 'MM/YY', tw: 'MM/YY' },
+  'checkout.cvcPh': { en: 'CVC', tw: 'CVC' },
+  'checkout.pay': { en: 'Pay', tw: '付款' },
+  'checkout.demoNote': { en: 'Demo payment — no real charge is made.', tw: '演示付款——不會真正扣款。' },
+  'checkout.successTitle': { en: 'Order Confirmed!', tw: '訂單已確認！' },
+  'checkout.orderNo': { en: 'Order', tw: '訂單編號' },
+  'checkout.successNote': { en: 'A confirmation email will be sent to you. This is a demo — no real payment was processed.', tw: '確認郵件將寄送給您。此為演示流程，並未真正扣款。' },
+  'checkout.done': { en: 'Done', tw: '完成' },
+  'checkout.required': { en: 'Please fill in all required fields.', tw: '請填寫所有必填欄位。' },
+  'checkout.invalidEmail': { en: 'Please enter a valid email address.', tw: '請輸入有效的電子郵件地址。' },
+  'checkout.processing': { en: 'Processing…', tw: '處理中…' },
+
+  'country.other': { en: 'Other / Worldwide', tw: '其他 / 全球' },
+  'country.SG': { en: 'Singapore', tw: '新加坡' },
+  'country.MY': { en: 'Malaysia', tw: '馬來西亞' },
+  'country.CN': { en: 'China', tw: '中國' },
+  'country.TW': { en: 'Taiwan', tw: '台灣' },
+  'country.HK': { en: 'Hong Kong', tw: '香港' },
+  'country.US': { en: 'United States', tw: '美國' },
+  'country.GB': { en: 'United Kingdom', tw: '英國' },
+  'country.AU': { en: 'Australia', tw: '澳洲' },
+  'country.JP': { en: 'Japan', tw: '日本' },
+  'country.KR': { en: 'South Korea', tw: '南韓' },
+  'nav.home': { en: 'Home', tw: '首頁' },
+  'nav.productScience': { en: 'Product & Science', tw: '產品與科學' },
+  'nav.quality': { en: 'Quality', tw: '品質' },
+  'prod.heroBadge': { en: 'SMT Nano Active Peptide', tw: 'SMT 奈米活性胜肽' },
+  'prod.heroTitle': { en: 'Science-Backed Cellular Renewal', tw: '科學實證的細胞更新' },
+  'prod.heroSub': { en: 'SMT is a small-molecular-weight nano-active peptide — directly absorbed by human cells, engineered over 12 years of research.', tw: 'SMT 為小分子量奈米活性胜肽——可被人體細胞直接吸收，歷經 12 年以上研究開發。' },
+  'prod.heroCta2': { en: 'See the Science', tw: '了解科學' },
+  'prod.heroStat1': { en: 'Years of R&D', tw: '年研發經驗' },
+  'prod.heroStat2': { en: 'Absorption', tw: '吸收率' },
+  'prod.heroStat3': { en: 'Total Amino Acids', tw: '總氨基酸' },
+  'sci.eyebrow': { en: 'The Science', tw: '科學原理' },
+  'sci.title': { en: 'What Makes SMT Peptide Different', tw: '什麼讓 SMT 胜肽與眾不同' },
+  'sci.story1': { en: 'Protein is discovered — scientists connect protein with cells, life and health for the first time.', tw: '蛋白質被發現——科學家首次將蛋白質與細胞、生命與健康連結起來。' },
+  'sci.story2': { en: 'Polypeptides are discovered in the human body, honoured by the Nobel Committee for their influence.', tw: '人體中發現多肽，其深遠影響獲諾貝爾委員會表彰。' },
+  'sci.story3': { en: 'SMT delivers nano-active small molecular peptides that are directly absorbed by human cells.', tw: 'SMT 提供可被人體細胞直接吸收的奈米活性小分子胜肽。' },
+  'sci.defTitle': { en: 'Small Molecular Peptides', tw: '小分子肽' },
+  'sci.defBody': { en: 'Peptides are short chains of amino acids linked by peptide bonds. Peptides with 11 or fewer amino acids are called small peptides (oligopeptides). SMT is a small-molecular-weight peptide — mostly 2–4 amino-acid chains — with molecular weight distribution below 1000 Da (≥99% verified by SGS).', tw: '肽是由肽鍵連結胺基酸而成的短鏈。由 11 個以內胺基酸組成的稱為小分子肽（寡肽）。SMT 為小分子量胜肽——以 2–4 個胺基酸的短鏈為主，分子量分布 1000 Da 以下（SGS 驗證 ≥99%）。' },
+  'func.carrier': { en: 'Carrier', tw: '載體功能' },
+  'func.carrierDesc': { en: 'Helps carry nutrients such as calcium, iron, zinc and vitamins to the body.', tw: '協助將鈣、鐵、鋅、維生素等營養素運送至全身。' },
+  'func.chelating': { en: 'Chelating', tw: '螯合功能' },
+  'func.chelatingDesc': { en: 'Binds with macro and trace elements to improve their utilisation.', tw: '與常量及微量元素結合，提升利用效率。' },
+  'func.adsorption': { en: 'Adsorption', tw: '吸附功能' },
+  'func.adsorptionDesc': { en: 'Absorbs and carries other nutrients through the body.', tw: '吸附並攜帶其他營養素在體內運行。' },
+  'func.transport': { en: 'Transport', tw: '運輸功能' },
+  'func.transportDesc': { en: 'Transports nutrients to the parts of the body that need them.', tw: '將營養素運輸至身體最需要的地方。' },
+  'func.enzymatic': { en: 'Enzymatic', tw: '酶促功能' },
+  'func.enzymaticDesc': { en: "Participates in life activities using the peptide's own activity as the driving force.", tw: '以胜肽自身活性為驅動力，參與人體生命活動。' },
+  'func.transmitter': { en: 'Transmitter', tw: '傳遞功能' },
+  'func.transmitterDesc': { en: 'Acts as a neurotransmitter, transmitting information to organs and systems.', tw: '作為神經傳遞物質，向各器官與系統傳遞訊息。' },
+  'func.police': { en: '"Police"', tw: '「警察」功能' },
+  'func.policeDesc': { en: 'Helps identify and respond to mutated or abnormal peptides in the body.', tw: '協助識別並應對體內異常或突變的肽。' },
+  'func.energy': { en: 'Energy', tw: '能量功能' },
+  'func.energyDesc': { en: 'Supports cellular energy and vitality.', tw: '支持細胞能量與活力。' },
+  'func.antibody': { en: 'Antibody', tw: '抗體功能' },
+  'func.antibodyDesc': { en: "Fuses with cell membranes to support the body's natural defences.", tw: '與細胞膜融合，支持身體天然防禦機制。' },
+  'mech.title': { en: 'From Intake to Cellular Repair', tw: '從攝取到細胞修護' },
+  'mech.nanoBody': { en: 'A nano-stabilised matrix shields the peptides through digestion and transports them directly to the cells that need them.', tw: '奈米穩定基質保護胜肽通過消化系統，直送最需要的細胞。' },
+  'data.eyebrow': { en: 'Verified Data', tw: '實測數據' },
+  'data.title': { en: 'Numbers You Can Trust', tw: '值得信賴的數字' },
+  'data.peptide': { en: '2–4 peptides (SGS molecular weight <1000 Da)', tw: '2–4 肽（SGS 分子量 <1000 Da）' },
+  'data.amino': { en: 'Total amino acids (18 amino acids)', tw: '總氨基酸（18 種氨基酸）' },
+  'data.years': { en: 'Years of research & development', tw: '年研究與開發' },
+  'data.cold': { en: 'Cold extraction process', tw: '極低溫萃取工藝' },
+  'data.zeroTitle': { en: 'Purity Promise', tw: '純淨承諾' },
+  'zero.pollution': { en: '0 Pollution', tw: '零污染' },
+  'zero.additive': { en: '0 Additive', tw: '零添加' },
+  'zero.fat': { en: '0 Fat', tw: '零脂肪' },
+  'zero.cholesterol': { en: '0 Cholesterol', tw: '零膽固醇' },
+  'zero.hormone': { en: '0 Hormone', tw: '零激素' },
+  'zero.nt': { en: '100% Nanotech', tw: '100% 奈米技術' },
+  'zero.abs': { en: '100% Absorption', tw: '100% 吸收' },
+  'zero.safe': { en: '100% Safe', tw: '100% 安全' },
+  'benefits.eyebrow': { en: 'Benefits', tw: '益處' },
+  'benefits.title': { en: '15 Areas of Everyday Support', tw: '15 大日常健康助益' },
+  'benefit.antiaging': { en: 'Anti-aging', tw: '抗衰老' },
+  'benefit.recovery': { en: 'Faster Recovery', tw: '更快恢復' },
+  'benefit.energy': { en: 'Energy & Strength', tw: '精力與體力' },
+  'benefit.brain': { en: 'Brain & Memory', tw: '腦力與記憶' },
+  'benefit.detox': { en: 'Detoxification', tw: '排毒' },
+  'benefit.eyesight': { en: 'Eyesight', tw: '視力' },
+  'benefit.immunity': { en: 'Immunity', tw: '免疫力' },
+  'benefit.meds': { en: 'Nutrient Uptake', tw: '營養吸收' },
+  'benefit.joints': { en: 'Joints', tw: '關節' },
+  'benefit.organ': { en: 'Organ Repair', tw: '器官修護' },
+  'benefit.skin': { en: 'Skin', tw: '肌膚' },
+  'benefit.sleep': { en: 'Sleep', tw: '睡眠' },
+  'benefit.teeth': { en: 'Teeth & Gum', tw: '牙齒與牙齦' },
+  'benefit.vascular': { en: 'Vascular Repair', tw: '血管修護' },
+  'benefit.surgery': { en: 'Post-Surgery Recovery', tw: '術後恢復' },
+  'usage.eyebrow': { en: 'Usage', tw: '使用方式' },
+  'usage.title': { en: 'Simple Daily Routine', tw: '簡單的每日習慣' },
+  'usage.body': { en: 'Take once daily as directed on the packaging. SMT can be absorbed directly by the oral and esophageal mucosa, and may also be used externally. Follow the 14-day cycle chart for best results.', tw: '依包裝指示每日一次。SMT 可被口腔與食道黏膜直接吸收，亦可外用。請依 14 天週期表使用以達最佳效果。' },
+  'usage.p1': { en: 'One dose per day — nano-stabilised matrix is ready for immediate uptake.', tw: '每日一次——奈米穩定基質可立即吸收利用。' },
+  'usage.p2': { en: 'Suitable for daily nourishment, facial masks and wound care.', tw: '適用於日常營養補充、面膜與傷口護理。' },
+  'usage.p3': { en: 'Consult a healthcare professional if you are pregnant, nursing, or taking medication.', tw: '懷孕、哺乳或服藥期間請諮詢醫護專業人員。' },
+  'usage.cta': { en: 'Order Now', tw: '立即訂購' },
+  'usage.chartAlt': { en: 'SMT 14-day usage cycle chart', tw: 'SMT 14 天使用週期表' },
+  'evidence.eyebrow': { en: 'Research & Evidence', tw: '研究與證據' },
+  'evidence.title': { en: 'Backed by Research', tw: '有研究支撐' },
+  'evidence.paperBadge': { en: 'Published', tw: '已發表' },
+  'evidence.paperTitle': { en: 'Molecular Mechanism of Improved Sleep', tw: '改善睡眠的分子機制' },
+  'evidence.paperBody': { en: 'Network-first publication in the China Journal of Hospital Pharmacy (2024) on the PI3K-Akt signalling pathway.', tw: '2024 年《中國醫院藥學雜誌》網路首發，探討 PI3K-Akt 訊息傳導路徑。' },
+  'evidence.paperBtn': { en: 'Read the Paper', tw: '閱讀論文' },
+  'evidence.teamBadge': { en: 'Team', tw: '團隊' },
+  'evidence.teamTitle': { en: 'Research Team', tw: '研發團隊' },
+  'evidence.teamBody': { en: 'Developed with research institutions including Changchun University of Chinese Medicine and the Jilin Ginseng Research Institute.', tw: '與長春中醫藥大學、吉林省人參科學研究院等機構合作研發。' },
+  'evidence.studiesBadge': { en: 'Studies', tw: '實驗' },
+  'evidence.studiesTitle': { en: 'Completed Studies', tw: '已完成實驗' },
+  'evidence.study.mtd': { en: 'Acute toxicity (MTD) — no toxicity observed at IV 25 mg/kg', tw: '急性毒性（MTD）——靜脈 25 mg/kg 未見毒性' },
+  'evidence.study.fatigue': { en: 'Exercise-fatigue relief study in mice (4th edition)', tw: '小鼠運動性疲勞緩解實驗（第四版）' },
+  'evidence.study.peptide': { en: 'Peptide spectrum identification & in vitro activity (7,208 peptides)', tw: '肽譜鑑定與體外活性測試（7,208 條多肽）' },
+  'faq.eyebrow': { en: 'FAQ', tw: '常見問題' },
+  'faq.title': { en: 'Questions & Answers', tw: '問與答' },
+  'faq.q1': { en: 'What is SMT Nano Active Peptide?', tw: '什麼是 SMT 奈米活性胜肽？' },
+  'faq.a1': { en: 'SMT is a small-molecular-weight nano-active peptide made from short chains of 2–4 amino acids, with molecular weight below 1000 Da (≥99% verified by SGS). It is designed to be absorbed directly by human cells.', tw: 'SMT 是由 2–4 個胺基酸短鏈組成的小分子量奈米活性胜肽，分子量低於 1000 Da（SGS 驗證 ≥99%），設計上可直接被人體細胞吸收。' },
+  'faq.q2': { en: 'How do I use it?', tw: '如何使用？' },
+  'faq.a2': { en: 'Take once daily as directed on the packaging. It can be absorbed directly by the oral and esophageal mucosa, and may also be used externally. Follow the 14-day cycle chart.', tw: '依包裝指示每日一次。可被口腔與食道黏膜直接吸收，亦可外用。請依 14 天週期表使用。' },
+  'faq.q3': { en: 'Is it safe?', tw: '安全嗎？' },
+  'faq.a3': { en: 'SMT is produced under ISO-certified processes with 0 additives, 0 fat, 0 cholesterol and 0 hormones. An acute toxicity study (MTD) observed no toxicity at IV 25 mg/kg. Consult a healthcare professional if you are pregnant, nursing, or taking medication.', tw: 'SMT 以 ISO 認證流程生產，零添加、零脂肪、零膽固醇、零激素。急性毒性（MTD）實驗於靜脈 25 mg/kg 未見毒性。懷孕、哺乳或服藥期間請諮詢醫護專業人員。' },
+  'faq.q4': { en: 'Is the payment real?', tw: '付款是真的嗎？' },
+  'faq.a4': { en: 'The checkout on this site is a demo flow — no real charge is made. Payment integration will be connected in a future update.', tw: '本網站結帳為演示流程——不會真正扣款。真實支付將於日後更新中接入。' },
+  'qual.heroBadge': { en: 'Trust & Quality', tw: '信任與品質' },
+  'qual.heroTitle': { en: 'Certified Excellence', tw: '認證卓越' },
+  'qual.heroSub': { en: 'Patents, awards and independent laboratory testing — transparency in every detail.', tw: '專利、獎項與獨立實驗室檢測——每個細節公開透明。' },
+  'qual.cta1': { en: 'View Patents', tw: '查看專利' },
+  'qual.cta2': { en: 'View Certifications', tw: '查看認證' },
+  'qual.patentTitle': { en: 'ZL201210517035.3', tw: 'ZL201210517035.3' },
+  'qual.patentName': { en: 'Nano-Scale Micro-Molecule Active Peptide Technology', tw: '奈米級小分子活性胜肽技術' },
+  'qual.patentNote': { en: 'A granted invention patent means the core technology has passed a strict examination of novelty, inventiveness and practical applicability.', tw: '獲得發明專利代表核心技術已通過新穎性、創造性與實用性的嚴格審查。' },
+  'qual.awardsEyebrow': { en: 'Awards', tw: '獎項' },
+  'qual.awardsTitle': { en: 'Recognised for Wellness Innovation', tw: '健康創新獲肯定' },
+  'qual.channelBadge': { en: 'Channel 8', tw: '頻道8' },
+  'qual.certTitle': { en: 'Independently Tested', tw: '獨立檢測' },
+  'qual.certSub': { en: 'Every batch is tested by independent laboratories. Click any report to view the original PDF.', tw: '每批次均由獨立實驗室檢測。點擊任一報告可查看原始 PDF。' },
+  'qual.meaningEyebrow': { en: 'Plain Language', tw: '白話解說' },
+  'qual.meaningTitle': { en: 'Why These Credentials Matter', tw: '為什麼這些認證重要' },
+  'qual.meaningTuv': { en: 'An independent German testing body verified the amino acid profile and heavy metal safety (As/Cd/Pb/Hg <0.1 ppm, within HSA limits).', tw: '德國獨立檢測機構驗證氨基酸組成與重金屬安全（As/Cd/Pb/Hg <0.1 ppm，符合 HSA 限值）。' },
+  'qual.meaningSgs': { en: "One of the world's largest testing and certification organisations issued the quality test report for the nano-active peptide.", tw: '全球最大檢測認證機構之一為奈米活性胜肽出具品質檢測報告。' },
+  'qual.meaningCoa': { en: 'The Certificate of Analysis confirms the composition and quality of each batch of nano-active peptide.', tw: '分析證書確認每一批次奈米活性胜肽的成分與品質。' },
+  'qual.meaningMsds': { en: 'The Material Safety Data Sheet (UN GHS Rev.9) documents safe handling, storage and transport information.', tw: '物質安全資料表（UN GHS Rev.9）記錄安全使用、儲存與運輸資訊。' },
+  'qual.meaningPatent': { en: 'ZL201210517035.3 protects the nano-scale micro-molecule active peptide technology — the core of what makes SMT different.', tw: 'ZL201210517035.3 保護奈米級小分子活性胜肽技術——SMT 與眾不同的核心。' },
+  'qual.operatorEyebrow': { en: 'Company', tw: '公司' },
+  'qual.operatorTitle': { en: 'Who Stands Behind SMT', tw: '誰在背後支持 SMT' },
+  'qual.operatorLabel': { en: 'Operator', tw: '營運方' },
+  'qual.manufacturerLabel': { en: 'Production & Testing', tw: '生產與送檢' },
+  'qual.homeBtn': { en: 'Back to Homepage', tw: '返回首頁' },
+  'meta.titleProduct': { en: "Sheng Peptide Biotechnology — Nano Active Peptide Science & Products", tw: 'Sheng Peptide Biotechnology — 奈米活性胜肽科學與產品' },
+  'meta.titleQuality': { en: "Sheng Peptide Biotechnology — Trust & Quality", tw: 'Sheng Peptide Biotechnology — 信任與品質' }
+
+};
+
+var PAGE_TITLE_KEY = 'meta.titleQuality';
+function t(key) {
+  var d = siteI18n[key];
+  if (!d) return key;
+  return (d[currentLang] !== undefined && d[currentLang] !== '') ? d[currentLang] : d.en;
+}
+
+function applyLanguage(lang) {
+  if (SITE_LANGS.indexOf(lang) === -1) lang = 'en';
+  currentLang = lang;
+  try { localStorage.setItem('smt-lang', lang); } catch (e) {}
+
+  document.documentElement.lang = (lang === 'tw') ? 'zh-Hant' : 'en';
+
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    var txt = t(el.getAttribute('data-i18n'));
+    if (txt && txt !== el.getAttribute('data-i18n')) el.textContent = txt;
+  });
+  document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+    var v = t(el.getAttribute('data-i18n-aria'));
+    if (v) el.setAttribute('aria-label', v);
+  });
+  document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+    var v = t(el.getAttribute('data-i18n-alt'));
+    if (v) el.setAttribute('alt', v);
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+    var v = t(el.getAttribute('data-i18n-ph'));
+    if (v) el.setAttribute('placeholder', v);
+  });
+
+  document.title = t(typeof PAGE_TITLE_KEY !== 'undefined' ? PAGE_TITLE_KEY : 'meta.title');
+  var mdesc = document.querySelector('meta[name="description"]');
+  if (mdesc) mdesc.setAttribute('content', t('meta.desc'));
+  var ogt = document.querySelector('meta[property="og:title"]');
+  if (ogt) ogt.setAttribute('content', t('og.title'));
+  var ogd = document.querySelector('meta[property="og:description"]');
+  if (ogd) ogd.setAttribute('content', t('og.desc'));
+
+  document.querySelectorAll('.lang-btn').forEach(function (b) {
+    var active = b.getAttribute('data-lang') === lang;
+    b.classList.toggle('lang-btn--active', active);
+    b.setAttribute('aria-pressed', String(active));
+  });
+
+  // 重新渲染购物车/结账动态内容（脚本加载后可用）
+  if (typeof renderCart === 'function') renderCart();
+  if (typeof renderOrderSummary === 'function') renderOrderSummary();
+  if (typeof renderPayMethods === 'function') renderPayMethods();
+  if (typeof updatePayBtn === 'function') updatePayBtn();
+
+  // 语言切换会改变文字长度与布局，需要重算滚动触发位置
+  if (window.ScrollTrigger) {
+    setTimeout(function () { window.ScrollTrigger.refresh(); }, 60);
+  }
+}
+
+document.querySelectorAll('.lang-btn').forEach(function (b) {
+  b.addEventListener('click', function () {
+    applyLanguage(b.getAttribute('data-lang'));
+  });
+});
+
+var savedLang = 'en';
+try { savedLang = localStorage.getItem('smt-lang') || 'en'; } catch (e) {}
+applyLanguage(savedLang);
+
+var subForm = document.getElementById('subscribe-form');
+if (subForm) {
+  subForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var input = document.getElementById('subscribe-email');
+    var ok = input && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+    alert(ok ? t('footer.thanks') : t('footer.invalidEmail'));
+  });
+}
+</script>
+
+<script>
+/* ============================================================
+   v2.3 — 购物车与结账（模拟支付存根）
+   ============================================================ */
+var CURRENCY = 'SGD';
+var GST_RATE = 0.09;
+
+var PRODUCTS = {
+  'nano-active-peptide': {
+    id: 'nano-active-peptide',
+    name: { en: 'Nano Active Peptide', tw: '奈米活性胜肽' },
+    tiers: [
+      { id: 'trial',    name: { en: 'Trial Pack', tw: '試用裝' },      desc: { en: '10-day starter', tw: '10 天入門' },  img: 'assets/products/tier-trial.jpg',    price: 38.00,  originalPrice: null },
+      { id: '1-month',  name: { en: '1-Month Supply', tw: '1 個月用量' }, desc: { en: '30-day supply', tw: '30 天用量' }, img: 'assets/products/tier-1month.jpg',  price: 128.00, originalPrice: null },
+      { id: '3-month',  name: { en: '3-Month Supply', tw: '3 個月用量' }, desc: { en: '90-day supply', tw: '90 天用量' }, img: 'assets/products/tier-3month.jpg',  price: 348.00, originalPrice: 384.00 }
+    ]
+  }
+};
+
+var PAYMENT_METHODS = [
+  { id: 'paynow',     name: 'PayNow',     requiresCard: false, logo: 'PayNow', color: '#1D78CB' },
+  { id: 'visa',       name: 'Visa',       requiresCard: true,  logo: 'VISA',   color: '#1A1F71' },
+  { id: 'mastercard', name: 'Mastercard', requiresCard: true,  logo: 'MC',     color: '#EB001B' },
+  { id: 'paypal',     name: 'PayPal',     requiresCard: false, logo: 'PayPal', color: '#003087' },
+  { id: 'alipay',     name: 'Alipay',     requiresCard: false, logo: '支付',   color: '#1677FF' },
+  { id: 'wechat',     name: 'WeChat Pay', requiresCard: false, logo: '微',     color: '#07C160' },
+  { id: 'unionpay',   name: 'UnionPay',   requiresCard: true,  logo: '銀聯',   color: '#D10429' }
+];
+
+var cart = [];
+var selectedPay = 'paynow';
+
+function fmtMoney(n) { return CURRENCY + ' ' + n.toFixed(2); }
+
+function getTier(tierId) {
+  var product = PRODUCTS['nano-active-peptide'];
+  if (!product) return null;
+  for (var i = 0; i < product.tiers.length; i++) {
+    if (product.tiers[i].id === tierId) return product.tiers[i];
+  }
+  return null;
+}
+
+function cartTotals() {
+  var subtotal = cart.reduce(function (sum, item) {
+    var tier = getTier(item.tierId);
+    return sum + (tier ? tier.price : 0) * item.quantity;
+  }, 0);
+  var gst = subtotal * GST_RATE;
+  return { subtotal: subtotal, gst: gst, total: subtotal + gst };
+}
+
+function updateCartCount() {
+  var badge = document.getElementById('cart-count');
+  if (!badge) return;
+  var count = cart.reduce(function (sum, item) { return sum + item.quantity; }, 0);
+  badge.textContent = count > 0 ? String(count) : '';
+}
+
+function renderCart() {
+  var listEl = document.getElementById('cart-items');
+  var emptyEl = document.getElementById('cart-empty');
+  var footerEl = document.getElementById('cart-footer');
+  if (!listEl || !emptyEl || !footerEl) return;
+
+  if (cart.length === 0) {
+    listEl.innerHTML = '';
+    emptyEl.hidden = false;
+    footerEl.hidden = true;
+    return;
+  }
+  emptyEl.hidden = true;
+  footerEl.hidden = false;
+
+  var product = PRODUCTS['nano-active-peptide'];
+  var html = cart.map(function (item, index) {
+    var tier = getTier(item.tierId);
+    if (!tier) return '';
+    var name = tier.name[currentLang] || tier.name.en;
+    var lineTotal = tier.price * item.quantity;
+    return '<div class="cart-item">'
+      + '<div class="cart-item-thumb"><img src="' + tier.img + '" alt="' + product.name.en + '" loading="lazy"></div>'
+      + '<div class="cart-item-info">'
+      +   '<div class="cart-item-name">' + product.name[currentLang] + '</div>'
+      +   '<div class="cart-item-tier">' + name + '</div>'
+      +   '<div class="cart-item-bottom">'
+      +     '<div class="qty-stepper">'
+      +       '<button type="button" class="qty-btn" onclick="changeCartItemQty(' + index + ', -1)" aria-label="Decrease">−</button>'
+      +       '<span class="qty-value">' + item.quantity + '</span>'
+      +       '<button type="button" class="qty-btn" onclick="changeCartItemQty(' + index + ', 1)" aria-label="Increase">+</button>'
+      +     '</div>'
+      +     '<div class="cart-item-price">' + fmtMoney(lineTotal) + '</div>'
+      +   '</div>'
+      +   '<button type="button" class="cart-item-remove" onclick="removeCartItem(' + index + ')">' + t('cart.remove') + '</button>'
+      + '</div>'
+      + '</div>';
+  }).join('');
+  listEl.innerHTML = html;
+  updateTotals();
+}
+
+function updateTotals() {
+  var totals = cartTotals();
+  var subEl = document.getElementById('cart-subtotal');
+  var gstEl = document.getElementById('cart-gst');
+  var totalEl = document.getElementById('cart-total');
+  if (subEl) subEl.textContent = fmtMoney(totals.subtotal);
+  if (gstEl) gstEl.textContent = fmtMoney(totals.gst);
+  if (totalEl) totalEl.textContent = fmtMoney(totals.total);
+  updatePayBtn();
+}
+
+function changeCartItemQty(index, delta) {
+  if (!cart[index]) return;
+  cart[index].quantity += delta;
+  if (cart[index].quantity <= 0) cart.splice(index, 1);
+  renderCart();
+  updateCartCount();
+}
+
+function removeCartItem(index) {
+  cart.splice(index, 1);
+  renderCart();
+  updateCartCount();
+}
+
+var toastTimer = null;
+function showToast(msg) {
+  var el = document.getElementById('toast');
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.add('show');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { el.classList.remove('show'); }, 2200);
+}
+
+function addToCart(tierId) {
+  var tier = getTier(tierId);
+  if (!tier) return;
+  var existing = null;
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].tierId === tierId) { existing = cart[i]; break; }
+  }
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ productId: 'nano-active-peptide', tierId: tierId, quantity: 1 });
+  }
+  renderCart();
+  updateCartCount();
+  openCart();
+  showToast(t('cart.added'));
+}
+
+function openCart() {
+  var overlay = document.getElementById('cart-overlay');
+  var drawer = document.getElementById('cart-drawer');
+  if (overlay) overlay.classList.add('open');
+  if (drawer) drawer.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  var overlay = document.getElementById('cart-overlay');
+  var drawer = document.getElementById('cart-drawer');
+  if (overlay) overlay.classList.remove('open');
+  if (drawer) drawer.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function renderPayMethods() {
+  var wrap = document.getElementById('pay-methods');
+  if (!wrap) return;
+  wrap.innerHTML = PAYMENT_METHODS.map(function (m) {
+    return '<button type="button" class="pay-method' + (m.id === selectedPay ? ' selected' : '') + '" data-pay="' + m.id + '" aria-pressed="' + (m.id === selectedPay) + '">'
+      + '<span class="pay-logo" style="color:' + m.color + '">' + m.logo + '</span>'
+      + '<span>' + m.name + '</span>'
+      + '<span class="pay-dot" aria-hidden="true"></span>'
+      + '</button>';
+  }).join('');
+  wrap.querySelectorAll('.pay-method').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      selectPay(btn.getAttribute('data-pay'));
+    });
+  });
+  var cardFields = document.getElementById('card-fields');
+  if (cardFields) {
+    var method = getPayMethod(selectedPay);
+    cardFields.hidden = !(method && method.requiresCard);
+  }
+}
+
+function getPayMethod(id) {
+  for (var i = 0; i < PAYMENT_METHODS.length; i++) {
+    if (PAYMENT_METHODS[i].id === id) return PAYMENT_METHODS[i];
+  }
+  return null;
+}
+
+function selectPay(id) {
+  selectedPay = id;
+  renderPayMethods();
+  updatePayBtn();
+}
+
+function renderOrderSummary() {
+  var totals = cartTotals();
+  var subEl = document.getElementById('co-subtotal');
+  var gstEl = document.getElementById('co-gst');
+  var totalEl = document.getElementById('co-total');
+  if (subEl) subEl.textContent = fmtMoney(totals.subtotal);
+  if (gstEl) gstEl.textContent = fmtMoney(totals.gst);
+  if (totalEl) totalEl.textContent = fmtMoney(totals.total);
+  updatePayBtn();
+}
+
+function updatePayBtn() {
+  var btn = document.getElementById('pay-btn');
+  if (!btn) return;
+  var totals = cartTotals();
+  btn.textContent = t('checkout.pay') + ' ' + fmtMoney(totals.total);
+}
+
+function openCheckout() {
+  if (cart.length === 0) return;
+  closeCart();
+  var overlay = document.getElementById('checkout-overlay');
+  if (!overlay) return;
+  document.getElementById('checkout-form').hidden = false;
+  document.getElementById('checkout-success').hidden = true;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderOrderSummary();
+  renderPayMethods();
+}
+
+function closeCheckout() {
+  var overlay = document.getElementById('checkout-overlay');
+  if (overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+var PaymentService = {
+  createOrder: function (orderData) {
+    return new Promise(function (resolve) {
+      setTimeout(function () {
+        resolve({ orderId: 'SMT-' + Date.now(), amount: orderData.amount, currency: CURRENCY, status: 'pending' });
+      }, 500);
+    });
+  },
+  initiatePayment: function (method, orderId) {
+    return new Promise(function (resolve) {
+      setTimeout(function () {
+        var type = (method === 'paynow') ? 'qr' : ((method === 'alipay' || method === 'wechat' || method === 'paypal') ? 'redirect' : 'token');
+        resolve({ type: type, orderId: orderId });
+      }, 800);
+    });
+  },
+  checkPaymentStatus: function (orderId) {
+    return new Promise(function (resolve) {
+      setTimeout(function () {
+        resolve({ status: 'success', transactionId: 'txn_' + String(orderId).slice(-6), orderId: orderId });
+      }, 1500);
+    });
+  }
+};
+
+function saveOrder(orderData) {
+  try {
+    var orders = JSON.parse(localStorage.getItem('smt-orders') || '[]');
+    orders.push(orderData);
+    localStorage.setItem('smt-orders', JSON.stringify(orders));
+  } catch (e) {}
+}
+
+function showPaymentSuccess(orderData) {
+  document.getElementById('checkout-form').hidden = true;
+  document.getElementById('checkout-success').hidden = false;
+  document.getElementById('success-order-id').textContent = orderData.orderId;
+}
+
+function placeOrder(e) {
+  if (e) e.preventDefault();
+  var form = document.getElementById('checkout-form');
+  var btn = document.getElementById('pay-btn');
+  var get = function (name) {
+    var el = form.querySelector('[name="' + name + '"]');
+    return el ? el.value.trim() : '';
+  };
+
+  var name = get('name'), email = get('email'), phone = get('phone');
+  var address = get('address'), city = get('city'), postal = get('postal');
+  var country = get('country') || 'OTHER';
+
+  if (!name || !email || !phone || !address || !city) {
+    showToast(t('checkout.required'));
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showToast(t('checkout.invalidEmail'));
+    return;
+  }
+  var method = getPayMethod(selectedPay);
+  if (method && method.requiresCard) {
+    if (!get('cardNumber') || !get('cardExpiry') || !get('cardCvc')) {
+      showToast(t('checkout.required'));
+      return;
+    }
+  }
+
+  var totals = cartTotals();
+  var orderData = {
+    items: cart.map(function (item) {
+      var tier = getTier(item.tierId);
+      return { productId: item.productId, tierId: item.tierId, quantity: item.quantity, price: tier ? tier.price : 0 };
+    }),
+    amounts: { subtotal: totals.subtotal, tax: totals.gst, total: totals.total, currency: CURRENCY },
+    paymentMethod: selectedPay,
+    customer: { name: name, email: email, phone: phone, address: address, city: city, postal: postal, country: country },
+    createdAt: new Date().toISOString()
+  };
+
+  btn.disabled = true;
+  var originalText = btn.textContent;
+  btn.textContent = t('checkout.processing');
+
+  PaymentService.createOrder(orderData.amounts).then(function (created) {
+    return PaymentService.initiatePayment(selectedPay, created.orderId).then(function () {
+      return PaymentService.checkPaymentStatus(created.orderId).then(function (paid) {
+        orderData.orderId = created.orderId;
+        orderData.payment = { status: paid.status, transactionId: paid.transactionId, paidAt: new Date().toISOString() };
+        saveOrder(orderData);
+        cart = [];
+        renderCart();
+        updateCartCount();
+        showPaymentSuccess(orderData);
+      });
+    });
+  }).catch(function () {
+    btn.disabled = false;
+    btn.textContent = originalText;
+    showToast(t('checkout.required'));
+  });
+}
+
+document.addEventListener('click', function (e) {
+  var tierBtn = e.target.closest('.tier-btn[data-tier]');
+  if (tierBtn) {
+    addToCart(tierBtn.getAttribute('data-tier'));
+    return;
+  }
+  var cartBtn = e.target.closest('#cart-btn');
+  if (cartBtn) { openCart(); return; }
+  var cartClose = e.target.closest('#cart-close');
+  if (cartClose) { closeCart(); return; }
+  var overlay = e.target.closest('#cart-overlay');
+  if (overlay) { closeCart(); return; }
+  var co = e.target.closest('#cart-checkout');
+  if (co) { openCheckout(); return; }
+  var coClose = e.target.closest('#checkout-close');
+  if (coClose) { closeCheckout(); return; }
+  var soClose = e.target.closest('#success-close');
+  if (soClose) { closeCheckout(); return; }
+  var coOverlay = e.target.closest('#checkout-overlay');
+  if (coOverlay && e.target === coOverlay) { closeCheckout(); return; }
+});
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    closeCart();
+    closeCheckout();
+  }
+});
+
+document.getElementById('checkout-form').addEventListener('submit', placeOrder);
+</script>
+
+<!-- GSAP 3.15.0（免费商用许可，版本锁定） -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script>
+/* ============================================================
+   Ocean Wave v2.1 — GSAP 海洋动效升级
+   ============================================================ */
+(function () {
+  if (typeof gsap === 'undefined') return; // CDN 未加载时页面保持静态可浏览
+
+  gsap.registerPlugin(ScrollTrigger);
+  var mm = gsap.matchMedia();
+
+  // 减弱动态：保持全部可见，不做动画
+  mm.add('(prefers-reduced-motion: reduce)', function () {
+    var clearList = [
+      '.hero-badge', '.hero-title', '.hero-subtitle', '.hero-cta-group', '.hero-stats',
+      '.hero-product-showcase', '.floating-element', '.cred-main-card', '.cert-card'
+    ].filter(function (sel) { return document.querySelector(sel) !== null; });
+    if (clearList.length) gsap.set(clearList, { clearProps: 'all' });
+  });
+
+  mm.add('(prefers-reduced-motion: no-preference)', function () {
+    var has = function (sel) { return document.querySelector(sel) !== null; };
+
+    // 1. Hero 入场编排
+    var heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    var heroSeq = [
+      ['.hero-badge', { y: 16, autoAlpha: 0, duration: 0.6 }],
+      ['.hero-title', { y: 24, autoAlpha: 0, duration: 0.8 }, '-=0.3'],
+      ['.hero-subtitle', { y: 14, autoAlpha: 0, duration: 0.6 }, '-=0.45'],
+      ['.hero-cta-group', { y: 12, autoAlpha: 0, duration: 0.55 }, '-=0.4'],
+      ['.hero-stats', { y: 12, autoAlpha: 0, duration: 0.55 }, '-=0.35'],
+      ['.hero-product-showcase', { scale: 0.94, autoAlpha: 0, duration: 0.9 }, '-=0.75'],
+      ['.floating-element', { autoAlpha: 0, duration: 0.45, stagger: 0.1 }, '-=0.45']
+    ];
+    heroSeq.forEach(function (item) {
+      if (has(item[0])) heroTl.from(item[0], item[1], item[2]);
+    });
+
+    // 2. 全局背景缓慢漂移（滚动视差）
+    if (has('.ocean-wave-bg')) {
+      gsap.to('.ocean-wave-bg', {
+        yPercent: 8, ease: 'none',
+        scrollTrigger: { trigger: document.body, start: 'top top', end: 'max', scrub: 1.2 }
+      });
+    }
+
+    // 3. Hero 区视差：波浪与产品随滚动以不同速度移动
+    if (has('.hero-waves')) {
+      gsap.to('.hero-waves', {
+        yPercent: -10, ease: 'none',
+        scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1 }
+      });
+    }
+    if (has('.hero-product-showcase')) {
+      gsap.to('.hero-product-showcase', {
+        yPercent: 8, ease: 'none',
+        scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1.2 }
+      });
+    }
+
+    // 4. 证书墙「潮水揭开」入场
+    if (has('.cred-main-grid')) {
+      gsap.from('.cred-main-card', {
+        y: 48, autoAlpha: 0, duration: 0.9, ease: 'power3.out', stagger: 0.16, clearProps: 'all',
+        scrollTrigger: { trigger: '.cred-main-grid', start: 'top 76%' }
+      });
+    }
+    if (has('.cert-grid')) {
+      gsap.from('.cert-card', {
+        y: 32, autoAlpha: 0, duration: 0.7, ease: 'power3.out', stagger: 0.08, clearProps: 'all',
+        scrollTrigger: { trigger: '.cert-grid', start: 'top 82%' }
+      });
+    }
+
+    // 5. 产品区「幕布覆盖」：面板升起 + 三张卡片依次浮现（仅首页存在该区块时）
+    if (document.querySelector('.products-pin')) {
+      var productsTl = gsap.timeline({
+        defaults: { ease: 'power2.out' },
+        scrollTrigger: {
+          trigger: '.products-pin',
+          start: 'top bottom',
+          end: 'top top',
+          scrub: 1
+        }
+      });
+      productsTl
+        .fromTo('.products-panel', { yPercent: 100 }, { yPercent: 0, ease: 'none', duration: 1 }, 0)
+        .from('.tier-card', { y: 42, autoAlpha: 0, duration: 0.3, stagger: 0.1, clearProps: 'all' }, 0.42);
+    }
+
+    // 6. 布局/字体加载完成后重算滚动位置
+    var refresh = function () { ScrollTrigger.refresh(); };
+    window.addEventListener('load', refresh);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+  });
+})();
+</script>
+</body>
+</html>

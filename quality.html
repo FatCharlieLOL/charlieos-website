@@ -3029,6 +3029,113 @@ body { background: var(--ivory); color: var(--ink); }
   .company-grid { grid-template-columns: 1fr; }
 }
 
+/* ============ v2.7 优化：纵向分屏 + 字体修正 + 官方核验链接 + 研发叙事 ============ */
+@keyframes page-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+body { animation: page-enter 0.55s ease both; }
+
+html { scroll-snap-type: y proximity; }
+
+.section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.section > .container { width: 100%; }
+#patent, #awards, #certifications, #meaning, #rd { padding-top: 6rem; padding-bottom: 6rem; }
+
+/* 专利号 / 证书编号：清晰无衬线 + 等宽数字 */
+#patent .section-title,
+.cred-card-title small,
+.cert-sub,
+.qual-meta {
+  font-family: var(--font-primary) !important;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.045em;
+}
+
+/* 官方核验链接 */
+.cred-verify {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold-deep);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.cred-verify:hover { color: var(--sea-deep); border-color: currentColor; }
+
+.cert-verify-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem 1.1rem;
+  margin-top: 1.4rem;
+  font-size: 0.8rem;
+  color: rgba(18, 41, 62, 0.55);
+}
+.cert-verify-row a {
+  color: var(--gold-deep);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+.cert-verify-row a:hover { color: var(--sea-deep); border-color: currentColor; }
+
+/* 研发叙事（替换“谁在背后支持 SMT”） */
+.rd-section { background: linear-gradient(180deg, rgba(18, 58, 71, 0.04), rgba(185, 150, 76, 0.07)); }
+.rd-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.rd-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(18, 58, 71, 0.08);
+  border-radius: 22px;
+  padding: 2rem 1.8rem;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.rd-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-medium); }
+.rd-card .rd-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(185, 150, 76, 0.16), rgba(185, 150, 76, 0.05));
+  color: var(--gold-deep);
+  margin-bottom: 1.1rem;
+}
+.rd-card .rd-icon svg { width: 22px; height: 22px; }
+.rd-card h3 {
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--sea-deep);
+  margin-bottom: 0.55rem;
+}
+.rd-card p { font-size: 0.92rem; line-height: 1.65; color: rgba(18, 41, 62, 0.72); }
+
+@media (max-width: 900px) {
+  .rd-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .section { min-height: auto; }
+}
+
 </style>
 </head>
 
@@ -3121,6 +3228,10 @@ body { background: var(--ivory); color: var(--ink); }
           <p data-i18n="cred.patentBody">SMT 纳米级小分子活性肽 — nano-scale micro-molecule active peptide technology protected by a China national invention patent.</p>
           <p class="qual-meta" data-i18n="cred.patentMeta">SMT Peptides · Case No. 1906-02870</p>
           <p class="qual-note" data-i18n="qual.patentNote">A granted invention patent means the core technology has passed a strict examination of novelty, inventiveness and practical applicability.</p>
+          <div class="cred-verify-row" style="justify-content:flex-start">
+            <a href="https://xinsanban.eastmoney.com/Article/NoticeContent?id=AN201712191067871952" target="_blank" rel="noopener nofollow" data-i18n="cred.verifyPatent">Official Patent Record ↗</a>
+            <a href="https://cpquery.cponline.cnipa.gov.cn/" target="_blank" rel="noopener nofollow" data-i18n="cred.verifyCnipa">Search on CNIPA ↗</a>
+          </div>
         </div>
       </div>
     </div>
@@ -3145,6 +3256,7 @@ body { background: var(--ivory); color: var(--ink); }
           <div class="cred-card-body">
             <h3 class="cred-card-title"><span data-i18n="cred.awardTitle">Technology for Good</span><small data-i18n="cred.awardSub">2024 Award Honouree</small></h3>
             <p class="cred-card-text" data-i18n="cred.awardBody">Recognised at the 2024 Technology for Good awards for bringing science-backed cellular wellness to communities.</p>
+            <a class="cred-verify" href="https://www.brandsforgood.asia/2024-winners/sheng-peptide-biotechnology-priscilla-zhou-chuan-yu" target="_blank" rel="noopener nofollow" data-i18n="cred.verifyAward">Official Award Page ↗</a>
           </div>
         </article>
         <article class="cred-main-card">
@@ -3160,6 +3272,7 @@ body { background: var(--ivory); color: var(--ink); }
           <div class="cred-card-body">
             <h3 class="cred-card-title"><span data-i18n="story.awardTitle">2024 Channel 8 Singapore</span><small data-i18n="story.awardSub">Recognised for wellness innovation</small></h3>
             <p class="cred-card-text" data-i18n="story.tl3">Honoured at the Channel 8 Singapore awards for innovation in wellness.</p>
+            <a class="cred-verify" href="https://www.mewatch.sg/channel/8" target="_blank" rel="noopener nofollow" data-i18n="cred.verifyChannel">Channel 8 Official Site ↗</a>
           </div>
         </article>
       </div>
@@ -3216,6 +3329,12 @@ body { background: var(--ivory); color: var(--ink); }
           </div>
         </a>
       </div>
+      <div class="cert-verify-row">
+        <span data-i18n="cred.verifyLabel">Official verification:</span>
+        <a href="https://www.tuvsud.com/en-sg/customer-hub/certificate-finder" target="_blank" rel="noopener nofollow" data-i18n="cred.verifyTuv">TÜV SÜD Certificate Finder</a>
+        <a href="https://www.sgs.com/en-hk/verify-sgs-documents-form" target="_blank" rel="noopener nofollow" data-i18n="cred.verifySgs">SGS Document Verification</a>
+        <span data-i18n="cred.verifyNote">COA / MSDS have no public lookup portal — contact our team to verify a report number.</span>
+      </div>
     </div>
   </section>
 
@@ -3251,23 +3370,43 @@ body { background: var(--ivory); color: var(--ink); }
     </div>
   </section>
 
-  <!-- ============ 公司信息 ============ -->
-  <section class="section company-section" id="company">
+  <!-- ============ 12 年研发叙事（v2.7 替换“谁在背后支持 SMT”） ============ -->
+  <section class="section rd-section" id="rd">
     <div class="container">
-      <div class="company-card reveal">
-        <span class="section-label" data-i18n="qual.operatorEyebrow">Company</span>
-        <h2 class="section-title" data-i18n="qual.operatorTitle">Who Stands Behind SMT</h2>
-        <div class="company-grid">
-          <div>
-            <h4 data-i18n="qual.operatorLabel">Operator</h4>
-            <p>Sheng Peptide Biotechnology (S) Pte Ltd</p>
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="rd.eyebrow">12 Years of R&amp;D</span>
+        <h2 class="section-title" data-i18n="rd.title">Refined Over a Decade of Research</h2>
+        <p class="section-sub" data-i18n="rd.sub">SMT is not a quick product — it is the result of more than 12 years of continuous research, from a single deep-sea strain to a precision nano-peptide.</p>
+      </div>
+      <div class="rd-grid stagger-container">
+        <article class="rd-card stagger-item">
+          <div class="rd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v5.5L4.5 18a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 8.5V3"/><path d="M7.5 14h9"/></svg>
           </div>
-          <div>
-            <h4 data-i18n="qual.manufacturerLabel">Production &amp; Testing</h4>
-            <p>True Peptide Biotechnology (Dalian) Co., Ltd.</p>
+          <h3 data-i18n="rd.c1title">12+ Years of R&amp;D</h3>
+          <p data-i18n="rd.c1body">Patented in 2012 and officially launched in 2019 — the technology behind SMT was refined for more than a decade before reaching the market.</p>
+        </article>
+        <article class="rd-card stagger-item">
+          <div class="rd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M6 10.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/><path d="M2 18h20"/></svg>
           </div>
-        </div>
-        <a href="index.html" class="btn btn-primary" data-i18n="qual.homeBtn">Back to Homepage</a>
+          <h3 data-i18n="rd.c2title">Academic Collaboration</h3>
+          <p data-i18n="rd.c2body">Research partnership with Changchun University of Chinese Medicine and the Jilin Provincial Ginseng Science Research Institute.</p>
+        </article>
+        <article class="rd-card stagger-item">
+          <div class="rd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>
+          </div>
+          <h3 data-i18n="rd.c3title">Published Research</h3>
+          <p data-i18n="rd.c3body">Peer-reviewed paper on the PI3K-Akt signalling pathway in insomnia, first published online in the Chinese Journal of Hospital Pharmacy (2024).</p>
+        </article>
+        <article class="rd-card stagger-item">
+          <div class="rd-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4.6v9L12 20l-8-4.6v-9z"/><path d="M12 6.5v11M8.5 8.2l7 3.6"/></svg>
+          </div>
+          <h3 data-i18n="rd.c4title">Precision Nano-Peptide</h3>
+          <p data-i18n="rd.c4body">2–4 peptide chains with ≥99% below 1000 Da and total amino acid content of 99.21% — verified by independent laboratories.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -3612,7 +3751,7 @@ var siteI18n = {
   'cred.patentAlt': { en: 'SMT 纳米级小分子活性肽 中国发明专利证书 ZL201210517035.3', tw: 'SMT 奈米級小分子活性胜肽 中國發明專利證書 ZL201210517035.3' },
   'cred.patentTitle': { en: 'ZL201210517035.3', tw: 'ZL201210517035.3' },
   'cred.patentSub': { en: 'Invention Patent · 发明专利', tw: '發明專利' },
-  'cred.patentBody': { en: 'SMT 纳米级小分子活性肽 — nano-scale micro-molecule active peptide technology protected by a China national invention patent.', tw: 'SMT 奈米級小分子活性胜肽——受中國國家發明專利保護的奈米級微小分子胜肽技術。' },
+  'cred.patentBody': { en: 'SMT nano-scale micro-molecule active peptide — produced through enzymatic hydrolysis powered by a patented collagenase-producing strain (China invention patent).', tw: 'SMT 奈米級小分子活性胜肽——透過專利產膠原蛋白酶菌株驅動的酵素水解製程生產（中國發明專利）。' },
   'cred.patentMeta': { en: 'SMT Peptides · Case No. 1906-02870', tw: 'SMT 胜肽 · 案號 1906-02870' },
   'cred.awardBadge': { en: '2024 Honouree', tw: '2024 獲獎者' },
   'cred.awardAlt': { en: 'SMT 生命肽 2024 Technology for Good 获奖证书', tw: 'SMT 生命胜肽 2024 科技向善獲獎證書' },
@@ -3622,9 +3761,17 @@ var siteI18n = {
   'cred.awardMeta': { en: 'Sheng Peptide Biotechnology (S) Pte Ltd', tw: 'Sheng Peptide Biotechnology (S) Pte Ltd' },
   'cred.certLabel': { en: 'Official Certifications', tw: '官方認證' },
   'cred.seeAll': { en: 'View All Credentials', tw: '查看完整資質' },
+  'cred.verifyLabel': { en: 'Official verification:', tw: '官方核驗：' },
+  'cred.verifyPatent': { en: 'Official Patent Record ↗', tw: '官方專利公告 ↗' },
+  'cred.verifyCnipa': { en: 'Search on CNIPA ↗', tw: '中國國家知識產權局查詢 ↗' },
+  'cred.verifyAward': { en: 'Official Award Page ↗', tw: '官方獲獎頁面 ↗' },
+  'cred.verifyChannel': { en: 'Channel 8 Official Site ↗', tw: '頻道8 官方網站 ↗' },
+  'cred.verifyTuv': { en: 'TÜV SÜD Certificate Finder', tw: 'TÜV SÜD 證書查詢' },
+  'cred.verifySgs': { en: 'SGS Document Verification', tw: 'SGS 文件核驗' },
+  'cred.verifyNote': { en: 'COA / MSDS have no public lookup portal — contact our team to verify a report number.', tw: 'COA / MSDS 無公開查詢入口——可聯繫我們的團隊核驗報告編號。' },
   'cred.view': { en: '查看报告', tw: '查看報告' },
   'cred.cert1.name': { en: 'TÜV SÜD PSB', tw: 'TÜV SÜD PSB' },
-  'cred.cert1.sub': { en: 'Amino Acid Analysis · 2023', tw: '氨基酸檢測 · 2023' },
+  'cred.cert1.sub': { en: 'Amino Acid Analysis · 2023 · No. 7191299228.CHM23.TYF', tw: '氨基酸檢測 · 2023 · 編號 7191299228.CHM23.TYF' },
   'cred.cert1Alt': { en: 'TÜV SÜD 氨基酸检测报告', tw: 'TÜV SÜD 氨基酸檢測報告' },
   'cred.cert2.name': { en: 'TÜV SÜD PSB', tw: 'TÜV SÜD PSB' },
   'cred.cert2.sub': { en: 'Heavy Metal Safety · 2022', tw: '重金屬安全檢測 · 2022' },
@@ -3633,7 +3780,7 @@ var siteI18n = {
   'cred.cert3.sub': { en: 'Quality Test Report · 2023', tw: '品質檢測報告 · 2023' },
   'cred.cert3Alt': { en: 'SGS 检测报告', tw: 'SGS 檢測報告' },
   'cred.cert4.name': { en: 'Certificate of Analysis', tw: '分析證書' },
-  'cred.cert4.sub': { en: 'COA · Dec 2023', tw: 'COA · 2023 年 12 月' },
+  'cred.cert4.sub': { en: 'COA · Dec 2023 · No. HTHZ23000085', tw: 'COA · 2023 年 12 月 · 編號 HTHZ23000085' },
   'cred.cert4Alt': { en: 'COA 分析证书', tw: 'COA 分析證書' },
   'cred.cert5.name': { en: 'MSDS', tw: 'MSDS' },
   'cred.cert5.sub': { en: 'Material Safety Data Sheet · 2023', tw: '物質安全資料表 · 2023' },
@@ -3831,12 +3978,12 @@ var siteI18n = {
   'qual.cta2': { en: 'View Certifications', tw: '查看認證' },
   'qual.patentTitle': { en: 'ZL201210517035.3', tw: 'ZL201210517035.3' },
   'qual.patentName': { en: 'Nano-Scale Micro-Molecule Active Peptide Technology', tw: '奈米級小分子活性胜肽技術' },
-  'qual.patentNote': { en: 'A granted invention patent means the core technology has passed a strict examination of novelty, inventiveness and practical applicability.', tw: '獲得發明專利代表核心技術已通過新穎性、創造性與實用性的嚴格審查。' },
+  'qual.patentNote': { en: 'The patent protects the collagenase-producing microbial strain (Serratia entomophila DLW-22) used in SMT\u2019s enzymatic production — the enzyme that breaks down collagen into nano-scale active peptides.', tw: '此專利保護產膠原蛋白酶之微生物菌株（嗜蟲沙雷氏菌 DLW-22）——該酵素為 SMT 酵素水解製程的核心，將膠原蛋白分解為奈米級活性胜肽。' },
   'qual.awardsEyebrow': { en: 'Awards', tw: '獎項' },
   'qual.awardsTitle': { en: 'Recognised for Wellness Innovation', tw: '健康創新獲肯定' },
   'qual.channelBadge': { en: 'Channel 8', tw: '頻道8' },
   'qual.certTitle': { en: 'Independently Tested', tw: '獨立檢測' },
-  'qual.certSub': { en: 'Every batch is tested by independent laboratories. Click any report to view the original PDF.', tw: '每批次均由獨立實驗室檢測。點擊任一報告可查看原始 PDF。' },
+  'qual.certSub': { en: 'Every batch is tested by independent laboratories. Click any report to view the original PDF, or verify it with the issuing body below.', tw: '每批次均由獨立實驗室檢測。點擊任一報告可查看原始 PDF，亦可透過下方發證機構核驗。' },
   'qual.meaningEyebrow': { en: 'Plain Language', tw: '白話解說' },
   'qual.meaningTitle': { en: 'Why These Credentials Matter', tw: '為什麼這些認證重要' },
   'qual.meaningTuv': { en: 'An independent German testing body verified the amino acid profile and heavy metal safety (As/Cd/Pb/Hg <0.1 ppm, within HSA limits).', tw: '德國獨立檢測機構驗證氨基酸組成與重金屬安全（As/Cd/Pb/Hg <0.1 ppm，符合 HSA 限值）。' },
@@ -3849,6 +3996,17 @@ var siteI18n = {
   'qual.operatorLabel': { en: 'Operator', tw: '營運方' },
   'qual.manufacturerLabel': { en: 'Production & Testing', tw: '生產與送檢' },
   'qual.homeBtn': { en: 'Back to Homepage', tw: '返回首頁' },
+  'rd.eyebrow': { en: '12 Years of R&D', tw: '12 年研發' },
+  'rd.title': { en: 'Refined Over a Decade of Research', tw: '十年磨一劍的研發沉澱' },
+  'rd.sub': { en: 'SMT is not a quick product — it is the result of more than 12 years of continuous research, from a single deep-sea strain to a precision nano-peptide.', tw: 'SMT 不是速成產品——從一株深海菌株到精準奈米胜肽，背後是超過 12 年的持續研發。' },
+  'rd.c1title': { en: '12+ Years of R&D', tw: '12+ 年研發' },
+  'rd.c1body': { en: 'Patented in 2012 and officially launched in 2019 — the technology behind SMT was refined for more than a decade before reaching the market.', tw: '2012 年獲得專利、2019 年正式投產——SMT 背後的技術在上市前歷經超過十年的打磨。' },
+  'rd.c2title': { en: 'Academic Collaboration', tw: '高校科研合作' },
+  'rd.c2body': { en: 'Research partnership with Changchun University of Chinese Medicine and the Jilin Provincial Ginseng Science Research Institute.', tw: '與長春中醫藥大學、吉林省人參科學研究院展開科研合作。' },
+  'rd.c3title': { en: 'Published Research', tw: '發表學術論文' },
+  'rd.c3body': { en: 'Peer-reviewed paper on the PI3K-Akt signalling pathway in insomnia, first published online in the Chinese Journal of Hospital Pharmacy (2024).', tw: '關於失眠 PI3K-Akt 分子機制的同行評審論文，2024 年於《中國醫院藥學雜誌》網路首發。' },
+  'rd.c4title': { en: 'Precision Nano-Peptide', tw: '精準奈米小分子胜肽' },
+  'rd.c4body': { en: '2–4 peptide chains with ≥99% below 1000 Da and total amino acid content of 99.21% — verified by independent laboratories.', tw: '2–4 肽鏈，分子量 1000 Da 以下占比 ≥99%，總胺基酸含量 99.21%——經獨立實驗室驗證。' },
   'meta.titleProduct': { en: "Sheng Peptide Biotechnology — Nano Active Peptide Science & Products", tw: 'Sheng Peptide Biotechnology — 奈米活性胜肽科學與產品' },
   'meta.titleQuality': { en: "Sheng Peptide Biotechnology — Trust & Quality", tw: 'Sheng Peptide Biotechnology — 信任與品質' }
 

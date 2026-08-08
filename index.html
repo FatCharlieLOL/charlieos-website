@@ -339,18 +339,30 @@ ul { list-style: none; }
 .hero-stats {
   display: flex;
   gap: 2.5rem;
+  align-items: flex-start;
 }
 
 .hero-stats .mini-stat strong {
+  display: block;
+  min-height: 1.9rem;
+  line-height: 1;
+  width: 6rem;
   font-family: var(--font-primary);
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--teal-light);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 .hero-stats .mini-stat span {
   display: block;
+  margin-top: 0.5rem;
+  width: 6rem;
   font-size: 0.8rem;
+  line-height: 1.4;
   color: rgba(240, 248, 255, 0.6);
+  min-height: 2.2em;
 }
 
 /* --- 产品展示区（居中） --- */
@@ -364,15 +376,48 @@ ul { list-style: none; }
 .product-image-wrapper {
   position: relative;
   z-index: 2;
-  animation: product-float 6s var(--ease-spring) infinite;
-  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
+  width: min(300px, 62vw);
+  animation: product-float 7s var(--ease-spring) infinite;
+}
+
+.hero-bottle-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 47% 53% 51% 49% / 44% 46% 54% 56%;
+  border: 1px solid rgba(185, 150, 76, 0.32);
+  box-shadow:
+    0 30px 70px rgba(6, 18, 26, 0.42),
+    inset 0 0 60px rgba(255, 255, 255, 0.16),
+    0 0 0 10px rgba(185, 150, 76, 0.06);
+  transform: perspective(1000px) rotateY(-9deg) rotate(1.5deg);
+  background: radial-gradient(120% 100% at 50% 0%, rgba(255, 246, 224, 0.72), rgba(225, 232, 230, 0.92) 68%, rgba(208, 216, 216, 0.96));
+}
+
+.hero-bottle-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1.08) translateY(-0.5%);
+  object-fit: cover;
+}
+
+.hero-bottle-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(70% 45% at 50% 8%, rgba(255, 244, 214, 0.42), transparent 62%),
+    radial-gradient(120% 90% at 50% 108%, rgba(18, 58, 71, 0.18), transparent 60%);
+  mix-blend-mode: soft-light;
 }
 
 .product-glow {
   position: absolute;
-  inset: -12%;
+  inset: -10%;
   z-index: 0;
-  background: radial-gradient(circle, rgba(0, 180, 216, 0.5) 0%, rgba(0, 180, 216, 0.18) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(217, 190, 126, 0.5) 0%, rgba(185, 150, 76, 0.18) 45%, transparent 70%);
   border-radius: 50%;
   animation: glow-pulse 3.5s ease-in-out infinite;
   pointer-events: none;
@@ -774,6 +819,32 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.8rem;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.testimonials-grid.testi-leaving {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.testimonials-grid .testi-card {
+  animation: testi-card-in 0.6s var(--ease-out-expo) both;
+}
+
+.testimonials-grid .testi-card:nth-child(2) { animation-delay: 0.08s; }
+.testimonials-grid .testi-card:nth-child(3) { animation-delay: 0.16s; }
+
+@keyframes testi-card-in {
+  from { opacity: 0; transform: translateY(22px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.testi-disclaimer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: rgba(240, 248, 255, 0.48);
 }
 
 .testimonial-card {
@@ -1382,6 +1453,39 @@ ul { list-style: none; }
 
 .cred-meta span { display: inline-flex; align-items: center; gap: 0.35rem; }
 .cred-meta svg { width: 14px; height: 14px; color: var(--teal-light); }
+
+.cred-verify {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--teal-light);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--duration-fast) ease, border-color var(--duration-fast) ease;
+}
+.cred-verify:hover { color: var(--foam-white); border-color: currentColor; }
+
+.cert-verify-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem 1.1rem;
+  margin-top: 1.3rem;
+  font-size: 0.78rem;
+  color: rgba(240, 248, 255, 0.5);
+}
+.cert-verify-row a {
+  color: var(--teal-light);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--duration-fast) ease, border-color var(--duration-fast) ease;
+}
+.cert-verify-row a:hover { color: var(--foam-white); border-color: currentColor; }
 
 .cert-strip-label {
   display: flex;
@@ -2749,48 +2853,9 @@ body { background: var(--ivory); color: var(--ink); }
       <div class="hero-product-showcase reveal-scale" style="transition-delay:0.4s">
         <div class="product-glow" aria-hidden="true"></div>
         <div class="product-image-wrapper">
-          <svg class="product-image" viewBox="0 0 260 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SMT Nano Active Peptide bottle" data-i18n-alt="hero.bottleAlt">
-            <defs>
-              <linearGradient id="bottleGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#0F3A47"/>
-                <stop offset="0.55" stop-color="#2E6E7E"/>
-                <stop offset="1" stop-color="#7FB8C4"/>
-              </linearGradient>
-              <linearGradient id="liquidGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#7FB8C4"/>
-                <stop offset="1" stop-color="#0F3A47"/>
-              </linearGradient>
-              <linearGradient id="capGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#D9BE7E"/>
-                <stop offset="1" stop-color="#B9964C"/>
-              </linearGradient>
-            </defs>
-            <!-- 地面阴影 -->
-            <ellipse cx="130" cy="386" rx="88" ry="12" fill="#B9964C" opacity="0.25"/>
-            <!-- 瓶盖 -->
-            <rect x="98" y="22" width="64" height="30" rx="9" fill="url(#capGrad)"/>
-            <rect x="104" y="52" width="52" height="14" rx="4" fill="#2E6E7E" opacity="0.9"/>
-            <!-- 瓶颈过渡 -->
-            <path d="M112 66 h36 l-3 22 h-30 z" fill="#2E6E7E"/>
-            <!-- 瓶身 -->
-            <path d="M105 96 h50 l10 44 v186 a20 20 0 0 1 -20 20 h-30 a20 20 0 0 1 -20 -20 v-186 z"
-                  fill="url(#bottleGrad)" stroke="#7FB8C4" stroke-width="2.5"/>
-            <!-- 液体 -->
-            <path d="M107 210 h46 v112 a18 18 0 0 1 -18 18 h-10 a18 18 0 0 1 -18 -18 z"
-                  fill="url(#liquidGrad)" opacity="0.92"/>
-            <!-- 瓶内气泡 -->
-            <circle cx="122" cy="280" r="4" fill="#90E0EF" opacity="0.7"/>
-            <circle cx="138" cy="252" r="3" fill="#90E0EF" opacity="0.6"/>
-            <circle cx="128" cy="226" r="2.2" fill="#90E0EF" opacity="0.55"/>
-            <circle cx="142" cy="300" r="2.6" fill="#90E0EF" opacity="0.5"/>
-            <!-- 标签 -->
-            <rect x="108" y="118" width="44" height="64" rx="10" fill="rgba(15,34,41,0.62)"/>
-            <text x="130" y="144" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="15" fill="#E8D9B0">SMT</text>
-            <path d="M112 158 q5 -4 10 0 t10 0" stroke="#D9BE7E" stroke-width="2" fill="none" stroke-linecap="round"/>
-            <text x="130" y="174" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#A9CBD2">NANO ACTIVE</text>
-            <!-- 高光 -->
-            <path d="M112 110 a8 8 0 0 1 8 -8 h2 v220 h-6 c-3 0 -4 -3 -4 -6 z" fill="#FFFFFF" opacity="0.10"/>
-          </svg>
+          <div class="hero-bottle-frame">
+            <img src="assets/products/hero-bottle.jpg" alt="SMT Nano Active Peptide bottle" data-i18n-alt="hero.bottleAlt" fetchpriority="high">
+          </div>
         </div>
         <div class="floating-element float-1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -3001,6 +3066,7 @@ body { background: var(--ivory); color: var(--ink); }
               <div class="cred-meta">
                 <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="cred.patentMeta">SMT Peptides · Case No. 1906-02870</span></span>
               </div>
+              <a class="cred-verify" href="https://xinsanban.eastmoney.com/Article/NoticeContent?id=AN201712191067871952" target="_blank" rel="noopener nofollow" data-i18n="cred.verifyPatent">Official Patent Record ↗</a>
             </div>
           </article>
 
@@ -3019,6 +3085,7 @@ body { background: var(--ivory); color: var(--ink); }
               <div class="cred-meta">
                 <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4.5-3 8-7 8-12a8 8 0 0 0-16 0c0 5 3.5 9 8 12z"/><path d="M9 12l2 2 4-4"/></svg><span data-i18n="cred.awardMeta">Sheng Peptide Biotechnology (S) Pte Ltd</span></span>
               </div>
+              <a class="cred-verify" href="https://www.brandsforgood.asia/2024-winners/sheng-peptide-biotechnology-priscilla-zhou-chuan-yu" target="_blank" rel="noopener nofollow" data-i18n="cred.verifyAward">Official Award Page ↗</a>
             </div>
           </article>
 
@@ -3067,6 +3134,12 @@ body { background: var(--ivory); color: var(--ink); }
               <span class="cert-link"><span data-i18n="cred.view">查看报告</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
             </div>
           </a>
+        </div>
+
+        <div class="cert-verify-row">
+          <span data-i18n="cred.verifyLabel">Official verification:</span>
+          <a href="https://www.tuvsud.com/en-sg/customer-hub/certificate-finder" target="_blank" rel="noopener nofollow" data-i18n="cred.verifyTuv">TÜV SÜD Certificate Finder</a>
+          <a href="https://www.sgs.com/en-hk/verify-sgs-documents-form" target="_blank" rel="noopener nofollow" data-i18n="cred.verifySgs">SGS Document Verification</a>
         </div>
 
         <p class="cred-more"><a href="quality.html" class="btn btn-primary" data-i18n="cred.seeAll">View All Credentials</a></p>
@@ -3139,72 +3212,8 @@ body { background: var(--ivory); color: var(--ink); }
         <span class="section-label" data-i18n="testi.label">Testimonials</span>
         <h2 class="section-title" data-i18n="testi.title">What Our Customers Say</h2>
       </div>
-      <div class="testimonials-grid stagger-container">
-
-        <article class="testimonial-card stagger-item">
-          <span class="quote-icon" aria-hidden="true">"</span>
-          <blockquote data-i18n="testi.quote1">
-            After three months, my energy is steadier and my skin looks noticeably brighter. The absorption really makes a difference — I actually feel the results.
-          </blockquote>
-          <div class="rating" aria-label="5 out of 5 stars" data-i18n-aria="testi.rating">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-          </div>
-          <div class="author-info">
-            <div class="avatar" style="--avatar-a:#48CAE4; --avatar-b:#0B3D6B;">CL</div>
-            <div>
-              <strong>Chen Ling</strong>
-              <span data-i18n="testi.role1">Verified Customer</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="testimonial-card stagger-item">
-          <span class="quote-icon" aria-hidden="true">"</span>
-          <blockquote data-i18n="testi.quote2">
-            As a clinician, I appreciate the science behind this formula. The nano-active peptide delivery is genuinely well designed for cellular uptake and efficacy.
-          </blockquote>
-          <div class="rating" aria-label="5 out of 5 stars" data-i18n-aria="testi.rating">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-          </div>
-          <div class="author-info">
-            <div class="avatar" style="--avatar-a:#FF6B6B; --avatar-b:#8B3A5E;">RT</div>
-            <div>
-              <strong>Dr. Rachel Tan</strong>
-              <span data-i18n="testi.role2">Clinical Nutritionist</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="testimonial-card stagger-item">
-          <span class="quote-icon" aria-hidden="true">"</span>
-          <blockquote data-i18n="testi.quote3">
-            Recovery after training has been dramatically faster. I'm 46 and training like I'm in my 30s again — the cellular repair really delivers.
-          </blockquote>
-          <div class="rating" aria-label="5 out of 5 stars" data-i18n-aria="testi.rating">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-          </div>
-          <div class="author-info">
-            <div class="avatar" style="--avatar-a:#00B4D8; --avatar-b:#1A6B8A;">AW</div>
-            <div>
-              <strong>Andrew Wong</strong>
-              <span data-i18n="testi.role3">Athletic Recovery</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
+      <div class="testimonials-grid stagger-container" id="testi-grid" aria-live="polite"></div>
+      <p class="testi-disclaimer" data-i18n="testi.disclaimer">Customer stories shared with permission. Individual results vary — this product is not intended to diagnose, treat, cure or prevent any disease.</p>
     </div>
   </section>
 
@@ -3573,13 +3582,20 @@ var siteI18n = {
 
   'testi.label': { en: 'Testimonials', tw: '客戶評價' },
   'testi.title': { en: 'What Our Customers Say', tw: '客戶怎麼說' },
-  'testi.quote1': { en: 'After three months, my energy is steadier and my skin looks noticeably brighter. The absorption really makes a difference — I actually feel the results.', tw: '三個月後，我的精力更穩定，肌膚明顯更明亮。吸收效果真的不同——我真切感受到成果。' },
-  'testi.quote2': { en: 'As a clinician, I appreciate the science behind this formula. The nano-active peptide delivery is genuinely well designed for cellular uptake and efficacy.', tw: '身為臨床醫師，我欣賞這款配方背後的科學。奈米活性胜肽傳輸在細胞吸收與功效上設計得相當出色。' },
-  'testi.quote3': { en: "Recovery after training has been dramatically faster. I'm 46 and training like I'm in my 30s again — the cellular repair really delivers.", tw: '訓練後的恢復明顯加快。我 46 歲，卻像 30 多歲時一樣訓練——細胞修護真的有效。' },
   'testi.rating': { en: '5 out of 5 stars', tw: '5 星好評' },
-  'testi.role1': { en: 'Verified Customer', tw: '真實客戶' },
-  'testi.role2': { en: 'Clinical Nutritionist', tw: '臨床營養師' },
-  'testi.role3': { en: 'Athletic Recovery', tw: '運動恢復' },
+  'testi.disclaimer': { en: 'Customer stories shared with permission. Individual results vary — this product is not intended to diagnose, treat, cure or prevent any disease.', tw: '客戶故事已獲同意分享。效果因人而異——本產品不適用於診斷、治療、治癒或預防任何疾病。' },
+  'testi.role1': { en: 'Verified Customer · Singapore', tw: '真實客戶 · 新加坡' },
+  'testi.role2': { en: 'Verified Customer · Singapore', tw: '真實客戶 · 新加坡' },
+  'testi.role3': { en: 'Verified Customer · Singapore', tw: '真實客戶 · 新加坡' },
+  'testi.r1q1': { en: 'My mother has been taking SMT for a while — she looks years younger, and even her hair has regained its dark colour.', tw: '我媽媽喝了一段時間的 SMT 生命肽，整個人看起來年輕很多，連頭髮都變黑了。' },
+  'testi.r1q2': { en: 'She is full of energy now — everyone who sees her notices the difference.', tw: '她現在精氣神十足，見到她的人都說她變年輕了。' },
+  'testi.r1name': { en: "Charlie's Mother", tw: 'Charlie 的媽媽' },
+  'testi.r2q1': { en: 'My latest blood test results came back really well — I feel SMT has played a part in that.', tw: '我最近的驗血報告成績很好，我覺得 SMT 在其中幫了很大的忙。' },
+  'testi.r2name': { en: 'Mr. Wu', tw: '鄔先生' },
+  'testi.r3q1': { en: 'My husband has been drinking SMT for 8 months — the help has been remarkable, and the topical application works wonderfully too.', tw: '我先生喝了 8 個月的 SMT，幫助真的很大；抹上的效果也非常好。' },
+  'testi.r3q2': { en: "It's truly been an unexpected blessing — his recovery has been much faster than we dared to hope.", tw: '這真的是意外的奇蹟，恢復得比我們預期的快很多。' },
+  'testi.r3q3': { en: 'Thank you for letting us discover such a wonderful product — we are truly grateful.', tw: '謝謝你們讓我們有機會認識到這麼好的產品，我們真的很感激。' },
+  'testi.r3name': { en: 'Ms. Ma Xiuyu', tw: '馬秀玉女士' },
 
   'cred.label': { en: 'Trust & Quality', tw: '信任與品質' },
   'cred.title': { en: 'Certified Excellence', tw: '認證卓越' },
@@ -3598,6 +3614,11 @@ var siteI18n = {
   'cred.awardMeta': { en: 'Sheng Peptide Biotechnology (S) Pte Ltd', tw: 'Sheng Peptide Biotechnology (S) Pte Ltd' },
   'cred.certLabel': { en: 'Official Certifications', tw: '官方認證' },
   'cred.seeAll': { en: 'View All Credentials', tw: '查看完整資質' },
+  'cred.verifyLabel': { en: 'Official verification:', tw: '官方核驗：' },
+  'cred.verifyPatent': { en: 'Official Patent Record ↗', tw: '官方專利公告 ↗' },
+  'cred.verifyAward': { en: 'Official Award Page ↗', tw: '官方獲獎頁面 ↗' },
+  'cred.verifyTuv': { en: 'TÜV SÜD Certificate Finder', tw: 'TÜV SÜD 證書查詢' },
+  'cred.verifySgs': { en: 'SGS Document Verification', tw: 'SGS 文件核驗' },
   'cred.view': { en: '查看报告', tw: '查看報告' },
   'cred.cert1.name': { en: 'TÜV SÜD PSB', tw: 'TÜV SÜD PSB' },
   'cred.cert1.sub': { en: 'Amino Acid Analysis · 2023', tw: '氨基酸檢測 · 2023' },
@@ -3751,6 +3772,7 @@ function applyLanguage(lang) {
   if (typeof renderPayMethods === 'function') renderPayMethods();
   if (typeof updatePayBtn === 'function') updatePayBtn();
   if (typeof renderOrderPage === 'function') renderOrderPage();
+  if (typeof renderTestimonials === 'function') renderTestimonials();
 
   // 语言切换会改变文字长度与布局，需要重算滚动触发位置
   if (window.ScrollTrigger) {
@@ -4180,6 +4202,122 @@ document.getElementById('checkout-form').addEventListener('submit', placeOrder);
     });
   }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
   sections.forEach(function (s) { spy.observe(s); });
+})();
+</script>
+
+<!-- ============ v2.7 客户评价自动轮换（真实客户，每批3条不重复） ============ -->
+<script>
+(function () {
+  var grid = document.getElementById('testi-grid');
+  if (!grid) return;
+
+  // 6 条真实客户语录（来自客户见证素材，疾病类表述已按合规要求弱化）
+  var POOL = [
+    { key: 'r1q1', name: 'r1name', initials: 'CM', a: '#D9BE7E', b: '#8A6A2F' },
+    { key: 'r1q2', name: 'r1name', initials: 'CM', a: '#C9A227', b: '#7A5A20' },
+    { key: 'r2q1', name: 'r2name', initials: 'MW', a: '#2E6E7E', b: '#123A47' },
+    { key: 'r3q1', name: 'r3name', initials: 'MX', a: '#B9964C', b: '#5E4420' },
+    { key: 'r3q2', name: 'r3name', initials: 'MX', a: '#8A6A2F', b: '#4A3618' },
+    { key: 'r3q3', name: 'r3name', initials: 'MX', a: '#A9CBD2', b: '#2E6E7E' }
+  ];
+
+  var STAR = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>';
+  var order = shuffle(POOL.slice());
+  var pos = 0;
+  var timer = null;
+  var started = false;
+
+  function shuffle(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+    }
+    return arr;
+  }
+
+  function batch() {
+    if (pos + 3 > order.length) {
+      var tail = order.slice(-3);
+      var fresh = shuffle(POOL.slice());
+      // 避免新一批与前一批重复超过1条（保证“尽量不重复”）
+      for (var tries = 0; tries < 6; tries++) {
+        var overlap = 0;
+        for (var i = 0; i < 3; i++) {
+          for (var j = 0; j < 3; j++) {
+            if (fresh[i].key === tail[j].key) overlap++;
+          }
+        }
+        if (overlap <= 1) break;
+        fresh = shuffle(POOL.slice());
+      }
+      order = fresh;
+      pos = 0;
+    }
+    var b = order.slice(pos, pos + 3);
+    pos += 3;
+    return b;
+  }
+
+  function card(item) {
+    var quote = t('testi.' + item.key) || '';
+    var name = t('testi.' + item.name) || '';
+    var role = t('testi.role1') || '';
+    return '<article class="testimonial-card testi-card">'
+      + '<span class="quote-icon" aria-hidden="true">"</span>'
+      + '<blockquote>' + quote + '</blockquote>'
+      + '<div class="rating" aria-label="5 out of 5 stars">' + STAR + STAR + STAR + STAR + STAR + '</div>'
+      + '<div class="author-info">'
+      + '<div class="avatar" style="--avatar-a:' + item.a + '; --avatar-b:' + item.b + ';">' + item.initials + '</div>'
+      + '<div><strong>' + name + '</strong><span>' + role + '</span></div>'
+      + '</div></article>';
+  }
+
+  function renderTestimonials() {
+    grid.classList.add('testi-leaving');
+    setTimeout(function () {
+      var items = batch();
+      grid.innerHTML = items.map(card).join('');
+      grid.classList.remove('testi-leaving');
+    }, 380);
+  }
+
+  function start() {
+    if (!started) {
+      started = true;
+      grid.innerHTML = batch().map(card).join('');
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!timer) timer = setInterval(renderTestimonials, 8000);
+  }
+
+  function stop() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  // 页面可见时才轮换
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) start(); else stop();
+      });
+    }, { threshold: 0.12 });
+    io.observe(grid);
+  } else {
+    start();
+  }
+
+  // 悬停暂停
+  grid.addEventListener('mouseenter', stop);
+  grid.addEventListener('mouseleave', function () {
+    if (document.visibilityState === 'visible') start();
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stop(); else if (started) start();
+  });
+
+  window.renderTestimonials = renderTestimonials;
+  // 首屏立即渲染第一批（避免滚动到时空白），可见性仅控制轮换计时器
+  start();
 })();
 </script>
 

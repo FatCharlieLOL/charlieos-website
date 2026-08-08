@@ -2936,6 +2936,24 @@ body { background: var(--ivory); color: var(--ink); }
   .action-panel { padding: 1.4rem 1.2rem 1.6rem; }
 }
 
+/* ============ v2.7 优化：页面与订单详情入场过渡，消除“闪一下” ============ */
+@keyframes page-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+body { animation: page-enter 0.55s ease both; }
+
+@keyframes panel-enter {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.order-detail-enter .order-card {
+  animation: panel-enter 0.55s var(--ease-out-expo) both;
+}
+.order-detail-enter .order-card:nth-child(2) { animation-delay: 0.06s; }
+.order-detail-enter .order-card:nth-child(3) { animation-delay: 0.12s; }
+.order-detail-enter .order-side .order-card { animation-delay: 0.1s; }
+
 </style>
 </head>
 
@@ -4467,8 +4485,21 @@ function lookup(orderId) {
   if (section) section.hidden = false;
   if (notFound) notFound.hidden = true;
   openPanel(null);
-  renderOrderPage();
-  if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // v2.7：短暂加载过渡后再渲染详情，避免“闪一下”
+  var orderMain = document.querySelector('.order-main');
+  var orderSide = document.querySelector('.order-side');
+  section.classList.remove('order-detail-enter');
+  [orderMain, orderSide].forEach(function (el) {
+    if (el) { el.style.transition = 'opacity 0.3s ease'; el.style.opacity = '0'; }
+  });
+  setTimeout(function () {
+    renderOrderPage();
+    [orderMain, orderSide].forEach(function (el) {
+      if (el) el.style.opacity = '1';
+    });
+    section.classList.add('order-detail-enter');
+    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 300);
 }
 
 // ---- 表单提交 ----

@@ -1222,7 +1222,285 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   12. 无障碍：减少动态效果
+   11b. 海洋升级：证书与专利高级展示墙
+   ============================================================ */
+.credentials-section {
+  position: relative;
+  background:
+    radial-gradient(900px 480px at 50% -8%, rgba(0, 180, 216, 0.12), transparent 62%),
+    rgba(6, 13, 24, 0.35);
+  padding-top: 0;
+}
+
+.credential-tide {
+  position: relative;
+  height: 90px;
+  margin: 0 -1.5rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.credential-tide svg {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 200%;
+  height: 100%;
+  animation: wave-flow 14s linear infinite;
+  will-change: transform;
+}
+
+.credentials-wall {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.cred-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.cred-main-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(144, 224, 239, 0.18);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              border-color var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo);
+  will-change: transform;
+}
+
+.cred-main-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 180, 216, 0.55);
+  box-shadow: var(--shadow-strong);
+}
+
+.cred-main-card--gold:hover {
+  border-color: rgba(255, 215, 0, 0.55);
+  box-shadow: 0 12px 48px rgba(255, 215, 0, 0.16);
+}
+
+.cred-img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.cred-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out-expo);
+}
+
+.cred-main-card:hover .cred-img { transform: scale(1.05); }
+
+.cred-img-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(6, 13, 24, 0.9) 100%);
+}
+
+.cred-badge {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(6, 13, 24, 0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--foam-white);
+}
+
+.cred-badge--gold {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.22), rgba(255, 215, 0, 0.08));
+  border-color: rgba(255, 215, 0, 0.55);
+  color: #FFE9A8;
+}
+
+.cred-badge svg { width: 14px; height: 14px; }
+
+.cred-card-body {
+  position: relative;
+  padding: 1.6rem 1.8rem 1.9rem;
+}
+
+.cred-card-title {
+  font-family: var(--font-primary);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--wave-white);
+  margin-bottom: 0.55rem;
+}
+
+.cred-card-title small {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-top: 0.35rem;
+}
+
+.cred-main-card--gold .cred-card-title small { color: #E6C26A; }
+
+.cred-card-text {
+  font-size: 0.95rem;
+  color: rgba(240, 248, 255, 0.72);
+  line-height: 1.65;
+}
+
+.cred-meta {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  font-size: 0.78rem;
+  color: rgba(240, 248, 255, 0.55);
+  letter-spacing: 0.03em;
+}
+
+.cred-meta span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.cred-meta svg { width: 14px; height: 14px; color: var(--teal-light); }
+
+.cert-strip-label {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 auto 1.6rem;
+  max-width: 720px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(240, 248, 255, 0.55);
+}
+
+.cert-strip-label::before,
+.cert-strip-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(144, 224, 239, 0.35));
+}
+
+.cert-strip-label::after {
+  background: linear-gradient(90deg, rgba(144, 224, 239, 0.35), transparent);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.1rem;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(144, 224, 239, 0.14);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--duration-normal) var(--ease-out-expo),
+              border-color var(--duration-normal) var(--ease-out-expo),
+              box-shadow var(--duration-normal) var(--ease-out-expo);
+  will-change: transform;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 180, 216, 0.5);
+  box-shadow: var(--shadow-medium);
+}
+
+.cert-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cert-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: saturate(0.92);
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.cert-card:hover .cert-thumb img { transform: scale(1.06); }
+
+.cert-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 1.1rem;
+}
+
+.cert-name {
+  font-family: var(--font-primary);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--wave-white);
+  line-height: 1.3;
+}
+
+.cert-sub {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: rgba(240, 248, 255, 0.55);
+  line-height: 1.5;
+}
+
+.cert-link {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--teal-light);
+  transition: color var(--duration-fast) ease, gap var(--duration-fast) ease;
+}
+
+.cert-link:hover { color: var(--foam-white); gap: 0.55rem; }
+.cert-link svg { width: 14px; height: 14px; }
+
+@media (max-width: 1024px) {
+  .cert-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .cred-main-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .cert-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .cert-name { font-size: 0.88rem; }
+  .cred-card-body { padding: 1.3rem 1.3rem 1.5rem; }
+}
+
+/* ============================================================
+  12. 无障碍：减少动态效果
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1279,17 +1557,17 @@ ul { list-style: none; }
   <section class="hero-section" id="hero">
     <div class="hero-grid">
       <div class="hero-content">
-        <span class="hero-badge reveal">Nano Active Peptide</span>
-        <h1 class="hero-title reveal" style="transition-delay:0.1s">Unlock Your Cells' Full Potential</h1>
-        <p class="hero-subtitle reveal" style="transition-delay:0.2s">
+        <span class="hero-badge">Nano Active Peptide</span>
+        <h1 class="hero-title">Unlock Your Cells' Full Potential</h1>
+        <p class="hero-subtitle">
           Sheng Peptide's nano-active peptide formula powers deep cellular renewal —
           12 years of research, 100% absorption, real results.
         </p>
-        <div class="hero-cta-group reveal" style="transition-delay:0.3s">
+        <div class="hero-cta-group">
           <a href="#process" class="btn btn-primary">Discover Now</a>
           <a href="#story" class="btn btn-secondary">Learn More</a>
         </div>
-        <div class="hero-stats reveal" style="transition-delay:0.4s">
+        <div class="hero-stats">
           <div class="mini-stat">
             <strong class="stat-value" data-count="12" data-suffix="+">0+</strong>
             <span>Years of R&amp;D</span>
@@ -1591,33 +1869,100 @@ ul { list-style: none; }
       <div class="section-header reveal">
         <span class="section-label">Trust &amp; Quality</span>
         <h2 class="section-title">Certified Excellence</h2>
-        <p class="section-sub">Transparency in every detail — our credentials and innovations are on the way.</p>
+        <p class="section-sub">Transparency in every detail — patents, awards and independent lab certifications.</p>
       </div>
-      <div class="credentials-grid stagger-container">
+      <div class="credential-tide" aria-hidden="true">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,45 C240,10 480,80 720,45 C960,10 1200,80 1440,45 L1440,90 L0,90 Z" fill="rgba(0,180,216,0.10)"/>
+          <path d="M0,55 C240,25 480,85 720,55 C960,25 1200,85 1440,55 L1440,90 L0,90 Z" fill="rgba(144,224,239,0.08)"/>
+        </svg>
+      </div>
 
-        <!-- PLACEHOLDER: license -->
-        <div class="placeholder-card stagger-item">
-          <div class="placeholder-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-              <path d="M14 3v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/>
-            </svg>
-          </div>
-          <h3>Company Licenses &amp; Qualifications</h3>
-          <p>Certifications coming soon</p>
-          <span class="placeholder-badge">Coming Soon</span>
+      <div class="credentials-wall">
+
+        <div class="cred-main-grid">
+
+          <article class="cred-main-card">
+            <div class="cred-img-wrap">
+              <span class="cred-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 4.9 12c-.8.8-1 1.5-1 3h-7.8c0-1.5-.2-2.2-1-3A7 7 0 0 1 12 2z"/></svg>
+                China Invention Patent
+              </span>
+              <img class="cred-img" src="assets/credentials/patent.jpg" alt="SMT 纳米级小分子活性肽 中国发明专利证书 ZL201210517035.3" loading="lazy">
+              <div class="cred-img-fade"></div>
+            </div>
+            <div class="cred-card-body">
+              <h3 class="cred-card-title">ZL201210517035.3<small>Invention Patent · 发明专利</small></h3>
+              <p class="cred-card-text">SMT 纳米级小分子活性肽 — nano-scale micro-molecule active peptide technology protected by a China national invention patent.</p>
+              <div class="cred-meta">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>SMT Peptides · Case No. 1906-02870</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="cred-main-card cred-main-card--gold">
+            <div class="cred-img-wrap">
+              <span class="cred-badge cred-badge--gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 8 5-3 5 3-2-8"/></svg>
+                2024 Honouree
+              </span>
+              <img class="cred-img" src="assets/credentials/award.jpg" alt="SMT 生命肽 2024 Technology for Good 获奖证书" loading="lazy">
+              <div class="cred-img-fade"></div>
+            </div>
+            <div class="cred-card-body">
+              <h3 class="cred-card-title">Technology for Good<small>2024 Award Honouree</small></h3>
+              <p class="cred-card-text">Recognised at the 2024 Technology for Good awards for bringing science-backed cellular wellness to communities.</p>
+              <div class="cred-meta">
+                <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4.5-3 8-7 8-12a8 8 0 0 0-16 0c0 5 3.5 9 8 12z"/><path d="M9 12l2 2 4-4"/></svg>Sheng Peptide Biotechnology (S) Pte Ltd</span>
+              </div>
+            </div>
+          </article>
+
         </div>
 
-        <!-- PLACEHOLDER: patents -->
-        <div class="placeholder-card stagger-item">
-          <div class="placeholder-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 4.9 12c-.8.8-1 1.5-1 3h-7.8c0-1.5-.2-2.2-1-3A7 7 0 0 1 12 2z"/>
-            </svg>
-          </div>
-          <h3>Invention Patents</h3>
-          <p>Patent details coming soon</p>
-          <span class="placeholder-badge">Coming Soon</span>
+        <div class="cert-strip-label">Official Certifications</div>
+
+        <div class="cert-grid">
+          <a class="cert-card" href="assets/credentials/cert-tuv-amino.pdf" target="_blank" rel="noopener">
+            <div class="cert-thumb"><img src="assets/credentials/cert-tuv-amino.png" alt="TÜV SÜD 氨基酸检测报告" loading="lazy"></div>
+            <div class="cert-body">
+              <div class="cert-name">TÜV SÜD PSB</div>
+              <div class="cert-sub">Amino Acid Analysis · 2023</div>
+              <span class="cert-link">查看报告 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+            </div>
+          </a>
+          <a class="cert-card" href="assets/credentials/cert-tuv-metal.pdf" target="_blank" rel="noopener">
+            <div class="cert-thumb"><img src="assets/credentials/cert-tuv-metal.png" alt="TÜV SÜD 重金属检测报告" loading="lazy"></div>
+            <div class="cert-body">
+              <div class="cert-name">TÜV SÜD PSB</div>
+              <div class="cert-sub">Heavy Metal Safety · 2022</div>
+              <span class="cert-link">查看报告 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+            </div>
+          </a>
+          <a class="cert-card" href="assets/credentials/cert-sgs.pdf" target="_blank" rel="noopener">
+            <div class="cert-thumb"><img src="assets/credentials/cert-sgs.png" alt="SGS 检测报告" loading="lazy"></div>
+            <div class="cert-body">
+              <div class="cert-name">SGS</div>
+              <div class="cert-sub">Quality Test Report · 2023</div>
+              <span class="cert-link">查看报告 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+            </div>
+          </a>
+          <a class="cert-card" href="assets/credentials/cert-coa.pdf" target="_blank" rel="noopener">
+            <div class="cert-thumb"><img src="assets/credentials/cert-coa.png" alt="COA 分析证书" loading="lazy"></div>
+            <div class="cert-body">
+              <div class="cert-name">Certificate of Analysis</div>
+              <div class="cert-sub">COA · Dec 2023</div>
+              <span class="cert-link">查看报告 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+            </div>
+          </a>
+          <a class="cert-card" href="assets/credentials/cert-msds.pdf" target="_blank" rel="noopener">
+            <div class="cert-thumb"><img src="assets/credentials/cert-msds.png" alt="MSDS 安全数据表" loading="lazy"></div>
+            <div class="cert-body">
+              <div class="cert-name">MSDS</div>
+              <div class="cert-sub">Material Safety Data Sheet · 2023</div>
+              <span class="cert-link">查看报告 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+            </div>
+          </a>
         </div>
 
       </div>
@@ -1811,6 +2156,73 @@ if (navToggle && navMenu) {
 // --- 5. Footer 年份 ---
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>
+
+<!-- GSAP 3.15.0（免费商用许可，版本锁定） -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script>
+/* ============================================================
+   Ocean Wave v2.1 — GSAP 海洋动效升级
+   ============================================================ */
+(function () {
+  if (typeof gsap === 'undefined') return; // CDN 未加载时页面保持静态可浏览
+
+  gsap.registerPlugin(ScrollTrigger);
+  var mm = gsap.matchMedia();
+
+  // 减弱动态：保持全部可见，不做动画
+  mm.add('(prefers-reduced-motion: reduce)', function () {
+    gsap.set([
+      '.hero-badge', '.hero-title', '.hero-subtitle', '.hero-cta-group', '.hero-stats',
+      '.hero-product-showcase', '.floating-element', '.cred-main-card', '.cert-card'
+    ], { clearProps: 'all' });
+  });
+
+  mm.add('(prefers-reduced-motion: no-preference)', function () {
+    // 1. Hero 入场编排
+    var heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    heroTl
+      .from('.hero-badge', { y: 26, autoAlpha: 0, duration: 0.7 })
+      .from('.hero-title', { y: 36, autoAlpha: 0, duration: 0.85 }, '-=0.35')
+      .from('.hero-subtitle', { y: 26, autoAlpha: 0, duration: 0.7 }, '-=0.5')
+      .from('.hero-cta-group', { y: 20, autoAlpha: 0, duration: 0.6 }, '-=0.45')
+      .from('.hero-stats', { y: 20, autoAlpha: 0, duration: 0.6 }, '-=0.4')
+      .from('.hero-product-showcase', { scale: 0.86, autoAlpha: 0, duration: 1.0 }, '-=0.9')
+      .from('.floating-element', { autoAlpha: 0, duration: 0.5, stagger: 0.12 }, '-=0.5');
+
+    // 2. 全局背景缓慢漂移（滚动视差）
+    gsap.to('.ocean-wave-bg', {
+      yPercent: 8, ease: 'none',
+      scrollTrigger: { trigger: document.body, start: 'top top', end: 'max', scrub: 1.2 }
+    });
+
+    // 3. Hero 区视差：波浪与产品随滚动以不同速度移动
+    gsap.to('.hero-waves', {
+      yPercent: -22, ease: 'none',
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1 }
+    });
+    gsap.to('.hero-product-showcase', {
+      yPercent: 16, ease: 'none',
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1.2 }
+    });
+
+    // 4. 证书墙「潮水揭开」入场
+    gsap.from('.cred-main-card', {
+      y: 48, autoAlpha: 0, duration: 0.9, ease: 'power3.out', stagger: 0.16, clearProps: 'all',
+      scrollTrigger: { trigger: '.cred-main-grid', start: 'top 76%' }
+    });
+    gsap.from('.cert-card', {
+      y: 32, autoAlpha: 0, duration: 0.7, ease: 'power3.out', stagger: 0.08, clearProps: 'all',
+      scrollTrigger: { trigger: '.cert-grid', start: 'top 82%' }
+    });
+
+    // 5. 布局/字体加载完成后重算滚动位置
+    var refresh = function () { ScrollTrigger.refresh(); };
+    window.addEventListener('load', refresh);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+  });
+})();
 </script>
 </body>
 </html>

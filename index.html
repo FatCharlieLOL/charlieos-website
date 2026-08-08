@@ -12,6 +12,9 @@
 <meta property="og:description" content="Nano active peptide technology for deep cellular renewal. 12 years of R&D, 100% absorption, real results.">
 <meta property="og:site_name" content="Sheng Peptide Biotechnology (S) Pte Ltd">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C10 9 6 14 6 19a10 10 0 0 0 20 0c0-5-4-10-10-16z' fill='%2300B4D8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -2461,6 +2464,206 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
   .card-fields { grid-template-columns: 1fr; }
   .checkout-modal { padding: 1.3rem 1.2rem 1.6rem; }
 }
+
+/* ============================================================
+   v2.6 — 深海鎏金（Deep-Sea Gold）首页重构
+   金色 + 白色 + 深海质感：高级、有机、源自深海的叙事
+   ============================================================ */
+:root {
+  --ivory: #FAF6EE;
+  --pearl: #FFFFFF;
+  --sand: #F2EAD8;
+  --gold: #B9964C;
+  --gold-light: #D9BE7E;
+  --gold-pale: #EADFC2;
+  --gold-deep: #8A6A2F;
+  --sea-deep: #123A47;
+  --sea-mid: #2E6E7E;
+  --sea-pale: #A9CBD2;
+  --ink: #243238;
+  --font-display: 'Cormorant Garamond', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+
+  --ocean-deep: var(--ivory);
+  --ocean-mid: var(--sand);
+  --ocean-light: var(--sea-pale);
+  --teal-primary: var(--gold);
+  --teal-light: var(--gold-deep);
+  --teal-pale: var(--sea-pale);
+  --wave-white: var(--ink);
+  --foam-white: var(--pearl);
+  --coral-accent: var(--gold);
+  --coral-hover: #A5833C;
+  --gold-accent: var(--gold);
+  --shadow-soft: 0 6px 24px rgba(140, 110, 55, 0.08);
+  --shadow-medium: 0 12px 38px rgba(140, 110, 55, 0.12);
+  --shadow-strong: 0 20px 56px rgba(140, 110, 55, 0.16);
+  --shadow-glow: 0 0 40px rgba(185, 150, 76, 0.28);
+}
+
+body { background: var(--ivory); color: var(--ink); }
+
+/* 衬线大标题：高级感 */
+.hero-title, .section-title, .tier-amount, .cta-content h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.005em;
+}
+
+/* 背景：深海光束 + 金色光晕（有机质感） */
+.ocean-wave-bg {
+  background:
+    radial-gradient(1100px 620px at 82% -8%, rgba(185, 150, 76, 0.16), transparent 60%),
+    radial-gradient(900px 540px at 8% 100%, rgba(46, 110, 126, 0.12), transparent 55%),
+    radial-gradient(700px 400px at 50% 30%, rgba(233, 223, 194, 0.5), transparent 65%),
+    linear-gradient(180deg, #FBF7EF 0%, #F4EDDD 100%);
+}
+.bubble {
+  background: radial-gradient(circle at 30% 30%, rgba(217, 190, 126, 0.7), rgba(185, 150, 76, 0.18));
+  border: 1px solid rgba(185, 150, 76, 0.35);
+}
+
+/* 导航：暖白毛玻璃 + 金色点缀 */
+.site-nav {
+  background: rgba(250, 246, 238, 0.78);
+  border-bottom: 1px solid rgba(138, 106, 47, 0.14);
+  box-shadow: 0 4px 24px rgba(140, 110, 55, 0.06);
+}
+.nav-links a { color: rgba(36, 50, 56, 0.72); }
+.nav-links a:hover { color: var(--sea-deep); }
+.nav-links a::after { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.nav-links a.nav-active { color: var(--sea-deep); }
+.nav-links a.nav-active::after { transform: scaleX(1); }
+.nav-cta { background: linear-gradient(135deg, #C6A45E, #A5833C); box-shadow: 0 4px 18px rgba(165, 131, 60, 0.32); }
+.nav-cta:hover { box-shadow: 0 8px 26px rgba(165, 131, 60, 0.42); }
+.lang-btn--active { background: var(--gold); }
+.cart-btn { background: rgba(185, 150, 76, 0.10); color: var(--gold-deep); }
+.cart-btn:hover { background: rgba(185, 150, 76, 0.18); }
+
+/* Hero：深海鎏金 */
+.hero-section {
+  background:
+    radial-gradient(900px 520px at 82% 18%, rgba(169, 203, 210, 0.22), transparent 60%),
+    radial-gradient(760px 420px at 8% 92%, rgba(185, 150, 76, 0.12), transparent 60%);
+}
+.hero-badge { background: rgba(185, 150, 76, 0.10); border: 1px solid rgba(185, 150, 76, 0.35); color: var(--gold-deep); }
+.hero-badge::before { background: var(--gold); box-shadow: 0 0 12px var(--gold); }
+.hero-title {
+  background: linear-gradient(120deg, var(--sea-deep) 25%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-subtitle { color: rgba(36, 50, 56, 0.68); }
+.btn-primary { background: linear-gradient(135deg, #C6A45E, #A5833C); color: #FFFFFF; box-shadow: 0 8px 28px rgba(165, 131, 60, 0.35); }
+.btn-secondary { color: var(--ink); border: 1.5px solid rgba(138, 106, 47, 0.35); }
+.btn-secondary:hover { border-color: var(--gold); background: rgba(185, 150, 76, 0.08); }
+.hero-stats .mini-stat strong { color: var(--gold-deep); }
+.hero-stats .mini-stat span { color: rgba(36, 50, 56, 0.58); }
+.product-image-wrapper { filter: drop-shadow(0 24px 44px rgba(46, 110, 126, 0.30)); }
+.product-glow { background: radial-gradient(circle, rgba(185, 150, 76, 0.35) 0%, rgba(185, 150, 76, 0.14) 45%, transparent 70%); }
+.floating-element { background: rgba(255, 253, 247, 0.82); border: 1px solid rgba(185, 150, 76, 0.25); color: var(--gold-deep); box-shadow: var(--shadow-soft); }
+
+/* 波浪：香槟金 + 海蓝灰 */
+.wave-1 svg path { fill: #E4CD97; }
+.wave-2 svg path { fill: #C6A45E; }
+.wave-3 svg path { fill: #A9CBD2; }
+.scroll-indicator { color: rgba(36, 50, 56, 0.5); }
+.scroll-indicator .chevron { border-color: var(--gold-deep); }
+
+/* 分屏区块：珍珠白卡 + 暖沙背景 */
+.section-label { color: var(--gold-deep); }
+.section-sub { color: rgba(36, 50, 56, 0.66); }
+.science-section { background: rgba(185, 150, 76, 0.05); }
+.step-card, .stat-item, .testimonial-card, .cred-main-card, .cert-card, .tier-card {
+  background: var(--pearl);
+  border-color: rgba(138, 106, 47, 0.14);
+  box-shadow: var(--shadow-soft);
+}
+.step-number { color: rgba(185, 150, 76, 0.18); }
+.step-icon { background: rgba(185, 150, 76, 0.10); border: 1px solid rgba(185, 150, 76, 0.35); box-shadow: 0 0 22px rgba(185, 150, 76, 0.14); }
+.step-icon svg { color: var(--gold-deep); }
+.step-connector svg { color: var(--gold); }
+.story-section { background: rgba(46, 110, 126, 0.05); }
+.timeline { border-left-color: rgba(185, 150, 76, 0.40); }
+.timeline-item::before { background: var(--gold); box-shadow: 0 0 0 4px rgba(185, 150, 76, 0.16), 0 0 14px rgba(185, 150, 76, 0.4); }
+.timeline-item .tl-year { color: var(--gold-deep); }
+.award-badge { background: linear-gradient(135deg, rgba(185, 150, 76, 0.14), rgba(185, 150, 76, 0.04)); border: 1px solid rgba(185, 150, 76, 0.4); box-shadow: 0 0 28px rgba(185, 150, 76, 0.14); }
+.testimonials-section {
+  background:
+    linear-gradient(rgba(185, 150, 76, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 150, 76, 0.05) 1px, transparent 1px),
+    rgba(185, 150, 76, 0.04);
+  background-size: 48px 48px;
+}
+.testimonial-card { border-left: 3px solid var(--gold); }
+.quote-icon { color: rgba(185, 150, 76, 0.22); }
+
+/* 资质（Quality） */
+.credentials-section {
+  background:
+    radial-gradient(900px 480px at 50% -8%, rgba(217, 190, 126, 0.22), transparent 62%),
+    rgba(46, 110, 126, 0.04);
+}
+.cred-main-card--gold:hover { border-color: rgba(185, 150, 76, 0.55); box-shadow: 0 12px 48px rgba(185, 150, 76, 0.16); }
+.cred-badge { background: rgba(18, 58, 71, 0.62); }
+.cred-badge--gold { background: linear-gradient(135deg, rgba(185, 150, 76, 0.24), rgba(185, 150, 76, 0.10)); border-color: rgba(185, 150, 76, 0.5); color: #F2E7C8; }
+.cred-main-card--gold .cred-card-title small { color: var(--gold-deep); }
+.cert-strip-label::before, .cert-strip-label::after { background: linear-gradient(90deg, transparent, rgba(185, 150, 76, 0.35)); }
+.cert-strip-label::after { background: linear-gradient(90deg, rgba(185, 150, 76, 0.35), transparent); }
+
+/* 科学概览 chips */
+.sci-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-top: 2.2rem; }
+.sci-chip {
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 1px solid rgba(185, 150, 76, 0.3);
+  color: var(--gold-deep);
+  font-weight: 700;
+  font-size: 0.88rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* 产品覆盖区：深海鎏金 */
+.products-pin {
+  background:
+    radial-gradient(900px 520px at 85% 0%, rgba(185, 150, 76, 0.16), transparent 60%),
+    radial-gradient(760px 420px at 0% 100%, rgba(46, 110, 126, 0.10), transparent 55%),
+    linear-gradient(180deg, #FBF7EF 0%, #F2EAD8 100%);
+}
+.products-wave-top svg path:first-child { fill: #E4CD97; }
+.products-wave-top svg path:last-child { fill: #FBF7EF; }
+.tier-currency { color: var(--gold-deep); }
+.tier-amount { color: var(--sea-deep); }
+.tier-original { color: rgba(36, 50, 56, 0.4); }
+.tier-btn { background: linear-gradient(135deg, #C6A45E, #A5833C); box-shadow: 0 8px 24px rgba(165, 131, 60, 0.35); }
+.tier-btn:hover { box-shadow: 0 12px 32px rgba(165, 131, 60, 0.46); }
+.tier-badge { background: linear-gradient(135deg, #C6A45E, #A5833C); }
+.tier-card--featured { border: 1.5px solid rgba(185, 150, 76, 0.45); box-shadow: 0 16px 48px rgba(185, 150, 76, 0.16); }
+
+/* CTA：金色光晕 */
+.cta-section {
+  background:
+    radial-gradient(700px 360px at 50% 0%, rgba(217, 190, 126, 0.35), transparent 65%),
+    linear-gradient(180deg, #F4EDDD 0%, #FBF7EF 100%);
+}
+.cta-wave-decoration svg path { fill: #F4EDDD; }
+.cta-content h2 { color: var(--sea-deep); text-shadow: 0 0 34px rgba(185, 150, 76, 0.25); }
+.btn-coral { background: linear-gradient(135deg, #C6A45E, #A5833C); color: #FFFFFF; box-shadow: 0 10px 32px rgba(165, 131, 60, 0.36); }
+.btn-coral:hover { box-shadow: 0 16px 44px rgba(165, 131, 60, 0.48); }
+.trust-badges span { color: rgba(36, 50, 56, 0.58); }
+.trust-badges svg { color: var(--gold-deep); }
+
+/* Footer：暖沙 */
+.site-footer { background: #F1E9D7; border-top: 1px solid rgba(138, 106, 47, 0.1); }
+.footer-wave-top svg path { fill: #FBF7EF; }
+.social-links a { background: #FFFFFF; border: 1px solid rgba(138, 106, 47, 0.16); color: rgba(36, 50, 56, 0.7); }
+.social-links a:hover { background: var(--gold); color: #FFFFFF; }
+
+/* 手机导航面板 */
+@media (max-width: 768px) {
+  .nav-links { background: rgba(250, 246, 238, 0.98); border-left: 1px solid rgba(138, 106, 47, 0.12); }
+}
 </style>
 </head>
 
@@ -2491,11 +2694,9 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
     </a>
     <nav class="nav-links" id="nav-menu" aria-label="Main navigation" data-i18n-aria="aria.nav">
       <a href="#products" data-i18n="nav.products">Products</a>
-      <a href="product.html" data-i18n="nav.productScience">Product &amp; Science</a>
-      <a href="quality.html" data-i18n="nav.quality">Quality</a>
+      <a href="#science" data-i18n="nav.science">Science</a>
+      <a href="#credentials" data-i18n="nav.quality">Quality</a>
       <a href="order.html" data-i18n="nav.order">Track Order</a>
-      <a href="#story" data-i18n="nav.story">Our Story</a>
-      <a href="#testimonials" data-i18n="nav.reviews">Reviews</a>
       <a href="#cta" class="nav-cta" data-i18n="nav.cta">Get Started</a>
     </nav>
     <button type="button" class="cart-btn" id="cart-btn" aria-label="Open cart" data-i18n-aria="cart.openAria">
@@ -2520,10 +2721,10 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
   <section class="hero-section" id="hero">
     <div class="hero-grid">
       <div class="hero-content">
-        <span class="hero-badge" data-i18n="hero.badge">Nano Active Peptide</span>
-        <h1 class="hero-title" data-i18n="hero.title">Unlock Your Cells' Full Potential</h1>
+        <span class="hero-badge" data-i18n="hero.badge">From the Deep Sea · 源自深海</span>
+        <h1 class="hero-title" data-i18n="hero.title">A Gift from the Deep Sea</h1>
         <p class="hero-subtitle">
-          <span data-i18n="hero.subtitle">Sheng Peptide's nano-active peptide formula powers deep cellular renewal — 12 years of research, 100% absorption, real results.</span>
+          <span data-i18n="hero.subtitle">SMT nano-active peptide — cold-extracted from nature, 100% directly absorbed by human cells. A deep-sea grade of small-molecular peptides.</span>
         </p>
         <div class="hero-cta-group">
           <a href="#products" class="btn btn-primary" data-i18n="hero.cta1">Discover Now</a>
@@ -2551,29 +2752,29 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
           <svg class="product-image" viewBox="0 0 260 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SMT Nano Active Peptide bottle" data-i18n-alt="hero.bottleAlt">
             <defs>
               <linearGradient id="bottleGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#0B3D6B"/>
-                <stop offset="0.5" stop-color="#00B4D8"/>
-                <stop offset="1" stop-color="#48CAE4"/>
+                <stop offset="0" stop-color="#0F3A47"/>
+                <stop offset="0.55" stop-color="#2E6E7E"/>
+                <stop offset="1" stop-color="#7FB8C4"/>
               </linearGradient>
               <linearGradient id="liquidGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#00B4D8"/>
-                <stop offset="1" stop-color="#06283D"/>
+                <stop offset="0" stop-color="#7FB8C4"/>
+                <stop offset="1" stop-color="#0F3A47"/>
               </linearGradient>
               <linearGradient id="capGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#FF8A8A"/>
-                <stop offset="1" stop-color="#E64545"/>
+                <stop offset="0" stop-color="#D9BE7E"/>
+                <stop offset="1" stop-color="#B9964C"/>
               </linearGradient>
             </defs>
             <!-- 地面阴影 -->
-            <ellipse cx="130" cy="386" rx="88" ry="12" fill="#00B4D8" opacity="0.22"/>
+            <ellipse cx="130" cy="386" rx="88" ry="12" fill="#B9964C" opacity="0.25"/>
             <!-- 瓶盖 -->
             <rect x="98" y="22" width="64" height="30" rx="9" fill="url(#capGrad)"/>
-            <rect x="104" y="52" width="52" height="14" rx="4" fill="#1A6B8A" opacity="0.9"/>
+            <rect x="104" y="52" width="52" height="14" rx="4" fill="#2E6E7E" opacity="0.9"/>
             <!-- 瓶颈过渡 -->
-            <path d="M112 66 h36 l-3 22 h-30 z" fill="#1A6B8A"/>
+            <path d="M112 66 h36 l-3 22 h-30 z" fill="#2E6E7E"/>
             <!-- 瓶身 -->
             <path d="M105 96 h50 l10 44 v186 a20 20 0 0 1 -20 20 h-30 a20 20 0 0 1 -20 -20 v-186 z"
-                  fill="url(#bottleGrad)" stroke="#48CAE4" stroke-width="2.5"/>
+                  fill="url(#bottleGrad)" stroke="#7FB8C4" stroke-width="2.5"/>
             <!-- 液体 -->
             <path d="M107 210 h46 v112 a18 18 0 0 1 -18 18 h-10 a18 18 0 0 1 -18 -18 z"
                   fill="url(#liquidGrad)" opacity="0.92"/>
@@ -2583,10 +2784,10 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
             <circle cx="128" cy="226" r="2.2" fill="#90E0EF" opacity="0.55"/>
             <circle cx="142" cy="300" r="2.6" fill="#90E0EF" opacity="0.5"/>
             <!-- 标签 -->
-            <rect x="108" y="118" width="44" height="64" rx="10" fill="rgba(10,22,40,0.55)"/>
-            <text x="130" y="144" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="15" fill="#F0F8FF">SMT</text>
-            <path d="M112 158 q5 -4 10 0 t10 0" stroke="#00B4D8" stroke-width="2" fill="none" stroke-linecap="round"/>
-            <text x="130" y="174" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#90E0EF">NANO ACTIVE</text>
+            <rect x="108" y="118" width="44" height="64" rx="10" fill="rgba(15,34,41,0.62)"/>
+            <text x="130" y="144" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="15" fill="#E8D9B0">SMT</text>
+            <path d="M112 158 q5 -4 10 0 t10 0" stroke="#D9BE7E" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <text x="130" y="174" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#A9CBD2">NANO ACTIVE</text>
             <!-- 高光 -->
             <path d="M112 110 a8 8 0 0 1 8 -8 h2 v220 h-6 c-3 0 -4 -3 -4 -6 z" fill="#FFFFFF" opacity="0.10"/>
           </svg>
@@ -2703,69 +2904,13 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
     </div>
   </section>
 
-  <!-- ============ 品牌故事 ============ -->
-  <section class="section story-section" id="story">
+<!-- ============ 科学概览（v2.6） ============ -->
+  <section class="section science-section" id="science">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-label" data-i18n="story.label">Our Story</span>
-        <h2 class="section-title" data-i18n="story.title">Born from a Mission to Transform Health</h2>
-      </div>
-      <div class="story-grid">
-        <div class="story-content reveal-left">
-          <p data-i18n="story.body">
-            For over 12 years, our scientists have dedicated themselves to a single mission:
-            unlocking the regenerative potential of every cell. Through cutting-edge nano-active
-            peptide technology, we engineered a delivery system that achieves 100% absorption —
-            bringing laboratory-grade cellular repair into everyday wellness.
-          </p>
-          <div class="story-stats">
-            <div class="stat-item reveal-scale">
-              <div class="stat-value" data-count="12" data-suffix="+">0+</div>
-              <div class="stat-label" data-i18n="story.stat1">Years of Research &amp; Development</div>
-            </div>
-            <div class="stat-item reveal-scale" style="transition-delay:0.15s">
-              <div class="stat-value">100%</div>
-              <div class="stat-label" data-i18n="story.stat2">Absorption Efficiency</div>
-            </div>
-          </div>
-        </div>
-        <div class="story-visual reveal-right">
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="tl-year">2012</div>
-              <p data-i18n="story.tl1">Founded with a vision of peptide-driven cellular renewal.</p>
-            </div>
-            <div class="timeline-item">
-              <div class="tl-year">2018</div>
-              <p data-i18n="story.tl2">Nano-encapsulation delivery platform reaches laboratory breakthrough.</p>
-            </div>
-            <div class="timeline-item">
-              <div class="tl-year">2024</div>
-              <p data-i18n="story.tl3">Honoured at the Channel 8 Singapore awards for innovation in wellness.</p>
-            </div>
-          </div>
-          <div class="award-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="9" r="6"/>
-              <path d="M9 14l-2 8 5-3 5 3-2-8"/>
-            </svg>
-            <div class="award-text">
-              <strong data-i18n="story.awardTitle">2024 Channel 8 Singapore</strong>
-              <span data-i18n="story.awardSub">Recognised for wellness innovation</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 三步流程 ============ -->
-  <section class="section process-section" id="process">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label" data-i18n="process.label">How It Works</span>
-        <h2 class="section-title" data-i18n="process.title">Three Steps to Cellular Renewal</h2>
-        <p class="section-sub" data-i18n="process.sub">A precisely engineered pathway from intake to repair.</p>
+        <span class="section-label" data-i18n="homeScience.eyebrow">The Science</span>
+        <h2 class="section-title" data-i18n="homeScience.title">Nature's Deep-Sea Extraction</h2>
+        <p class="section-sub" data-i18n="homeScience.body">Cold-extracted at -70~-90°C and stabilised at the nanoscale, SMT small-molecular peptides are designed to be absorbed directly by human cells.</p>
       </div>
       <div class="process-steps stagger-container">
         <div class="step-card stagger-item">
@@ -2812,82 +2957,13 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
           <p data-i18n="process.step3.body">Bio-active peptides activate the body's natural repair pathways, restoring cellular function and vitality.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ 客户评价 ============ -->
-  <section class="section testimonials-section" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label" data-i18n="testi.label">Testimonials</span>
-        <h2 class="section-title" data-i18n="testi.title">What Our Customers Say</h2>
+      <div class="sci-chips stagger-container">
+        <span class="sci-chip" data-i18n="data.peptide">2–4 peptides · SGS &lt;1000 Da ≥99%</span>
+        <span class="sci-chip" data-i18n="data.amino">18 amino acids · 99.21%</span>
+        <span class="sci-chip" data-i18n="data.years">12+ years of R&amp;D</span>
+        <span class="sci-chip" data-i18n="data.cold">Cold extraction -70~-90°C</span>
       </div>
-      <div class="testimonials-grid stagger-container">
-
-        <article class="testimonial-card stagger-item">
-          <span class="quote-icon" aria-hidden="true">"</span>
-          <blockquote data-i18n="testi.quote1">
-            After three months, my energy is steadier and my skin looks noticeably brighter. The absorption really makes a difference — I actually feel the results.
-          </blockquote>
-          <div class="rating" aria-label="5 out of 5 stars" data-i18n-aria="testi.rating">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-          </div>
-          <div class="author-info">
-            <div class="avatar" style="--avatar-a:#48CAE4; --avatar-b:#0B3D6B;">CL</div>
-            <div>
-              <strong>Chen Ling</strong>
-              <span data-i18n="testi.role1">Verified Customer</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="testimonial-card stagger-item">
-          <span class="quote-icon" aria-hidden="true">"</span>
-          <blockquote data-i18n="testi.quote2">
-            As a clinician, I appreciate the science behind this formula. The nano-active peptide delivery is genuinely well designed for cellular uptake and efficacy.
-          </blockquote>
-          <div class="rating" aria-label="5 out of 5 stars" data-i18n-aria="testi.rating">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-          </div>
-          <div class="author-info">
-            <div class="avatar" style="--avatar-a:#FF6B6B; --avatar-b:#8B3A5E;">RT</div>
-            <div>
-              <strong>Dr. Rachel Tan</strong>
-              <span data-i18n="testi.role2">Clinical Nutritionist</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="testimonial-card stagger-item">
-          <span class="quote-icon" aria-hidden="true">"</span>
-          <blockquote data-i18n="testi.quote3">
-            Recovery after training has been dramatically faster. I'm 46 and training like I'm in my 30s again — the cellular repair really delivers.
-          </blockquote>
-          <div class="rating" aria-label="5 out of 5 stars" data-i18n-aria="testi.rating">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
-          </div>
-          <div class="author-info">
-            <div class="avatar" style="--avatar-a:#00B4D8; --avatar-b:#1A6B8A;">AW</div>
-            <div>
-              <strong>Andrew Wong</strong>
-              <span data-i18n="testi.role3">Athletic Recovery</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
+      <p class="tier-more"><a href="product.html" class="btn btn-secondary" data-i18n="products.learnMore">Learn More About the Science</a></p>
     </div>
   </section>
 
@@ -2999,7 +3075,140 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
     </div>
   </section>
 
-  <!-- ============ CTA ============ -->
+  
+  <!-- ============ 品牌故事 ============ -->
+  <section class="section story-section" id="story">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="story.label">Our Story</span>
+        <h2 class="section-title" data-i18n="story.title">Born from a Mission to Transform Health</h2>
+      </div>
+      <div class="story-grid">
+        <div class="story-content reveal-left">
+          <p data-i18n="story.body">
+            For over 12 years, our scientists have dedicated themselves to a single mission:
+            unlocking the regenerative potential of every cell. Through cutting-edge nano-active
+            peptide technology, we engineered a delivery system that achieves 100% absorption —
+            bringing laboratory-grade cellular repair into everyday wellness.
+          </p>
+          <div class="story-stats">
+            <div class="stat-item reveal-scale">
+              <div class="stat-value" data-count="12" data-suffix="+">0+</div>
+              <div class="stat-label" data-i18n="story.stat1">Years of Research &amp; Development</div>
+            </div>
+            <div class="stat-item reveal-scale" style="transition-delay:0.15s">
+              <div class="stat-value">100%</div>
+              <div class="stat-label" data-i18n="story.stat2">Absorption Efficiency</div>
+            </div>
+          </div>
+        </div>
+        <div class="story-visual reveal-right">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="tl-year">2012</div>
+              <p data-i18n="story.tl1">Founded with a vision of peptide-driven cellular renewal.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-year">2018</div>
+              <p data-i18n="story.tl2">Nano-encapsulation delivery platform reaches laboratory breakthrough.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="tl-year">2024</div>
+              <p data-i18n="story.tl3">Honoured at the Channel 8 Singapore awards for innovation in wellness.</p>
+            </div>
+          </div>
+          <div class="award-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="9" r="6"/>
+              <path d="M9 14l-2 8 5-3 5 3-2-8"/>
+            </svg>
+            <div class="award-text">
+              <strong data-i18n="story.awardTitle">2024 Channel 8 Singapore</strong>
+              <span data-i18n="story.awardSub">Recognised for wellness innovation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ============ 客户评价 ============ -->
+  <section class="section testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label" data-i18n="testi.label">Testimonials</span>
+        <h2 class="section-title" data-i18n="testi.title">What Our Customers Say</h2>
+      </div>
+      <div class="testimonials-grid stagger-container">
+
+        <article class="testimonial-card stagger-item">
+          <span class="quote-icon" aria-hidden="true">"</span>
+          <blockquote data-i18n="testi.quote1">
+            After three months, my energy is steadier and my skin looks noticeably brighter. The absorption really makes a difference — I actually feel the results.
+          </blockquote>
+          <div class="rating" aria-label="5 out of 5 stars" data-i18n-aria="testi.rating">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+          </div>
+          <div class="author-info">
+            <div class="avatar" style="--avatar-a:#48CAE4; --avatar-b:#0B3D6B;">CL</div>
+            <div>
+              <strong>Chen Ling</strong>
+              <span data-i18n="testi.role1">Verified Customer</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card stagger-item">
+          <span class="quote-icon" aria-hidden="true">"</span>
+          <blockquote data-i18n="testi.quote2">
+            As a clinician, I appreciate the science behind this formula. The nano-active peptide delivery is genuinely well designed for cellular uptake and efficacy.
+          </blockquote>
+          <div class="rating" aria-label="5 out of 5 stars" data-i18n-aria="testi.rating">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+          </div>
+          <div class="author-info">
+            <div class="avatar" style="--avatar-a:#FF6B6B; --avatar-b:#8B3A5E;">RT</div>
+            <div>
+              <strong>Dr. Rachel Tan</strong>
+              <span data-i18n="testi.role2">Clinical Nutritionist</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card stagger-item">
+          <span class="quote-icon" aria-hidden="true">"</span>
+          <blockquote data-i18n="testi.quote3">
+            Recovery after training has been dramatically faster. I'm 46 and training like I'm in my 30s again — the cellular repair really delivers.
+          </blockquote>
+          <div class="rating" aria-label="5 out of 5 stars" data-i18n-aria="testi.rating">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 7 1-5 4.9 1.2 6.9L12 17.8 5.7 21l1.2-6.9-5-4.9 7-1z"/></svg>
+          </div>
+          <div class="author-info">
+            <div class="avatar" style="--avatar-a:#00B4D8; --avatar-b:#1A6B8A;">AW</div>
+            <div>
+              <strong>Andrew Wong</strong>
+              <span data-i18n="testi.role3">Athletic Recovery</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+<!-- ============ CTA ============ -->
   <section class="section cta-section" id="cta">
     <div class="cta-wave-decoration" aria-hidden="true">
       <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
@@ -3298,11 +3507,11 @@ var siteI18n = {
   'nav.home': { en: 'Home', tw: '首頁' },
   'nav.productScience': { en: 'Product & Science', tw: '產品與科學' },
   'nav.quality': { en: 'Quality', tw: '品質' },
+  'nav.science': { en: 'Science', tw: '科學' },
   'nav.order': { en: 'Track Order', tw: '訂單查詢' },
   'nav.story': { en: 'Our Story', tw: '品牌故事' },
   'nav.process': { en: 'How It Works', tw: '運作原理' },
   'nav.reviews': { en: 'Reviews', tw: '客戶評價' },
-  'nav.quality': { en: 'Quality', tw: '品質認證' },
   'nav.cta': { en: 'Get Started', tw: '立即開始' },
   'aria.nav': { en: 'Main navigation', tw: '主要導覽' },
   'aria.lang': { en: 'Language', tw: '語言' },
@@ -3310,9 +3519,9 @@ var siteI18n = {
   'aria.logo': { en: 'SMT Home', tw: 'SMT 首頁' },
   'aria.original': { en: 'Original price', tw: '原價' },
 
-  'hero.badge': { en: 'Nano Active Peptide', tw: '奈米活性胜肽' },
-  'hero.title': { en: "Unlock Your Cells' Full Potential", tw: '釋放細胞的無限潛能' },
-  'hero.subtitle': { en: "Sheng Peptide's nano-active peptide formula powers deep cellular renewal — 12 years of research, 100% absorption, real results.", tw: '勝肽生技的奈米活性胜肽配方，啟動深層細胞修護——12 年研發、100% 吸收、真實成效。' },
+  'hero.badge': { en: 'From the Deep Sea · 源自深海', tw: '源自深海 · From the Deep Sea' },
+  'hero.title': { en: 'A Gift from the Deep Sea', tw: '來自深海的饋贈' },
+  'hero.subtitle': { en: 'SMT nano-active peptide — cold-extracted from nature, 100% directly absorbed by human cells. A deep-sea grade of small-molecular peptides.', tw: 'SMT 奈米活性胜肽——天然極低溫萃取，可被人體細胞 100% 直接吸收，深海級小分子肽。' },
   'hero.cta1': { en: 'Discover Now', tw: '立即探索' },
   'hero.cta2': { en: 'Learn More', tw: '了解更多' },
   'hero.stat1': { en: 'Years of R&D', tw: '年研發經驗' },
@@ -3482,7 +3691,14 @@ var siteI18n = {
   'country.GB': { en: 'United Kingdom', tw: '英國' },
   'country.AU': { en: 'Australia', tw: '澳洲' },
   'country.JP': { en: 'Japan', tw: '日本' },
-  'country.KR': { en: 'South Korea', tw: '南韓' }
+  'country.KR': { en: 'South Korea', tw: '南韓' },
+  'homeScience.eyebrow': { en: 'The Science', tw: '科學原理' },
+  'homeScience.title': { en: "Nature's Deep-Sea Extraction", tw: '深海的天然萃取' },
+  'homeScience.body': { en: 'Cold-extracted at -70~-90°C and stabilised at the nanoscale, SMT small-molecular peptides are designed to be absorbed directly by human cells.', tw: '以 -70~-90°C 極低溫萃取並經奈米穩定化處理，SMT 小分子胜肽可直接被人體細胞吸收。' },
+  'data.peptide': { en: '2–4 peptides · SGS <1000 Da ≥99%', tw: '2–4 肽 · SGS <1000 Da ≥99%' },
+  'data.amino': { en: '18 amino acids · 99.21%', tw: '18 種氨基酸 · 99.21%' },
+  'data.years': { en: '12+ years of R&D', tw: '12+ 年研發' },
+  'data.cold': { en: 'Cold extraction -70~-90°C', tw: '極低溫萃取 -70~-90°C' }
 };
 
 function t(key) {
@@ -3940,6 +4156,31 @@ document.addEventListener('keydown', function (e) {
 });
 
 document.getElementById('checkout-form').addEventListener('submit', placeOrder);
+</script>
+
+<script>
+/* ============================================================
+   v2.6 — 导航滚动高亮（单层 bar，无二级菜单）
+   ============================================================ */
+(function () {
+  var ids = ['products', 'science', 'credentials', 'cta'];
+  var links = {};
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (a) {
+    var id = a.getAttribute('href').slice(1);
+    if (ids.indexOf(id) !== -1) links[id] = a;
+  });
+  var sections = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  if (!sections.length) return;
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        Object.keys(links).forEach(function (k) { links[k].classList.remove('nav-active'); });
+        if (links[en.target.id]) links[en.target.id].classList.add('nav-active');
+      }
+    });
+  }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+  sections.forEach(function (s) { spy.observe(s); });
+})();
 </script>
 
 <!-- GSAP 3.15.0（免费商用许可，版本锁定） -->

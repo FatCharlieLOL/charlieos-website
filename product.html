@@ -12,6 +12,9 @@
 <meta property="og:description" content="Nano active peptide technology for deep cellular renewal. 12 years of R&D, 100% absorption, real results.">
 <meta property="og:site_name" content="Sheng Peptide Biotechnology (S) Pte Ltd">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C10 9 6 14 6 19a10 10 0 0 0 20 0c0-5-4-10-10-16z' fill='%2300B4D8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -2461,6 +2464,206 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
   .card-fields { grid-template-columns: 1fr; }
   .checkout-modal { padding: 1.3rem 1.2rem 1.6rem; }
 }
+
+/* ============================================================
+   v2.6 — 深海鎏金（Deep-Sea Gold）首页重构
+   金色 + 白色 + 深海质感：高级、有机、源自深海的叙事
+   ============================================================ */
+:root {
+  --ivory: #FAF6EE;
+  --pearl: #FFFFFF;
+  --sand: #F2EAD8;
+  --gold: #B9964C;
+  --gold-light: #D9BE7E;
+  --gold-pale: #EADFC2;
+  --gold-deep: #8A6A2F;
+  --sea-deep: #123A47;
+  --sea-mid: #2E6E7E;
+  --sea-pale: #A9CBD2;
+  --ink: #243238;
+  --font-display: 'Cormorant Garamond', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+
+  --ocean-deep: var(--ivory);
+  --ocean-mid: var(--sand);
+  --ocean-light: var(--sea-pale);
+  --teal-primary: var(--gold);
+  --teal-light: var(--gold-deep);
+  --teal-pale: var(--sea-pale);
+  --wave-white: var(--ink);
+  --foam-white: var(--pearl);
+  --coral-accent: var(--gold);
+  --coral-hover: #A5833C;
+  --gold-accent: var(--gold);
+  --shadow-soft: 0 6px 24px rgba(140, 110, 55, 0.08);
+  --shadow-medium: 0 12px 38px rgba(140, 110, 55, 0.12);
+  --shadow-strong: 0 20px 56px rgba(140, 110, 55, 0.16);
+  --shadow-glow: 0 0 40px rgba(185, 150, 76, 0.28);
+}
+
+body { background: var(--ivory); color: var(--ink); }
+
+/* 衬线大标题：高级感 */
+.hero-title, .section-title, .tier-amount, .cta-content h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.005em;
+}
+
+/* 背景：深海光束 + 金色光晕（有机质感） */
+.ocean-wave-bg {
+  background:
+    radial-gradient(1100px 620px at 82% -8%, rgba(185, 150, 76, 0.16), transparent 60%),
+    radial-gradient(900px 540px at 8% 100%, rgba(46, 110, 126, 0.12), transparent 55%),
+    radial-gradient(700px 400px at 50% 30%, rgba(233, 223, 194, 0.5), transparent 65%),
+    linear-gradient(180deg, #FBF7EF 0%, #F4EDDD 100%);
+}
+.bubble {
+  background: radial-gradient(circle at 30% 30%, rgba(217, 190, 126, 0.7), rgba(185, 150, 76, 0.18));
+  border: 1px solid rgba(185, 150, 76, 0.35);
+}
+
+/* 导航：暖白毛玻璃 + 金色点缀 */
+.site-nav {
+  background: rgba(250, 246, 238, 0.78);
+  border-bottom: 1px solid rgba(138, 106, 47, 0.14);
+  box-shadow: 0 4px 24px rgba(140, 110, 55, 0.06);
+}
+.nav-links a { color: rgba(36, 50, 56, 0.72); }
+.nav-links a:hover { color: var(--sea-deep); }
+.nav-links a::after { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.nav-links a.nav-active { color: var(--sea-deep); }
+.nav-links a.nav-active::after { transform: scaleX(1); }
+.nav-cta { background: linear-gradient(135deg, #C6A45E, #A5833C); box-shadow: 0 4px 18px rgba(165, 131, 60, 0.32); }
+.nav-cta:hover { box-shadow: 0 8px 26px rgba(165, 131, 60, 0.42); }
+.lang-btn--active { background: var(--gold); }
+.cart-btn { background: rgba(185, 150, 76, 0.10); color: var(--gold-deep); }
+.cart-btn:hover { background: rgba(185, 150, 76, 0.18); }
+
+/* Hero：深海鎏金 */
+.hero-section {
+  background:
+    radial-gradient(900px 520px at 82% 18%, rgba(169, 203, 210, 0.22), transparent 60%),
+    radial-gradient(760px 420px at 8% 92%, rgba(185, 150, 76, 0.12), transparent 60%);
+}
+.hero-badge { background: rgba(185, 150, 76, 0.10); border: 1px solid rgba(185, 150, 76, 0.35); color: var(--gold-deep); }
+.hero-badge::before { background: var(--gold); box-shadow: 0 0 12px var(--gold); }
+.hero-title {
+  background: linear-gradient(120deg, var(--sea-deep) 25%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-subtitle { color: rgba(36, 50, 56, 0.68); }
+.btn-primary { background: linear-gradient(135deg, #C6A45E, #A5833C); color: #FFFFFF; box-shadow: 0 8px 28px rgba(165, 131, 60, 0.35); }
+.btn-secondary { color: var(--ink); border: 1.5px solid rgba(138, 106, 47, 0.35); }
+.btn-secondary:hover { border-color: var(--gold); background: rgba(185, 150, 76, 0.08); }
+.hero-stats .mini-stat strong { color: var(--gold-deep); }
+.hero-stats .mini-stat span { color: rgba(36, 50, 56, 0.58); }
+.product-image-wrapper { filter: drop-shadow(0 24px 44px rgba(46, 110, 126, 0.30)); }
+.product-glow { background: radial-gradient(circle, rgba(185, 150, 76, 0.35) 0%, rgba(185, 150, 76, 0.14) 45%, transparent 70%); }
+.floating-element { background: rgba(255, 253, 247, 0.82); border: 1px solid rgba(185, 150, 76, 0.25); color: var(--gold-deep); box-shadow: var(--shadow-soft); }
+
+/* 波浪：香槟金 + 海蓝灰 */
+.wave-1 svg path { fill: #E4CD97; }
+.wave-2 svg path { fill: #C6A45E; }
+.wave-3 svg path { fill: #A9CBD2; }
+.scroll-indicator { color: rgba(36, 50, 56, 0.5); }
+.scroll-indicator .chevron { border-color: var(--gold-deep); }
+
+/* 分屏区块：珍珠白卡 + 暖沙背景 */
+.section-label { color: var(--gold-deep); }
+.section-sub { color: rgba(36, 50, 56, 0.66); }
+.science-section { background: rgba(185, 150, 76, 0.05); }
+.step-card, .stat-item, .testimonial-card, .cred-main-card, .cert-card, .tier-card {
+  background: var(--pearl);
+  border-color: rgba(138, 106, 47, 0.14);
+  box-shadow: var(--shadow-soft);
+}
+.step-number { color: rgba(185, 150, 76, 0.18); }
+.step-icon { background: rgba(185, 150, 76, 0.10); border: 1px solid rgba(185, 150, 76, 0.35); box-shadow: 0 0 22px rgba(185, 150, 76, 0.14); }
+.step-icon svg { color: var(--gold-deep); }
+.step-connector svg { color: var(--gold); }
+.story-section { background: rgba(46, 110, 126, 0.05); }
+.timeline { border-left-color: rgba(185, 150, 76, 0.40); }
+.timeline-item::before { background: var(--gold); box-shadow: 0 0 0 4px rgba(185, 150, 76, 0.16), 0 0 14px rgba(185, 150, 76, 0.4); }
+.timeline-item .tl-year { color: var(--gold-deep); }
+.award-badge { background: linear-gradient(135deg, rgba(185, 150, 76, 0.14), rgba(185, 150, 76, 0.04)); border: 1px solid rgba(185, 150, 76, 0.4); box-shadow: 0 0 28px rgba(185, 150, 76, 0.14); }
+.testimonials-section {
+  background:
+    linear-gradient(rgba(185, 150, 76, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 150, 76, 0.05) 1px, transparent 1px),
+    rgba(185, 150, 76, 0.04);
+  background-size: 48px 48px;
+}
+.testimonial-card { border-left: 3px solid var(--gold); }
+.quote-icon { color: rgba(185, 150, 76, 0.22); }
+
+/* 资质（Quality） */
+.credentials-section {
+  background:
+    radial-gradient(900px 480px at 50% -8%, rgba(217, 190, 126, 0.22), transparent 62%),
+    rgba(46, 110, 126, 0.04);
+}
+.cred-main-card--gold:hover { border-color: rgba(185, 150, 76, 0.55); box-shadow: 0 12px 48px rgba(185, 150, 76, 0.16); }
+.cred-badge { background: rgba(18, 58, 71, 0.62); }
+.cred-badge--gold { background: linear-gradient(135deg, rgba(185, 150, 76, 0.24), rgba(185, 150, 76, 0.10)); border-color: rgba(185, 150, 76, 0.5); color: #F2E7C8; }
+.cred-main-card--gold .cred-card-title small { color: var(--gold-deep); }
+.cert-strip-label::before, .cert-strip-label::after { background: linear-gradient(90deg, transparent, rgba(185, 150, 76, 0.35)); }
+.cert-strip-label::after { background: linear-gradient(90deg, rgba(185, 150, 76, 0.35), transparent); }
+
+/* 科学概览 chips */
+.sci-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-top: 2.2rem; }
+.sci-chip {
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  background: #FFFFFF;
+  border: 1px solid rgba(185, 150, 76, 0.3);
+  color: var(--gold-deep);
+  font-weight: 700;
+  font-size: 0.88rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* 产品覆盖区：深海鎏金 */
+.products-pin {
+  background:
+    radial-gradient(900px 520px at 85% 0%, rgba(185, 150, 76, 0.16), transparent 60%),
+    radial-gradient(760px 420px at 0% 100%, rgba(46, 110, 126, 0.10), transparent 55%),
+    linear-gradient(180deg, #FBF7EF 0%, #F2EAD8 100%);
+}
+.products-wave-top svg path:first-child { fill: #E4CD97; }
+.products-wave-top svg path:last-child { fill: #FBF7EF; }
+.tier-currency { color: var(--gold-deep); }
+.tier-amount { color: var(--sea-deep); }
+.tier-original { color: rgba(36, 50, 56, 0.4); }
+.tier-btn { background: linear-gradient(135deg, #C6A45E, #A5833C); box-shadow: 0 8px 24px rgba(165, 131, 60, 0.35); }
+.tier-btn:hover { box-shadow: 0 12px 32px rgba(165, 131, 60, 0.46); }
+.tier-badge { background: linear-gradient(135deg, #C6A45E, #A5833C); }
+.tier-card--featured { border: 1.5px solid rgba(185, 150, 76, 0.45); box-shadow: 0 16px 48px rgba(185, 150, 76, 0.16); }
+
+/* CTA：金色光晕 */
+.cta-section {
+  background:
+    radial-gradient(700px 360px at 50% 0%, rgba(217, 190, 126, 0.35), transparent 65%),
+    linear-gradient(180deg, #F4EDDD 0%, #FBF7EF 100%);
+}
+.cta-wave-decoration svg path { fill: #F4EDDD; }
+.cta-content h2 { color: var(--sea-deep); text-shadow: 0 0 34px rgba(185, 150, 76, 0.25); }
+.btn-coral { background: linear-gradient(135deg, #C6A45E, #A5833C); color: #FFFFFF; box-shadow: 0 10px 32px rgba(165, 131, 60, 0.36); }
+.btn-coral:hover { box-shadow: 0 16px 44px rgba(165, 131, 60, 0.48); }
+.trust-badges span { color: rgba(36, 50, 56, 0.58); }
+.trust-badges svg { color: var(--gold-deep); }
+
+/* Footer：暖沙 */
+.site-footer { background: #F1E9D7; border-top: 1px solid rgba(138, 106, 47, 0.1); }
+.footer-wave-top svg path { fill: #FBF7EF; }
+.social-links a { background: #FFFFFF; border: 1px solid rgba(138, 106, 47, 0.16); color: rgba(36, 50, 56, 0.7); }
+.social-links a:hover { background: var(--gold); color: #FFFFFF; }
+
+/* 手机导航面板 */
+@media (max-width: 768px) {
+  .nav-links { background: rgba(250, 246, 238, 0.98); border-left: 1px solid rgba(138, 106, 47, 0.12); }
+}
 /* ============================================================
    science-pages 补充样式（product.html / quality.html）
    ============================================================ */
@@ -2856,11 +3059,10 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
     </a>
         <nav class="nav-links" id="nav-menu" aria-label="Main navigation" data-i18n-aria="aria.nav">
       <a href="index.html" data-i18n="nav.home">Home</a>
-      <a href="product.html" class="nav-active" data-i18n="nav.productScience">Product & Science</a>
-      <a href="quality.html" data-i18n="nav.quality">Quality</a>
+      <a href="index.html#products" data-i18n="nav.products">Products</a>
+      <a href="index.html#science" data-i18n="nav.science">Science</a>
+      <a href="index.html#credentials" data-i18n="nav.quality">Quality</a>
       <a href="order.html" data-i18n="nav.order">Track Order</a>
-      <a href="index.html#story" data-i18n="nav.story">Our Story</a>
-      <a href="index.html#testimonials" data-i18n="nav.reviews">Reviews</a>
       <a href="index.html#cta" class="nav-cta" data-i18n="nav.cta">Get Started</a>
     </nav>
     <button type="button" class="cart-btn" id="cart-btn" aria-label="Open cart" data-i18n-aria="cart.openAria">
@@ -3491,11 +3693,11 @@ var siteI18n = {
   'nav.home': { en: 'Home', tw: '首頁' },
   'nav.productScience': { en: 'Product & Science', tw: '產品與科學' },
   'nav.quality': { en: 'Quality', tw: '品質' },
+  'nav.science': { en: 'Science', tw: '科學' },
   'nav.order': { en: 'Track Order', tw: '訂單查詢' },
   'nav.story': { en: 'Our Story', tw: '品牌故事' },
   'nav.process': { en: 'How It Works', tw: '運作原理' },
   'nav.reviews': { en: 'Reviews', tw: '客戶評價' },
-  'nav.quality': { en: 'Quality', tw: '品質認證' },
   'nav.cta': { en: 'Get Started', tw: '立即開始' },
   'aria.nav': { en: 'Main navigation', tw: '主要導覽' },
   'aria.lang': { en: 'Language', tw: '語言' },
@@ -3503,9 +3705,9 @@ var siteI18n = {
   'aria.logo': { en: 'SMT Home', tw: 'SMT 首頁' },
   'aria.original': { en: 'Original price', tw: '原價' },
 
-  'hero.badge': { en: 'Nano Active Peptide', tw: '奈米活性胜肽' },
-  'hero.title': { en: "Unlock Your Cells' Full Potential", tw: '釋放細胞的無限潛能' },
-  'hero.subtitle': { en: "Sheng Peptide's nano-active peptide formula powers deep cellular renewal — 12 years of research, 100% absorption, real results.", tw: '勝肽生技的奈米活性胜肽配方，啟動深層細胞修護——12 年研發、100% 吸收、真實成效。' },
+  'hero.badge': { en: 'From the Deep Sea · 源自深海', tw: '源自深海 · From the Deep Sea' },
+  'hero.title': { en: 'A Gift from the Deep Sea', tw: '來自深海的饋贈' },
+  'hero.subtitle': { en: 'SMT nano-active peptide — cold-extracted from nature, 100% directly absorbed by human cells. A deep-sea grade of small-molecular peptides.', tw: 'SMT 奈米活性胜肽——天然極低溫萃取，可被人體細胞 100% 直接吸收，深海級小分子肽。' },
   'hero.cta1': { en: 'Discover Now', tw: '立即探索' },
   'hero.cta2': { en: 'Learn More', tw: '了解更多' },
   'hero.stat1': { en: 'Years of R&D', tw: '年研發經驗' },
@@ -3676,6 +3878,13 @@ var siteI18n = {
   'country.AU': { en: 'Australia', tw: '澳洲' },
   'country.JP': { en: 'Japan', tw: '日本' },
   'country.KR': { en: 'South Korea', tw: '南韓' },
+  'homeScience.eyebrow': { en: 'The Science', tw: '科學原理' },
+  'homeScience.title': { en: "Nature's Deep-Sea Extraction", tw: '深海的天然萃取' },
+  'homeScience.body': { en: 'Cold-extracted at -70~-90°C and stabilised at the nanoscale, SMT small-molecular peptides are designed to be absorbed directly by human cells.', tw: '以 -70~-90°C 極低溫萃取並經奈米穩定化處理，SMT 小分子胜肽可直接被人體細胞吸收。' },
+  'data.peptide': { en: '2–4 peptides · SGS <1000 Da ≥99%', tw: '2–4 肽 · SGS <1000 Da ≥99%' },
+  'data.amino': { en: '18 amino acids · 99.21%', tw: '18 種氨基酸 · 99.21%' },
+  'data.years': { en: '12+ years of R&D', tw: '12+ 年研發' },
+  'data.cold': { en: 'Cold extraction -70~-90°C', tw: '極低溫萃取 -70~-90°C' },
   'nav.home': { en: 'Home', tw: '首頁' },
   'nav.productScience': { en: 'Product & Science', tw: '產品與科學' },
   'nav.quality': { en: 'Quality', tw: '品質' },
@@ -4263,6 +4472,31 @@ document.addEventListener('keydown', function (e) {
 });
 
 document.getElementById('checkout-form').addEventListener('submit', placeOrder);
+</script>
+
+<script>
+/* ============================================================
+   v2.6 — 导航滚动高亮（单层 bar，无二级菜单）
+   ============================================================ */
+(function () {
+  var ids = ['products', 'science', 'credentials', 'cta'];
+  var links = {};
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (a) {
+    var id = a.getAttribute('href').slice(1);
+    if (ids.indexOf(id) !== -1) links[id] = a;
+  });
+  var sections = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  if (!sections.length) return;
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) {
+        Object.keys(links).forEach(function (k) { links[k].classList.remove('nav-active'); });
+        if (links[en.target.id]) links[en.target.id].classList.add('nav-active');
+      }
+    });
+  }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+  sections.forEach(function (s) { spy.observe(s); });
+})();
 </script>
 
 <!-- GSAP 3.15.0（免费商用许可，版本锁定） -->

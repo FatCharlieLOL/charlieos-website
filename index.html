@@ -2770,7 +2770,11 @@ body { background: var(--ivory); color: var(--ink); }
 }
 
 /* ============ v2.8：Hero 产品图清晰化 + 价格排版 + 邀请码弹窗 ============ */
+html { overflow-x: hidden; }
 /* Hero 产品图：干净圆角相框（不再用抽象有机裁切） */
+.product-image-wrapper {
+  width: min(430px, 82vw);
+}
 .hero-bottle-frame {
   border-radius: 26px;
   aspect-ratio: 4 / 3;
@@ -2879,6 +2883,26 @@ body { background: var(--ivory); color: var(--ink); }
   cursor: pointer;
 }
 .cart-invite-row button:hover { color: var(--gold-deep); }
+
+/* 手机端：产品图更大、布局更顺 */
+@media (max-width: 1024px) {
+  .hero-product-showcase {
+    order: -1;
+    max-width: min(430px, 88vw);
+    margin: 0 auto;
+  }
+  .product-image-wrapper {
+    width: min(430px, 86vw);
+  }
+}
+@media (max-width: 480px) {
+  .hero-product-showcase {
+    margin-bottom: 1.2rem;
+  }
+  .product-glow {
+    inset: -5%;
+  }
+}
 
 </style>
 </head>

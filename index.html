@@ -2962,7 +2962,7 @@ body { background: var(--ivory); color: var(--ink); }
         </div>
       </div>
 
-      <div class="hero-product-showcase reveal-scale" style="transition-delay:0.4s">
+      <div class="hero-product-showcase" style="transition-delay:0.4s">
         <div class="product-glow" aria-hidden="true"></div>
         <div class="product-image-wrapper">
           <div class="hero-bottle-frame">
@@ -4596,7 +4596,6 @@ document.getElementById('checkout-form').addEventListener('submit', placeOrder);
       ['.hero-subtitle', { y: 14, autoAlpha: 0, duration: 0.6 }, '-=0.45'],
       ['.hero-cta-group', { y: 12, autoAlpha: 0, duration: 0.55 }, '-=0.4'],
       ['.hero-stats', { y: 12, autoAlpha: 0, duration: 0.55 }, '-=0.35'],
-      ['.hero-product-showcase', { scale: 0.94, autoAlpha: 0, duration: 0.9 }, '-=0.75'],
       ['.floating-element', { autoAlpha: 0, duration: 0.45, stagger: 0.1 }, '-=0.45']
     ];
     heroSeq.forEach(function (item) {

@@ -3079,7 +3079,7 @@ body { animation: page-enter 0.55s ease both; }
             </select>
             <textarea class="form-field full" name="message" rows="4" placeholder="Your message" data-i18n-ph="order.messagePh" aria-label="Your message" data-i18n-aria="order.messagePh" required></textarea>
           </div>
-          <p class="action-contact" data-i18n="order.supportContact">Direct contact: support@example.com · WhatsApp +65 0000 0000</p>
+          <p class="action-contact" data-i18n="order.supportContact">Direct contact: {email} · WhatsApp {whatsapp}</p>
           <button type="submit" class="btn btn-primary" data-i18n="order.submit">Submit</button>
         </form>
       </div>
@@ -3620,7 +3620,7 @@ var siteI18n = {
   'order.subject.delivery': { en: 'Delivery Question', tw: '配送問題' },
   'order.subject.other': { en: 'Other', tw: '其他' },
   'order.messagePh': { en: 'Your message', tw: '您的留言' },
-  'order.supportContact': { en: 'Direct contact: support@example.com · WhatsApp +65 0000 0000', tw: '直接聯繫：support@example.com · WhatsApp +65 0000 0000' },
+  'order.supportContact': { en: 'Direct contact: {email} · WhatsApp {whatsapp}', tw: '直接聯繫：{email} · WhatsApp {whatsapp}' },
   'order.submit': { en: 'Submit', tw: '提交' },
   'order.extendTitle': { en: 'Request to Extend Delivery', tw: '申請延長收貨' },
   'order.extendSub': { en: 'Extends the estimated delivery by 7 days.', tw: '預計送達將順延 7 天。' },
@@ -3689,6 +3689,7 @@ function applyLanguage(lang) {
     var v = t(el.getAttribute('data-i18n-ph'));
     if (v) el.setAttribute('placeholder', v);
   });
+  if (typeof renderContactInfo === 'function') renderContactInfo();
 
   document.title = t(typeof PAGE_TITLE_KEY !== 'undefined' ? PAGE_TITLE_KEY : 'meta.title');
   var mdesc = document.querySelector('meta[name="description"]');
@@ -4194,7 +4195,17 @@ var LogisticsAPI = {
 };
 
 // ---- 支持服务（接口预留：接真实后端时只改这里） ----
+// 客服联系方式配置：当前为演示地址，未来可视化后台上线后由此接口下发真实联系方式
+// TODO(backend): GET /api/config/contact → { email, whatsapp }
+var SUPPORT_CONTACT = {
+  email: 'support@example.com',
+  whatsapp: '+65 0000 0000'
+};
+
 var SupportAPI = {
+  getContactInfo: function () {
+    return Promise.resolve(SUPPORT_CONTACT);
+  },
   // TODO(backend): POST /api/uploads → { url }
   uploadImage: function (dataUrl, fileName) {
     return Promise.resolve({ url: dataUrl, local: true, fileName: fileName });
@@ -4220,6 +4231,15 @@ var SupportAPI = {
     return Promise.resolve({ id: payload.id, status: payload.status });
   }
 };
+
+// 用后台配置填充联系方式占位符（{email} / {whatsapp}）
+function renderContactInfo() {
+  var el = document.querySelector('[data-i18n="order.supportContact"]');
+  if (!el) return;
+  var txt = el.textContent || '';
+  el.textContent = txt.replace('{email}', SUPPORT_CONTACT.email).replace('{whatsapp}', SUPPORT_CONTACT.whatsapp);
+}
+renderContactInfo();
 
 // ---- 工具 ----
 function escapeHtml(s) {

@@ -3601,6 +3601,7 @@ var siteI18n = {
   'order.qty': { en: 'Qty', tw: '數量' },
   'order.deliveryTo': { en: 'Delivery To', tw: '配送至' },
   'order.payment': { en: 'Payment', tw: '付款方式' },
+  'order.inviteCode': { en: 'Invite Code', tw: '邀請碼' },
   'order.trackingTitle': { en: 'Delivery Tracking', tw: '物流追蹤' },
   'order.carrier': { en: 'Carrier', tw: '承運商' },
   'order.trackingNo': { en: 'Tracking No.', tw: '運單號' },
@@ -4427,7 +4428,9 @@ function renderSummary(order) {
     + '</div>'
     + '<div class="order-address"><strong>' + t('order.deliveryTo') + ':</strong><br>'
     + escapeHtml([c.name, c.address, c.city, c.postal, c.country].filter(Boolean).join(', '))
-    + '<br><strong>' + t('order.payment') + ':</strong> ' + escapeHtml(payName) + '</div>';
+    + '<br><strong>' + t('order.payment') + ':</strong> ' + escapeHtml(payName)
+    + (order.inviteCode ? '<br><strong>' + t('order.inviteCode') + ':</strong> ' + escapeHtml(order.inviteCode) : '')
+    + '</div>';
 }
 
 function renderTracking(order) {

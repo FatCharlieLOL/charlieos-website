@@ -3137,11 +3137,12 @@ html { overflow-x: hidden; }
 }
 
 /* ============ v2.9：官方水滴标 logo + 导航右侧操作区 + 价格去抽象化 ============ */
-.brand-logo {
+.logo .brand-logo {
+  display: block;
   height: 30px;
   width: auto;
-  object-fit: contain;
-  mix-blend-mode: multiply;
+  overflow: visible;
+  filter: drop-shadow(0 1px 1px rgba(138, 106, 47, 0.28));
 }
 .nav-actions {
   display: flex;
@@ -3186,7 +3187,7 @@ html { overflow-x: hidden; }
 }
 
 @media (max-width: 768px) {
-  .brand-logo { height: 26px; }
+  .logo .brand-logo { height: 26px; }
   .order-btn { width: 38px; height: 38px; }
   .nav-actions { gap: 0.4rem; }
 }
@@ -3205,7 +3206,19 @@ html { overflow-x: hidden; }
 <header class="site-nav">
   <div class="nav-inner">
     <a href="#hero" class="logo" aria-label="SMT Home" data-i18n-aria="aria.logo">
-      <img src="assets/brand/smt-logo.png" alt="SMT" class="brand-logo" fetchpriority="high">
+      <svg class="brand-logo" viewBox="0 0 170 56" role="img" aria-label="SMT" aria-hidden="true">
+        <defs>
+          <linearGradient id="brandGold" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#EAD9A6"/>
+            <stop offset="0.38" stop-color="#D3B06A"/>
+            <stop offset="0.52" stop-color="#A5823D"/>
+            <stop offset="0.72" stop-color="#D9BE7E"/>
+            <stop offset="1" stop-color="#8A6A2F"/>
+          </linearGradient>
+        </defs>
+        <text x="1" y="41" font-family="'Cormorant Garamond','Noto Serif SC',Georgia,serif" font-size="46" font-weight="700" letter-spacing="1.5" fill="rgba(138,106,47,0.35)">SMT</text>
+        <text x="1" y="39" font-family="'Cormorant Garamond','Noto Serif SC',Georgia,serif" font-size="46" font-weight="700" letter-spacing="1.5" fill="url(#brandGold)">SMT<tspan dy="-15" font-size="15" font-weight="600" letter-spacing="0">™</tspan></text>
+      </svg>
     </a>
         <nav class="nav-links" id="nav-menu" aria-label="Main navigation" data-i18n-aria="aria.nav">
       <a href="index.html" data-i18n="nav.home">Home</a>

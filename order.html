@@ -10,6 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sheng Peptide Biotechnology — Unlock Your Cells' Full Potential">
 <meta property="og:description" content="Nano active peptide technology for deep cellular renewal — 12 years of R&D and 100% absorption.">
+<meta property="og:image" content="https://charlieos.cc.cd/assets/products/tier-1month.jpg">
 <meta property="og:site_name" content="Sheng Peptide Biotechnology (S) Pte Ltd">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C10 9 6 14 6 19a10 10 0 0 0 20 0c0-5-4-10-10-16z' fill='%2300B4D8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2834,7 +2835,7 @@ body { background: var(--ivory); color: var(--ink); }
   margin-top: 1.5rem;
   max-width: 760px;
 }
-.action-form h3 { font-family: var(--font-primary); font-size: 1.25rem; font-weight: 800; color: var(--wave-white); margin-bottom: 0.4rem; }
+.action-form h2, .action-form h3 { font-family: var(--font-primary); font-size: 1.25rem; font-weight: 800; color: var(--wave-white); margin-bottom: 0.4rem; }
 .action-sub { color: rgba(18, 41, 62, 0.6); font-size: 0.92rem; margin-bottom: 1.2rem; }
 .action-form .form-grid { margin-bottom: 0.9rem; }
 .action-form .btn { margin-top: 0.4rem; }
@@ -2922,7 +2923,7 @@ body { background: var(--ivory); color: var(--ink); }
   max-width: 620px;
   margin: 1.5rem auto 0;
 }
-.order-notfound h3 { font-family: var(--font-primary); font-size: 1.2rem; font-weight: 800; color: var(--wave-white); margin-bottom: 0.5rem; }
+.order-notfound h2, .order-notfound h3 { font-family: var(--font-primary); font-size: 1.2rem; font-weight: 800; color: var(--wave-white); margin-bottom: 0.5rem; }
 .order-notfound p { color: rgba(18, 41, 62, 0.6); font-size: 0.92rem; }
 
 @media (max-width: 1024px) {
@@ -2937,6 +2938,7 @@ body { background: var(--ivory); color: var(--ink); }
 }
 
 /* ============ v2.7 优化：页面与订单详情入场过渡，消除“闪一下” ============ */
+html { overflow-x: hidden; }
 @keyframes page-enter {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -3040,18 +3042,18 @@ body { animation: page-enter 0.55s ease both; }
         <div class="order-main">
           <div class="order-card" id="order-summary"></div>
           <div class="order-card">
-            <h3 class="order-card-title" data-i18n="order.trackingTitle">Delivery Tracking</h3>
+            <h2 class="order-card-title" data-i18n="order.trackingTitle">Delivery Tracking</h2>
             <div class="track-info" id="track-info"></div>
             <div class="track-timeline" id="track-timeline"></div>
           </div>
           <div class="order-card">
-            <h3 class="order-card-title" data-i18n="order.reqListTitle">My Requests</h3>
+            <h2 class="order-card-title" data-i18n="order.reqListTitle">My Requests</h2>
             <div class="requests-list" id="requests-list"></div>
           </div>
         </div>
         <aside class="order-side">
           <div class="order-card">
-            <h3 class="order-card-title" data-i18n="order.actionsTitle">Need Help?</h3>
+            <h2 class="order-card-title" data-i18n="order.actionsTitle">Need Help?</h2>
             <div class="action-buttons">
               <button type="button" class="btn btn-secondary action-btn" data-action="support" data-i18n="order.contact">Contact Support</button>
               <button type="button" class="btn btn-secondary action-btn" data-action="extend" data-i18n="order.extend">Extend Delivery</button>
@@ -3065,13 +3067,13 @@ body { animation: page-enter 0.55s ease both; }
       <!-- 客服表单 -->
       <div class="action-panel" id="panel-support" hidden>
         <form id="support-form" class="action-form" novalidate>
-          <h3 data-i18n="order.supportTitle">Contact Customer Service</h3>
+          <h2 data-i18n="order.supportTitle">Contact Customer Service</h2>
           <p class="action-sub" data-i18n="order.supportSub">We usually reply within 1 business day.</p>
           <div class="form-grid">
             <input class="form-field" name="name" type="text" placeholder="Your name" data-i18n-ph="order.namePh" aria-label="Your name" data-i18n-aria="order.namePh" required>
             <input class="form-field" name="email" type="email" placeholder="Your email" data-i18n-ph="order.emailPh" aria-label="Your email" data-i18n-aria="order.emailPh" required>
-            <input class="form-field full" name="orderNo" type="text" readonly>
-            <select class="form-field full" name="subject">
+            <input class="form-field full" name="orderNo" type="text" readonly aria-label="Order number" data-i18n-aria="order.noAria">
+          <select class="form-field full" name="subject" aria-label="Subject" data-i18n-aria="order.subjectAria">
               <option value="order" data-i18n="order.subject.order">Order Question</option>
               <option value="product" data-i18n="order.subject.product">Product Question</option>
               <option value="delivery" data-i18n="order.subject.delivery">Delivery Question</option>
@@ -3087,10 +3089,10 @@ body { animation: page-enter 0.55s ease both; }
       <!-- 延长收货 -->
       <div class="action-panel" id="panel-extend" hidden>
         <form id="extend-form" class="action-form" novalidate>
-          <h3 data-i18n="order.extendTitle">Request to Extend Delivery</h3>
+          <h2 data-i18n="order.extendTitle">Request to Extend Delivery</h2>
           <p class="action-sub" data-i18n="order.extendSub">Extends the estimated delivery by 7 days.</p>
           <div class="form-grid">
-            <select class="form-field full" name="reason" required>
+          <select class="form-field full" name="reason" required aria-label="Reason" data-i18n-aria="order.reasonAria">
               <option value="travel" data-i18n="order.reason.travel">Away on business or travel</option>
               <option value="slow" data-i18n="order.reason.slow">Logistics is too slow</option>
               <option value="other" data-i18n="order.reason.other">Other</option>
@@ -3105,10 +3107,10 @@ body { animation: page-enter 0.55s ease both; }
       <!-- 退货退款 -->
       <div class="action-panel" id="panel-return" hidden>
         <form id="return-form" class="action-form" novalidate>
-          <h3 data-i18n="order.returnTitle">Request Return / Refund</h3>
+          <h2 data-i18n="order.returnTitle">Request Return / Refund</h2>
           <p class="action-sub" data-i18n="order.returnSub">Tell us the reason and upload photos if needed.</p>
           <div class="form-grid">
-            <select class="form-field full" name="reason" required>
+          <select class="form-field full" name="reason" required aria-label="Reason" data-i18n-aria="order.reasonAria">
               <option value="quality" data-i18n="order.reason.quality">Product quality issue</option>
               <option value="mismatch" data-i18n="order.reason.mismatch">Does not match description</option>
               <option value="wrong" data-i18n="order.reason.wrong">Received wrong item</option>
@@ -3123,7 +3125,7 @@ body { animation: page-enter 0.55s ease both; }
       </div>
 
       <div class="order-notfound" id="order-notfound" hidden>
-        <h3 data-i18n="order.notFound">Order not found.</h3>
+        <h2 data-i18n="order.notFound">Order not found.</h2>
         <p data-i18n="order.notFoundHint">Please check the order number. You can find it on the confirmation screen after purchase.</p>
       </div>
     </div>
@@ -3272,22 +3274,6 @@ body { animation: page-enter 0.55s ease both; }
         <input type="email" id="subscribe-email" placeholder="Your email address" data-i18n-ph="footer.placeholder" aria-label="Email address" data-i18n-aria="aria.email" required>
         <button type="submit" data-i18n="footer.join">Join</button>
       </form>
-      <div class="social-links">
-        <a href="#" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l-.5 3H14v9h-3v-9H8V9h3V7a4 4 0 0 1 4-4h3v3h-2c-1.1 0-2 .9-2 2v1z"/></svg>
-        </a>
-        <a href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/>
-          </svg>
-        </a>
-        <a href="#" aria-label="X">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.3l-4.9-6.4L5 21H1.9l7.3-8.3L1.5 3h6.4l4.4 5.9L17.5 3zm-1.1 16h1.7L7.2 4.7H5.4L16.4 19z"/></svg>
-        </a>
-        <a href="#" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.4-.4-5c-.2-.9-.9-1.6-1.8-1.8C19.2 4.8 12 4.8 12 4.8s-7.2 0-8.8.4c-.9.2-1.6.9-1.8 1.8C1 8.6 1 12 1 12s0 3.4.4 5c.2.9.9 1.6 1.8 1.8 1.6.4 8.8.4 8.8.4s7.2 0 8.8-.4c-.9-.2-.9-1.6-1.8-1.8.4-1.6.4-5 .4-5zM9.8 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
-        </a>
-      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -3615,6 +3601,9 @@ var siteI18n = {
   'order.supportSub': { en: 'We usually reply within 1 business day.', tw: '我們通常會在 1 個工作日內回覆。' },
   'order.namePh': { en: 'Your name', tw: '您的姓名' },
   'order.emailPh': { en: 'Your email', tw: '您的電子郵件' },
+  'order.noAria': { en: 'Order number (auto-filled)', tw: '訂單編號（自動帶入）' },
+  'order.subjectAria': { en: 'Subject', tw: '主旨' },
+  'order.reasonAria': { en: 'Reason', tw: '原因' },
   'order.subjectPh': { en: 'Subject', tw: '主旨' },
   'order.subject.order': { en: 'Order Question', tw: '訂單問題' },
   'order.subject.product': { en: 'Product Question', tw: '產品問題' },
@@ -3724,6 +3713,16 @@ document.querySelectorAll('.lang-btn').forEach(function (b) {
     applyLanguage(b.getAttribute('data-lang'));
   });
 });
+
+// 客服联系方式默认值：与 SUPPORT_CONTACT 一致；后台接口就绪后由该配置覆盖
+var DEFAULT_SUPPORT_CONTACT = { email: 'support@example.com', whatsapp: '+65 0000 0000' };
+function renderContactInfo() {
+  var el = document.querySelector('[data-i18n="order.supportContact"]');
+  if (!el) return;
+  var c = (typeof SUPPORT_CONTACT !== 'undefined') ? SUPPORT_CONTACT : DEFAULT_SUPPORT_CONTACT;
+  var txt = el.textContent || '';
+  el.textContent = txt.replace('{email}', c.email).replace('{whatsapp}', c.whatsapp);
+}
 
 var savedLang = 'en';
 try { savedLang = localStorage.getItem('smt-lang') || 'en'; } catch (e) {}
@@ -4233,14 +4232,7 @@ var SupportAPI = {
   }
 };
 
-// 用后台配置填充联系方式占位符（{email} / {whatsapp}）
-function renderContactInfo() {
-  var el = document.querySelector('[data-i18n="order.supportContact"]');
-  if (!el) return;
-  var txt = el.textContent || '';
-  el.textContent = txt.replace('{email}', SUPPORT_CONTACT.email).replace('{whatsapp}', SUPPORT_CONTACT.whatsapp);
-}
-renderContactInfo();
+// renderContactInfo 已在 i18n 脚本中定义（含后台配置读取与默认值），此处不再重复
 
 // ---- 工具 ----
 function escapeHtml(s) {

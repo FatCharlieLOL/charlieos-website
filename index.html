@@ -10,6 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sheng Peptide Biotechnology — Unlock Your Cells' Full Potential">
 <meta property="og:description" content="Nano active peptide technology for deep cellular renewal — 12 years of R&D and 100% absorption.">
+<meta property="og:image" content="https://charlieos.cc.cd/assets/products/tier-1month.jpg">
 <meta property="og:site_name" content="Sheng Peptide Biotechnology (S) Pte Ltd">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3C10 9 6 14 6 19a10 10 0 0 0 20 0c0-5-4-10-10-16z' fill='%2300B4D8'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2972,7 +2973,7 @@ html { overflow-x: hidden; }
         </div>
         <div class="hero-stats">
           <div class="mini-stat">
-            <strong class="stat-value" data-count="12" data-suffix="+">0+</strong>
+            <strong class="stat-value" data-count="12" data-suffix="+">12+</strong>
             <span data-i18n="hero.stat1">Years of R&amp;D</span>
           </div>
           <div class="mini-stat">
@@ -2980,7 +2981,7 @@ html { overflow-x: hidden; }
             <span data-i18n="hero.stat2">Absorption Rate</span>
           </div>
           <div class="mini-stat">
-            <strong class="stat-value" data-count="2024">0</strong>
+            <strong class="stat-value" data-count="2024">2024</strong>
             <span data-i18n="hero.stat3">Channel 8 Award</span>
           </div>
         </div>
@@ -3302,7 +3303,7 @@ html { overflow-x: hidden; }
           </p>
           <div class="story-stats">
             <div class="stat-item reveal-scale">
-              <div class="stat-value" data-count="12" data-suffix="+">0+</div>
+              <div class="stat-value" data-count="12" data-suffix="+">12+</div>
               <div class="stat-label" data-i18n="story.stat1">Years of Research &amp; Development</div>
             </div>
             <div class="stat-item reveal-scale" style="transition-delay:0.15s">
@@ -3570,22 +3571,6 @@ html { overflow-x: hidden; }
         <input type="email" id="subscribe-email" placeholder="Your email address" data-i18n-ph="footer.placeholder" aria-label="Email address" data-i18n-aria="aria.email" required>
         <button type="submit" data-i18n="footer.join">Join</button>
       </form>
-      <div class="social-links">
-        <a href="#" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3l-.5 3H14v9h-3v-9H8V9h3V7a4 4 0 0 1 4-4h3v3h-2c-1.1 0-2 .9-2 2v1z"/></svg>
-        </a>
-        <a href="#" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/>
-          </svg>
-        </a>
-        <a href="#" aria-label="X">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.3l-4.9-6.4L5 21H1.9l7.3-8.3L1.5 3h6.4l4.4 5.9L17.5 3zm-1.1 16h1.7L7.2 4.7H5.4L16.4 19z"/></svg>
-        </a>
-        <a href="#" aria-label="YouTube">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.4-.4-5c-.2-.9-.9-1.6-1.8-1.8C19.2 4.8 12 4.8 12 4.8s-7.2 0-8.8.4c-.9.2-1.6.9-1.8 1.8C1 8.6 1 12 1 12s0 3.4.4 5c.2.9.9 1.6 1.8 1.8 1.6.4 8.8.4 8.8.4s7.2 0 8.8-.4c-.9-.2-.9-1.6-1.8-1.8.4-1.6.4-5 .4-5zM9.8 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
-        </a>
-      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -3616,22 +3601,35 @@ document.querySelectorAll('.reveal, .reveal-scale, .reveal-left, .reveal-right, 
 const countObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
-    const el = entry.target;
-    const target = parseInt(el.dataset.count, 10);
-    const suffix = el.dataset.suffix || '';
-    let current = 0;
-    const step = Math.max(1, Math.round(target / 45));
-    const tick = () => {
-      current = Math.min(target, current + step);
-      el.textContent = current + suffix;
-      if (current < target) requestAnimationFrame(tick);
-    };
-    tick();
-    countObserver.unobserve(el);
+    animateCount(entry.target);
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.4 });
 
-document.querySelectorAll('.stat-value[data-count]').forEach((el) => countObserver.observe(el));
+// 数字滚动为增强效果：HTML 已预置最终值（避免手机首屏显示 0）
+function animateCount(el) {
+  if (el.dataset.counted === '1') return;
+  el.dataset.counted = '1';
+  const target = parseInt(el.dataset.count, 10);
+  const suffix = el.dataset.suffix || '';
+  let current = 0;
+  const step = Math.max(1, Math.round(target / 45));
+  const tick = () => {
+    current = Math.min(target, current + step);
+    el.textContent = current + suffix;
+    if (current < target) requestAnimationFrame(tick);
+  };
+  tick();
+  countObserver.unobserve(el);
+}
+
+document.querySelectorAll('.stat-value[data-count]').forEach((el) => {
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) {
+    animateCount(el); // 首屏可见：立即从 0 滚动到目标值
+  } else {
+    el.dataset.counted = '1'; // 首屏外：保持 HTML 预置的最终值，不重置
+  }
+});
 
 // --- 3. 气泡粒子生成 ---
 const particleLayer = document.getElementById('particles');

@@ -3136,6 +3136,61 @@ html { overflow-x: hidden; }
   .usage-grid > * { min-width: 0 !important; }
 }
 
+/* ============ v2.9：官方水滴标 logo + 导航右侧操作区 + 价格去抽象化 ============ */
+.brand-logo {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-left: 0;
+}
+.order-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--gold-deep);
+  background: rgba(185, 150, 76, 0.10);
+  border: 1px solid rgba(185, 150, 76, 0.22);
+  transition: background 0.25s ease, transform 0.25s ease, color 0.25s ease;
+}
+.order-btn:hover {
+  background: rgba(185, 150, 76, 0.2);
+  transform: translateY(-1px);
+}
+.order-btn svg { width: 19px; height: 19px; }
+
+.tier-price {
+  gap: 0.35rem;
+  margin: 0.9rem 0 1.2rem;
+}
+.tier-currency {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.tier-amount {
+  font-family: var(--font-primary) !important;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.tier-original {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .brand-logo { height: 26px; }
+  .order-btn { width: 38px; height: 38px; }
+  .nav-actions { gap: 0.4rem; }
+}
+
 </style>
 </head>
 
@@ -3150,38 +3205,30 @@ html { overflow-x: hidden; }
 <header class="site-nav">
   <div class="nav-inner">
     <a href="#hero" class="logo" aria-label="SMT Home" data-i18n-aria="aria.logo">
-      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#00B4D8"/>
-            <stop offset="1" stop-color="#48CAE4"/>
-          </linearGradient>
-        </defs>
-        <path d="M16 3C9.5 9.5 6 15 6 19.5A10 10 0 0 0 26 19.5C26 15 22.5 9.5 16 3z" fill="url(#logoGrad)"/>
-        <circle cx="11" cy="22" r="1.4" fill="#90E0EF" opacity="0.9"/>
-        <circle cx="17" cy="26" r="1" fill="#90E0EF" opacity="0.7"/>
-        <circle cx="22" cy="21" r="1.8" fill="#90E0EF" opacity="0.8"/>
-      </svg>
-      <span>SMT</span>
+      <img src="assets/brand/smt-logo.png" alt="SMT" class="brand-logo" fetchpriority="high">
     </a>
         <nav class="nav-links" id="nav-menu" aria-label="Main navigation" data-i18n-aria="aria.nav">
       <a href="index.html" data-i18n="nav.home">Home</a>
       <a href="index.html#products" data-i18n="nav.products">Products</a>
       <a href="index.html#science" data-i18n="nav.science">Science</a>
       <a href="index.html#credentials" data-i18n="nav.quality">Quality</a>
-      <a href="order.html" data-i18n="nav.order">Track Order</a>
       <a href="index.html#cta" class="nav-cta" data-i18n="nav.cta">Get Started</a>
     </nav>
-    <button type="button" class="cart-btn" id="cart-btn" aria-label="Open cart" data-i18n-aria="cart.openAria">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
-      </svg>
-      <span class="cart-badge" id="cart-count" aria-hidden="true"></span>
-    </button>
-    <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="aria.lang">
-      <button type="button" class="lang-btn lang-btn--active" data-lang="en" aria-pressed="true">EN</button>
-      <span class="lang-divider" aria-hidden="true">/</span>
-      <button type="button" class="lang-btn" data-lang="tw" aria-pressed="false">繁體</button>
+    <div class="nav-actions">
+      <a class="order-btn" href="order.html" aria-label="Track Order" data-i18n-aria="aria.order">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7l-8-4-8 4v10l8 4 8-4V7z"/><path d="M12 3v18"/><path d="M4 7l8 4 8-4"/></svg>
+      </a>
+      <button type="button" class="cart-btn" id="cart-btn" aria-label="Open cart" data-i18n-aria="cart.openAria">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="cart-badge" id="cart-count" aria-hidden="true"></span>
+      </button>
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-aria="aria.lang">
+        <button type="button" class="lang-btn lang-btn--active" data-lang="en" aria-pressed="true">EN</button>
+        <span class="lang-divider" aria-hidden="true">/</span>
+        <button type="button" class="lang-btn" data-lang="tw" aria-pressed="false">繁體</button>
+      </div>
     </div>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" data-i18n-aria="aria.toggle" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -3828,6 +3875,7 @@ var siteI18n = {
   'aria.lang': { en: 'Language', tw: '語言' },
   'aria.toggle': { en: 'Toggle menu', tw: '切換選單' },
   'aria.logo': { en: 'SMT Home', tw: 'SMT 首頁' },
+  'aria.order': { en: 'Track Order', tw: '訂單查詢' },
   'aria.original': { en: 'Original price', tw: '原價' },
 
   'hero.badge': { en: 'From the Deep Sea · 源自深海', tw: '源自深海 · From the Deep Sea' },

@@ -1,0 +1,7 @@
+﻿/* Self-hosted subsets: Cormorant Garamond + Noto Serif SC (site charset) */
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: url(cormorant-500.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: url(cormorant-600.woff2) format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 700; font-display: swap; src: url(cormorant-700.woff2) format('woff2'); }
+@font-face { font-family: 'Noto Serif SC'; font-style: normal; font-weight: 500; font-display: swap; src: url(noto-sc-500.woff2) format('woff2'); }
+@font-face { font-family: 'Noto Serif SC'; font-style: normal; font-weight: 600; font-display: swap; src: url(noto-sc-600.woff2) format('woff2'); }
+@font-face { font-family: 'Noto Serif SC'; font-style: normal; font-weight: 700; font-display: swap; src: url(noto-sc-700.woff2) format('woff2'); }

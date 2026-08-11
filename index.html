@@ -3137,6 +3137,23 @@ html { overflow-x: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .story-mcard:hover { transform: none; }
 }
+/* 论文卡：引用 + 知网链接（v3.2.2） */
+.evi-cite {
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: rgba(18, 41, 62, 0.62);
+  margin: 0.7rem 0 0.5rem;
+}
+.evi-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--teal-light);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease;
+}
+.evi-link:hover { border-color: currentColor; }
 </style>
 </head>
 
@@ -3621,6 +3638,8 @@ html { overflow-x: hidden; }
         <article class="evi-card stagger-item">
           <h3 data-i18n="evi.paper.title">Published Research &amp; Laboratory Studies</h3>
           <p class="evi-proves"><strong data-i18n="evi.provesLabel">Proves:</strong> <span data-i18n="evi.paper.proves">peer-reviewed mechanism research on the PI3K-Akt signalling pathway (Chinese Journal of Hospital Pharmacy, online-first 2024); molecular weight distribution analysis by Jiangnan University Analytical &amp; Testing Center (Report No. NNA180702298); peptide-spectrum identification of 7,208 peptides; and an MTD acute-toxicity study showing no toxicity at IV 25 mg/kg.</span></p>
+          <p class="evi-cite" data-i18n="evidence.paperCite">Li D., Fang X., Li H., Liu J., An Y., Cao Z., Bai H., Yang Q., Li N. Exploring the molecular mechanism of small-molecule peptide-SMT(S) in improving insomnia via the PI3K/Akt signalling pathway [J/OL]. Chinese Journal of Hospital Pharmacy, 2024.</p>
+          <a class="evi-link" href="https://link.cnki.net/urlid/42.1204.R.20240410.2008.006" target="_blank" rel="noopener nofollow" data-i18n="evidence.paperBtn">View Full Text on CNKI ↗</a>
         </article>
         <article class="evi-card stagger-item evi-pending">
           <h3 data-i18n="evi.trial.title">Human Studies — In Progress</h3>
@@ -4212,6 +4231,8 @@ var siteI18n = {
   'evi.paper.title': { en: 'Published Research & Laboratory Studies', tw: '已發表研究與實驗室研究', zh: '已发表研究与实验室研究' },
   'evi.paper.proves': { en: 'peer-reviewed mechanism research on the PI3K-Akt signalling pathway (Chinese Journal of Hospital Pharmacy, online-first 2024); molecular weight distribution analysis by Jiangnan University Analytical & Testing Center (Report No. NNA180702298); peptide-spectrum identification of 7,208 peptides; and an MTD acute-toxicity study showing no toxicity at IV 25 mg/kg.', tw: '同行評審機制研究：PI3K-Akt 信號通路（《中國醫院藥學雜誌》2024 網路首發）；江南大學分析測試中心分子量分布檢測（報告編號 NNA180702298）；胜肽譜鑑定 7,208 條多肽；MTD 急性毒性試驗靜脈 25 mg/kg 未見毒性。', zh: '同行评审机制研究：PI3K-Akt 信号通路（《中国医院药学杂志》2024 网络首发）；江南大学分析测试中心分子量分布检测（报告编号 NNA180702298）；胜肽谱鉴定 7,208 条多肽；MTD 急性毒性试验静脉 25 mg/kg 未见毒性。' },
   'evi.paper.limits': { en: 'the product cures or treats any condition.', tw: '產品能治癒或治療任何疾病。', zh: '产品能治愈或治疗任何疾病。' },
+  'evidence.paperCite': { en: 'Li D., Fang X., Li H., Liu J., An Y., Cao Z., Bai H., Yang Q., Li N. Exploring the molecular mechanism of small-molecule peptide-SMT(S) in improving insomnia via the PI3K/Akt signalling pathway [J/OL]. Chinese Journal of Hospital Pharmacy, 2024.', tw: '李典育，房星宇，李輝，劉健，安昱，曹占鴻，白浩楠，楊擎，李娜. 基於PI3K/Akt信號通路探討小分子肽-SMT(S)改善失眠的分子作用機制[J/OL]. 中國醫院藥學雜誌, 2024.', zh: '李典育，房星宇，李辉，刘健，安昱，曹占鸿，白浩楠，杨擎，李娜. 基于PI3K/Akt信号通路探讨小分子肽-SMT(S)改善失眠的分子作用机制[J/OL]. 中国医院药学杂志, 2024.' },
+  'evidence.paperBtn': { en: 'View Full Text on CNKI ↗', tw: '前往知網查看全文 ↗', zh: '前往知网查看全文 ↗' },
   'evi.trial.title': { en: 'Human Studies — In Progress', tw: '人體研究——進行中', zh: '人体研究——进行中' },
   'evi.trial.proves': { en: 'multi-centre human absorption and wellbeing research is being advanced by the brand owner with qualified third-party institutions. Full reports will be published here the moment they are released.', tw: '品牌方正與具資質之第三方機構推進多中心人體吸收與健康研究；完整報告一經發布，將第一時間於此公布。', zh: '品牌方正与具资质之第三方机构推进多中心人体吸收与健康研究；完整报告一经发布，将第一时间于此公布。' },
   'evi.note': { en: 'All documents are official copies or published sources with verifiable report numbers. Click any credential to view the original or verify it with the issuing body.', tw: '以上均為官方文件或公開來源，報告編號可核驗。點擊任一資質可查看原件或至發證機構核驗。', zh: '以上均为官方文档或公开来源，报告编号可核验。点击任一资质可查看原件或至发证机构核验。' },

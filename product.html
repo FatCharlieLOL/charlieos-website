@@ -3204,6 +3204,26 @@ html { overflow-x: hidden; }
 }
 
 </style>
+
+<style>
+/* 论文卡：首页封面 + 引用 + 知网链接（v3.2.2） */
+.paper-cover {
+  max-width: 320px;
+  margin: 0.2rem 0 0.9rem;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(18, 41, 62, 0.12);
+  box-shadow: 0 8px 22px rgba(10, 42, 74, 0.12);
+}
+.paper-cover img { width: 100%; display: block; }
+.paper-cite {
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: rgba(18, 41, 62, 0.62);
+  margin: 0 0 0.9rem;
+}
+.evidence-card .evidence-btn { margin-top: 0; }
+</style>
 </head>
 
 <body>
@@ -3554,7 +3574,11 @@ html { overflow-x: hidden; }
           <span class="evidence-badge" data-i18n="evidence.paperBadge">Published</span>
           <h3 data-i18n="evidence.paperTitle">Molecular Mechanism of Improved Sleep</h3>
           <p data-i18n="evidence.paperBody">First published online in the Chinese Journal of Hospital Pharmacy (2024), on the PI3K-Akt signalling pathway.</p>
-          <a class="btn btn-secondary evidence-btn" href="assets/research/paper-insomnia-pi3k-akt.pdf" target="_blank" rel="noopener" data-i18n="evidence.paperBtn">Read the Paper</a>
+          <div class="paper-cover">
+            <img src="assets/research/paper-cover.jpg" alt="First page of the published research paper" data-i18n-alt="evidence.paperCoverAlt" loading="lazy">
+          </div>
+          <p class="paper-cite" data-i18n="evidence.paperCite">Li D., Fang X., Li H., Liu J., An Y., Cao Z., Bai H., Yang Q., Li N. Exploring the molecular mechanism of small-molecule peptide-SMT(S) in improving insomnia via the PI3K/Akt signalling pathway [J/OL]. Chinese Journal of Hospital Pharmacy, 2024.</p>
+          <a class="btn btn-secondary evidence-btn" href="https://link.cnki.net/urlid/42.1204.R.20240410.2008.006" target="_blank" rel="noopener nofollow" data-i18n="evidence.paperBtn">View Full Text on CNKI ↗</a>
         </article>
         <article class="evidence-card stagger-item">
           <span class="evidence-badge evidence-badge--team" data-i18n="evidence.teamBadge">Team</span>
@@ -4204,8 +4228,10 @@ var siteI18n = {
   'evidence.title': { en: 'Backed by Research', tw: '有研究支撐', zh: '有研究支撑' },
   'evidence.paperBadge': { en: 'Published', tw: '已發表', zh: '已发表' },
   'evidence.paperTitle': { en: 'Molecular Mechanism of Improved Sleep', tw: '改善睡眠的分子機制', zh: '改善睡眠的分子机制' },
-  'evidence.paperBody': { en: 'First published online in the Chinese Journal of Hospital Pharmacy (2024), on the PI3K-Akt signalling pathway.', tw: '2024 年《中國醫院藥學雜誌》網路首發，探討 PI3K-Akt 訊息傳導路徑。', zh: '2024 年《中国医院药学杂志》网络首发，探讨 PI3K-Akt 消息传导路径。' },
-  'evidence.paperBtn': { en: 'Read the Paper', tw: '閱讀論文', zh: '阅读论文' },
+  'evidence.paperBody': { en: 'First published online in the Chinese Journal of Hospital Pharmacy (2024), on the PI3K-Akt signalling pathway.', tw: '2024 年《中國醫院藥學雜誌》網路首發，探討 PI3K-Akt 訊息傳導路徑。', zh: '2024 年《中国医院药学杂志》网络首发，探讨 PI3K-Akt 信号传导路径。' },
+  'evidence.paperBtn': { en: 'View Full Text on CNKI ↗', tw: '前往知網查看全文 ↗', zh: '前往知网查看全文 ↗' },
+  'evidence.paperCite': { en: 'Li D., Fang X., Li H., Liu J., An Y., Cao Z., Bai H., Yang Q., Li N. Exploring the molecular mechanism of small-molecule peptide-SMT(S) in improving insomnia via the PI3K/Akt signalling pathway [J/OL]. Chinese Journal of Hospital Pharmacy, 2024.', tw: '李典育，房星宇，李輝，劉健，安昱，曹占鴻，白浩楠，楊擎，李娜. 基於PI3K/Akt信號通路探討小分子肽-SMT(S)改善失眠的分子作用機制[J/OL]. 中國醫院藥學雜誌, 2024.', zh: '李典育，房星宇，李辉，刘健，安昱，曹占鸿，白浩楠，杨擎，李娜. 基于PI3K/Akt信号通路探讨小分子肽-SMT(S)改善失眠的分子作用机制[J/OL]. 中国医院药学杂志, 2024.' },
+  'evidence.paperCoverAlt': { en: 'First page of the published research paper (Chinese Journal of Hospital Pharmacy, 2024)', tw: '已發表研究論文首頁（《中國醫院藥學雜誌》，2024）', zh: '已发表研究论文首页（《中国医院药学杂志》，2024）' },
   'evidence.teamBadge': { en: 'Team', tw: '團隊', zh: '团队' },
   'evidence.teamTitle': { en: 'Research Team', tw: '研發團隊', zh: '研发团队' },
   'evidence.teamBody': { en: 'Developed with research institutions including Changchun University of Chinese Medicine and the Jilin Ginseng Research Institute.', tw: '與長春中醫藥大學、吉林省人參科學研究院等機構合作研發。', zh: '与长春中医药大学、吉林省人参科学研究院等机构合作研发。' },

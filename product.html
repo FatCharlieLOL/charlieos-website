@@ -3223,6 +3223,16 @@ html { overflow-x: hidden; }
   margin: 0 0 0.9rem;
 }
 .evidence-card .evidence-btn { margin-top: 0; }
+
+/* 产品信息卡（v3.2.3，客户 8.18 资料） */
+.prod-facts { max-width: 1020px; margin: 2.6rem auto 0; text-align: center; }
+.prod-facts h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: #0A1628; margin: 0.4rem 0 1.2rem; }
+.prod-facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.prod-fact { background: #fff; border: 1px solid rgba(18,41,62,0.08); border-radius: 16px; padding: 1.1rem 1rem; text-align: left; box-shadow: 0 6px 18px rgba(10,42,74,0.05); }
+.prod-fact b { display: block; font-size: 0.95rem; color: var(--gold-deep); margin-bottom: 0.3rem; }
+.prod-fact span { display: block; font-size: 0.8rem; line-height: 1.6; color: rgba(18,41,62,0.65); }
+@media (max-width: 900px) { .prod-facts-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .prod-facts-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 
@@ -3512,6 +3522,28 @@ html { overflow-x: hidden; }
           <span class="zero-chip" data-i18n="zero.safe">100% Safe</span>
         </div>
       </div>
+      <div class="prod-facts reveal">
+        <div class="story-eyebrow" data-i18n="prod.factsEyebrow">Product Facts</div>
+        <h3 data-i18n="prod.factsTitle">What's Inside Every Vial</h3>
+        <div class="prod-facts-grid">
+          <div class="prod-fact">
+            <b data-i18n="prod.fact1t">Type I Collagen Peptide</b>
+            <span data-i18n="prod.fact1d">From marine jumbo flying cuttlefish — 18 amino acids including 8 essential ones.</span>
+          </div>
+          <div class="prod-fact">
+            <b data-i18n="prod.fact2t">Serving Size</b>
+            <span data-i18n="prod.fact2d">128 mg freeze-dried peptide per vial · 30 vials per pack.</span>
+          </div>
+          <div class="prod-fact">
+            <b data-i18n="prod.fact3t">Shelf Life</b>
+            <span data-i18n="prod.fact3d">48 months in original packaging · store cool &amp; dry.</span>
+          </div>
+          <div class="prod-fact">
+            <b data-i18n="prod.fact4t">Directions</b>
+            <span data-i18n="prod.fact4d">Dissolve one vial in ~5 ml water and drink — follow the cycle on the packaging.</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -3637,6 +3669,18 @@ html { overflow-x: hidden; }
         <details class="faq-item">
           <summary data-i18n="faq.q8">Why is there no clinical trial data?</summary>
           <p data-i18n="faq.a8">Clinical studies take time. We currently publish mechanism research, independent lab tests and customer experiences; human studies are in progress with the brand owner and will be added to this page as they become available.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q9">What is the collagen source?</summary>
+          <p data-i18n="faq.a9">SMT collagen peptides are Type I collagen extracted from marine jumbo flying cuttlefish, containing 18 amino acids including 8 essential ones.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q10">How long until I see results?</summary>
+          <p data-i18n="faq.a10">Individual results vary. Many users report noticing changes in skin, hair and nails after several weeks of consistent daily use.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.q11">How should I store it?</summary>
+          <p data-i18n="faq.a11">Keep in the original packaging in a cool, dry place away from direct sunlight and moisture. Refrigerate after opening and consume within 24 hours. Shelf life is 48 months.</p>
         </details>
       </div>
     </div>
@@ -4258,6 +4302,23 @@ var siteI18n = {
   'faq.a7': { en: 'Yes — they come from real conversations, shared with the permission of the brand owner. For privacy and compliance, we keep names discreet and use measured language.', tw: '是真的——來自真實對話，並已獲品牌方同意分享。為兼顧隱私與合規，我們保留匿名化姓名並使用審慎措辭。', zh: '是真的——来自真实对话，并已获品牌方同意分享。为兼顾隐私与合规，我们保留匿名化姓名并使用审慎措辞。' },
   'faq.q8': { en: 'Why is there no clinical trial data?', tw: '為什麼還沒有臨床試驗數據？', zh: '为什么还没有临床试验数据？' },
   'faq.a8': { en: 'Clinical studies take time. We currently publish mechanism research, independent lab tests and customer experiences; human studies are in progress with the brand owner and will be added to this page as they become available.', tw: '臨床研究需要時間。我們目前公開機制研究、獨立實驗室檢測與客戶體驗；人體研究正與品牌方進行中，完成後會加入本頁。', zh: '临床研究需要时间。我们目前公开机制研究、独立实验室检测与客户体验；人体研究正与品牌方进行中，完成后会加入本页。' },
+
+  'faq.q9': { en: 'What is the collagen source?', tw: '膠原蛋白的來源是什麼？', zh: '胶原蛋白的来源是什么？' },
+  'faq.a9': { en: 'SMT collagen peptides are Type I collagen extracted from marine jumbo flying cuttlefish, containing 18 amino acids including 8 essential ones.', tw: 'SMT 膠原胜肽為取自深海巨型飛烏賊的第一型膠原蛋白，含 18 種氨基酸，其中 8 種為必需氨基酸。', zh: 'SMT 胶原肽为取自深海巨型飞乌贼的 I 型胶原蛋白，含 18 种氨基酸，其中 8 种为必需氨基酸。' },
+  'faq.q10': { en: 'How long until I see results?', tw: '多久能看到效果？', zh: '多久能看到效果？' },
+  'faq.a10': { en: 'Individual results vary. Many users report noticing changes in skin, hair and nails after several weeks of consistent daily use.', tw: '效果因人而異。多數使用者在持續每日使用數週後，於肌膚、頭髮與指甲上觀察到變化。', zh: '效果因人而异。多数使用者在持续每日使用数周后，于肌肤、头发与指甲上观察到变化。' },
+  'faq.q11': { en: 'How should I store it?', tw: '如何儲存？', zh: '如何储存？' },
+  'faq.a11': { en: 'Keep in the original packaging in a cool, dry place away from direct sunlight and moisture. Refrigerate after opening and consume within 24 hours. Shelf life is 48 months.', tw: '原包裝陰涼乾燥處保存，避免陽光直射與潮濕；開封後冷藏並於 24 小時內用完。保質期 48 個月。', zh: '原包装阴凉干燥处保存，避免阳光直射与潮湿；开封后冷藏并于 24 小时内用完。保质期 48 个月。' },
+  'prod.factsEyebrow': { en: 'Product Facts', tw: '產品資訊', zh: '产品信息' },
+  'prod.factsTitle': { en: "What's Inside Every Vial", tw: '每一瓶的成分', zh: '每一瓶的成分' },
+  'prod.fact1t': { en: 'Type I Collagen Peptide', tw: '第一型膠原胜肽', zh: 'I 型胶原肽' },
+  'prod.fact1d': { en: 'From marine jumbo flying cuttlefish — 18 amino acids including 8 essential ones.', tw: '來自深海巨型飛烏賊——含 18 種氨基酸，其中 8 種為必需氨基酸。', zh: '来自深海巨型飞乌贼——含 18 种氨基酸，其中 8 种为必需氨基酸。' },
+  'prod.fact2t': { en: 'Serving Size', tw: '每瓶含量', zh: '每瓶含量' },
+  'prod.fact2d': { en: '128 mg freeze-dried peptide per vial · 30 vials per pack.', tw: '每瓶 128 毫克凍乾胜肽 · 每盒 30 瓶。', zh: '每瓶 128 毫克冻干多肽 · 每盒 30 瓶。' },
+  'prod.fact3t': { en: 'Shelf Life', tw: '保質期', zh: '保质期' },
+  'prod.fact3d': { en: '48 months in original packaging · store cool & dry.', tw: '原包裝 48 個月 · 陰涼乾燥儲存。', zh: '原包装 48 个月 · 阴凉干燥储存。' },
+  'prod.fact4t': { en: 'Directions', tw: '用法', zh: '用法' },
+  'prod.fact4d': { en: 'Dissolve one vial in ~5 ml water and drink — follow the cycle on the packaging.', tw: '每瓶加約 5 毫升水溶解飲用——依包裝上的週期使用。', zh: '每瓶加约 5 毫升水溶解饮用——按包装上的周期使用。' },
   'qual.heroBadge': { en: 'Trust & Quality', tw: '信任與品質', zh: '信任与品质' },
   'qual.heroTitle': { en: 'Certified Excellence', tw: '認證卓越', zh: '认证卓越' },
   'qual.heroSub': { en: 'Patents, awards and independent laboratory testing — transparency in every detail.', tw: '專利、獎項與獨立實驗室檢測——每個細節公開透明。', zh: '专利、奖项与独立实验室检测——每个细节公开透明。' },

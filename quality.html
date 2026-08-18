@@ -3187,6 +3187,11 @@ html { scroll-snap-type: y proximity; }
   color: rgba(36, 50, 56, 0.5);
 }
 
+
+.cert-links { display: flex; gap: 0.5rem; margin-top: 0.4rem; flex-wrap: wrap; }
+.cert-links a { font-size: 0.72rem; font-weight: 700; color: var(--teal-light); text-decoration: none; border: 1px solid rgba(10,132,255,0.35); padding: 0.22rem 0.6rem; border-radius: 999px; transition: background 0.2s ease, color 0.2s ease; }
+.cert-links a:hover { background: var(--teal-light); color: #fff; }
+.cert-thumb a { display: block; height: 100%; }
 </style>
 </head>
 
@@ -3367,20 +3372,50 @@ html { scroll-snap-type: y proximity; }
             <span class="cert-link"><span data-i18n="cred.view">View Report</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
           </div>
         </a>
-        <a class="cert-card" href="assets/credentials/cert-coa.pdf" target="_blank" rel="noopener">
-          <div class="cert-thumb"><img src="assets/credentials/cert-coa.png" alt="COA Analysis Certificate" data-i18n-alt="cred.cert4Alt" loading="lazy"></div>
+        <div class="cert-card">
+          <a class="cert-thumb" href="assets/credentials/cert-coa-en.pdf" target="_blank" rel="noopener" aria-label="COA English PDF"><img src="assets/credentials/cert-coa.png" alt="COA Analysis Certificate" data-i18n-alt="cred.cert4Alt" loading="lazy"></a>
           <div class="cert-body">
             <div class="cert-name" data-i18n="cred.cert4.title">Certificate of Analysis</div>
             <div class="cert-sub" data-i18n="cred.cert4.lab">COA · Dec 2023 · No. HTHZ23000085</div>
-            <span class="cert-link"><span data-i18n="cred.view">View Report</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+            <div class="cert-links">
+              <a href="assets/credentials/cert-coa-en.pdf" target="_blank" rel="noopener" data-i18n="cred.certEn">EN</a>
+              <a href="assets/credentials/cert-coa-cn.pdf" target="_blank" rel="noopener" data-i18n="cred.certCn">中文</a>
+            </div>
           </div>
-        </a>
-        <a class="cert-card" href="assets/credentials/cert-msds.pdf" target="_blank" rel="noopener">
-          <div class="cert-thumb"><img src="assets/credentials/cert-msds.png" alt="MSDS Safety Data Sheet" data-i18n-alt="cred.cert5Alt" loading="lazy"></div>
+        </div>
+        <div class="cert-card">
+          <a class="cert-thumb" href="assets/credentials/cert-msds-en.pdf" target="_blank" rel="noopener" aria-label="MSDS English PDF"><img src="assets/credentials/cert-msds.png" alt="MSDS Safety Data Sheet" data-i18n-alt="cred.cert5Alt" loading="lazy"></a>
           <div class="cert-body">
             <div class="cert-name" data-i18n="cred.cert5.title">Material Safety Data Sheet</div>
-            <div class="cert-sub" data-i18n="cred.cert5.lab">MSDS · 2023</div>
-            <span class="cert-link"><span data-i18n="cred.view">View Report</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+            <div class="cert-sub" data-i18n="cred.cert5.lab">MSDS · 2023 · No. HTHZ23000084</div>
+            <div class="cert-links">
+              <a href="assets/credentials/cert-msds-en.pdf" target="_blank" rel="noopener" data-i18n="cred.certEn">EN</a>
+              <a href="assets/credentials/cert-msds-cn.pdf" target="_blank" rel="noopener" data-i18n="cred.certCn">中文</a>
+            </div>
+          </div>
+        </div>
+        <a class="cert-card" href="assets/credentials/cert-license-en.jpg" target="_blank" rel="noopener">
+          <div class="cert-thumb"><img src="assets/credentials/cert-license-en.jpg" alt="Food Production License" data-i18n-alt="cred.cert6Alt" loading="lazy"></div>
+          <div class="cert-body">
+            <div class="cert-name" data-i18n="cred.cert6.title">Food Production License</div>
+            <div class="cert-sub" data-i18n="cred.cert6.lab">True Peptide Biotechnology (Dalian) Co., Ltd</div>
+            <span class="cert-link"><span data-i18n="cred.view">View Certificate</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+          </div>
+        </a>
+        <a class="cert-card" href="assets/credentials/cert-gmp-en.jpg" target="_blank" rel="noopener">
+          <div class="cert-thumb"><img src="assets/credentials/cert-gmp-en.jpg" alt="GMP Certification" data-i18n-alt="cred.cert7Alt" loading="lazy"></div>
+          <div class="cert-body">
+            <div class="cert-name" data-i18n="cred.cert7.title">GMP Certification</div>
+            <div class="cert-sub" data-i18n="cred.cert7.lab">Food Production · Dalian, China</div>
+            <span class="cert-link"><span data-i18n="cred.view">View Certificate</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
+          </div>
+        </a>
+        <a class="cert-card" href="assets/credentials/cert-freesale-en.jpg" target="_blank" rel="noopener">
+          <div class="cert-thumb"><img src="assets/credentials/cert-freesale-en.jpg" alt="Certificate of Free Sale" data-i18n-alt="cred.cert8Alt" loading="lazy"></div>
+          <div class="cert-body">
+            <div class="cert-name" data-i18n="cred.cert8.title">Certificate of Free Sale</div>
+            <div class="cert-sub" data-i18n="cred.cert8.lab">Dalian, China · Notarised</div>
+            <span class="cert-link"><span data-i18n="cred.view">View Certificate</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></span>
           </div>
         </a>
       </div>
@@ -3834,8 +3869,21 @@ var siteI18n = {
   'cred.cert5.name': { en: 'MSDS', tw: 'MSDS', zh: 'MSDS' },
   'cred.cert5.sub': { en: 'Material Safety Data Sheet · 2023', tw: '物質安全資料表 · 2023', zh: '物质安全数据表 · 2023' },
   'cred.cert5.title': { en: 'Material Safety Data Sheet', tw: '物質安全資料表', zh: '物质安全数据表' },
-  'cred.cert5.lab': { en: 'MSDS · 2023', tw: 'MSDS · 2023', zh: 'MSDS · 2023' },
+  'cred.cert5.lab': { en: 'MSDS · 2023 · No. HTHZ23000084', tw: 'MSDS · 2023 · 編號 HTHZ23000084', zh: 'MSDS · 2023 · 编号 HTHZ23000084' },
   'cred.cert5Alt': { en: 'MSDS Safety Data Sheet', tw: 'MSDS 安全資料表', zh: 'MSDS 安全数据表' },
+
+  'cred.certEn': { en: 'EN', tw: 'EN', zh: 'EN' },
+  'cred.certCn': { en: '中文', tw: '中文', zh: '中文' },
+  'cred.cert6.title': { en: 'Food Production License', tw: '食品生產許可證', zh: '食品生产许可证' },
+  'cred.cert6.lab': { en: 'True Peptide Biotechnology (Dalian) Co., Ltd', tw: 'True Peptide Biotechnology (Dalian) Co., Ltd', zh: 'True Peptide Biotechnology (Dalian) Co., Ltd' },
+  'cred.cert6Alt': { en: 'Food Production License (True Peptide Biotechnology, Dalian)', tw: '食品生產許可證（True Peptide Biotechnology，大連）', zh: '食品生产许可证（True Peptide Biotechnology，大连）' },
+  'cred.cert7.title': { en: 'GMP Certification', tw: 'GMP 認證', zh: 'GMP 认证' },
+  'cred.cert7.lab': { en: 'Food Production · Dalian, China', tw: '食品生產 · 中國大連', zh: '食品生产 · 中国大连' },
+  'cred.cert7Alt': { en: 'GMP Certification for Food Production (Dalian)', tw: 'GMP 認證（食品生產，大連）', zh: 'GMP 认证（食品生产，大连）' },
+  'cred.cert8.title': { en: 'Certificate of Free Sale', tw: '自由銷售證明', zh: '自由销售证明' },
+  'cred.cert8.lab': { en: 'Dalian, China · Notarised', tw: '中國大連 · 公證', zh: '中国大连 · 公证' },
+  'cred.cert8Alt': { en: 'Certificate of Free Sale (True Peptide Biotechnology, Dalian)', tw: '自由銷售證明（True Peptide Biotechnology，大連）', zh: '自由销售证明（True Peptide Biotechnology，大连）' },
+
 
   'cta.title': { en: 'Ready to Transform Your Health?', tw: '準備好改變您的健康了嗎？', zh: '准备好改变您的健康了吗？' },
   'cta.body': { en: 'Experience the science of cellular renewal, refined over 12 years of research. Begin your journey to a more vibrant you today.', tw: '親身體驗歷經 12 年研究淬煉的科學細胞更新。從今天開始，邁向更有活力的自己。', zh: '亲身体验历经 12 年研究淬炼的科学细胞更新。从今天开始，迈向更有活力的自己。' },

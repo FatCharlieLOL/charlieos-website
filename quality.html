@@ -3192,6 +3192,20 @@ html { scroll-snap-type: y proximity; }
 .cert-links a { font-size: 0.72rem; font-weight: 700; color: var(--teal-light); text-decoration: none; border: 1px solid rgba(10,132,255,0.35); padding: 0.22rem 0.6rem; border-radius: 999px; transition: background 0.2s ease, color 0.2s ease; }
 .cert-links a:hover { background: var(--teal-light); color: #fff; }
 .cert-thumb a { display: block; height: 100%; }
+.footer-uen { margin-top: 0.8rem; font-size: 0.78rem; color: rgba(240,248,255,0.55); line-height: 1.6; }
+
+/* 公司资质卡（v3.2.4，8.26 资料） */
+.corp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.2rem; }
+.corp-card { display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(18,41,62,0.08); border-radius: 18px; overflow: hidden; text-decoration: none; box-shadow: 0 6px 18px rgba(10,42,74,0.05); transition: transform 0.35s var(--ease-out-expo), box-shadow 0.35s var(--ease-out-expo); }
+.corp-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(10,42,74,0.12); }
+.corp-thumb { aspect-ratio: 4 / 3; overflow: hidden; }
+.corp-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.corp-body { padding: 0.9rem 1rem 1rem; }
+.corp-name { font-family: var(--font-display); font-size: 1.02rem; font-weight: 800; color: #0A1628; }
+.corp-sub { font-size: 0.74rem; line-height: 1.5; color: rgba(18,41,62,0.62); margin-top: 0.25rem; }
+@media (max-width: 1000px) { .corp-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .corp-grid { grid-template-columns: 1fr; } }
+
 </style>
 </head>
 
@@ -3424,6 +3438,38 @@ html { scroll-snap-type: y proximity; }
         <a href="https://www.tuvsud.com/en-sg/customer-hub/certificate-finder" target="_blank" rel="noopener nofollow" data-i18n="cred.verifyTuv">TÜV SÜD Certificate Finder</a>
         <a href="https://www.sgs.com/en-hk/verify-sgs-documents-form" target="_blank" rel="noopener nofollow" data-i18n="cred.verifySgs">SGS Document Verification</a>
         <span data-i18n="cred.verifyNote">COA / MSDS have no public lookup portal — contact our team to verify a report number.</span>
+
+      <div class="corp-grid">
+        <a class="corp-card" href="assets/credentials/corp-acra.pdf" target="_blank" rel="noopener">
+          <div class="corp-thumb"><img src="assets/credentials/corp-acra-cover.jpg" alt="ACRA Business Profile" data-i18n-alt="corp.acraAlt" loading="lazy"></div>
+          <div class="corp-body">
+            <div class="corp-name" data-i18n="corp.acraTitle">Singapore Company Registration</div>
+            <div class="corp-sub" data-i18n="corp.acraLab">UEN 202040732D · Sheng Peptide Biotechnology (S) Pte. Ltd.</div>
+          </div>
+        </a>
+        <a class="corp-card" href="assets/credentials/corp-trademark.pdf" target="_blank" rel="noopener">
+          <div class="corp-thumb"><img src="assets/credentials/corp-trademark-cover.jpg" alt="SMT Registered Trade Mark" data-i18n-alt="corp.tmAlt" loading="lazy"></div>
+          <div class="corp-body">
+            <div class="corp-name" data-i18n="corp.tmTitle">Registered Trade Mark</div>
+            <div class="corp-sub" data-i18n="corp.tmLab">IPOS · No. 40202020018T · Classes 3 / 5 / 32</div>
+          </div>
+        </a>
+        <a class="corp-card" href="assets/credentials/corp-halal.jpg" target="_blank" rel="noopener">
+          <div class="corp-thumb"><img src="assets/credentials/corp-halal.jpg" alt="Halal Certification" data-i18n-alt="corp.halalAlt" loading="lazy"></div>
+          <div class="corp-body">
+            <div class="corp-name" data-i18n="corp.halalTitle">Halal Certified</div>
+            <div class="corp-sub" data-i18n="corp.halalLab">ARA Halal Certification Services Center</div>
+          </div>
+        </a>
+        <a class="corp-card" href="assets/credentials/corp-hsa.jpg" target="_blank" rel="noopener">
+          <div class="corp-thumb"><img src="assets/credentials/corp-hsa.jpg" alt="HSA Product Enquiry" data-i18n-alt="corp.hsaAlt" loading="lazy"></div>
+          <div class="corp-body">
+            <div class="corp-name" data-i18n="corp.hsaTitle">HSA Product Enquiry</div>
+            <div class="corp-sub" data-i18n="corp.hsaLab">Case No. HSA-1906-02870 · No licensing required for health supplements</div>
+          </div>
+        </a>
+      </div>
+
       </div>
     </div>
   </section>
@@ -3621,6 +3667,7 @@ html { scroll-snap-type: y proximity; }
         <span>SMT</span>
       </a>
       <p data-i18n="footer.brandBody">Science-backed nano active peptide technology for deep cellular renewal — engineered in Singapore with 12+ years of research.</p>
+<p class="footer-uen" data-i18n="footer.uen">UEN 202040732D · 2 Jurong East Street 21, #02-146, IMM Building, Singapore 609601</p>
     </div>
     <div class="link-group">
       <h4 data-i18n="footer.productsTitle">Products</h4>
@@ -3884,6 +3931,19 @@ var siteI18n = {
   'cred.cert8.lab': { en: 'Dalian, China · Notarised', tw: '中國大連 · 公證', zh: '中国大连 · 公证' },
   'cred.cert8Alt': { en: 'Certificate of Free Sale (True Peptide Biotechnology, Dalian)', tw: '自由銷售證明（True Peptide Biotechnology，大連）', zh: '自由销售证明（True Peptide Biotechnology，大连）' },
 
+  'corp.acraTitle': { en: 'Singapore Company Registration', tw: '新加坡公司註冊', zh: '新加坡公司注册' },
+  'corp.acraLab': { en: 'UEN 202040732D · Sheng Peptide Biotechnology (S) Pte. Ltd.', tw: 'UEN 202040732D · Sheng Peptide Biotechnology (S) Pte. Ltd.', zh: 'UEN 202040732D · Sheng Peptide Biotechnology (S) Pte. Ltd.' },
+  'corp.acraAlt': { en: 'ACRA Business Profile of Sheng Peptide Biotechnology (S) Pte. Ltd.', tw: 'ACRA 商業註冊檔案（Sheng Peptide Biotechnology (S) Pte. Ltd.）', zh: 'ACRA 商业注册档案（Sheng Peptide Biotechnology (S) Pte. Ltd.）' },
+  'corp.tmTitle': { en: 'Registered Trade Mark', tw: '註冊商標', zh: '注册商标' },
+  'corp.tmLab': { en: 'IPOS · No. 40202020018T · Classes 3 / 5 / 32', tw: 'IPOS · 編號 40202020018T · 類別 3 / 5 / 32', zh: 'IPOS · 编号 40202020018T · 类别 3 / 5 / 32' },
+  'corp.tmAlt': { en: 'SMT trademark registration details (IPOS Singapore)', tw: 'SMT 商標註冊資料（新加坡知識產權局）', zh: 'SMT 商标注册资料（新加坡知识产权局）' },
+  'corp.halalTitle': { en: 'Halal Certified', tw: '清真認證', zh: '清真认证' },
+  'corp.halalLab': { en: 'ARA Halal Certification Services Center', tw: 'ARA 清真認證中心', zh: 'ARA 清真认证中心' },
+  'corp.halalAlt': { en: 'Halal certification issued by ARA Halal Certification Services Center', tw: 'ARA 清真認證中心簽發之清真認證', zh: 'ARA 清真认证中心签发的清真认证' },
+  'corp.hsaTitle': { en: 'HSA Product Enquiry', tw: 'HSA 產品查詢', zh: 'HSA 产品查询' },
+  'corp.hsaLab': { en: 'Case No. HSA-1906-02870 · No licensing required for health supplements', tw: '案例號 HSA-1906-02870 · 健康補充品無需許可', zh: '案例号 HSA-1906-02870 · 健康补充品无需许可' },
+  'corp.hsaAlt': { en: 'HSA correspondence confirming no licensing requirement', tw: 'HSA 來函確認無需許可', zh: 'HSA 来函确认无需许可' },
+
 
   'cta.title': { en: 'Ready to Transform Your Health?', tw: '準備好改變您的健康了嗎？', zh: '准备好改变您的健康了吗？' },
   'cta.body': { en: 'Experience the science of cellular renewal, refined over 12 years of research. Begin your journey to a more vibrant you today.', tw: '親身體驗歷經 12 年研究淬煉的科學細胞更新。從今天開始，邁向更有活力的自己。', zh: '亲身体验历经 12 年研究淬炼的科学细胞更新。从今天开始，迈向更有活力的自己。' },
@@ -3893,6 +3953,7 @@ var siteI18n = {
   'cta.global': { en: 'Global Shipping', tw: '全球配送', zh: '全球配送' },
 
   'footer.brandBody': { en: 'Science-backed nano active peptide technology for deep cellular renewal — engineered in Singapore with 12+ years of research.', tw: '以科學實證的奈米活性胜肽技術，實現深層細胞更新——於新加坡研發，12 年以上研究經驗。', zh: '以科学实证的纳米活性胜肽技术，实现深层细胞更新——于新加坡研发，12 年以上研究经验。' },
+  'footer.uen': { en: 'UEN 202040732D · 2 Jurong East Street 21, #02-146, IMM Building, Singapore 609601', tw: 'UEN 202040732D · 2 Jurong East Street 21, #02-146, IMM Building, Singapore 609601', zh: 'UEN 202040732D · 2 Jurong East Street 21, #02-146, IMM Building, Singapore 609601' },
   'footer.productsTitle': { en: 'Products', tw: '產品', zh: '产品' },
   'footer.p1': { en: 'Nano Active Peptide', tw: '奈米活性胜肽', zh: '纳米活性胜肽' },
   'footer.p2': { en: 'Cellular Repair Formula', tw: '細胞修護配方', zh: '细胞修护配方' },

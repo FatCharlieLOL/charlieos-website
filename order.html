@@ -3004,6 +3004,137 @@ body { animation: page-enter 0.55s ease both; }
 
 .footer-uen { margin-top: 0.8rem; font-size: 0.78rem; color: rgba(240,248,255,0.55); line-height: 1.6; }
 </style>
+<style>
+/* ============================================================
+   v4.0 — Apple 极简 × 深海科技感（P0/P1 样板：index + product）
+   ============================================================ */
+:root {
+  --page-bg: #FFFFFF;
+  --page-bg-alt: #F5F5F7;
+  --ink: #1D1D1F;
+  --ink-2: #6E6E73;
+  --accent: #0071E3;
+  --accent-hover: #0077ED;
+  --radius-card: 12px;
+  --radius-card-lg: 18px;
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.10);
+  --container-max: 1200px;
+  --font-display: -apple-system, "SF Pro Display", "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-primary: -apple-system, "SF Pro Text", "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-body: -apple-system, "SF Pro Text", "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --ocean-deep: #FFFFFF;
+  --ocean-mid: #F5F5F7;
+  --wave-white: #1D1D1F;
+  --foam-white: #FFFFFF;
+  --teal-primary: #0071E3;
+  --teal-light: #0077ED;
+  --gold: #C9A96E;
+  --gold-deep: #B9964C;
+  --coral-accent: #0071E3;
+  --duration-slow: 0.4s;
+}
+html { scroll-behavior: smooth; }
+section[id], section { scroll-margin-top: 76px; }
+body { background: #FFFFFF; color: #1D1D1F; }
+
+/* 每屏一主题：白/浅灰交替，96px 间距 */
+.section { padding: 96px 0; background: #FFFFFF; }
+.cert-section, .evi-section, .faq-section, .data-section, .rd-section { background: #F5F5F7; }
+
+/* 删除装饰：波浪 / 光晕 / 浮动徽章 / 气泡 / 页脚波浪 / 潮汐 / 滚动指示 */
+.hero-waves, .wave-layer, .product-glow, .floating-element, .footer-wave-top,
+.credential-tide, .ocean-wave-bg, .bubbles, .scroll-indicator, .cta-wave-decoration { display: none !important; }
+.hero-badge, .hero-stats { display: none !important; }
+
+/* 验收：隐藏装饰与产品瓶均不得再有任何动画（含无限循环） */
+.hero-waves, .wave-layer, .product-glow, .floating-element, .footer-wave-top,
+.credential-tide, .ocean-wave-bg, .bubbles, .scroll-indicator, .cta-wave-decoration,
+.hero-badge, .hero-stats, .product-image-wrapper, .hero-bottle-frame { animation: none !important; }
+
+
+/* 标题：无衬线、大字号、负字距 */
+.section-title, .hero-title, .cred-card-title, .story-mcard h3, .story-today p,
+.prod-facts h3, .corp-name, .cert-name { font-family: var(--font-display); color: #1D1D1F; }
+.section-title { font-size: clamp(1.75rem, 3.5vw, 3rem); font-weight: 700; letter-spacing: -0.015em; }
+.hero-title { font-size: clamp(2.5rem, 6vw, 6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; color: #1D1D1F; }
+.hero-subtitle { font-size: clamp(1.1rem, 2vw, 1.5rem); color: #6E6E73; line-height: 1.4; }
+
+/* Hero：整屏白底、居中、单列 */
+.hero-section { background: #FFFFFF !important; min-height: 92vh; display: flex; align-items: center; }
+.hero-section .hero-grid { grid-template-columns: 1fr; text-align: center; }
+.hero-content { margin: 0 auto; max-width: 900px; }
+.hero-cta-group { justify-content: center; }
+.hero-product-showcase { margin: 3rem auto 0; }
+
+/* 按钮：胶囊、苹果蓝 */
+.btn-primary { background: #0071E3; color: #FFFFFF; border-radius: 980px; box-shadow: none; }
+.btn-primary:hover { background: #0077ED; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0, 113, 227, 0.35); }
+.btn-secondary { background: transparent; color: #0071E3; border: 1px solid rgba(0, 0, 0, 0.12); border-radius: 980px; }
+.btn-secondary:hover { color: #0077ED; border-color: rgba(0, 0, 0, 0.25); transform: translateY(-1px); background: rgba(0, 0, 0, 0.03); }
+
+/* 导航：毛玻璃白 + hover 蓝 */
+.site-nav { background: rgba(255, 255, 255, 0.82) !important; backdrop-filter: blur(20px) saturate(1.8) !important; -webkit-backdrop-filter: blur(20px) saturate(1.8) !important; border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important; box-shadow: none !important; }
+.nav-links a { color: rgba(0, 0, 0, 0.72); }
+.nav-links a:hover { color: #0071E3; }
+.nav-links a::after { background: #0071E3; }
+.nav-actions .order-btn, .nav-actions .cart-btn, .lang-btn { color: rgba(0, 0, 0, 0.72); }
+.nav-actions .order-btn:hover, .nav-actions .cart-btn:hover { background: rgba(0, 0, 0, 0.05); color: #0071E3; }
+
+/* 卡片统一：12px 圆角 + 弱阴影 + hover 上浮微缩放 */
+.cred-main-card, .cert-card, .evidence-card, .prod-fact, .story-mcard, .meaning-card,
+.tier-card, .data-card, .corp-card, .story-step { border-radius: 12px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06); }
+.cred-main-card:hover, .cert-card:hover, .evidence-card:hover, .corp-card:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10); }
+.cert-sub, .cred-card-text, .corp-sub, .story-mcard p, .prod-fact span, .data-card span { color: #6E6E73; }
+
+/* 链接 hover 苹果蓝 */
+a { transition: color 0.25s ease; }
+.cred-verify, .cert-link, .evi-link, .story-techlink { color: #0071E3; }
+.cred-verify:hover, .cert-link:hover, .evi-link:hover, .story-techlink:hover { color: #0077ED; }
+
+/* 品牌金句保留衬线（唯一衬线触点） */
+.story-quote p { font-family: "Cormorant Garamond", "Noto Serif SC", Georgia, serif !important; color: #1D1D1F; }
+
+/* 页脚：苹果式浅灰多列 */
+.site-footer { background: #F5F5F7 !important; color: #1D1D1F !important; padding-top: 64px; }
+.site-footer .footer-content { max-width: var(--container-max); }
+.site-footer .link-group h4 { color: #1D1D1F; font-size: 0.875rem; }
+.site-footer .link-group a, .site-footer .footer-brand p, .site-footer .footer-uen, .site-footer .demo-risk-note { color: #6E6E73; font-size: 0.875rem; }
+.site-footer .footer-bottom { border-top: 1px solid rgba(0, 0, 0, 0.08); color: #6E6E73; }
+.site-footer .footer-wave-top { display: none !important; }
+
+/* reveal 时长收敛 ≤0.4s */
+.reveal, .reveal-scale, .reveal-left, .reveal-right, .stagger-item { transition-duration: 0.4s !important; }
+
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .hero-title { font-size: clamp(2rem, 9vw, 2.75rem); }
+  .hero-subtitle { font-size: 1.125rem; }
+}
+
+</style>
+
+<style>
+/* ===== v4.1 — 弹窗毛玻璃 / 表单 / 二级导航 ===== */
+.checkout-overlay, .invite-overlay { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background: rgba(0,0,0,0.35); }
+@keyframes modal-in { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
+.checkout-modal, .invite-modal { animation: modal-in 0.25s ease-out; border-radius: 18px; box-shadow: 0 24px 80px rgba(0,0,0,0.20); }
+.form-field, .invite-code-field, #subscribe-email, .order-form input, .order-form textarea, .order-form select,
+#order-no-input, #subject-input, #reason-select { border-radius: 12px; border: 1px solid rgba(0,0,0,0.12); font-size: 1rem; }
+.form-field:focus, .invite-code-field:focus, #subscribe-email:focus, .order-form input:focus,
+.order-form textarea:focus, .order-form select:focus, #order-no-input:focus, #subject-input:focus,
+#reason-select:focus { border-color: #0071E3; box-shadow: 0 0 0 3px rgba(0,113,227,0.20); outline: none; }
+
+/* 二级锚点导航（Apple 产品页模式） */
+.subnav { position: sticky; top: 58px; z-index: 90; display: flex; gap: 1.6rem; padding: 0.7rem 1.5rem;
+  max-width: var(--container-max); margin: 0 auto; overflow-x: auto; background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.08);
+  scrollbar-width: none; }
+.subnav::-webkit-scrollbar { display: none; }
+.subnav a { font-size: 0.9rem; color: #6E6E73; white-space: nowrap; text-decoration: none; }
+.subnav a:hover { color: #0071E3; }
+@media (max-width: 768px) { .subnav { top: 54px; gap: 1.1rem; } }
+</style>
 </head>
 
 <body>
@@ -4709,13 +4840,9 @@ function bindForms() {
     // 1. Hero 入场编排
     var heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
     var heroSeq = [
-      ['.hero-badge', { y: 16, autoAlpha: 0, duration: 0.6 }],
-      ['.hero-title', { y: 24, autoAlpha: 0, duration: 0.8 }, '-=0.3'],
-      ['.hero-subtitle', { y: 14, autoAlpha: 0, duration: 0.6 }, '-=0.45'],
-      ['.hero-cta-group', { y: 12, autoAlpha: 0, duration: 0.55 }, '-=0.4'],
-      ['.hero-stats', { y: 12, autoAlpha: 0, duration: 0.55 }, '-=0.35'],
-      ['.hero-product-showcase', { scale: 0.94, autoAlpha: 0, duration: 0.9 }, '-=0.75'],
-      ['.floating-element', { autoAlpha: 0, duration: 0.45, stagger: 0.1 }, '-=0.45']
+      ['.hero-title', { y: 12, autoAlpha: 0, duration: 0.25, ease: 'power3.out' }],
+      ['.hero-subtitle', { y: 12, autoAlpha: 0, duration: 0.25, ease: 'power3.out' }, '-=0.08'],
+      ['.hero-cta-group', { y: 12, autoAlpha: 0, duration: 0.25, ease: 'power3.out' }, '-=0.08']
     ];
     heroSeq.forEach(function (item) {
       if (has(item[0])) heroTl.from(item[0], item[1], item[2]);

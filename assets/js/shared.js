@@ -3,6 +3,16 @@ var cart = [];
 var CURRENCY = 'SGD';
 var selectedPay = 'paynow';
 var GST_RATE = 0.09;
+
+/* 客服联系方式 —— 全站唯一来源。
+   真实邮箱/WhatsApp 由品牌方提供后，只改这里，并把 isDemo 改为 false。
+   页面上会在 isDemo=true 时自动追加「占位」提示，避免把演示地址当成真客服。 */
+var SUPPORT_CONTACT = {
+  email: 'support@example.com',
+  whatsapp: '+65 0000 0000',
+  isDemo: true
+};
+
 var PAYMENT_METHODS = [
   { id: 'paynow',     name: 'PayNow',     requiresCard: false, logo: 'PayNow', color: '#1D78CB' },
   { id: 'visa',       name: 'Visa',       requiresCard: true,  logo: 'VISA',   color: '#1A1F71' },

@@ -92,35 +92,6 @@ ul { list-style: none; }
 
 .container { max-width: var(--container-max); margin: 0 auto; padding: 0 1.5rem; }
 
-/* ============================================================
-   1. 全局波浪背景层
-   ============================================================ */
-.ocean-wave-bg {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  pointer-events: none;
-  background:
-    radial-gradient(1200px 600px at 85% -10%, rgba(11, 61, 107, 0.55), transparent 60%),
-    radial-gradient(900px 500px at 0% 100%, rgba(0, 180, 216, 0.10), transparent 55%),
-    linear-gradient(180deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
-}
-
-.particles {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.bubble {
-  position: absolute;
-  bottom: -40px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(144, 224, 239, 0.9), rgba(0, 180, 216, 0.25));
-  border: 1px solid rgba(144, 224, 239, 0.35);
-  will-change: transform, opacity;
-}
-
 @keyframes bubble-rise {
   0%   { transform: translateY(0) scale(0.2); opacity: 0; }
   12%  { opacity: 0.65; }
@@ -367,15 +338,6 @@ ul { list-style: none; }
   filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.45));
 }
 
-.product-glow {
-  position: absolute;
-  inset: -12%;
-  z-index: 0;
-  background: radial-gradient(circle, rgba(0, 180, 216, 0.5) 0%, rgba(0, 180, 216, 0.18) 45%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
 @keyframes product-float {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-16px) rotate(1.2deg); }
@@ -385,89 +347,8 @@ ul { list-style: none; }
   0%, 100% { opacity: 0.45; transform: scale(1); }
   50% { opacity: 0.85; transform: scale(1.06); }
 }
-
-.floating-element {
-  position: absolute;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1rem;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(144, 224, 239, 0.25);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--teal-pale);
-  box-shadow: var(--shadow-soft);
-  animation: product-float 7s var(--ease-spring) infinite;
-}
-
-.floating-element svg { width: 20px; height: 20px; }
 .float-1 { top: 8%; left: -6%; animation-delay: -1.5s; }
 .float-2 { bottom: 14%; right: -4%; animation-delay: -3s; }
-
-/* --- Hero 底部波浪 --- */
-.hero-waves {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 220px;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.wave-layer {
-  position: absolute;
-  left: 0; bottom: 0;
-  width: 200%;
-  height: 100%;
-  animation: wave-flow var(--duration-wave) linear infinite;
-  will-change: transform;
-}
-
-.wave-layer svg { width: 100%; height: 100%; }
-
-.wave-1 { animation-duration: 8s; opacity: 0.55; z-index: 3; }
-.wave-2 { animation-duration: 12s; opacity: 0.38; animation-delay: -2s; z-index: 2; }
-.wave-3 { animation-duration: 16s; opacity: 0.22; animation-delay: -4s; z-index: 1; }
-
-@keyframes wave-flow {
-  0%   { transform: translateX(0) translateY(0); }
-  50%  { transform: translateX(-25%) translateY(-5px); }
-  100% { transform: translateX(-50%) translateY(0); }
-}
-
-/* --- 滚动指示器 --- */
-.scroll-indicator {
-  position: absolute;
-  left: 50%;
-  bottom: 2.2rem;
-  transform: translateX(-50%);
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  color: rgba(240, 248, 255, 0.6);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  animation: scroll-bounce 2s ease-in-out infinite;
-}
-
-.scroll-indicator .chevron {
-  width: 20px; height: 20px;
-  border-right: 2px solid var(--teal-light);
-  border-bottom: 2px solid var(--teal-light);
-  transform: rotate(45deg);
-}
-
-@keyframes scroll-bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
-  50% { transform: translateX(-50%) translateY(10px); opacity: 0.55; }
-}
 
 /* ============================================================
    4. 通用 Section / 滚动动画
@@ -1016,16 +897,6 @@ ul { list-style: none; }
 
 .trust-badges svg { width: 16px; height: 16px; color: var(--teal-light); }
 
-/* CTA 顶部波浪装饰 */
-.cta-wave-decoration {
-  position: absolute;
-  top: -1px; left: 0; right: 0;
-  height: 60px;
-  pointer-events: none;
-}
-
-.cta-wave-decoration svg { width: 100%; height: 100%; }
-
 /* ============================================================
    10. Footer
    ============================================================ */
@@ -1034,15 +905,6 @@ ul { list-style: none; }
   background: #060D18;
   border-top: 1px solid rgba(144, 224, 239, 0.08);
 }
-
-.footer-wave-top {
-  position: absolute;
-  top: -1px; left: 0; right: 0;
-  height: 48px;
-  pointer-events: none;
-}
-
-.footer-wave-top svg { width: 100%; height: 100%; }
 
 .footer-content {
   max-width: var(--container-max);
@@ -1210,7 +1072,6 @@ ul { list-style: none; }
   .testimonials-grid .testimonial-card:last-child { grid-column: auto; }
   .credentials-grid { grid-template-columns: 1fr; }
   .story-stats { grid-template-columns: 1fr; }
-  .hero-waves { height: 160px; }
   .footer-content { grid-template-columns: 1fr; gap: 2rem; }
 }
 
@@ -1230,22 +1091,6 @@ ul { list-style: none; }
     radial-gradient(900px 480px at 50% -8%, rgba(0, 180, 216, 0.12), transparent 62%),
     rgba(6, 13, 24, 0.35);
   padding-top: 0;
-}
-
-.credential-tide {
-  position: relative;
-  height: 90px;
-  margin: 0 -1.5rem;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.credential-tide svg {
-  position: absolute;
-  left: 0; bottom: 0;
-  width: 200%;
-  height: 100%;
-  will-change: transform;
 }
 
 .credentials-wall {
@@ -1542,18 +1387,6 @@ ul { list-style: none; }
 /* --- 基础层 --- */
 body { background: var(--ocean-deep); color: var(--wave-white); }
 
-.ocean-wave-bg {
-  background:
-    radial-gradient(1200px 600px at 85% -10%, rgba(10, 132, 255, 0.10), transparent 60%),
-    radial-gradient(900px 500px at 0% 100%, rgba(90, 200, 250, 0.16), transparent 55%),
-    linear-gradient(180deg, #F8FCFF 0%, #EAF6FE 100%);
-}
-
-.bubble {
-  background: radial-gradient(circle at 30% 30%, rgba(90, 200, 250, 0.75), rgba(10, 132, 255, 0.18));
-  border: 1px solid rgba(90, 200, 250, 0.45);
-}
-
 :focus-visible { outline: 2px solid var(--teal-primary); outline-offset: 2px; }
 
 /* --- 顶部导航：毛玻璃 --- */
@@ -1650,26 +1483,6 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
 .product-image-wrapper {
   filter: drop-shadow(0 24px 44px rgba(10, 132, 255, 0.28));
 }
-.product-glow {
-  background: radial-gradient(circle, rgba(90, 200, 250, 0.5) 0%, rgba(90, 200, 250, 0.2) 45%, transparent 70%);
-}
-
-.floating-element {
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(18, 41, 62, 0.10);
-  color: #0066CC;
-  box-shadow: var(--shadow-soft);
-}
-
-/* Hero 底部波浪（浅色） */
-.wave-1 svg path { fill: #A9E1FF; }
-.wave-2 svg path { fill: #7DC9F5; }
-.wave-3 svg path { fill: #55AEE8; }
-
-.scroll-indicator { color: rgba(18, 41, 62, 0.5); }
-.scroll-indicator .chevron { border-color: #0071E3; }
 
 /* --- 通用 Section --- */
 .section-label { color: #0066CC; }
@@ -1746,8 +1559,6 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
     radial-gradient(900px 480px at 50% -8%, rgba(90, 200, 250, 0.18), transparent 62%),
     rgba(10, 132, 255, 0.04);
 }
-.credential-tide svg path:first-child { fill: rgba(10, 132, 255, 0.12); }
-.credential-tide svg path:last-child { fill: rgba(90, 200, 250, 0.16); }
 
 .cred-main-card {
   background: rgba(255, 255, 255, 0.9);
@@ -1780,7 +1591,6 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
     radial-gradient(700px 360px at 50% 0%, rgba(90, 200, 250, 0.28), transparent 65%),
     linear-gradient(180deg, #EAF6FE 0%, #F8FCFF 100%);
 }
-.cta-wave-decoration svg path { fill: #EAF6FE; }
 .cta-content h2 { color: #0B1F33; text-shadow: 0 0 34px rgba(10, 132, 255, 0.18); }
 .cta-content p { color: rgba(18, 41, 62, 0.7); }
 
@@ -1798,7 +1608,6 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
   background: #F1F7FC;
   border-top: 1px solid rgba(18, 41, 62, 0.06);
 }
-.footer-wave-top svg path { fill: #F8FCFF; }
 .footer-brand p { color: rgba(18, 41, 62, 0.62); }
 .link-group a { color: rgba(18, 41, 62, 0.65); }
 .link-group a:hover { color: var(--teal-primary); }
@@ -2056,18 +1865,8 @@ body { background: var(--ocean-deep); color: var(--wave-white); }
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-10px) rotate(0.6deg); }
 }
-
-/* 浮动徽章：归位 + 轻微呼吸 */
-.floating-element {
-  animation: float-gentle 6s ease-in-out infinite;
-}
 .float-1 { top: 4%; left: -4%; animation-delay: -1.5s; }
 .float-2 { bottom: 10%; right: -2%; animation-delay: -3s; }
-
-@keyframes float-gentle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
 
 /* --- 产品覆盖区：波浪形顶边（像海浪盖上来） --- */
 .products-wave-top {
@@ -2508,19 +2307,6 @@ body { background: var(--ivory); color: var(--ink); }
   letter-spacing: 0.005em;
 }
 
-/* 背景：深海光束 + 金色光晕（有机质感） */
-.ocean-wave-bg {
-  background:
-    radial-gradient(1100px 620px at 82% -8%, rgba(185, 150, 76, 0.16), transparent 60%),
-    radial-gradient(900px 540px at 8% 100%, rgba(46, 110, 126, 0.12), transparent 55%),
-    radial-gradient(700px 400px at 50% 30%, rgba(233, 223, 194, 0.5), transparent 65%),
-    linear-gradient(180deg, #FBF7EF 0%, #F4EDDD 100%);
-}
-.bubble {
-  background: radial-gradient(circle at 30% 30%, rgba(217, 190, 126, 0.7), rgba(185, 150, 76, 0.18));
-  border: 1px solid rgba(185, 150, 76, 0.35);
-}
-
 /* 导航：暖白毛玻璃 + 金色点缀 */
 .site-nav {
   background: rgba(250, 246, 238, 0.78);
@@ -2559,15 +2345,6 @@ body { background: var(--ivory); color: var(--ink); }
 .hero-stats .mini-stat strong { color: var(--gold-deep); }
 .hero-stats .mini-stat span { color: rgba(36, 50, 56, 0.58); }
 .product-image-wrapper { filter: drop-shadow(0 24px 44px rgba(46, 110, 126, 0.30)); }
-.product-glow { background: radial-gradient(circle, rgba(185, 150, 76, 0.35) 0%, rgba(185, 150, 76, 0.14) 45%, transparent 70%); }
-.floating-element { background: rgba(255, 253, 247, 0.82); border: 1px solid rgba(185, 150, 76, 0.25); color: var(--gold-deep); box-shadow: var(--shadow-soft); }
-
-/* 波浪：香槟金 + 海蓝灰 */
-.wave-1 svg path { fill: #E4CD97; }
-.wave-2 svg path { fill: #C6A45E; }
-.wave-3 svg path { fill: #A9CBD2; }
-.scroll-indicator { color: rgba(36, 50, 56, 0.5); }
-.scroll-indicator .chevron { border-color: var(--gold-deep); }
 
 /* 分屏区块：珍珠白卡 + 暖沙背景 */
 .section-label { color: var(--gold-deep); }
@@ -2646,7 +2423,6 @@ body { background: var(--ivory); color: var(--ink); }
     radial-gradient(700px 360px at 50% 0%, rgba(217, 190, 126, 0.35), transparent 65%),
     linear-gradient(180deg, #F4EDDD 0%, #FBF7EF 100%);
 }
-.cta-wave-decoration svg path { fill: #F4EDDD; }
 .cta-content h2 { color: var(--sea-deep); text-shadow: 0 0 34px rgba(185, 150, 76, 0.25); }
 .btn-coral { background: linear-gradient(135deg, #C6A45E, #A5833C); color: #FFFFFF; box-shadow: 0 10px 32px rgba(165, 131, 60, 0.36); }
 .btn-coral:hover { box-shadow: 0 16px 44px rgba(165, 131, 60, 0.48); }
@@ -2655,7 +2431,6 @@ body { background: var(--ivory); color: var(--ink); }
 
 /* Footer：暖沙 */
 .site-footer { background: #F1E9D7; border-top: 1px solid rgba(138, 106, 47, 0.1); }
-.footer-wave-top svg path { fill: #FBF7EF; }
 .social-links a { background: #FFFFFF; border: 1px solid rgba(138, 106, 47, 0.16); color: rgba(36, 50, 56, 0.7); }
 .social-links a:hover { background: var(--gold); color: #FFFFFF; }
 
@@ -3184,7 +2959,6 @@ html { scroll-snap-type: y proximity; }
   color: rgba(36, 50, 56, 0.5);
 }
 
-
 .cert-links { display: flex; gap: 0.5rem; margin-top: 0.4rem; flex-wrap: wrap; }
 .cert-links a { font-size: 0.72rem; font-weight: 700; color: var(--teal-light); text-decoration: none; border: 1px solid rgba(10,132,255,0.35); padding: 0.22rem 0.6rem; border-radius: 999px; transition: background 0.2s ease, color 0.2s ease; }
 .cert-links a:hover { background: var(--teal-light); color: #fff; }
@@ -3241,17 +3015,12 @@ body { background: #FFFFFF; color: #1D1D1F; }
 /* 每屏一主题：白/浅灰交替，96px 间距 */
 .section { padding: 96px 0; background: #FFFFFF; }
 .cert-section, .evi-section, .faq-section, .data-section, .rd-section { background: #F5F5F7; }
-
-/* 删除装饰：波浪 / 光晕 / 浮动徽章 / 气泡 / 页脚波浪 / 潮汐 / 滚动指示 */
-.hero-waves, .wave-layer, .product-glow, .floating-element, .footer-wave-top,
-.credential-tide, .ocean-wave-bg, .bubbles, .scroll-indicator, .cta-wave-decoration { display: none !important; }
 .hero-badge, .hero-stats { display: none !important; }
 
 /* 验收：隐藏装饰与产品瓶均不得再有任何动画（含无限循环） */
 .hero-waves, .wave-layer, .product-glow, .floating-element, .footer-wave-top,
 .credential-tide, .ocean-wave-bg, .bubbles, .scroll-indicator, .cta-wave-decoration,
 .hero-badge, .hero-stats, .product-image-wrapper, .hero-bottle-frame { animation: none !important; }
-
 
 /* 标题：无衬线、大字号、负字距 */
 .section-title, .hero-title, .cred-card-title, .story-mcard h3, .story-today p,
@@ -3301,7 +3070,6 @@ a { transition: color 0.25s ease; }
 .site-footer .link-group h4 { color: #1D1D1F; font-size: 0.875rem; }
 .site-footer .link-group a, .site-footer .footer-brand p, .site-footer .footer-uen, .site-footer .demo-risk-note { color: #6E6E73; font-size: 0.875rem; }
 .site-footer .footer-bottom { border-top: 1px solid rgba(0, 0, 0, 0.08); color: #6E6E73; }
-.site-footer .footer-wave-top { display: none !important; }
 
 /* reveal 时长收敛 ≤0.4s */
 .reveal, .reveal-scale, .reveal-left, .reveal-right, .stagger-item { transition-duration: 0.4s !important; }
@@ -3339,10 +3107,6 @@ a { transition: color 0.25s ease; }
 
 <body>
 
-<!-- 全局海洋波浪背景 -->
-<div class="ocean-wave-bg" aria-hidden="true">
-  <div class="particles" id="particles"></div>
-</div>
 
 <!-- ============ 顶部导航 ============ -->
 <header class="site-nav">
@@ -3416,10 +3180,6 @@ a { transition: color 0.25s ease; }
           <a href="#certifications" class="btn btn-secondary" data-i18n="qual.cta2">View Certifications</a>
         </div>
       </div>
-    </div>
-    <div class="scroll-indicator" aria-hidden="true">
-      <span data-i18n="hero.scroll">Scroll</span>
-      <div class="chevron"></div>
     </div>
   </section>
 
@@ -3786,11 +3546,6 @@ a { transition: color 0.25s ease; }
 
 <!-- ============ Footer ============ -->
 <footer class="site-footer">
-  <div class="footer-wave-top" aria-hidden="true">
-    <svg viewBox="0 0 1440 48" preserveAspectRatio="none">
-      <path d="M0,24 C240,0 480,48 720,24 C960,0 1200,48 1440,24 L1440,48 L0,48 Z" fill="#060D18"/>
-    </svg>
-  </div>
   <div class="footer-content">
     <div class="footer-brand">
       <a href="#hero" class="logo">

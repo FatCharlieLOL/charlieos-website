@@ -127,6 +127,14 @@
     .intro-mobile .hero-cta{margin-top:28px;justify-content:center}
   }
 
+
+  /* 首屏文字：纯 CSS 入场，保证任何网络下都可见 */
+  @keyframes heroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .hero .reveal{opacity:1!important;transform:none!important;transition:none!important;animation:heroIn .9s var(--ease) both}
+  .hero .reveal.d1{animation-delay:.08s}
+  .hero .reveal.d2{animation-delay:.16s}
+  .hero .reveal.d3{animation-delay:.24s}
+
   /* STATS */
   .stats{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .stats .row{display:grid;grid-template-columns:repeat(4,1fr);width:min(1180px,92vw);margin:0 auto}

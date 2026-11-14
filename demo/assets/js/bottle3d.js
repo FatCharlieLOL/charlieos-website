@@ -533,9 +533,9 @@
     camera.updateProjectionMatrix();
 
     var isM = w < 700;
-    var s = isM ? 0.66 : Math.min(1.06, Math.max(0.9, w / 1440));
+    var s = isM ? 0.60 : Math.min(1.06, Math.max(0.9, w / 1440));
     bottle.scale.setScalar(s);
-    bottle.position.set(isM ? 0 : 1.18, isM ? -0.72 : -0.04, 0);
+    bottle.position.set(isM ? 0 : 1.18, isM ? -0.62 : -0.04, 0);
   }
   layout();
   window.addEventListener('resize', function () { layout(); renderer.render(scene, camera); });

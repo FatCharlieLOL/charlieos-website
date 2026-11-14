@@ -16,7 +16,7 @@
   } catch (e) { return; }
 
   var mobile = window.matchMedia('(max-width: 960px)').matches;
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile ? 2 : 2.5));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, mobile ? 1.75 : 2.5));
   renderer.outputEncoding = THREE.sRGBEncoding;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.02;

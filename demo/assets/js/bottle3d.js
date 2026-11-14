@@ -533,9 +533,9 @@
     camera.updateProjectionMatrix();
 
     var isM = w < 700;
-    var s = isM ? 0.80 : Math.min(1.06, Math.max(0.9, w / 1440));
+    var s = isM ? 0.66 : Math.min(1.06, Math.max(0.9, w / 1440));
     bottle.scale.setScalar(s);
-    bottle.position.set(isM ? 0 : 1.18, isM ? -0.95 : -0.04, 0);
+    bottle.position.set(isM ? 0 : 1.18, isM ? -0.72 : -0.04, 0);
   }
   layout();
   window.addEventListener('resize', function () { layout(); renderer.render(scene, camera); });
@@ -592,6 +592,7 @@
 
   frame();
 
+  document.body.classList.add('gl-ok');
   window.__dust = dustPoints;
   window.__smt3d = { ok: true, renderer: renderer, spinning: true };
 })();

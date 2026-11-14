@@ -72,8 +72,8 @@
   .hero .lead{margin-top:20px;max-width:27em;font-size:.97rem;line-height:1.95;color:var(--ink2)}
   .hero-cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;justify-content:flex-start}
   .hero-poster{position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);width:min(46vw,430px);
-    z-index:0;border-radius:12px;box-shadow:0 40px 80px rgba(20,24,29,.16)}
-  body.gl-ok .hero-poster{display:none}
+    z-index:0;border-radius:12px;box-shadow:0 40px 80px rgba(20,24,29,.16);display:none}
+  body.gl-fail .hero-poster{display:block}
   .scroll-cue{position:absolute;right:26px;bottom:26px;padding:10px 16px 8px;border-radius:14px;background:rgba(247,243,234,.62);backdrop-filter:blur(6px);transform:translateX(-50%);z-index:3;color:var(--muted);
     font-size:.64rem;letter-spacing:.34em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px;color:#6B5733}
   .scroll-cue i{display:block;width:1px;height:26px;background:linear-gradient(180deg,var(--gold),transparent)}
@@ -280,13 +280,15 @@
     .foot-grid{grid-template-columns:1fr}
     .nav-links{display:none}
     .demo-pill{left:12px;bottom:12px;font-size:.64rem;padding:7px 11px}
-    .lotus{padding:36px 0 70px}
-    .petal{width:118px;margin-left:-40px}
+    .lotus{padding:30px 0 52px;transform:scale(.92);transform-origin:50% 0}
+    .petal{width:96px;margin:0 0 0 -30px}
     .petal:nth-child(6),.petal:nth-child(7){display:none}
-    .p1{transform:rotate(-22deg) translateY(40px)}
-    .p2{transform:rotate(-11deg) translateY(12px)}
-    .p5{transform:rotate(22deg) translateY(40px)}
-    .p4{transform:rotate(11deg) translateY(12px)}
+    .petal figcaption{font-size:.56rem;padding:6px 1px;min-height:30px}
+    .p1{transform:rotate(-17deg) translateY(-18px)}
+    .p2{transform:rotate(-9deg) translateY(-6px)}
+    .p3{transform:rotate(-4deg) translateY(-1px)}
+    .p4{transform:rotate(0deg) translateY(0)}
+    .p5{transform:rotate(17deg) translateY(-18px)}
     .showcase{padding-top:26vh;min-height:104svh}
     .showcase-cap{display:none}
     .scroll-cue{display:none}
@@ -676,15 +678,10 @@
 <script src="assets/js/three.min.js"></script>
 <script src="assets/js/bottle3d.js"></script>
 <script>
-  // 3D 就绪后隐藏静态兜底图；失败则保留静态图
-  (function(){
-    var tries = 0;
-    var timer = setInterval(function(){
-      tries++;
-      if (window.__smt3d && window.__smt3d.ok) { document.body.classList.add('gl-ok'); clearInterval(timer); }
-      if (tries > 24) clearInterval(timer);
-    }, 120);
-  })();
+  // 3D 就绪由 bottle3d.js 自己打标记；这里只做兜底：6 秒还没就绪 → 显示静态图
+  setTimeout(function () {
+    if (!document.body.classList.contains('gl-ok')) document.body.classList.add('gl-fail');
+  }, 6000);
 </script>
 </body>
 </html>

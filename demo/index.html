@@ -283,6 +283,8 @@
     background:rgba(0,0,0,.55);color:#fff;font-size:20px;line-height:1;cursor:pointer}
   @media (max-width:960px){
     .vgrid{grid-template-columns:1fr;gap:16px}
+    .vthumb{aspect-ratio:9/16;max-height:74svh;margin:0 auto;width:auto}
+    .vcard figcaption{justify-content:center}
     .vmodal{padding:14px}
   }
 
@@ -545,23 +547,32 @@
     </div>
 
     <div class="vgrid">
-      <figure class="vcard reveal" data-src="assets/video/v1.mp4">
-        <div class="vthumb"><img src="assets/video/v1.jpg" alt="Ms. Chen 的访谈视频" loading="lazy">
+      <figure class="vcard reveal" data-src="assets/video/v1.mp4" data-src-m="assets/video/v1p.mp4">
+        <div class="vthumb"><picture>
+          <source media="(max-width:960px)" srcset="assets/video/v1p.jpg">
+          <img src="assets/video/v1.jpg" alt="Ms. Chen 的访谈视频" loading="lazy">
+        </picture>
           <div class="vplay" aria-hidden="true"></div>
         </div>
         <figcaption><b>Ms. Chen</b><span>使用 5 个月 · 视频访谈</span></figcaption>
       </figure>
-      <figure class="vcard reveal" data-src="assets/video/v2.mp4">
-        <div class="vthumb"><img src="assets/video/v2.jpg" alt="Mr. Hong 的访谈视频" loading="lazy">
+      <figure class="vcard reveal" data-src="assets/video/v2.mp4" data-src-m="assets/video/v2p.mp4">
+        <div class="vthumb"><picture>
+          <source media="(max-width:960px)" srcset="assets/video/v2p.jpg">
+          <img src="assets/video/v2.jpg" alt="Mr. Hong 的访谈视频" loading="lazy">
+        </picture>
           <div class="vplay" aria-hidden="true"></div>
         </div>
         <figcaption><b>Mr. Hong</b><span>使用 2 年 · 视频访谈</span></figcaption>
       </figure>
-      <figure class="vcard reveal" data-src="assets/video/v3.mp4">
-        <div class="vthumb"><img src="assets/video/v3.jpg" alt="Ms. Lin 的访谈视频" loading="lazy">
+      <figure class="vcard reveal" data-src="assets/video/v3.mp4" data-src-m="assets/video/v3p.mp4">
+        <div class="vthumb"><picture>
+          <source media="(max-width:960px)" srcset="assets/video/v3p.jpg">
+          <img src="assets/video/v3.jpg" alt="Ms. Lin 的访谈视频" loading="lazy">
+        </picture>
           <div class="vplay" aria-hidden="true"></div>
         </div>
-        <figcaption><b>Ms. Lin</b><span>家属授权 · 视频访谈</span></figcaption>
+        <figcaption><b>Ms. Lin</b><span>使用 4 个月 · 视频访谈</span></figcaption>
       </figure>
     </div>
     <p class="vnote">视频由本人（或家属）授权公开，仅记录个人体验，因人而异，不构成医疗建议。</p>
@@ -838,7 +849,10 @@
     document.body.style.overflow = '';
   }
   document.querySelectorAll('.vcard').forEach(function (c) {
-    c.addEventListener('click', function () { open(c.getAttribute('data-src')); });
+    c.addEventListener('click', function () {
+      var portrait = window.matchMedia('(max-width:960px)').matches;
+      open((portrait && c.getAttribute('data-src-m')) || c.getAttribute('data-src'));
+    });
   });
   modal.addEventListener('click', function (e) {
     if (e.target.hasAttribute('data-close')) close();

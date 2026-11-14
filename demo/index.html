@@ -37,6 +37,10 @@
   .demo-pill b{font-weight:600;letter-spacing:.26em}
   .demo-pill span{color:#A9B0B8;letter-spacing:.04em}
 
+  .demo-tag{display:inline-block;margin-left:10px;vertical-align:4px;
+    font-family:var(--sans);font-size:.5rem;letter-spacing:.2em;padding:3px 8px;border-radius:999px;
+    border:1px solid rgba(168,131,74,.5);color:var(--gold);background:rgba(255,255,255,.55)}
+
   /* NAV */
   .nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s var(--ease)}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
@@ -265,6 +269,7 @@
   .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
   @media (max-width:960px){
+    .hero{min-height:88svh}
     .hero-inner{grid-template-columns:1fr;text-align:center;padding-top:112px}
     .hero-copy{max-width:none;margin:0 auto}
     .hero-cta{justify-content:center}
@@ -301,11 +306,10 @@
 </head>
 <body>
 <div class="progress" id="progress"></div>
-<div class="demo-pill"><b>DEMO</b><span>演示版 · 正式上线前更新</span></div>
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <div class="brand">SMT<small>SINGAPORE</small></div>
+    <div class="brand">SMT<small>SINGAPORE</small><span class="demo-tag">DEMO</span></div>
     <nav class="nav-links">
       <a href="#product">产品</a>
       <a href="#science">科学与工艺</a>

@@ -184,33 +184,6 @@
   })();
 
 
-  /* 背后柔光带：制造体积光与包围感 */
-  var lightBars = (function () {
-    var grp = new THREE.Group();
-    function bar(w, h, x, rot, op, tint) {
-      var cv = document.createElement('canvas');
-      cv.width = 128; cv.height = 512;
-      var c = cv.getContext('2d');
-      var g = c.createLinearGradient(0, 0, 128, 0);
-      g.addColorStop(0, 'rgba(255,255,255,0)');
-      g.addColorStop(0.5, tint);
-      g.addColorStop(1, 'rgba(255,255,255,0)');
-      c.fillStyle = g; c.fillRect(0, 0, 128, 512);
-      var tex = new THREE.CanvasTexture(cv);
-      tex.encoding = THREE.sRGBEncoding;
-      var m = new THREE.Mesh(
-        new THREE.PlaneGeometry(w, h),
-        new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false,
-          blending: THREE.AdditiveBlending, opacity: op })
-      );
-      m.position.set(x, 0, -0.55);
-      m.rotation.z = rot;
-      grp.add(m);
-    }
-    bar(1.15, 4.2, -0.95, 0.16, 0.5, 'rgba(255,248,232,0.9)');
-    bar(0.75, 3.6, 1.02, -0.2, 0.4, 'rgba(255,226,178,0.85)');
-    return grp;
-  })();
 
   var bottle = new THREE.Group();
   var glass = new THREE.Mesh(new THREE.LatheGeometry(pts, 160), glassMat);
@@ -441,7 +414,6 @@
   ribbons.rotation.y = 0.22;
   bottle.add(ribbons);
   bottle.add(dustPoints);
-  bottle.add(lightBars);
 
   /* ---------------- 光晕 ---------------- */
   function makeHalo() {
@@ -533,9 +505,9 @@
     camera.updateProjectionMatrix();
 
     var isM = w < 700;
-    var s = isM ? 0.60 : Math.min(1.06, Math.max(0.9, w / 1440));
+    var s = isM ? 0.80 : Math.min(1.06, Math.max(0.9, w / 1440));
     bottle.scale.setScalar(s);
-    bottle.position.set(isM ? 0 : 1.18, isM ? -0.62 : -0.04, 0);
+    bottle.position.set(isM ? 0 : 1.18, isM ? -0.46 : -0.04, 0);
   }
   layout();
   window.addEventListener('resize', function () { layout(); renderer.render(scene, camera); });

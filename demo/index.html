@@ -83,7 +83,9 @@
   body.gl-ok .hero-poster{display:none!important}
   /* 手机：先看图，3D 就绪再切换 */
   @media (max-width:960px){
-    .hero-poster{display:block;width:min(64vw,330px);top:60%}
+    .hero-poster{display:block;width:min(70vw,336px);top:59%;border-radius:0;box-shadow:none;
+      -webkit-mask-image:radial-gradient(closest-side,#000 58%,rgba(0,0,0,.85) 74%,transparent 100%);
+      mask-image:radial-gradient(closest-side,#000 58%,rgba(0,0,0,.85) 74%,transparent 100%)}
   }
   .scroll-cue{position:absolute;right:26px;bottom:26px;padding:10px 16px 8px;border-radius:14px;background:rgba(247,243,234,.62);backdrop-filter:blur(6px);transform:translateX(-50%);z-index:3;color:var(--muted);
     font-size:.64rem;letter-spacing:.34em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px;color:#6B5733}

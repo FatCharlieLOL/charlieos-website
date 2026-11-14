@@ -567,23 +567,14 @@
     var y = window.scrollY || 0;
     var heroH = heroEl ? heroEl.offsetHeight : window.innerHeight;
 
-    // 手机端 canvas 已在文档流里，跟手由浏览器合成器完成，这里不再做位移
-    if (!isM && y < heroH * 1.1) {
+    // 手机端：canvas 随文档原生滚动，不做任何位移与淡出
+    if (!isM && y < heroH * 1.2) {
       canvas.style.transform = 'translate3d(0,' + (-y).toFixed(1) + 'px,0)';
     }
-
-    if (y < heroH * 1.1) {
-      // 手机端快速淡出，避免下滑时与第二屏文字叠在一起
-      var f = isM
-        ? 1 - Math.max(0, Math.min(1, (y - heroH * 0.08) / (heroH * 0.30)))
-        : 1 - Math.max(0, Math.min(1, (y - heroH * 0.34) / (heroH * 0.36)));
-      canvas.style.opacity = String(f);
-      onScreen = f > 0.02;
-    } else {
-      canvas.style.opacity = '0';
-      onScreen = false;
-    }
+    // 只在离开首屏后停渲染，画面本身保持完全不透明
+    onScreen = y < heroH * 1.2;
   }
+
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 

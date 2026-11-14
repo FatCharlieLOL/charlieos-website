@@ -498,19 +498,39 @@
   scene.add(new THREE.AmbientLight(0xffffff, 0.35));
 
   /* ---------------- 尺寸（固定右侧） ---------------- */
-  function layout() {
-    var w = window.innerWidth, h = window.innerHeight;
+  var heroBox = document.querySelector('.hero');
+  var isM = window.matchMedia('(max-width:960px)').matches;
+  var lastW = 0, lastH = 0;
+
+  function layout(force) {
+    var w, h;
+    if (isM && heroBox) {
+      // 手机上以首屏盒子为准：100svh 不随地址栏变化，尺寸稳定，不会忽大忽小
+      var r = heroBox.getBoundingClientRect();
+      w = Math.round(r.width); h = Math.round(r.height);
+    } else {
+      w = window.innerWidth; h = window.innerHeight;
+    }
+    // 安卓地址栏伸缩只改高度：宽度没变就跳过，避免反复重设相机导致画面抖动
+    if (!force && w === lastW && Math.abs(h - lastH) < 80) return;
+    lastW = w; lastH = h;
+
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
 
-    var isM = w < 700;
-    var s = isM ? 0.80 : Math.min(1.06, Math.max(0.9, w / 1440));
+    var m = w < 700;
+    var s = m ? 0.80 : Math.min(1.06, Math.max(0.9, w / 1440));
     bottle.scale.setScalar(s);
-    bottle.position.set(isM ? 0 : 1.18, isM ? -0.46 : -0.04, 0);
+    bottle.position.set(m ? 0 : 1.18, m ? -0.46 : -0.04, 0);
   }
-  layout();
-  window.addEventListener('resize', function () { layout(); renderer.render(scene, camera); });
+  layout(true);
+  window.addEventListener('resize', function () {
+    isM = window.matchMedia('(max-width:960px)').matches;
+    layout(false);
+    renderer.render(scene, camera);
+  });
+  window.addEventListener('orientationchange', function () { setTimeout(function () { layout(true); }, 250); });
 
   /* ---------------- 持续自转（时间驱动，与滚动无关） ---------------- */
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -547,13 +567,18 @@
     var y = window.scrollY || 0;
     var heroH = heroEl ? heroEl.offsetHeight : window.innerHeight;
 
-    if (y < heroH * 1.1) {
+    // 手机端 canvas 已在文档流里，跟手由浏览器合成器完成，这里不再做位移
+    if (!isM && y < heroH * 1.1) {
       canvas.style.transform = 'translate3d(0,' + (-y).toFixed(1) + 'px,0)';
-      var f = 1 - Math.max(0, Math.min(1, (y - heroH * 0.34) / (heroH * 0.36)));
+    }
+
+    if (y < heroH * 1.1) {
+      // 手机端快速淡出，避免下滑时与第二屏文字叠在一起
+      var f = isM
+        ? 1 - Math.max(0, Math.min(1, (y - heroH * 0.08) / (heroH * 0.30)))
+        : 1 - Math.max(0, Math.min(1, (y - heroH * 0.34) / (heroH * 0.36)));
       canvas.style.opacity = String(f);
       onScreen = f > 0.02;
-      var cue = document.querySelector('.scroll-cue');
-      if (cue) cue.style.opacity = String(Math.max(0, 1 - y / 220));
     } else {
       canvas.style.opacity = '0';
       onScreen = false;

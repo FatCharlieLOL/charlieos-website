@@ -135,6 +135,12 @@
   .hero .reveal.d2{animation-delay:.16s}
   .hero .reveal.d3{animation-delay:.24s}
 
+  /* 手机端：canvas 进入文档流，随页面原生滚动，避免 iOS 惯性滚动掉帧 */
+  @media (max-width:960px){
+    .gl{position:absolute;inset:0;width:100%;height:100%;will-change:auto;transform:none!important}
+    .hero{overflow:hidden;min-height:100vh;min-height:100svh}
+  }
+
   /* STATS */
   .stats{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .stats .row{display:grid;grid-template-columns:repeat(4,1fr);width:min(1180px,92vw);margin:0 auto}

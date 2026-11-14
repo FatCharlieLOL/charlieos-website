@@ -28,7 +28,7 @@
 
   /* ---------------- 结构化棚拍环境（有明暗结构，玻璃才像玻璃） ---------------- */
   function buildEnv() {
-    var W = 1024, H = 512;
+    var W = mobile ? 512 : 1024, H = mobile ? 256 : 512;
     var cv = document.createElement('canvas');
     cv.width = W; cv.height = H;
     var c = cv.getContext('2d');
@@ -186,7 +186,7 @@
 
 
   var bottle = new THREE.Group();
-  var glass = new THREE.Mesh(new THREE.LatheGeometry(pts, 160), glassMat);
+  var glass = new THREE.Mesh(new THREE.LatheGeometry(pts, mobile ? 96 : 160), glassMat);
   glass.position.y = -H2 * 0.5 + 0.15;
   bottle.add(glass);
 
@@ -220,7 +220,7 @@
       ].join('\n')
     });
     var geo = new THREE.LatheGeometry(
-      pts.map(function (p) { return new THREE.Vector2(p.x * 1.012, p.y * 1.012); }), 96
+      pts.map(function (p) { return new THREE.Vector2(p.x * 1.012, p.y * 1.012); }), mobile ? 64 : 96
     );
     var m = new THREE.Mesh(geo, mat);
     m.position.y = -H2 * 0.5 + 0.15;

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preload" as="image" href="assets/products/tier-1month.jpg">
 <meta name="description" content="SMT 纳米活性肽 · 演示页面（Demo）">
 <title>SMT 纳米活性肽 · Demo</title>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
@@ -80,6 +81,10 @@
   body.gl-fail .hero-poster,
   body.show-poster .hero-poster{display:block}
   body.gl-ok .hero-poster{display:none!important}
+  /* 手机：先看图，3D 就绪再切换 */
+  @media (max-width:960px){
+    .hero-poster{display:block;width:min(64vw,330px);top:60%}
+  }
   .scroll-cue{position:absolute;right:26px;bottom:26px;padding:10px 16px 8px;border-radius:14px;background:rgba(247,243,234,.62);backdrop-filter:blur(6px);transform:translateX(-50%);z-index:3;color:var(--muted);
     font-size:.64rem;letter-spacing:.34em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:10px;color:#6B5733}
   .scroll-cue i{display:block;width:1px;height:26px;background:linear-gradient(180deg,var(--gold),transparent)}

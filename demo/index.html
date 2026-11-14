@@ -255,6 +255,37 @@
   .petal:hover{transform:rotate(0deg) translateY(-22px) scale(1.06)!important;z-index:9;
     box-shadow:0 30px 60px rgba(20,24,29,.22)}
 
+  /* 视频访谈 */
+  .vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:clamp(36px,5vw,56px)}
+  .vcard{margin:0;cursor:pointer}
+  .vthumb{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000;
+    box-shadow:0 18px 40px rgba(20,24,29,.14)}
+  .vthumb img{width:100%;height:100%;object-fit:cover;opacity:.92;transition:.6s var(--ease)}
+  .vplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .vplay::before{content:"";width:54px;height:54px;border-radius:50%;
+    background:rgba(255,255,255,.92);box-shadow:0 8px 24px rgba(0,0,0,.28);transition:.35s var(--ease)}
+  .vplay::after{content:"";position:absolute;margin-left:4px;border-style:solid;
+    border-width:9px 0 9px 15px;border-color:transparent transparent transparent #1A1E22}
+  .vcard:hover .vthumb img{opacity:1;transform:scale(1.04)}
+  .vcard:hover .vplay::before{transform:scale(1.08)}
+  .vcard figcaption{display:flex;align-items:baseline;gap:8px;margin-top:12px;font-size:.82rem;color:var(--ink2)}
+  .vcard figcaption b{color:var(--ink);font-weight:600}
+  .vnote{margin-top:18px;font-size:.74rem;color:var(--muted);line-height:1.8}
+
+  /* 播放弹层 */
+  .vmodal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:24px}
+  .vmodal.on{display:flex}
+  .vmodal-bg{position:absolute;inset:0;background:rgba(12,14,16,.82);backdrop-filter:blur(6px)}
+  .vmodal-box{position:relative;width:min(1000px,92vw);max-height:86svh;border-radius:14px;overflow:hidden;
+    background:#000;box-shadow:0 40px 90px rgba(0,0,0,.5)}
+  .vmodal-box video{display:block;width:100%;max-height:86svh;background:#000}
+  .vmodal-x{position:absolute;right:10px;top:10px;z-index:2;width:36px;height:36px;border:0;border-radius:50%;
+    background:rgba(0,0,0,.55);color:#fff;font-size:20px;line-height:1;cursor:pointer}
+  @media (max-width:960px){
+    .vgrid{grid-template-columns:1fr;gap:16px}
+    .vmodal{padding:14px}
+  }
+
   /* FINAL CTA */
   .final{position:relative;background:linear-gradient(180deg,#0A0F16,#121A26);color:#F3EDE0;text-align:center;
     padding:clamp(84px,10vw,140px) 0}
@@ -512,6 +543,28 @@
         <div class="who"><div class="avatar">MX</div><div><b>Ms. Ma</b><span>新加坡 · 使用 4 个月</span></div></div>
       </figure>
     </div>
+
+    <div class="vgrid">
+      <figure class="vcard reveal" data-src="assets/video/v1.mp4">
+        <div class="vthumb"><img src="assets/video/v1.jpg" alt="Ms. Chen 的访谈视频" loading="lazy">
+          <div class="vplay" aria-hidden="true"></div>
+        </div>
+        <figcaption><b>Ms. Chen</b><span>使用 5 个月 · 视频访谈</span></figcaption>
+      </figure>
+      <figure class="vcard reveal" data-src="assets/video/v2.mp4">
+        <div class="vthumb"><img src="assets/video/v2.jpg" alt="Mr. Hong 的访谈视频" loading="lazy">
+          <div class="vplay" aria-hidden="true"></div>
+        </div>
+        <figcaption><b>Mr. Hong</b><span>使用 2 年 · 视频访谈</span></figcaption>
+      </figure>
+      <figure class="vcard reveal" data-src="assets/video/v3.mp4">
+        <div class="vthumb"><img src="assets/video/v3.jpg" alt="Ms. Lin 的访谈视频" loading="lazy">
+          <div class="vplay" aria-hidden="true"></div>
+        </div>
+        <figcaption><b>Ms. Lin</b><span>家属授权 · 视频访谈</span></figcaption>
+      </figure>
+    </div>
+    <p class="vnote">视频由本人（或家属）授权公开，仅记录个人体验，因人而异，不构成医疗建议。</p>
   </div>
 </section>
 
@@ -752,5 +805,49 @@
     if (!document.body.classList.contains('gl-ok')) document.body.classList.add('gl-fail');
   }, 8000);
 </script>
+
+<div class="vmodal" id="vmodal" aria-hidden="true">
+  <div class="vmodal-bg" data-close></div>
+  <div class="vmodal-box" role="dialog" aria-modal="true" aria-label="视频播放">
+    <button class="vmodal-x" data-close aria-label="关闭">×</button>
+    <video id="vplayer" controls playsinline preload="none"></video>
+  </div>
+</div>
+
+
+<script>
+/* 视频访谈：点击弹层播放，关闭即停止并释放 */
+(function () {
+  var modal = document.getElementById('vmodal');
+  var player = document.getElementById('vplayer');
+  if (!modal || !player) return;
+
+  function open(src) {
+    player.src = src;
+    modal.classList.add('on');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    player.play().catch(function () {});
+  }
+  function close() {
+    player.pause();
+    player.removeAttribute('src');
+    player.load();
+    modal.classList.remove('on');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.vcard').forEach(function (c) {
+    c.addEventListener('click', function () { open(c.getAttribute('data-src')); });
+  });
+  modal.addEventListener('click', function (e) {
+    if (e.target.hasAttribute('data-close')) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('on')) close();
+  });
+})();
+</script>
+<!-- vmodal-player -->
 </body>
 </html>

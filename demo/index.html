@@ -235,13 +235,13 @@
   /* 首屏：与瓶身同轴的 3D 标签轨道（由 bottle3d.js 的偏航角驱动） */
   .hero{isolation:isolate}
   .orbit{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:1}
-  .orb-item{position:absolute;left:0;top:0;display:flex;align-items:center;gap:7px;
-    white-space:nowrap;padding:4px 11px;border-radius:999px;
-    background:rgba(247,243,234,.78);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
-    font-size:.86rem;letter-spacing:.06em;color:rgba(74,63,45,.9);
+  .orb-item{position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;
+    white-space:nowrap;padding:6px 14px;border-radius:999px;
+    background:rgba(250,247,240,.92);
+    font-size:1.02rem;letter-spacing:.05em;color:rgba(58,48,32,.94);
     transform:translate(-50%,-50%);transform-origin:50% 50%;
     transition:color .2s;will-change:transform,opacity}
-  .orb-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.75;flex:0 0 auto}
+  .orb-item::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:.75;flex:0 0 auto}
   .orb-item b{font-weight:500}
   .orb-item.is-front{color:rgba(58,48,32,.95);box-shadow:0 6px 18px rgba(90,70,40,.10)}
   @media (max-width:960px){ .orbit{display:none} }
@@ -548,7 +548,7 @@
         取自深海巨型飞乌贼，1000 道尔顿以下的小分子，身体认得出、用得上。
       </p>
       <div class="hero-cta reveal d3 hero-cta-desk">
-        <a href="#order" class="btn btn-gold">查看三档用量</a>
+        <a href="#product" class="btn btn-gold">查看三档用量</a>
         <a href="#science" class="btn btn-line">了解科学与工艺</a>
       </div>
     </div>
@@ -569,11 +569,20 @@
     取自深海巨型飞乌贼，1000 道尔顿以下的小分子，身体认得出、用得上。
   </p>
   <div class="hero-cta">
-    <a href="#order" class="btn btn-gold">查看三档用量</a>
+    <a href="#product" class="btn btn-gold">查看三档用量</a>
     <a href="#science" class="btn btn-line">了解科学与工艺</a>
   </div>
 </section>
 
+
+<section class="advs" aria-label="产品优势">
+  <div class="wrap">
+    <ul class="adv-row reveal">
+<li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9"/><path d="M13 27 27 13"/></svg><b>0 添加</b><i>No additive</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="5"/><circle cx="13" cy="25" r="5"/><circle cx="27" cy="25" r="5"/><path d="M16 18 14 21M24 18 26 21M18 25h4"/></svg><b>0 激素</b><i>No hormone</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8c5 6 9 10 9 14a9 9 0 0 1-18 0c0-4 4-8 9-14z"/><path d="M11 29 29 11"/></svg><b>0 脂肪</b><i>No fat</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 28c0-8 6-14 20-16-2 14-8 20-16 20a4 4 0 0 1-4-4z"/><path d="M10 30 26 14"/></svg><b>0 污染</b><i>No pollution</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8 32 14 20 20 8 14z"/><path d="M8 20 20 26 32 20"/><path d="M8 26 20 32 32 26"/></svg><b>33 道工序</b><i>33 processes</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="M20 13v7l5 3"/></svg><b>12 年研发</b><i>12-year R&D</i></li>
+      <li class="adv adv-cert"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6l11 4v9c0 8-5 13-11 15-6-2-11-7-11-15v-9z"/><path d="M15 20l4 4 7-8"/></svg><b>SC 生产许可</b><i>SC12221028700015</i></li>
+    </ul>
+  </div>
+</section>
 
 <section class="maps" id="function">
   <div class="wrap">
@@ -611,62 +620,12 @@
 </section>
 
 
-<section class="advs" aria-label="产品优势">
-  <div class="wrap">
-    <ul class="adv-row reveal">
-<li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9"/><path d="M13 27 27 13"/></svg><b>0 添加</b><i>No additive</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="5"/><circle cx="13" cy="25" r="5"/><circle cx="27" cy="25" r="5"/><path d="M16 18 14 21M24 18 26 21M18 25h4"/></svg><b>0 激素</b><i>No hormone</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8c5 6 9 10 9 14a9 9 0 0 1-18 0c0-4 4-8 9-14z"/><path d="M11 29 29 11"/></svg><b>0 脂肪</b><i>No fat</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 28c0-8 6-14 20-16-2 14-8 20-16 20a4 4 0 0 1-4-4z"/><path d="M10 30 26 14"/></svg><b>0 污染</b><i>No pollution</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8 32 14 20 20 8 14z"/><path d="M8 20 20 26 32 20"/><path d="M8 26 20 32 32 26"/></svg><b>33 道工序</b><i>33 processes</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="M20 13v7l5 3"/></svg><b>12 年研发</b><i>12-year R&D</i></li>
-      <li class="adv adv-cert"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6l11 4v9c0 8-5 13-11 15-6-2-11-7-11-15v-9z"/><path d="M15 20l4 4 7-8"/></svg><b>SC 生产许可</b><i>SC12221028700015</i></li>
-    </ul>
-  </div>
-</section>
-
 <section class="stats">
   <div class="row">
     <div class="stat reveal"><b data-count="12" data-suffix="+">0</b><span>年研发积累</span></div>
     <div class="stat reveal d1"><b data-count="18">0</b><span>种氨基酸（含 8 种必需）</span></div>
     <div class="stat reveal d2"><b data-count="7212">0</b><span>条肽谱鉴定</span></div>
     <div class="stat reveal d3"><b data-count="48">0</b><span>个月保质期</span></div>
-  </div>
-</section>
-
-<section class="sec" id="product">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow reveal">The Product</div>
-      <h2 class="reveal d1">三种用量，同一种分子</h2>
-      <p class="reveal d2">先用十天试，再用一个月看变化，最后用三个月把它变成习惯。<br>
-        每一盒 128mg × 30 瓶独立装，冷萃取后直接灌装。</p>
-    </div>
-    <div class="tiers">
-      <article class="tier reveal">
-        <div class="tier-img"><img class="pos-center" src="assets/products/tier-trial.jpg" alt="试用装" loading="lazy"></div>
-        <div class="tier-body">
-          <h3>试用装 · 10 天</h3>
-          <p class="desc">先感受口感和身体的第一反应。</p>
-          <div class="price"><span class="cur">SGD</span><span class="num">38</span></div>
-          <button class="btn btn-line add" data-id="trial">加入选购</button>
-        </div>
-      </article>
-      <article class="tier reveal d1">
-        <span class="tier-tag">最多人选</span>
-        <div class="tier-img"><img class="pos-center" src="assets/products/tier-1month.jpg" alt="一个月用量" loading="lazy"></div>
-        <div class="tier-body">
-          <h3>一个月 · 30 天</h3>
-          <p class="desc">完整的第一个周期，适合开始建立节奏。</p>
-          <div class="price"><span class="cur">SGD</span><span class="num">128</span></div>
-          <button class="btn btn-gold add" data-id="m1">加入选购</button>
-        </div>
-      </article>
-      <article class="tier reveal d2">
-        <div class="tier-img"><img class="pos-right" src="assets/products/tier-3month.jpg" alt="三个月用量" loading="lazy"></div>
-        <div class="tier-body">
-          <h3>三个月 · 90 天</h3>
-          <p class="desc">把保养变成习惯，也是多数老客户的复购选择。</p>
-          <div class="price"><span class="cur">SGD</span><span class="num">348</span><span class="was">384</span></div>
-          <button class="btn btn-line add" data-id="m3">加入选购</button>
-        </div>
-      </article>
-    </div>
   </div>
 </section>
 
@@ -827,6 +786,47 @@
   <div class="bb-text">
     <div class="eyebrow">Gift Set · 礼盒</div>
     <p class="bb-line">一盒三十瓶，<br>刚好 <b>三个月</b>。送人，也体面。</p>
+  </div>
+</section>
+
+<section class="sec" id="product">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow reveal">The Product</div>
+      <h2 class="reveal d1">三种用量，同一种分子</h2>
+      <p class="reveal d2">先用十天试，再用一个月看变化，最后用三个月把它变成习惯。<br>
+        每一盒 128mg × 30 瓶独立装，冷萃取后直接灌装。</p>
+    </div>
+    <div class="tiers">
+      <article class="tier reveal">
+        <div class="tier-img"><img class="pos-center" src="assets/products/tier-trial.jpg" alt="试用装" loading="lazy"></div>
+        <div class="tier-body">
+          <h3>试用装 · 10 天</h3>
+          <p class="desc">先感受口感和身体的第一反应。</p>
+          <div class="price"><span class="cur">SGD</span><span class="num">38</span></div>
+          <button class="btn btn-line add" data-id="trial">加入选购</button>
+        </div>
+      </article>
+      <article class="tier reveal d1">
+        <span class="tier-tag">最多人选</span>
+        <div class="tier-img"><img class="pos-center" src="assets/products/tier-1month.jpg" alt="一个月用量" loading="lazy"></div>
+        <div class="tier-body">
+          <h3>一个月 · 30 天</h3>
+          <p class="desc">完整的第一个周期，适合开始建立节奏。</p>
+          <div class="price"><span class="cur">SGD</span><span class="num">128</span></div>
+          <button class="btn btn-gold add" data-id="m1">加入选购</button>
+        </div>
+      </article>
+      <article class="tier reveal d2">
+        <div class="tier-img"><img class="pos-right" src="assets/products/tier-3month.jpg" alt="三个月用量" loading="lazy"></div>
+        <div class="tier-body">
+          <h3>三个月 · 90 天</h3>
+          <p class="desc">把保养变成习惯，也是多数老客户的复购选择。</p>
+          <div class="price"><span class="cur">SGD</span><span class="num">348</span><span class="was">384</span></div>
+          <button class="btn btn-line add" data-id="m3">加入选购</button>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -1234,10 +1234,25 @@
   var SPIN = 0.19, BASE = -0.52, T0 = performance.now();
   var N = items.length;
   var host = document.querySelector('.hero');
+  var visible = true;
+  if ('IntersectionObserver' in window && host) {
+    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0 }).observe(host);
+  }
+  items.forEach(function (el) { el.__w = el.offsetWidth; el.__h = el.offsetHeight; });
 
   function place() {
+    requestAnimationFrame(place);
+    if (!visible) return;
     var t = reduce ? 0 : (performance.now() - T0) / 1000;
-    var yaw = (typeof window.__smtYaw === 'number') ? window.__smtYaw : (BASE + t * SPIN);
+    var now = performance.now();
+    var yaw;
+    if (typeof window.__smtYaw === 'number') {
+      /* 3D 只跑 30fps：用时间戳把角度外推到当前帧，避免标签一跳一跳 */
+      var dt = window.__smtYawT ? (now - window.__smtYawT) / 1000 : 0;
+      yaw = window.__smtYaw + Math.min(dt, 0.2) * SPIN;
+    } else {
+      yaw = BASE + t * SPIN;
+    }
     var w = host ? host.clientWidth : window.innerWidth;
     var hh = host ? host.clientHeight : window.innerHeight;
     var mobile = window.matchMedia('(max-width:960px)').matches;
@@ -1257,17 +1272,16 @@
       var scale = 0.74 + 0.46 * depth;
       var op = 0.30 + 0.70 * depth;
       var el = items[i];
-      el.style.left = (cx + x).toFixed(1) + 'px';
-      el.style.top = (cy + y).toFixed(1) + 'px';
-      el.style.transform = 'translate(-50%,-50%) scale(' + scale.toFixed(3) + ')';
-      el.style.opacity = op.toFixed(3);
+      var tx = cx + x - el.__w / 2;
+      var ty = cy + y - el.__h / 2;
+      el.style.transform = 'translate3d(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px,0) scale(' + scale.toFixed(3) + ')';
+      if (!el.__op || Math.abs(el.__op - op) > 0.02) { el.style.opacity = op.toFixed(2); el.__op = op; }
       var front = cz > 0;
       if (front !== el.classList.contains('is-front')) {
         el.classList.toggle('is-front', front);
         el.style.zIndex = front ? '3' : '-1';
       }
     }
-    requestAnimationFrame(place);
   }
   requestAnimationFrame(place);
   /* orbitDrive */

@@ -251,12 +251,34 @@
   /* 首屏左下：产品优势（与瓶身同屏可见） */
   .advs-inhero{position:absolute;left:max(20px,calc((100vw - 1180px) / 2));bottom:clamp(14px,2.6vh,30px);
     width:min(620px,44vw);z-index:2}
-  .advs-inhero .adv-row{grid-template-columns:repeat(4,auto);justify-content:start;gap:12px 30px}
-  .advs-inhero .adv{padding:0;align-items:flex-start;text-align:left;gap:4px;flex-direction:row;
-    align-items:center;gap:9px}
-  .advs-inhero .adv svg{width:28px;height:28px}
-  .advs-inhero .adv b{font-size:.84rem}
+  .advs-inhero .adv-row{justify-content:start;gap:0 26px}
+  .advs-inhero .adv{padding:0;align-items:center;text-align:left;flex-direction:row;gap:10px}
   .advs-inhero .adv i{display:none}
+
+  /* 第一排：0 添加 / 0 激素 / 0 脂肪 —— 放大，做首屏记忆点 */
+  .advs-inhero .adv-row-main{grid-template-columns:repeat(3,auto);gap:0 34px;margin-bottom:15px}
+  .advs-inhero .adv-row-main .adv{gap:12px}
+  .advs-inhero .adv-row-main .adv svg{width:44px;height:44px;stroke-width:1.35}
+  .advs-inhero .adv-row-main .adv b{font-family:var(--serif);font-size:1.82rem;font-weight:600;
+    letter-spacing:.04em;color:var(--ink);line-height:1.05}
+  .advs-inhero .adv-row-main .adv b em{font-style:normal;color:var(--gold);font-size:1.42em;
+    font-weight:600;margin-right:.05em;font-variant-numeric:lining-nums;
+    font-feature-settings:"lnum" 1,"tnum" 0;line-height:.9}
+  /* 第二排：其余四项，收小做辅助信息 */
+  .advs-inhero .adv-row-sub{grid-template-columns:repeat(4,auto);gap:0 20px}
+  .advs-inhero .adv-row-sub .adv{gap:7px}
+  .advs-inhero .adv-row-sub .adv svg{width:18px;height:18px}
+  .advs-inhero .adv-row-sub .adv b{font-size:.72rem;font-weight:500;letter-spacing:.02em;color:var(--ink2)}
+  .advs-inhero .adv-row-sub .adv-cert b{color:var(--gold)}
+  /* 窄桌面（961–1180）：整排等比收一档，避免三个大字挤出去 */
+  @media (min-width:961px) and (max-width:1180px){
+    .advs-inhero .adv-row-main{gap:0 22px;margin-bottom:12px}
+    .advs-inhero .adv-row-main .adv{gap:9px}
+    .advs-inhero .adv-row-main .adv svg{width:36px;height:36px}
+    .advs-inhero .adv-row-main .adv b{font-size:1.5rem}
+    .advs-inhero .adv-row-sub{gap:0 14px}
+    .advs-inhero .adv-row-sub .adv b{font-size:.68rem}
+  }
 
   /* 首屏：与瓶身同轴的 3D 标签轨道（由 bottle3d.js 的偏航角驱动） */
   .hero{isolation:isolate}
@@ -571,8 +593,15 @@
       padding:10px 0 0;border-top:1px solid var(--line)}
     .advs-inhero .adv-row{grid-template-columns:repeat(2,1fr);gap:6px 14px}
     .advs-inhero .adv{flex-direction:row;align-items:center;gap:7px;padding:0;text-align:left}
-    .advs-inhero .adv svg{width:17px;height:17px}
-    .advs-inhero .adv b{font-size:.7rem}
+    .advs-inhero .adv-row-main{grid-template-columns:repeat(3,auto);justify-content:space-between;
+      gap:0 6px;margin-bottom:10px}
+    .advs-inhero .adv-row-main .adv{gap:8px}
+    .advs-inhero .adv-row-main .adv svg{width:27px;height:27px}
+    .advs-inhero .adv-row-main .adv b{font-size:1.14rem}
+    .advs-inhero .adv-row-sub{grid-template-columns:repeat(4,auto);justify-content:space-between;gap:0 8px}
+    .advs-inhero .adv-row-sub .adv{gap:5px}
+    .advs-inhero .adv-row-sub .adv svg{width:14px;height:14px}
+    .advs-inhero .adv-row-sub .adv b{font-size:.63rem;letter-spacing:0}
     .advs-inhero .adv i{display:none}
     /* 手机端：图谱回退为列表 */
     .maps-stage{aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;padding-top:6px}
@@ -631,6 +660,11 @@
     .showcase-cap{display:none}
     .scroll-cue{display:none}
   }
+  /* 平板（601–960）：优势排靠左成组，避免 space-between 把三个大字拉散 */
+  @media (min-width:601px) and (max-width:960px){
+    .advs-inhero .adv-row-main{justify-content:flex-start;gap:0 36px}
+    .advs-inhero .adv-row-sub{justify-content:flex-start;gap:0 26px}
+  }
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
     .reveal{opacity:1;transform:none}
@@ -660,8 +694,15 @@
   <div class="hero-ghost" aria-hidden="true"></div>
 
   <div class="advs advs-inhero" aria-label="产品优势">
-    <ul class="adv-row">
-<li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9"/><path d="M13 27 27 13"/></svg><b>0 添加</b><i>No additive</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="5"/><circle cx="13" cy="25" r="5"/><circle cx="27" cy="25" r="5"/><path d="M16 18 14 21M24 18 26 21M18 25h4"/></svg><b>0 激素</b><i>No hormone</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8c5 6 9 10 9 14a9 9 0 0 1-18 0c0-4 4-8 9-14z"/><path d="M11 29 29 11"/></svg><b>0 脂肪</b><i>No fat</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 28c0-8 6-14 20-16-2 14-8 20-16 20a4 4 0 0 1-4-4z"/><path d="M10 30 26 14"/></svg><b>0 污染</b><i>No pollution</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8 32 14 20 20 8 14z"/><path d="M8 20 20 26 32 20"/><path d="M8 26 20 32 32 26"/></svg><b>33 道工序</b><i>33 processes</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="M20 13v7l5 3"/></svg><b>12 年研发</b><i>12-year R&D</i></li>
+    <ul class="adv-row adv-row-main">
+      <li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9"/><path d="M13 27 27 13"/></svg><b><em>0</em> 添加</b><i>No additive</i></li>
+      <li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="5"/><circle cx="13" cy="25" r="5"/><circle cx="27" cy="25" r="5"/><path d="M16 18 14 21M24 18 26 21M18 25h4"/></svg><b><em>0</em> 激素</b><i>No hormone</i></li>
+      <li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8c5 6 9 10 9 14a9 9 0 0 1-18 0c0-4 4-8 9-14z"/><path d="M11 29 29 11"/></svg><b><em>0</em> 脂肪</b><i>No fat</i></li>
+    </ul>
+    <ul class="adv-row adv-row-sub">
+      <li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 28c0-8 6-14 20-16-2 14-8 20-16 20a4 4 0 0 1-4-4z"/><path d="M10 30 26 14"/></svg><b>无污染</b><i>No pollution</i></li>
+      <li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8 32 14 20 20 8 14z"/><path d="M8 20 20 26 32 20"/><path d="M8 26 20 32 32 26"/></svg><b>33 道工序</b><i>33 processes</i></li>
+      <li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="M20 13v7l5 3"/></svg><b>12 年研发</b><i>12-year R&amp;D</i></li>
       <li class="adv adv-cert"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6l11 4v9c0 8-5 13-11 15-6-2-11-7-11-15v-9z"/><path d="M15 20l4 4 7-8"/></svg><b>SC 生产许可</b><i>SC12221028700015</i></li>
     </ul>
   </div>

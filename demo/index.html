@@ -231,6 +231,25 @@
   .adv:hover svg{opacity:1}
   .adv-cert b{color:var(--gold)}
 
+
+  /* 首屏：围绕瓶身缓慢公转的标签 */
+  .orbit{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:1}
+  .orb-ring{position:absolute;left:69%;top:53%;width:0;height:0;
+    animation:orbSpin 72s linear infinite}
+  .orb-halo{position:absolute;left:50%;top:50%;width:440px;height:440px;transform:translate(-50%,-50%);
+    border-radius:50%;border:1px dashed rgba(168,131,74,.16)}
+  .orb-item{position:absolute;left:0;top:0;transform:rotate(var(--a)) translateX(clamp(170px,20vw,238px)) rotate(calc(-1 * var(--a)));
+    display:flex;align-items:center;gap:7px;white-space:nowrap;
+    font-size:.7rem;letter-spacing:.04em;color:rgba(90,78,58,.82);background:rgba(247,243,234,.72);padding:3px 9px;border-radius:999px;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+  .orb-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.7}
+  .orb-item b{font-weight:500;animation:orbSpinRev 72s linear infinite}
+  @keyframes orbSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+  @keyframes orbSpinRev{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+  @media (max-width:960px){ .orbit{display:none} }
+  @media (prefers-reduced-motion: reduce){
+    .orb-ring,.orb-item b{animation:none}
+  }
+
   /* STATS */
   .stats{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .stats .row{display:grid;grid-template-columns:repeat(4,1fr);width:min(1180px,92vw);margin:0 auto}
@@ -537,6 +556,13 @@
       </div>
     </div>
     <div class="hero-slot" aria-hidden="true"></div>
+  <div class="orbit" aria-hidden="true">
+    <div class="orb-ring">
+      <span class="orb-halo"></span>
+      <span class="orb-item" style="--a:-90deg"><b>延缓衰老</b></span><span class="orb-item" style="--a:-45deg"><b>美容养颜</b></span><span class="orb-item" style="--a:0deg"><b>提高免疫力</b></span><span class="orb-item" style="--a:45deg"><b>改善睡眠</b></span><span class="orb-item" style="--a:90deg"><b>增强体力</b></span><span class="orb-item" style="--a:135deg"><b>强化血管</b></span><span class="orb-item" style="--a:180deg"><b>明目</b></span><span class="orb-item" style="--a:225deg"><b>活跃关节</b></span>
+    </div>
+  </div>
+
   </div>
   <div class="scroll-cue">Scroll <i></i></div>
 </section>

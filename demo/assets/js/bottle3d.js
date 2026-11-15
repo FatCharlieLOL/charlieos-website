@@ -520,9 +520,9 @@
     camera.updateProjectionMatrix();
 
     var m = w < 700;
-    var s = m ? 0.80 : Math.min(1.06, Math.max(0.9, w / 1440));
+    var s = m ? 0.62 : Math.min(1.06, Math.max(0.9, w / 1440));
     bottle.scale.setScalar(s);
-    bottle.position.set(m ? 0 : 1.18, m ? -0.46 : -0.04, 0);
+    bottle.position.set(m ? 0 : 1.18, m ? -0.40 : -0.04, 0);
   }
   layout(true);
   window.addEventListener('resize', function () {

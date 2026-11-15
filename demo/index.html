@@ -242,7 +242,7 @@
 
   /* 首屏：与瓶身同轴的 3D 标签轨道（由 bottle3d.js 的偏航角驱动） */
   .hero{isolation:isolate}
-  .orbit{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:1}
+  .orbit{position:fixed;inset:0;pointer-events:none;z-index:1}
   .orb-item{position:absolute;left:0;top:0;display:flex;align-items:center;gap:8px;
     white-space:nowrap;padding:6px 14px;border-radius:999px;
     background:rgba(250,247,240,.92);
@@ -251,8 +251,13 @@
     transition:color .2s;will-change:transform,opacity}
   .orb-item::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:.75;flex:0 0 auto}
   .orb-item b{font-weight:500}
+  /* 手机端轨道：字号与底衬缩小，仍随瓶身转 */
+  @media (max-width:960px){
+    .orbit{position:absolute;inset:0}
+    .orb-item{font-size:.72rem;padding:4px 9px;gap:5px}
+    .orb-item::before{width:4px;height:4px}
+  }
   .orb-item.is-front{color:rgba(58,48,32,.95);box-shadow:0 6px 18px rgba(90,70,40,.10)}
-  @media (max-width:960px){ .orbit{display:none} }
   @media (prefers-reduced-motion: reduce){ .orb-item{transition:none} }
 
   /* STATS */
@@ -1284,7 +1289,11 @@
     var A = window.__smtAnchor;
     var cx, cy, R;
     if (A && A.unit) {
-      cx = A.x; cy = A.y; R = A.unit * 0.92;
+      /* 锚点是画布坐标系，叠加画布自身的屏幕位置（滚动/缩放都自动跟随） */
+      var gl = document.getElementById('gl');
+      var cr = gl ? gl.getBoundingClientRect() : { left: 0, top: 0 };
+      cx = cr.left + A.x; cy = cr.top + A.y + (mobile ? 8 : 26); R = A.unit * 0.92;
+      if (mobile) R = Math.min(R, w * 0.34);
     } else {
       cx = mobile ? w * 0.5 : w * 0.705;
       cy = mobile ? hh * 0.62 : hh * 0.545;
@@ -1318,20 +1327,31 @@
 </script>
 
 <script>
-/* 跑者逐帧播放（12 帧，避免精灵图裁切误差） */
+/* 跑者逐帧播放：预加载 12 帧，rAF 驱动，页面不可见时暂停 */
 (function () {
   var img = document.getElementById('runnerImg');
   if (!img) return;
-  var N = 12, i = 0, base = 'assets/img/run/', timer = null;
+  var N = 12, base = 'assets/img/run/', frames = [], idx = 0, last = 0;
+  for (var i = 0; i < N; i++) {
+    var im = new Image();
+    im.src = base + ('0' + i).slice(-2) + '.png';
+    frames.push(im);
+  }
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function tick() { img.src = base + String(i).padStart(2, '0') + '.png'; i = (i + 1) % N; }
-  if (reduce) { tick(); return; }
-  var io = new IntersectionObserver(function (es) {
-    if (es[0].isIntersecting) { if (!timer) { tick(); timer = setInterval(tick, 87); } }
-    else { clearInterval(timer); timer = null; }
-  }, { threshold: 0.1 });
-  io.observe(img.closest('.maps') || img);
-  /* runnerFrames */
+  if (reduce) { img.src = frames[0].src; return; }
+
+  var CUR = frames[0].src;
+  img.src = CUR;
+
+  function tick(now) {
+    requestAnimationFrame(tick);
+    if (document.hidden) return;
+    if (now - last < 87) return;          /* ≈ 11.5 fps */
+    last = now;
+    idx = (idx + 1) % N;
+    img.src = frames[idx].src;
+  }
+  requestAnimationFrame(tick);
 })();
 </script>
 <!-- vmodal-player -->

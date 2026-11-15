@@ -534,6 +534,13 @@
 
   /* ---------------- 持续自转（时间驱动，与滚动无关） ---------------- */
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.__pool = (function () {
+    var free = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()];
+    return {
+      get: function () { return free.pop() || new THREE.Vector3(); },
+      release: function (v) { free.push(v); }
+    };
+  })();
   var t0 = performance.now();
   var last = 0;
 
@@ -550,6 +557,21 @@
     var t = reduce ? 0 : (performance.now() - t0) / 1000;
     bottle.rotation.y = BASE_YAW + t * SPIN;
     window.__smtYaw = bottle.rotation.y;
+    window.__smtYawT = now;
+    if (window.__pool) {
+      var v = window.__pool.get();
+      bottle.getWorldPosition(v);
+      v.project(camera);
+      var ax = (v.x * 0.5 + 0.5) * renderer.domElement.clientWidth;
+      var ay = (-v.y * 0.5 + 0.5) * renderer.domElement.clientHeight;
+      var v2 = window.__pool.get();
+      bottle.getWorldPosition(v2);
+      v2.x += 1.0;                       /* 世界坐标里 1 个单位 */
+      v2.project(camera);
+      var ax2 = (v2.x * 0.5 + 0.5) * renderer.domElement.clientWidth;
+      window.__smtAnchor = { x: ax, y: ay, unit: Math.abs(ax2 - ax) };
+      window.__pool.release(v); window.__pool.release(v2);
+    }
     window.__smtYawT = now;
     ribbons.rotation.y = 0.22 + t * RIB_SPIN;
     if (window.__dust) {

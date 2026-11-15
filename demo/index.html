@@ -271,6 +271,7 @@
   .orb-item b{font-weight:500}
   /* 手机端轨道：字号与底衬缩小，仍随瓶身转 */
   @media (max-width:960px){
+    .orbit{position:absolute;inset:0}
     .orb-item{font-size:.72rem;padding:4px 9px;gap:5px}
     .orb-item::before{width:4px;height:4px}
   }
@@ -1454,7 +1455,10 @@
     if (A && A.unit) {
       /* 锚点是画布坐标系，叠加画布自身的屏幕位置（滚动/缩放都自动跟随） */
       var sy = window.scrollY || window.pageYOffset || 0;
-      cx = A.x; cy = A.y - sy + (mobile ? 8 : 26); R = A.unit * 0.92;
+      cx = A.x;
+      /* 手机：画布在文档流里，标签也用 hero 局部坐标；桌面：画布 fixed，标签用视口坐标 */
+      cy = mobile ? (A.y + 8) : (A.y - sy + 26);
+      R = A.unit * 0.92;
       if (mobile) R = Math.min(R, w * 0.36);
     } else {
       cx = mobile ? w * 0.5 : w * 0.705;

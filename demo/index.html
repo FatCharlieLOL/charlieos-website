@@ -368,6 +368,23 @@
     .vmodal{padding:14px}
   }
 
+  /* 品牌大图带 */
+  .brandband{position:relative;height:clamp(320px,46vw,540px);overflow:hidden;background:#0B0D10}
+  .bb-media,.bb-media img{position:absolute;inset:0;width:100%;height:100%}
+  .bb-media img{object-fit:cover;object-position:58% 55%;transform:scale(1.12);will-change:transform}
+  .bb-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,13,16,.72) 0%,rgba(11,13,16,.34) 46%,rgba(11,13,16,.12) 100%)}
+  .bb-text{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;
+    width:min(1180px,92vw);margin:0 auto;color:#F3EAD8}
+  .bb-text .eyebrow{color:#C9A96E}
+  .bb-line{margin-top:16px;font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.42}
+  .bb-line b{color:#E9D2A4;font-weight:600;font-size:1.12em}
+  @media (max-width:960px){
+    .brandband{height:clamp(260px,64vw,380px)}
+    .bb-media img{object-position:70% 50%}
+    .bb-veil{background:linear-gradient(180deg,rgba(11,13,16,.42) 0%,rgba(11,13,16,.72) 100%)}
+    .bb-text{justify-content:flex-end;padding-bottom:34px}
+  }
+
   /* FINAL CTA */
   .mol-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.55}
   .final{position:relative;background:linear-gradient(180deg,#0A0F16,#121A26);color:#F3EDE0;text-align:center;
@@ -783,6 +800,16 @@
     </div>
 </section>
 
+
+<section class="brandband" aria-label="产品视觉">
+  <div class="bb-media"><img src="assets/products/tier-3month.jpg" alt="SMT 纳米级小分子活性肽粉末与瓶身" loading="lazy"></div>
+  <div class="bb-veil"></div>
+  <div class="bb-text">
+    <div class="eyebrow">One Gram · 一克</div>
+    <p class="bb-line">一克粉末里，<br>是 <b>7,212</b> 条被逐条点名的肽。</p>
+  </div>
+</section>
+
 <section class="final" id="order">
   <canvas class="mol-canvas" aria-hidden="true"></canvas>
   <div class="wrap">
@@ -1143,6 +1170,38 @@
     }, { threshold: 0.05 }).observe(host);
   } else { start(); }
   /* molInit */
+})();
+</script>
+
+<script>
+/* 轻量视差：产品图与品牌大图随滚动轻微位移（桌面端，rAF 节流） */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var items = [].slice.call(document.querySelectorAll('.bb-media img, .tier-img img'));
+  if (!items.length) return;
+  var ticking = false;
+  function frame() {
+    ticking = false;
+    var vh = window.innerHeight;
+    items.forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      var mid = r.top + r.height / 2;
+      var k = (mid - vh / 2) / vh;            /* -1 … 1 */
+      var amp = el.closest('.brandband') ? 26 : 10;
+      el.style.transform = (el.closest('.bb-media') ? 'scale(1.12) ' : 'scale(1.02) ') +
+        'translate3d(0,' + (-k * amp).toFixed(1) + 'px,0)';
+    });
+  }
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(frame);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+  /* parallaxLite */
 })();
 </script>
 <!-- vmodal-player -->

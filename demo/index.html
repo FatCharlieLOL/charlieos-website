@@ -240,6 +240,16 @@
   .adv-cert b{color:var(--gold)}
 
 
+  /* 首屏左下：产品优势（与瓶身同屏可见） */
+  .advs-inhero{position:absolute;left:max(20px,calc((100vw - 1180px) / 2));bottom:clamp(14px,2.6vh,30px);
+    width:min(620px,44vw);z-index:2}
+  .advs-inhero .adv-row{grid-template-columns:repeat(4,auto);justify-content:start;gap:10px 24px}
+  .advs-inhero .adv{padding:0;align-items:flex-start;text-align:left;gap:4px;flex-direction:row;
+    align-items:center;gap:9px}
+  .advs-inhero .adv svg{width:26px;height:26px}
+  .advs-inhero .adv b{font-size:.74rem}
+  .advs-inhero .adv i{display:none}
+
   /* 首屏：与瓶身同轴的 3D 标签轨道（由 bottle3d.js 的偏航角驱动） */
   .hero{isolation:isolate}
   .orbit{position:fixed;inset:0;pointer-events:none;z-index:1}
@@ -478,6 +488,12 @@
   .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
   @media (max-width:960px){
+    /* 手机端：优势排回到首屏下方 */
+    .advs-inhero{position:static;width:auto;left:auto;bottom:auto;
+      padding:18px 0 6px;background:transparent}
+    .advs-inhero .adv-row{grid-template-columns:repeat(2,1fr);gap:10px}
+    .advs-inhero .adv{flex-direction:column;align-items:center;text-align:center;gap:5px;padding:10px 4px}
+    .advs-inhero .adv i{display:block}
     /* 手机端：图谱回退为列表 */
     .maps-stage{aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;padding-top:6px}
     .maps-svg,.fig-left,.fig-bullets{display:none}
@@ -562,6 +578,13 @@
   <canvas id="gl" class="gl" aria-hidden="true"></canvas>
   <img class="hero-poster" src="assets/products/tier-1month.jpg" alt="SMT 纳米活性肽">
   <div class="hero-ghost" aria-hidden="true"></div>
+
+  <div class="advs advs-inhero" aria-label="产品优势">
+    <ul class="adv-row">
+<li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9"/><path d="M13 27 27 13"/></svg><b>0 添加</b><i>No additive</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="5"/><circle cx="13" cy="25" r="5"/><circle cx="27" cy="25" r="5"/><path d="M16 18 14 21M24 18 26 21M18 25h4"/></svg><b>0 激素</b><i>No hormone</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8c5 6 9 10 9 14a9 9 0 0 1-18 0c0-4 4-8 9-14z"/><path d="M11 29 29 11"/></svg><b>0 脂肪</b><i>No fat</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 28c0-8 6-14 20-16-2 14-8 20-16 20a4 4 0 0 1-4-4z"/><path d="M10 30 26 14"/></svg><b>0 污染</b><i>No pollution</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8 32 14 20 20 8 14z"/><path d="M8 20 20 26 32 20"/><path d="M8 26 20 32 32 26"/></svg><b>33 道工序</b><i>33 processes</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="M20 13v7l5 3"/></svg><b>12 年研发</b><i>12-year R&D</i></li>
+      <li class="adv adv-cert"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6l11 4v9c0 8-5 13-11 15-6-2-11-7-11-15v-9z"/><path d="M15 20l4 4 7-8"/></svg><b>SC 生产许可</b><i>SC12221028700015</i></li>
+    </ul>
+  </div>
   <div class="hero-inner">
     <div class="hero-copy">
       <div class="eyebrow reveal">From the Deep Sea · 源自深海</div>
@@ -576,6 +599,7 @@
       </div>
     </div>
     <div class="hero-slot" aria-hidden="true"></div>
+
   <div class="orbit" aria-hidden="true">
     <span class="orb-item" data-i="0"><b>延缓衰老</b></span><span class="orb-item" data-i="1"><b>美容养颜</b></span><span class="orb-item" data-i="2"><b>提高免疫力</b></span><span class="orb-item" data-i="3"><b>改善睡眠</b></span><span class="orb-item" data-i="4"><b>增强体力</b></span><span class="orb-item" data-i="5"><b>强化血管</b></span><span class="orb-item" data-i="6"><b>明目</b></span><span class="orb-item" data-i="7"><b>活跃关节</b></span>
   </div>
@@ -598,14 +622,6 @@
 </section>
 
 
-<section class="advs" aria-label="产品优势">
-  <div class="wrap">
-    <ul class="adv-row reveal">
-<li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9"/><path d="M13 27 27 13"/></svg><b>0 添加</b><i>No additive</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="5"/><circle cx="13" cy="25" r="5"/><circle cx="27" cy="25" r="5"/><path d="M16 18 14 21M24 18 26 21M18 25h4"/></svg><b>0 激素</b><i>No hormone</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8c5 6 9 10 9 14a9 9 0 0 1-18 0c0-4 4-8 9-14z"/><path d="M11 29 29 11"/></svg><b>0 脂肪</b><i>No fat</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 28c0-8 6-14 20-16-2 14-8 20-16 20a4 4 0 0 1-4-4z"/><path d="M10 30 26 14"/></svg><b>0 污染</b><i>No pollution</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8 32 14 20 20 8 14z"/><path d="M8 20 20 26 32 20"/><path d="M8 26 20 32 32 26"/></svg><b>33 道工序</b><i>33 processes</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="M20 13v7l5 3"/></svg><b>12 年研发</b><i>12-year R&D</i></li>
-      <li class="adv adv-cert"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6l11 4v9c0 8-5 13-11 15-6-2-11-7-11-15v-9z"/><path d="M15 20l4 4 7-8"/></svg><b>SC 生产许可</b><i>SC12221028700015</i></li>
-    </ul>
-  </div>
-</section>
 
 <section class="maps" id="function">
   <div class="wrap">
@@ -1346,7 +1362,7 @@
   function tick(now) {
     requestAnimationFrame(tick);
     if (document.hidden) return;
-    if (now - last < 87) return;          /* ≈ 11.5 fps */
+    if (now - last < 140) return;         /* ≈ 7 fps，接近手绘节奏 */
     last = now;
     idx = (idx + 1) % N;
     img.src = frames[idx].src;

@@ -25,11 +25,11 @@ var PAYMENT_METHODS = [
 var PRODUCTS = {
   'nano-active-peptide': {
     id: 'nano-active-peptide',
-    name: { en: 'Nano Active Peptide', tw: '奈米活性胜肽' },
+    name: { en: 'Nano Active Peptide', zh: '纳米活性肽', tw: '奈米活性胜肽' },
     tiers: [
-      { id: 'trial',    name: { en: 'Trial Pack', tw: '試用裝' },      desc: { en: '10-day starter', tw: '10 天入門' },  img: 'assets/products/tier-trial.jpg',    price: 38.00,  originalPrice: null },
-      { id: '1-month',  name: { en: '1-Month Supply', tw: '1 個月用量' }, desc: { en: '30-day supply', tw: '30 天用量' }, img: 'assets/products/tier-1month.jpg',  price: 128.00, originalPrice: null },
-      { id: '3-month',  name: { en: '3-Month Supply', tw: '3 個月用量' }, desc: { en: '90-day supply', tw: '90 天用量' }, img: 'assets/products/tier-3month.jpg',  price: 348.00, originalPrice: 384.00 }
+      { id: 'trial',    name: { en: 'Trial Pack', zh: '试用装', tw: '試用裝' },      desc: { en: '10-day starter', zh: '10 天入门', tw: '10 天入門' },  img: 'assets/products/tier-trial.jpg',    price: 38.00,  originalPrice: null },
+      { id: '1-month',  name: { en: '1-Month Supply', zh: '1 个月用量', tw: '1 個月用量' }, desc: { en: '30-day supply', zh: '30 天用量', tw: '30 天用量' }, img: 'assets/products/tier-1month.jpg',  price: 128.00, originalPrice: null },
+      { id: '3-month',  name: { en: '3-Month Supply', zh: '3 个月用量', tw: '3 個月用量' }, desc: { en: '90-day supply', zh: '90 天用量', tw: '90 天用量' }, img: 'assets/products/tier-3month.jpg',  price: 348.00, originalPrice: 384.00 }
     ]
   }
 }
@@ -66,53 +66,66 @@ function t(key) {
   if (!d) return key;
   return (d[currentLang] !== undefined && d[currentLang] !== '') ? d[currentLang] : d.en;
 }
+var I18N_ATTR_TARGETS = [
+  { sel: '[data-i18n]',      attr: null,          key: 'data-i18n' },
+  { sel: '[data-i18n-aria]', attr: 'aria-label',  key: 'data-i18n-aria' },
+  { sel: '[data-i18n-alt]',  attr: 'alt',         key: 'data-i18n-alt' },
+  { sel: '[data-i18n-ph]',   attr: 'placeholder', key: 'data-i18n-ph' }
+];
+
+function applyAttrTranslations() {
+  I18N_ATTR_TARGETS.forEach(function (cfg) {
+    document.querySelectorAll(cfg.sel).forEach(function (el) {
+      var src = el.getAttribute(cfg.key);
+      var txt = t(src);
+      if (!txt || txt === src) return;
+      if (cfg.attr) el.setAttribute(cfg.attr, txt);
+      else el.textContent = txt;
+    });
+  });
+}
+
+function applyMetaTranslations() {
+  var pairs = [
+    ['meta[name="description"]', 'meta.desc'],
+    ['meta[property="og:title"]', 'og.title'],
+    ['meta[property="og:description"]', 'og.desc']
+  ];
+  pairs.forEach(function (pair) {
+    var el = document.querySelector(pair[0]);
+    if (el) el.setAttribute('content', t(pair[1]));
+  });
+}
+
+function applyLangButtons(lang) {
+  document.querySelectorAll('.lang-btn').forEach(function (b) {
+    var active = b.getAttribute('data-lang') === lang;
+    b.classList.toggle('lang-btn--active', active);
+    b.setAttribute('aria-pressed', String(active));
+  });
+}
+
+function refreshDynamicContent() {
+  ['renderCart', 'renderOrderSummary', 'renderPayMethods', 'updatePayBtn', 'renderOrderPage']
+    .forEach(function (name) {
+      if (typeof window[name] === 'function') window[name]();
+    });
+  if (window.onLanguageApplied) window.onLanguageApplied();
+}
+
 function applyLanguage(lang) {
   if (SITE_LANGS.indexOf(lang) === -1) lang = 'en';
   currentLang = lang;
   try { localStorage.setItem('smt-lang', lang); } catch (e) {}
 
   document.documentElement.lang = (lang === 'tw') ? 'zh-Hant' : (lang === 'zh') ? 'zh-Hans' : 'en';
-
-  document.querySelectorAll('[data-i18n]').forEach(function (el) {
-    var txt = t(el.getAttribute('data-i18n'));
-    if (txt && txt !== el.getAttribute('data-i18n')) el.textContent = txt;
-  });
-  document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
-    var v = t(el.getAttribute('data-i18n-aria'));
-    if (v) el.setAttribute('aria-label', v);
-  });
-  document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
-    var v = t(el.getAttribute('data-i18n-alt'));
-    if (v) el.setAttribute('alt', v);
-  });
-  document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
-    var v = t(el.getAttribute('data-i18n-ph'));
-    if (v) el.setAttribute('placeholder', v);
-  });
-
   document.title = t(typeof PAGE_TITLE_KEY !== 'undefined' ? PAGE_TITLE_KEY : 'meta.title');
-  var mdesc = document.querySelector('meta[name="description"]');
-  if (mdesc) mdesc.setAttribute('content', t('meta.desc'));
-  var ogt = document.querySelector('meta[property="og:title"]');
-  if (ogt) ogt.setAttribute('content', t('og.title'));
-  var ogd = document.querySelector('meta[property="og:description"]');
-  if (ogd) ogd.setAttribute('content', t('og.desc'));
 
-  document.querySelectorAll('.lang-btn').forEach(function (b) {
-    var active = b.getAttribute('data-lang') === lang;
-    b.classList.toggle('lang-btn--active', active);
-    b.setAttribute('aria-pressed', String(active));
-  });
+  applyAttrTranslations();
+  applyMetaTranslations();
+  applyLangButtons(lang);
+  refreshDynamicContent();
 
-  // 重新渲染购物车/结账动态内容（脚本加载后可用）
-  if (typeof renderCart === 'function') renderCart();
-  if (typeof renderOrderSummary === 'function') renderOrderSummary();
-  if (typeof renderPayMethods === 'function') renderPayMethods();
-  if (typeof updatePayBtn === 'function') updatePayBtn();
-  if (typeof renderOrderPage === 'function') renderOrderPage();
-  if (window.onLanguageApplied) window.onLanguageApplied();
-
-  // 语言切换会改变文字长度与布局，需要重算滚动触发位置
   if (window.ScrollTrigger) {
     setTimeout(function () { window.ScrollTrigger.refresh(); }, 60);
   }
@@ -140,45 +153,52 @@ function updateCartCount() {
   var count = cart.reduce(function (sum, item) { return sum + item.quantity; }, 0);
   badge.textContent = count > 0 ? String(count) : '';
 }
+function productLabel(product) {
+  return product.name[currentLang] || product.name.en;
+}
+
+function tierLabel(tier) {
+  return tier.name[currentLang] || tier.name.en;
+}
+
+function cartItemHtml(item, index) {
+  var tier = getTier(item.tierId);
+  if (!tier) return '';
+  var product = PRODUCTS['nano-active-peptide'];
+  var lineTotal = tier.price * item.quantity;
+  return '<div class="cart-item">'
+    + '<div class="cart-item-thumb"><img src="' + tier.img + '" alt="' + product.name.en + '" loading="lazy"></div>'
+    + '<div class="cart-item-info">'
+    +   '<div class="cart-item-name">' + productLabel(product) + '</div>'
+    +   '<div class="cart-item-tier">' + tierLabel(tier) + '</div>'
+    +   '<div class="cart-item-bottom">'
+    +     '<div class="qty-stepper">'
+    +       '<button type="button" class="qty-btn" onclick="changeCartItemQty(' + index + ', -1)" aria-label="' + t('cart.decrease') + '">−</button>'
+    +       '<span class="qty-value">' + item.quantity + '</span>'
+    +       '<button type="button" class="qty-btn" onclick="changeCartItemQty(' + index + ', 1)" aria-label="' + t('cart.increase') + '">+</button>'
+    +     '</div>'
+    +     '<div class="cart-item-price">' + fmtMoney(lineTotal) + '</div>'
+    +   '</div>'
+    +   '<button type="button" class="cart-item-remove" onclick="removeCartItem(' + index + ')">' + t('cart.remove') + '</button>'
+    + '</div>'
+    + '</div>';
+}
+
 function renderCart() {
   var listEl = document.getElementById('cart-items');
   var emptyEl = document.getElementById('cart-empty');
   var footerEl = document.getElementById('cart-footer');
   if (!listEl || !emptyEl || !footerEl) return;
 
-  if (cart.length === 0) {
+  var isEmpty = cart.length === 0;
+  emptyEl.hidden = !isEmpty;
+  footerEl.hidden = isEmpty;
+  if (isEmpty) {
     listEl.innerHTML = '';
-    emptyEl.hidden = false;
-    footerEl.hidden = true;
     return;
   }
-  emptyEl.hidden = true;
-  footerEl.hidden = false;
 
-  var product = PRODUCTS['nano-active-peptide'];
-  var html = cart.map(function (item, index) {
-    var tier = getTier(item.tierId);
-    if (!tier) return '';
-    var name = tier.name[currentLang] || tier.name.en;
-    var lineTotal = tier.price * item.quantity;
-    return '<div class="cart-item">'
-      + '<div class="cart-item-thumb"><img src="' + tier.img + '" alt="' + product.name.en + '" loading="lazy"></div>'
-      + '<div class="cart-item-info">'
-      +   '<div class="cart-item-name">' + product.name[currentLang] + '</div>'
-      +   '<div class="cart-item-tier">' + name + '</div>'
-      +   '<div class="cart-item-bottom">'
-      +     '<div class="qty-stepper">'
-      +       '<button type="button" class="qty-btn" onclick="changeCartItemQty(' + index + ', -1)" aria-label="Decrease">−</button>'
-      +       '<span class="qty-value">' + item.quantity + '</span>'
-      +       '<button type="button" class="qty-btn" onclick="changeCartItemQty(' + index + ', 1)" aria-label="Increase">+</button>'
-      +     '</div>'
-      +     '<div class="cart-item-price">' + fmtMoney(lineTotal) + '</div>'
-      +   '</div>'
-      +   '<button type="button" class="cart-item-remove" onclick="removeCartItem(' + index + ')">' + t('cart.remove') + '</button>'
-      + '</div>'
-      + '</div>';
-  }).join('');
-  listEl.innerHTML = html;
+  listEl.innerHTML = cart.map(cartItemHtml).join('');
   updateTotals();
   if (typeof renderInviteRow === 'function') renderInviteRow();
 }
@@ -322,67 +342,106 @@ function showPaymentSuccess(orderData) {
   var viewBtn = document.getElementById('success-view');
   if (viewBtn) viewBtn.setAttribute('href', 'order.html?order=' + encodeURIComponent(orderData.orderId));
 }
-function placeOrder(e) {
-  if (e) e.preventDefault();
-  var form = document.getElementById('checkout-form');
-  var btn = document.getElementById('pay-btn');
-  var get = function (name) {
-    var el = form.querySelector('[name="' + name + '"]');
+function readCheckoutForm(form) {
+  function get(n) {
+    var el = form.querySelector('[name="' + n + '"]');
     return el ? el.value.trim() : '';
+  }
+  var d = {
+    name: get('name'), email: get('email'), phone: get('phone'),
+    address: get('address'), city: get('city'), postal: get('postal'),
+    country: get('country') || 'OTHER'
   };
+  d.cardNumber = get('cardNumber');
+  d.cardExpiry = get('cardExpiry');
+  d.cardCvc = get('cardCvc');
+  return d;
+}
 
-  var name = get('name'), email = get('email'), phone = get('phone');
-  var address = get('address'), city = get('city'), postal = get('postal');
-  var country = get('country') || 'OTHER';
+function hasRequiredFields(d) {
+  return !!(d.name && d.email && d.phone && d.address && d.city);
+}
 
-  if (!name || !email || !phone || !address || !city) {
-    showToast(t('checkout.required'));
-    return;
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    showToast(t('checkout.invalidEmail'));
-    return;
-  }
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function hasCardDetails(d) {
   var method = getPayMethod(selectedPay);
-  if (method && method.requiresCard) {
-    if (!get('cardNumber') || !get('cardExpiry') || !get('cardCvc')) {
-      showToast(t('checkout.required'));
-      return;
-    }
-  }
+  if (!method || !method.requiresCard) return true;
+  return !!(d.cardNumber && d.cardExpiry && d.cardCvc);
+}
 
+function validateCheckout(d) {
+  if (!hasRequiredFields(d)) return 'checkout.required';
+  if (!isValidEmail(d.email)) return 'checkout.invalidEmail';
+  if (!hasCardDetails(d)) return 'checkout.required';
+  return null;
+}
+function buildOrderPayload(d) {
   var totals = cartTotals();
-  var orderData = {
+  return {
     items: cart.map(function (item) {
       var tier = getTier(item.tierId);
       return { productId: item.productId, tierId: item.tierId, quantity: item.quantity, price: tier ? tier.price : 0 };
     }),
     amounts: { subtotal: totals.subtotal, tax: totals.gst, total: totals.total, currency: CURRENCY },
     paymentMethod: selectedPay,
-    customer: { name: name, email: email, phone: phone, address: address, city: city, postal: postal, country: country },
+    customer: {
+      name: d.name, email: d.email, phone: d.phone,
+      address: d.address, city: d.city, postal: d.postal, country: d.country
+    },
     inviteCode: (typeof getInviteCode === 'function') ? getInviteCode() : '',
     createdAt: new Date().toISOString()
   };
+}
 
-  btn.disabled = true;
+function runPayment(orderData) {
+  return PaymentService.createOrder(orderData.amounts)
+    .then(function (created) {
+      orderData.orderId = created.orderId;
+      return PaymentService.initiatePayment(selectedPay, created.orderId);
+    })
+    .then(function () {
+      return PaymentService.checkPaymentStatus(orderData.orderId);
+    })
+    .then(function (paid) {
+      orderData.payment = {
+        status: paid.status,
+        transactionId: paid.transactionId,
+        paidAt: new Date().toISOString()
+      };
+      saveOrder(orderData);
+      cart = [];
+      renderCart();
+      updateCartCount();
+      showPaymentSuccess(orderData);
+      return orderData;
+    });
+}
+
+function placeOrder(e) {
+  if (e) e.preventDefault();
+  var form = document.getElementById('checkout-form');
+  var btn = document.getElementById('pay-btn');
+  if (!form || !btn) return;
+
+  var data = readCheckoutForm(form);
+  var errKey = validateCheckout(data);
+  if (errKey) {
+    showToast(t(errKey));
+    return;
+  }
+
+  var orderData = buildOrderPayload(data);
   var originalText = btn.textContent;
+  btn.disabled = true;
   btn.textContent = t('checkout.processing');
 
-  PaymentService.createOrder(orderData.amounts).then(function (created) {
-    return PaymentService.initiatePayment(selectedPay, created.orderId).then(function () {
-      return PaymentService.checkPaymentStatus(created.orderId).then(function (paid) {
-        orderData.orderId = created.orderId;
-        orderData.payment = { status: paid.status, transactionId: paid.transactionId, paidAt: new Date().toISOString() };
-        saveOrder(orderData);
-        cart = [];
-        renderCart();
-        updateCartCount();
-        showPaymentSuccess(orderData);
-      });
-    });
-  }).catch(function () {
+  runPayment(orderData).catch(function (err) {
     btn.disabled = false;
     btn.textContent = originalText;
-    showToast(t('checkout.required'));
+    showToast(t('checkout.failed'));
+    if (window.console && console.warn) console.warn('[placeOrder] failed:', err);
   });
 }

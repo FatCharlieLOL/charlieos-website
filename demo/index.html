@@ -197,6 +197,40 @@
   .map-node:hover .map-dot{opacity:1;box-shadow:0 0 0 8px rgba(168,131,74,.14)}
   .maps-note{margin-top:clamp(26px,3vw,40px);font-size:.72rem;color:var(--muted);text-align:center;line-height:1.8}
 
+
+  /* 分子量环 */
+  .donut-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,56px);align-items:center;
+    margin-top:clamp(46px,6vw,72px);padding-top:clamp(36px,4vw,52px);border-top:1px solid rgba(255,255,255,.08)}
+  .donut{width:min(100%,340px);display:block;margin:0 auto}
+  .seg{transition:stroke-width .28s var(--ease),opacity .28s}
+  .donut:hover .seg{opacity:.5}
+  .seg.on{opacity:1!important;stroke-width:32}
+  .donut .seg:hover{stroke-width:32;opacity:1;cursor:pointer}
+  .dn-t1{font-family:var(--serif);font-size:26px;fill:#E9D2A4}
+  .dn-t2{font-size:11px;fill:#C9A96E;letter-spacing:.12em}
+  .dn-t3{font-size:8.5px;fill:rgba(233,210,164,.6);letter-spacing:.16em}
+  .donut-side h3{font-size:1.18rem;color:#F1E4CB;margin-bottom:12px}
+  .donut-side p{font-size:.9rem;line-height:1.95;color:rgba(233,224,208,.78)}
+  .donut-side b{color:#E9D2A4;font-weight:600}
+  .legend{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}
+  .lg{display:flex;align-items:center;gap:8px;font-size:.76rem;color:rgba(233,224,208,.72);transition:.24s}
+  .lg .dot{width:9px;height:9px;border-radius:2px;flex:0 0 auto}
+  .lg b{color:#E9D2A4;font-weight:600;min-width:44px}
+  .lg:hover{color:#fff;transform:translateX(2px)}
+  .donut-src{margin-top:16px;font-size:.68rem;color:rgba(233,224,208,.45)}
+
+  /* 产品优势图标排 */
+  .advs{background:var(--paper);border-top:1px solid var(--line);padding:clamp(34px,4vw,52px) 0}
+  .adv-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,1fr);gap:clamp(8px,1.2vw,18px)}
+  .adv{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:14px 6px;border-radius:12px;
+    transition:transform .3s cubic-bezier(.2,.7,.3,1),background .3s}
+  .adv svg{width:38px;height:38px;fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+  .adv b{font-size:.8rem;font-weight:600;color:var(--ink)}
+  .adv i{font-style:normal;font-size:.58rem;letter-spacing:.05em;color:var(--muted)}
+  .adv:hover{transform:translateY(-4px);background:rgba(255,255,255,.7)}
+  .adv:hover svg{opacity:1}
+  .adv-cert b{color:var(--gold)}
+
   /* STATS */
   .stats{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .stats .row{display:grid;grid-template-columns:repeat(4,1fr);width:min(1180px,92vw);margin:0 auto}
@@ -335,6 +369,7 @@
   }
 
   /* FINAL CTA */
+  .mol-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.55}
   .final{position:relative;background:linear-gradient(180deg,#0A0F16,#121A26);color:#F3EDE0;text-align:center;
     padding:clamp(84px,10vw,140px) 0}
   .final .eyebrow{color:var(--gold2)}
@@ -397,6 +432,13 @@
   .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
 
   @media (max-width:960px){
+    /* 手机端：分子量环与优势排 */
+    .donut-wrap{grid-template-columns:1fr;gap:22px;padding-top:30px;margin-top:34px}
+    .donut{width:min(78vw,280px)}
+    .legend{grid-template-columns:1fr 1fr;gap:6px 12px}
+    .adv-row{grid-template-columns:repeat(2,1fr);gap:6px}
+    .adv{padding:12px 4px}
+    .adv svg{width:32px;height:32px}
     /* 手机端：图谱改为标题 + 两列节点 */
     .maps-stage{aspect-ratio:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;padding-top:8px}
     .maps-svg,.runner{display:none}
@@ -531,6 +573,16 @@
   </div>
 </section>
 
+
+<section class="advs" aria-label="产品优势">
+  <div class="wrap">
+    <ul class="adv-row reveal">
+<li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="9"/><path d="M13 27 27 13"/></svg><b>0 添加</b><i>No additive</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="5"/><circle cx="13" cy="25" r="5"/><circle cx="27" cy="25" r="5"/><path d="M16 18 14 21M24 18 26 21M18 25h4"/></svg><b>0 激素</b><i>No hormone</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8c5 6 9 10 9 14a9 9 0 0 1-18 0c0-4 4-8 9-14z"/><path d="M11 29 29 11"/></svg><b>0 脂肪</b><i>No fat</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 28c0-8 6-14 20-16-2 14-8 20-16 20a4 4 0 0 1-4-4z"/><path d="M10 30 26 14"/></svg><b>0 污染</b><i>No pollution</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 8 32 14 20 20 8 14z"/><path d="M8 20 20 26 32 20"/><path d="M8 26 20 32 32 26"/></svg><b>33 道工序</b><i>33 processes</i></li><li class="adv"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="11"/><path d="M20 13v7l5 3"/></svg><b>12 年研发</b><i>12-year R&D</i></li>
+      <li class="adv adv-cert"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6l11 4v9c0 8-5 13-11 15-6-2-11-7-11-15v-9z"/><path d="M15 20l4 4 7-8"/></svg><b>SC 生产许可</b><i>SC12221028700015</i></li>
+    </ul>
+  </div>
+</section>
+
 <section class="stats">
   <div class="row">
     <div class="stat reveal"><b data-count="12" data-suffix="+">0</b><span>年研发积累</span></div>
@@ -607,6 +659,27 @@
         <h3>肽谱可追溯</h3>
         <p>7,212 条肽段逐一鉴定，18 种氨基酸（含 8 种必需）含量明确。每一批都有编号，可回溯到生产日。</p>
         <div class="spec"><span>7,212 条肽</span><span>18 种氨基酸</span><span>批次可追溯</span></div>
+      </div>
+    </div>
+
+    <div class="donut-wrap reveal">
+      <div class="donut-figure">
+        <svg viewBox="0 0 200 200" class="donut" role="img" aria-label="分子量分布">
+          <circle cx="100" cy="100" r="76" fill="none" stroke="rgba(168,131,74,.12)" stroke-width="26"/>
+          <g transform="rotate(-90 100 100)">
+            <circle class="seg s0" cx="100" cy="100" r="76" fill="none" stroke="#8C6A32" stroke-width="26" stroke-dasharray="253.95 223.58" stroke-dashoffset="-0.00" data-i="0"/><circle class="seg s1" cx="100" cy="100" r="76" fill="none" stroke="#A8834A" stroke-width="26" stroke-dasharray="70.72 406.80" stroke-dashoffset="-253.95" data-i="1"/><circle class="seg s2" cx="100" cy="100" r="76" fill="none" stroke="#C9A96E" stroke-width="26" stroke-dasharray="107.35 370.18" stroke-dashoffset="-324.67" data-i="2"/><circle class="seg s3" cx="100" cy="100" r="76" fill="none" stroke="#DFC79A" stroke-width="26" stroke-dasharray="42.74 434.78" stroke-dashoffset="-432.01" data-i="3"/><circle class="seg s4" cx="100" cy="100" r="76" fill="none" stroke="#EFE4CD" stroke-width="26" stroke-dasharray="2.77 474.75" stroke-dashoffset="-474.75" data-i="4"/>
+          </g>
+          <text x="100" y="94" text-anchor="middle" class="dn-t1">90.5%</text>
+          <text x="100" y="114" text-anchor="middle" class="dn-t2">≤1000 Da</text>
+          <text x="100" y="132" text-anchor="middle" class="dn-t3">峰面积占比</text>
+        </svg>
+      </div>
+      <div class="donut-side">
+        <h3>分子量分布，来自第三方检测</h3>
+        <p>同一份样品，按质谱峰面积统计：<b>90.5% 的肽落在 1000 道尔顿以下</b>。
+          分子量越小，越容易在肠道被完整吸收——这是"小分子"三个字唯一有意义的地方。</p>
+        <ul class="legend"><li class="lg" data-i="0"><span class="dot" style="background:#8C6A32"></span><b>53.18%</b><i>180–500 Da</i></li><li class="lg" data-i="1"><span class="dot" style="background:#A8834A"></span><b>14.81%</b><i><180 Da</i></li><li class="lg" data-i="2"><span class="dot" style="background:#C9A96E"></span><b>22.48%</b><i>500–1000 Da</i></li><li class="lg" data-i="3"><span class="dot" style="background:#DFC79A"></span><b>8.95%</b><i>1000–2000 Da</i></li><li class="lg" data-i="4"><span class="dot" style="background:#EFE4CD"></span><b>0.58%</b><i>2000–3000 Da</i></li></ul>
+        <p class="donut-src">数据来源：TÜV SÜD 检测报告（氨基酸组成）与 SGS 分子量分布报告。</p>
       </div>
     </div>
   </div>
@@ -711,6 +784,7 @@
 </section>
 
 <section class="final" id="order">
+  <canvas class="mol-canvas" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="eyebrow reveal">Begin</div>
     <h2 class="reveal d1" style="margin-top:18px">从十天开始</h2>
@@ -968,6 +1042,107 @@
   }, { threshold: 0.25 });
   io.observe(el);
   /* mapObserve */
+})();
+</script>
+
+<script>
+/* 分子量环：扇区与图例联动高亮 */
+(function () {
+  var donut = document.querySelector('.donut');
+  if (!donut) return;
+  var segs = [].slice.call(donut.querySelectorAll('.seg'));
+  var legs = [].slice.call(document.querySelectorAll('.legend .lg'));
+  function hi(i, on) {
+    segs.forEach(function (sg, k) { sg.classList.toggle('on', on && k === i); });
+    legs.forEach(function (lg, k) { lg.style.opacity = (on && k !== i) ? '.35' : ''; });
+  }
+  segs.forEach(function (sg, i) {
+    sg.addEventListener('mouseenter', function () { hi(i, true); });
+    sg.addEventListener('mouseleave', function () { hi(i, false); });
+  });
+  legs.forEach(function (lg, i) {
+    lg.addEventListener('mouseenter', function () { hi(i, true); });
+    lg.addEventListener('mouseleave', function () { hi(i, false); });
+  });
+  /* donutSync */
+})();
+</script>
+
+<script>
+/* 分子粒子：末尾 CTA 的缓慢漂浮球体与连线（离开视口即停） */
+(function () {
+  var cv = document.querySelector('.mol-canvas');
+  if (!cv || !cv.getContext) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ctx = cv.getContext('2d');
+  var host = cv.parentElement;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0, pts = [], raf = null, t0 = performance.now();
+
+  function size() {
+    var r = host.getBoundingClientRect();
+    W = Math.max(1, Math.round(r.width)); H = Math.max(1, Math.round(r.height));
+    cv.width = W * dpr; cv.height = H * dpr;
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.min(30, Math.max(12, Math.round(W / 46)));
+    pts = [];
+    for (var i = 0; i < n; i++) {
+      pts.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .12, vy: (Math.random() - .5) * .12,
+        r: 1.6 + Math.random() * 3.4
+      });
+    }
+  }
+
+  function draw(now) {
+    var t = (now - t0) / 1000;
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < pts.length; i++) {
+      var a = pts[i];
+      if (!reduce) {
+        a.x += a.vx; a.y += a.vy;
+        if (a.x < 0 || a.x > W) a.vx *= -1;
+        if (a.y < 0 || a.y > H) a.vy *= -1;
+      }
+      for (var j = i + 1; j < pts.length; j++) {
+        var b = pts[j], dx = a.x - b.x, dy = a.y - b.y;
+        var d2 = dx * dx + dy * dy;
+        if (d2 < 19000) {
+          ctx.strokeStyle = 'rgba(201,169,110,' + (0.16 * (1 - d2 / 19000)).toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+      }
+    }
+    for (var k = 0; k < pts.length; k++) {
+      var q = pts[k];
+      var pulse = reduce ? 1 : 0.75 + 0.25 * Math.sin(t * 0.8 + k);
+      var g = ctx.createRadialGradient(q.x, q.y, 0, q.x, q.y, q.r * 3);
+      g.addColorStop(0, 'rgba(233,210,164,' + (0.55 * pulse).toFixed(3) + ')');
+      g.addColorStop(1, 'rgba(233,210,164,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath(); ctx.arc(q.x, q.y, q.r * 3, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = 'rgba(241,228,203,' + (0.5 * pulse).toFixed(3) + ')';
+      ctx.beginPath(); ctx.arc(q.x, q.y, q.r * 0.55, 0, Math.PI * 2); ctx.fill();
+    }
+    if (!reduce) raf = requestAnimationFrame(draw);
+  }
+
+  function start() { if (raf === null) { raf = requestAnimationFrame(draw); } }
+  function stop() { if (raf !== null) { cancelAnimationFrame(raf); raf = null; } }
+
+  size();
+  if (reduce) { draw(performance.now()); }
+  window.addEventListener('resize', function () { size(); if (reduce) draw(performance.now()); });
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es[0].isIntersecting ? start() : stop();
+    }, { threshold: 0.05 }).observe(host);
+  } else { start(); }
+  /* molInit */
 })();
 </script>
 <!-- vmodal-player -->

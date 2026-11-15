@@ -270,6 +270,45 @@
   .orb-item.is-front{color:rgba(58,48,32,.95);box-shadow:0 6px 18px rgba(90,70,40,.10)}
   @media (prefers-reduced-motion: reduce){ .orb-item{transition:none} }
 
+
+  /* 专家建议 */
+  .expert{background:var(--paper)}
+  .expert-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,64px);align-items:start}
+  .expert-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+  .expert-list li{position:relative;padding-left:26px;font-size:clamp(.9rem,1.1vw,.98rem);line-height:1.9;color:var(--ink2)}
+  .expert-list li::before{content:"";position:absolute;left:0;top:.72em;width:9px;height:9px;border-radius:50%;
+    border:1.4px solid var(--gold);opacity:.75}
+  .expert-side{padding:clamp(24px,3vw,38px);border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(180deg,#fff, #FBF8F1);text-align:center}
+  .es-lead{font-size:.86rem;letter-spacing:.14em;color:var(--muted)}
+  .es-words{margin-top:14px;display:flex;flex-direction:column;gap:8px;
+    font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.8rem);color:var(--gold);line-height:1.5}
+  .es-cta{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:.8rem;letter-spacing:.16em;color:var(--ink)}
+
+  /* 内服 / 外用 */
+  .usage{background:var(--paper2);border-top:1px solid var(--line)}
+  .usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,30px)}
+  .u-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:clamp(24px,3vw,36px);
+    transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+  .u-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(20,24,29,.10)}
+  .u-head{display:flex;align-items:center;gap:12px}
+  .u-ic{width:44px;height:44px;border-radius:50%;background:rgba(168,131,74,.12);display:grid;place-items:center}
+  .u-ic svg{width:23px;height:23px;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .u-head b{display:block;font-family:var(--serif);font-size:1.24rem;color:var(--ink)}
+  .u-head i{display:block;font-style:normal;font-size:.62rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
+  .u-sub{margin-top:16px;font-size:.82rem;letter-spacing:.1em;color:var(--gold)}
+  .u-text{margin-top:12px;font-size:.92rem;line-height:1.95;color:var(--ink2)}
+  .u-tip{margin-top:16px;padding:12px 14px;border-radius:10px;background:rgba(168,131,74,.06);
+    font-size:.8rem;line-height:1.8;color:var(--ink2)}
+  .u-tip b{margin-right:8px;color:var(--gold);font-weight:600}
+  .u-points{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .u-points li{font-size:.72rem;text-align:center;padding:8px 4px;border-radius:8px;
+    border:1px solid var(--line);color:var(--ink2)}
+  @media (max-width:960px){
+    .expert-grid,.usage-grid{grid-template-columns:1fr;gap:20px}
+    .u-points{grid-template-columns:repeat(2,1fr)}
+  }
   /* STATS */
   .stats{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .stats .row{display:grid;grid-template-columns:repeat(4,1fr);width:min(1180px,92vw);margin:0 auto}
@@ -623,6 +662,66 @@
 
 
 
+<section class="sec expert" id="expert">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow reveal">Expert's Advice · 专家建议</div>
+      <h2 class="reveal d1">哪些人，<br>需要补小分子活性肽？</h2>
+      <p class="reveal d2">30 岁以后，身体合成肽的能力逐年下降。以下七类人，是最该补的一群。</p>
+    </div>
+    <div class="expert-grid">
+      <ul class="expert-list reveal">
+        <li>免疫力低下、长期处于亚健康的人</li>
+        <li>需要预防和改善慢性病的人</li>
+        <li>需要预防骨质疏松、补充钙质的人</li>
+        <li>想增强体力、改善虚弱与易疲劳体质的人</li>
+        <li>想改善睡眠、增强记忆力的人</li>
+        <li>想抗衰除皱、美容养颜、恢复青春活力的人</li>
+        <li>想增强健康生殖能力的人</li>
+      </ul>
+      <aside class="expert-side reveal d1">
+        <p class="es-lead">补生命肽，就是</p>
+        <p class="es-words"><span>补能量</span><span>补青春</span><span>补活力</span></p>
+        <p class="es-cta">立即补肽 · 刻不容缓</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec usage" id="usage">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow reveal">Usage · 使用方式</div>
+      <h2 class="reveal d1">内服与外用，<br>两条路径</h2>
+      <p class="reveal d2">一瓶粉，两种用法：喝下去修里面，调开来敷外面。</p>
+    </div>
+    <div class="usage-grid">
+      <article class="u-card reveal">
+        <div class="u-head">
+          <span class="u-ic"><svg viewBox="0 0 24 24"><path d="M7 4c0 5 2 8 5 8s5-3 5-8"/><path d="M12 12v9"/><path d="M8 21h8"/></svg></span>
+          <div><b>内服</b><i>Oral</i></div>
+        </div>
+        <p class="u-sub">以内养外 · 科学滋补 · 跨域修复</p>
+        <p class="u-text">直接给细胞补充小分子肽，激活细胞活性、代谢与修复能力。健康的细胞，会让你从内到外都轻一点。</p>
+        <p class="u-tip"><b>用法</b>30 岁以上，早晚空腹各一瓶；体质虚弱者可酌情加量。</p>
+      </article>
+      <article class="u-card reveal d1">
+        <div class="u-head">
+          <span class="u-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M9 10h.01M15 10h.01"/><path d="M9 14.5c1.8 1.4 4.2 1.4 6 0"/></svg></span>
+          <div><b>外用</b><i>External</i></div>
+        </div>
+        <p class="u-sub">日常护理 · 肤质升华 · 深层赋活</p>
+        <p class="u-text">不同分子量的肽对皮肤细胞形成立体支撑，可透皮吸收至真皮层，让皮肤更紧实、更有弹性。</p>
+        <p class="u-tip"><b>用法</b>洁面后取少量，以温水调开，轻拍至吸收；早晚各一次。</p>
+        <ul class="u-points">
+          <li>排毒养颜</li><li>紧致肌肤</li><li>收细毛孔</li><li>补水淡斑</li>
+          <li>淡化细纹</li><li>改善眼袋</li><li>改善颈纹</li><li>提升面部</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="maps" id="function">
   <div class="wrap">
     <div class="maps-head">
@@ -662,6 +761,7 @@
     <p class="maps-note">以上为营养学研究中对小分子肽作用方向的描述，个人体验因人而异。</p>
   </div>
 </section>
+
 
 
 <section class="stats">

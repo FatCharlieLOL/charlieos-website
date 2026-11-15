@@ -549,6 +549,7 @@
 
     var t = reduce ? 0 : (performance.now() - t0) / 1000;
     bottle.rotation.y = BASE_YAW + t * SPIN;
+    window.__smtYaw = bottle.rotation.y;
     ribbons.rotation.y = 0.22 + t * RIB_SPIN;
     if (window.__dust) {
       window.__dust.rotation.y = -t * 0.05;

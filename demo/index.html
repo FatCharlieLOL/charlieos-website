@@ -232,23 +232,20 @@
   .adv-cert b{color:var(--gold)}
 
 
-  /* 首屏：围绕瓶身缓慢公转的标签 */
+  /* 首屏：与瓶身同轴的 3D 标签轨道（由 bottle3d.js 的偏航角驱动） */
+  .hero{isolation:isolate}
   .orbit{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:1}
-  .orb-ring{position:absolute;left:69%;top:53%;width:0;height:0;
-    animation:orbSpin 72s linear infinite}
-  .orb-halo{position:absolute;left:50%;top:50%;width:440px;height:440px;transform:translate(-50%,-50%);
-    border-radius:50%;border:1px dashed rgba(168,131,74,.16)}
-  .orb-item{position:absolute;left:0;top:0;transform:rotate(var(--a)) translateX(clamp(170px,20vw,238px)) rotate(calc(-1 * var(--a)));
-    display:flex;align-items:center;gap:7px;white-space:nowrap;
-    font-size:.7rem;letter-spacing:.04em;color:rgba(90,78,58,.82);background:rgba(247,243,234,.72);padding:3px 9px;border-radius:999px;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
-  .orb-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.7}
-  .orb-item b{font-weight:500;animation:orbSpinRev 72s linear infinite}
-  @keyframes orbSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-  @keyframes orbSpinRev{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+  .orb-item{position:absolute;left:0;top:0;display:flex;align-items:center;gap:7px;
+    white-space:nowrap;padding:4px 11px;border-radius:999px;
+    background:rgba(247,243,234,.78);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+    font-size:.86rem;letter-spacing:.06em;color:rgba(74,63,45,.9);
+    transform:translate(-50%,-50%);transform-origin:50% 50%;
+    transition:color .2s;will-change:transform,opacity}
+  .orb-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.75;flex:0 0 auto}
+  .orb-item b{font-weight:500}
+  .orb-item.is-front{color:rgba(58,48,32,.95);box-shadow:0 6px 18px rgba(90,70,40,.10)}
   @media (max-width:960px){ .orbit{display:none} }
-  @media (prefers-reduced-motion: reduce){
-    .orb-ring,.orb-item b{animation:none}
-  }
+  @media (prefers-reduced-motion: reduce){ .orb-item{transition:none} }
 
   /* STATS */
   .stats{background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -557,10 +554,7 @@
     </div>
     <div class="hero-slot" aria-hidden="true"></div>
   <div class="orbit" aria-hidden="true">
-    <div class="orb-ring">
-      <span class="orb-halo"></span>
-      <span class="orb-item" style="--a:-90deg"><b>延缓衰老</b></span><span class="orb-item" style="--a:-45deg"><b>美容养颜</b></span><span class="orb-item" style="--a:0deg"><b>提高免疫力</b></span><span class="orb-item" style="--a:45deg"><b>改善睡眠</b></span><span class="orb-item" style="--a:90deg"><b>增强体力</b></span><span class="orb-item" style="--a:135deg"><b>强化血管</b></span><span class="orb-item" style="--a:180deg"><b>明目</b></span><span class="orb-item" style="--a:225deg"><b>活跃关节</b></span>
-    </div>
+    <span class="orb-item" data-i="0"><b>延缓衰老</b></span><span class="orb-item" data-i="1"><b>美容养颜</b></span><span class="orb-item" data-i="2"><b>提高免疫力</b></span><span class="orb-item" data-i="3"><b>改善睡眠</b></span><span class="orb-item" data-i="4"><b>增强体力</b></span><span class="orb-item" data-i="5"><b>强化血管</b></span><span class="orb-item" data-i="6"><b>明目</b></span><span class="orb-item" data-i="7"><b>活跃关节</b></span>
   </div>
 
   </div>
@@ -1228,6 +1222,55 @@
   window.addEventListener('resize', onScroll);
   onScroll();
   /* parallaxLite */
+})();
+</script>
+
+<script>
+/* 标签轨道：与 3D 瓶身同一角速度公转，按深度缩放/淡出，前后分别置于画布上下层 */
+(function () {
+  var items = [].slice.call(document.querySelectorAll('.orb-item'));
+  if (!items.length) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SPIN = 0.19, BASE = -0.52, T0 = performance.now();
+  var N = items.length;
+  var host = document.querySelector('.hero');
+
+  function place() {
+    var t = reduce ? 0 : (performance.now() - T0) / 1000;
+    var yaw = (typeof window.__smtYaw === 'number') ? window.__smtYaw : (BASE + t * SPIN);
+    var w = host ? host.clientWidth : window.innerWidth;
+    var hh = host ? host.clientHeight : window.innerHeight;
+    var mobile = window.matchMedia('(max-width:960px)').matches;
+
+    /* 圆心对准瓶身：桌面在右侧 69%/53%，手机居中偏上 */
+    var cx = mobile ? w * 0.5 : w * 0.705;
+    var cy = mobile ? hh * 0.62 : hh * 0.545;
+    var R = Math.min(w * 0.148, 206);
+
+    for (var i = 0; i < N; i++) {
+      var a = yaw + i * (Math.PI * 2 / N) + Math.PI / 2;
+      var sx = Math.sin(a);            /* 左右 */
+      var cz = Math.cos(a);            /* 前后：>0 在前 */
+      var x = sx * R * 1.06;
+      var y = -cz * R * 0.30;          /* 后方高、前方低，造成俯视椭圆 */
+      var depth = (cz + 1) / 2;        /* 0 后 → 1 前 */
+      var scale = 0.74 + 0.46 * depth;
+      var op = 0.30 + 0.70 * depth;
+      var el = items[i];
+      el.style.left = (cx + x).toFixed(1) + 'px';
+      el.style.top = (cy + y).toFixed(1) + 'px';
+      el.style.transform = 'translate(-50%,-50%) scale(' + scale.toFixed(3) + ')';
+      el.style.opacity = op.toFixed(3);
+      var front = cz > 0;
+      if (front !== el.classList.contains('is-front')) {
+        el.classList.toggle('is-front', front);
+        el.style.zIndex = front ? '3' : '-1';
+      }
+    }
+    requestAnimationFrame(place);
+  }
+  requestAnimationFrame(place);
+  /* orbitDrive */
 })();
 </script>
 <!-- vmodal-player -->

@@ -169,8 +169,8 @@
   .map-ring{fill:none;stroke:rgba(45,48,74,.35);stroke-width:1.4;vector-effect:non-scaling-stroke}
 
   /* 左侧：圆形里的跑者 */
-  .fig-left{position:absolute;left:23.5%;top:52%;width:30%;aspect-ratio:1;transform:translate(-50%,-50%)}
-  .runner-box{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:52%;height:66%;display:grid;place-items:center}
+  .fig-left{position:absolute;left:21.5%;top:50%;width:29%;aspect-ratio:1;transform:translate(-50%,-50%)}
+  .runner-box{position:absolute;left:47%;top:50%;transform:translate(-50%,-50%);width:56%;height:70%;display:grid;place-items:center}
   .runner-strip{display:block;height:100%;width:auto;max-width:none;object-fit:contain}
   .runner-still{animation:runnerBob 1.1s ease-in-out infinite}
   @keyframes runnerBob{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-5px) rotate(-1deg)}}
@@ -181,12 +181,11 @@
   .runner-box::after{top:64%;left:0;width:28%;animation-delay:.18s}
   @keyframes speedLine{0%{opacity:0;transform:translateX(10px)}35%{opacity:1}100%{opacity:0;transform:translateX(-26px)}}
   @media (prefers-reduced-motion: reduce){ .runner-still,.runner-box::before,.runner-box::after{animation:none} }
-  .ring-ic{position:absolute;width:11%;max-width:46px;aspect-ratio:1;border-radius:50%;background:var(--paper2);
-    border:1.4px solid rgba(45,48,74,.35);display:grid;place-items:center}
+  .ring-ic{position:absolute;width:11%;max-width:46px;aspect-ratio:1;border-radius:50%;background:var(--paper2);border:1.4px solid rgba(45,48,74,.35);display:grid;place-items:center;transform:translate(-50%,-50%)}
   .ring-ic svg{width:56%;height:56%;fill:none;stroke:#2f3350;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-  .ring-ic-1{left:62%;top:4%}
-  .ring-ic-2{left:2%;top:36%}
-  .ring-ic-3{left:44%;top:86%}
+  .ring-ic-1{left:50%;top:0}
+  .ring-ic-2{left:0;top:50%}
+  .ring-ic-3{left:50%;top:100%}
 
   /* 中间大圆 */
   .maps-core{position:absolute;left:45%;top:50%;transform:translate(-50%,-50%);
@@ -761,7 +760,7 @@
     <div class="maps-stage">
       <svg class="maps-svg" viewBox="0 0 1200 760" preserveAspectRatio="none" aria-hidden="true">
         <path class="map-line" d="M522,380 Q681,264 720,68" style="--d:0.00s"/><path class="map-line" d="M522,380 Q825,283 1008,106" style="--d:0.05s"/><path class="map-line" d="M522,380 Q912,352 1182,243" style="--d:0.10s"/><path class="map-line" d="M522,380 Q786,439 1170,418" style="--d:0.15s"/><path class="map-line" d="M522,380 Q741,519 1080,578" style="--d:0.20s"/><path class="map-line" d="M522,380 Q645,564 888,669" style="--d:0.25s"/><path class="map-line" d="M522,380 Q543,545 684,631" style="--d:0.30s"/><path class="map-line" d="M522,380 Q522,466 642,471" style="--d:0.35s"/><path class="map-line" d="M522,380 Q681,390 720,319" style="--d:0.40s"/><path class="map-line" d="M522,380 Q747,329 852,198" style="--d:0.45s"/><path class="map-line" d="M522,380 Q798,409 954,357" style="--d:0.50s"/><path class="map-line" d="M522,380 Q666,481 930,502" style="--d:0.55s"/>
-        <circle class="map-ring" cx="282" cy="395" r="180"/>
+        <circle class="map-ring" cx="258" cy="380" r="174"/>
       </svg>
 
       <div class="fig-left">

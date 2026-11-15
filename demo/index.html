@@ -271,7 +271,6 @@
   .orb-item b{font-weight:500}
   /* 手机端轨道：字号与底衬缩小，仍随瓶身转 */
   @media (max-width:960px){
-    .orbit{position:absolute;inset:0}
     .orb-item{font-size:.72rem;padding:4px 9px;gap:5px}
     .orb-item::before{width:4px;height:4px}
   }
@@ -331,8 +330,8 @@
     /* 手机端：竖向弧线路径 */
     .paths{height:auto;padding-left:40px;position:relative}
     .paths::before{content:"";position:absolute;left:14px;top:34px;bottom:26px;width:0;
-      border-left:1.5px dashed rgba(168,131,74,.42)}
-    .p-branch::before{content:"";position:absolute;left:-32px;top:34px;width:9px;height:9px;
+      border-left:2px dashed rgba(168,131,74,.75)}
+    .p-branch::before{content:"";position:absolute;left:-30px;top:30px;width:11px;height:11px;z-index:3;border:2px solid var(--paper2);
       border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(168,131,74,.14)}
     .p-branch{position:relative}
     .paths-svg{display:block;left:0;top:0;width:30px;height:100%}
@@ -1454,9 +1453,8 @@
     var cx, cy, R;
     if (A && A.unit) {
       /* 锚点是画布坐标系，叠加画布自身的屏幕位置（滚动/缩放都自动跟随） */
-      var gl = document.getElementById('gl');
-      var cr = gl ? gl.getBoundingClientRect() : { left: 0, top: 0 };
-      cx = cr.left + A.x; cy = cr.top + A.y + (mobile ? 8 : 26); R = A.unit * 0.92;
+      var sy = window.scrollY || window.pageYOffset || 0;
+      cx = A.x; cy = A.y - sy + (mobile ? 8 : 26); R = A.unit * 0.92;
       if (mobile) R = Math.min(R, w * 0.36);
     } else {
       cx = mobile ? w * 0.5 : w * 0.705;

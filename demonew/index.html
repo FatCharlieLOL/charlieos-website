@@ -37,7 +37,7 @@
   .sec-head{max-width:44em}
   .sec-head h2{font-size:clamp(1.9rem,3.4vw,2.9rem);margin-top:16px}
   .sec-head p{margin-top:16px;color:rgba(214,239,233,.72);line-height:1.95;font-size:.96rem}
-  .light .sec-head p,.what .sec-head p,.product .sec-head p{color:var(--ink2)}
+  .light .sec-head p,.life .sec-head p,.product .sec-head p{color:var(--ink2)}
   .light{background:var(--sand);color:var(--ink)}
   .light .eyebrow{color:#2C7E7B}
 
@@ -120,38 +120,24 @@
     font-size:.6rem;letter-spacing:.32em;color:rgba(214,239,233,.45);text-transform:uppercase}
   .scroll-cue i{display:block;width:1px;height:30px;background:linear-gradient(180deg,var(--aqua),transparent)}
 
-  /* ---------- voices ---------- */
+  /* ---------- voices：一个大横屏视频，滑到就播 ---------- */
   .voices{background:var(--deeper);position:relative}
   .voices::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
     background:linear-gradient(90deg,transparent,rgba(90,209,196,.35),transparent)}
-  .vrow{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);margin-top:clamp(30px,4vw,46px)}
-  .vcard{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;
-    border:1px solid rgba(214,239,233,.12);background:#081E28;text-align:left;
-    transition:transform .4s var(--ease),border-color .3s}
-  .vcard:hover{transform:translateY(-4px);border-color:rgba(90,209,196,.4)}
-  .vface{position:relative;aspect-ratio:4/5;display:grid;place-items:center;overflow:hidden;
-    background:
-      radial-gradient(120% 70% at 50% 0%,rgba(90,209,196,.2),rgba(90,209,196,0) 60%),
-      linear-gradient(160deg,#0B3340,#061C26 70%)}
-  .vface::before{content:"";position:absolute;inset:0;
-    background:url(assets/img/hero-sea.webp) center/cover;opacity:.16;filter:saturate(.7)}
-  .vface b{position:absolute;left:22px;top:16px;z-index:1;font-family:var(--serif);
-    font-size:clamp(3rem,4.6vw,4.2rem);font-weight:500;
-    color:rgba(214,239,233,.42);letter-spacing:.04em;line-height:1}
-  .vplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;
-    width:64px;height:64px;border-radius:50%;background:rgba(3,18,26,.5);
-    border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(4px);display:grid;place-items:center;
-    transition:transform .3s var(--ease),background .3s}
-  .vcard:hover .vplay{transform:translate(-50%,-50%) scale(1.06);background:rgba(34,196,110,.85);
-    border-color:transparent}
-  .vplay::before{content:"";width:0;height:0;border-left:16px solid #fff;border-top:10px solid transparent;
-    border-bottom:10px solid transparent;margin-left:4px}
-  .vmeta{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;padding:18px 20px 20px}
-  .vmeta b{font-size:.98rem;color:#fff}
-  .vmeta span{display:block;margin-top:4px;font-size:.72rem;color:rgba(214,239,233,.6)}
-  .vtag{font-size:.62rem;padding:5px 10px;border-radius:999px;background:rgba(90,209,196,.16);
-    border:1px solid rgba(90,209,196,.35);color:var(--aqua);letter-spacing:.06em}
-  .qrow{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);margin-top:14px}
+  .vstage{position:relative;margin-top:clamp(28px,4vw,44px);border-radius:22px;overflow:hidden;
+    border:1px solid rgba(214,239,233,.14);background:#04151D;
+    box-shadow:0 40px 90px rgba(0,0,0,.5)}
+  .vmain{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#04151D}
+  .vsound{min-height:44px;padding:0 20px;border-radius:999px;border:1px solid rgba(255,255,255,.42);
+    background:rgba(3,18,26,.58);color:#fff;font-size:.8rem;cursor:pointer;
+    backdrop-filter:blur(6px);transition:.25s}
+  .vsound:hover{background:rgba(3,18,26,.82);border-color:#fff}
+  .vstage-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:70px 22px 18px;
+    display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+    background:linear-gradient(180deg,transparent,rgba(3,18,26,.9))}
+  .vstage-cap b{font-family:var(--serif);font-size:1.35rem;color:#fff;line-height:1.2}
+  .vstage-cap small{display:block;margin-top:5px;font-size:.74rem;color:rgba(214,239,233,.72)}
+  .qrow{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);margin-top:clamp(22px,3vw,32px)}
   .qcard{padding:26px 24px;border-radius:18px;background:rgba(255,255,255,.035);
     border:1px solid rgba(214,239,233,.1)}
   .qcard p{font-size:.92rem;line-height:1.9;color:rgba(214,239,233,.86)}
@@ -161,25 +147,39 @@
     border:1px solid rgba(90,209,196,.3)}
   .who b{display:block;font-size:.84rem}
   .who span{display:block;font-size:.7rem;color:rgba(214,239,233,.5);margin-top:2px}
-  .vnote{margin-top:18px;font-size:.74rem;color:rgba(214,239,233,.42);line-height:1.8}
+  .vnote{margin-top:14px;font-size:.74rem;color:rgba(214,239,233,.42);line-height:1.8}
+  .vmore{margin-top:14px;font-size:.82rem;color:rgba(214,239,233,.55);display:flex;flex-wrap:wrap;
+    align-items:center;gap:8px}
+  .vmore button{font:inherit;cursor:pointer;color:var(--aqua);background:none;border:0;padding:4px 2px;
+    border-bottom:1px solid rgba(90,209,196,.35);transition:.2s}
+  .vmore button:hover{color:#fff;border-color:#fff}
 
-  /* ---------- what (light) ---------- */
-  .what{background:var(--sand);color:var(--ink)}
-  .what-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,70px);align-items:center;
-    margin-top:clamp(30px,4vw,50px)}
-  .steps{display:grid;gap:14px}
-  .step{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:22px 24px;border-radius:16px;
-    background:#fff;border:1px solid rgba(18,38,44,.08);box-shadow:0 10px 30px rgba(18,38,44,.04)}
-  .step .k{font-family:var(--serif);font-size:1.5rem;color:#2C7E7B;line-height:1}
-  .step h3{font-size:1.08rem}
-  .step p{margin-top:6px;font-size:.88rem;line-height:1.8;color:var(--ink2)}
-  .what-media{position:relative;border-radius:22px;overflow:hidden;background:#e6ddc9}
-  .what-media img{width:100%;aspect-ratio:4/5;object-fit:cover}
-  .what-media figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 24px 22px;
-    color:#fff;font-size:.95rem;line-height:1.7;
-    background:linear-gradient(180deg,transparent,rgba(6,20,24,.86))}
-  .what-media figcaption b{font-family:var(--serif);font-size:1.3rem}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:clamp(34px,4vw,52px);
+  /* ---------- life：一天里的使用场景 ---------- */
+  .life{background:var(--sand);color:var(--ink)}
+  .scene-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,22px);
+    margin-top:clamp(30px,4vw,46px)}
+  .scene{background:#fff;border-radius:20px;overflow:hidden;border:1px solid rgba(18,38,44,.08);
+    box-shadow:0 14px 34px rgba(18,38,44,.05);display:flex;flex-direction:column}
+  .scene-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:#e8dfcc}
+  .scene-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  .scene:hover .scene-img img{transform:scale(1.035)}
+  .scene-time{position:absolute;left:14px;top:14px;font-family:var(--serif);font-size:1.05rem;
+    letter-spacing:.04em;padding:6px 14px;border-radius:999px;background:rgba(3,18,26,.62);
+    color:#fff;backdrop-filter:blur(6px)}
+  .scene-body{padding:20px 22px 24px;flex:1;display:flex;flex-direction:column}
+  .scene-tag{font-size:.64rem;letter-spacing:.18em;color:#2C7E7B;text-transform:uppercase}
+  .scene-body h3{font-size:1.14rem;margin-top:8px}
+  .scene-body p{margin-top:8px;font-size:.86rem;line-height:1.85;color:var(--ink2)}
+  .scene-body ol{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+  .scene-body ol li{font-size:.72rem;padding:5px 11px;border-radius:999px;
+    background:rgba(44,126,123,.1);color:#1F5F63}
+  .scene-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+    margin-top:clamp(20px,3vw,30px)}
+  .scene-strip figure{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:#dfd6c2}
+  .scene-strip img{width:100%;height:100%;object-fit:cover}
+  .scene-strip figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 12px 10px;
+    font-size:.7rem;color:#fff;background:linear-gradient(180deg,transparent,rgba(6,20,24,.82))}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:clamp(30px,4vw,46px);
     background:rgba(18,38,44,.12);border-radius:16px;overflow:hidden}
   .stat{background:var(--sand);padding:26px 22px}
   .stat b{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.5rem);color:#17565B;line-height:1}
@@ -242,23 +242,6 @@
   .face p{margin-top:10px;font-size:.84rem;line-height:1.8;color:var(--ink2)}
   .face .note{margin-top:8px;font-size:.66rem;color:rgba(18,38,44,.45)}
 
-  /* ---------- life ---------- */
-  .life{background:var(--deeper);padding-bottom:clamp(56px,7vw,90px)}
-  .mosaic{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(120px,14vw,180px);
-    gap:12px;margin-top:clamp(28px,4vw,44px)}
-  .mosaic figure{margin:0;position:relative;border-radius:16px;overflow:hidden;background:#08202A}
-  .mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
-  .mosaic figure:hover img{transform:scale(1.05)}
-  .mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;
-    font-size:.72rem;color:rgba(255,255,255,.88);
-    background:linear-gradient(180deg,transparent,rgba(3,18,26,.8))}
-  .g1{grid-column:span 4;grid-row:span 2}
-  .g2{grid-column:span 2;grid-row:span 2}
-  .g3{grid-column:span 2;grid-row:span 1}
-  .g4{grid-column:span 2;grid-row:span 1}
-  .g5{grid-column:span 3;grid-row:span 1}
-  .g6{grid-column:span 3;grid-row:span 1}
-
   /* ---------- product (light) ---------- */
   .product{background:var(--sand);color:var(--ink)}
   .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);
@@ -320,9 +303,9 @@
 
   /* ---------- video modal ---------- */
   .vmodal{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:24px;
-    background:rgba(2,10,14,.9);opacity:0;pointer-events:none;transition:opacity .3s}
+    background:rgba(2,10,14,.92);opacity:0;pointer-events:none;transition:opacity .3s}
   .vmodal.open{opacity:1;pointer-events:auto}
-  .vmodal video{width:min(920px,100%);max-height:80vh;border-radius:16px;background:#000}
+  .vmodal video{width:min(960px,100%);max-height:80vh;border-radius:16px;background:#000}
   .vmodal .x{position:absolute;top:20px;right:24px;width:44px;height:44px;border-radius:50%;
     background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);
     font-size:1.2rem;cursor:pointer}
@@ -340,8 +323,6 @@
     .hero-media{display:none}
     .scroll-cue{display:none}
     .what-grid,.sci-grid,.honor-grid{grid-template-columns:1fr}
-    .what-media{order:-1}
-    .what-media img{aspect-ratio:16/10}
     .stats{grid-template-columns:repeat(2,1fr)}
     .faces{grid-template-columns:1fr}
     .tiers{grid-template-columns:1fr}
@@ -349,15 +330,9 @@
     .contact-grid{grid-template-columns:1fr}
     .wa-card{grid-template-columns:1fr}
     .wa-actions .btn{min-width:0;width:100%}
-    .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
-    .g1{grid-column:span 2;grid-row:span 2}
-    .g2{grid-column:span 1;grid-row:span 1}
-    .g3,.g4,.g5,.g6{grid-column:span 1;grid-row:span 1}
     .fab{width:56px;height:56px;right:14px;bottom:14px}
-    .vrow{grid-template-columns:repeat(3,minmax(240px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;
-      padding-bottom:6px;margin-inline:-4vw;padding-inline:4vw}
-    .vcard{scroll-snap-align:start}
     .qrow{grid-template-columns:1fr}
+    .vstage-cap b{font-size:1.15rem}
   }
   @media (max-width:640px){
     .hero h1{font-size:2.5rem}
@@ -373,6 +348,18 @@
     .face.liu img{object-position:56% 44%}
     .stats{grid-template-columns:1fr 1fr}
     .foot-grid{grid-template-columns:1fr}
+    .scene-grid{grid-template-columns:1fr}
+    .scene-strip{grid-template-columns:1fr 1fr}
+    .vstage-cap{position:static;padding:14px;background:#081E28;
+      border-top:1px solid rgba(214,239,233,.08);align-items:center}
+    .vstage-cap b{font-size:1.02rem}
+    .vstage-cap small{font-size:.68rem}
+    .vstage{border-radius:18px}
+    .scene-img{aspect-ratio:4/3}
+    .vpicks{gap:8px}
+    .vpick{min-height:44px;padding:0 15px;font-size:.8rem}
+    .vsound{min-height:38px;padding:0 14px;font-size:.72rem}
+    .vlive{font-size:.64rem;padding:6px 10px}
   }
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -387,7 +374,7 @@
     <div class="brand">SMT<small>SINGAPORE</small><span class="demo-tag">DEMO</span></div>
     <nav class="nav-links" aria-label="主导航">
       <a href="#voices">真实反馈</a>
-      <a href="#what">肽是什么</a>
+      <a href="#life">怎么用</a>
       <a href="#science">科学与研究</a>
       <a href="#honor">荣誉与分享</a>
       <a href="#product">产品</a>
@@ -466,20 +453,22 @@
       <p class="reveal d2">三位使用者的真实访谈，以及家属的反馈。个人感受因人而异，不作为效果保证，也不构成医疗建议。</p>
     </div>
 
-    <div class="vrow reveal">
-      <figure class="vcard" data-src="../demo/assets/video/v1.mp4" data-src-m="../demo/assets/video/v1p.mp4" role="button" tabindex="0" aria-label="播放 Ms. Chen 的访谈">
-        <div class="vface"><b>C</b><span class="vplay" aria-hidden="true"></span></div>
-        <figcaption class="vmeta"><div><b>Ms. Chen</b><span>使用 5 个月 · 视频访谈</span></div><span class="vtag">2:10</span></figcaption>
-      </figure>
-      <figure class="vcard" data-src="../demo/assets/video/v2.mp4" data-src-m="../demo/assets/video/v2p.mp4" role="button" tabindex="0" aria-label="播放 Mr. Hong 的访谈">
-        <div class="vface"><b>H</b><span class="vplay" aria-hidden="true"></span></div>
-        <figcaption class="vmeta"><div><b>Mr. Hong</b><span>使用 8 年 · 视频访谈</span></div><span class="vtag">1:48</span></figcaption>
-      </figure>
-      <figure class="vcard" data-src="../demo/assets/video/v3.mp4" data-src-m="../demo/assets/video/v3p.mp4" role="button" tabindex="0" aria-label="播放 Ms. Lin 的访谈">
-        <div class="vface"><b>L</b><span class="vplay" aria-hidden="true"></span></div>
-        <figcaption class="vmeta"><div><b>Ms. Lin</b><span>使用 3 个月 · 视频访谈</span></div><span class="vtag">1:32</span></figcaption>
-      </figure>
+    <div class="vstage reveal" id="vstage">
+      <video class="vmain" id="vmain" src="assets/video/voice-loop.mp4"
+        poster="assets/img/voice-poster.webp" playsinline muted loop preload="metadata"
+        aria-label="Mr. Hong 的访谈片段"></video>
+      <div class="vstage-cap">
+        <div><b>Mr. Hong</b><small>使用 8 年 · 视频访谈</small></div>
+        <button class="vsound" id="vfull" type="button">看完整访谈</button>
+      </div>
     </div>
+
+    <p class="vnote">视频为品牌方提供的原始素材片段（已截取无字幕画面），完整访谈请点击播放；出镜人书面授权与无字幕版素材需在上线前补齐。</p>
+
+    <p class="vmore reveal">还可以看：
+      <button type="button" data-full="v1">Ms. Chen · 使用 5 个月</button>
+      <button type="button" data-full="v3">Ms. Lin · 使用 3 个月</button>
+    </p>
 
     <div class="qrow">
       <figure class="qcard reveal">
@@ -499,44 +488,74 @@
   </div>
 </section>
 
-<!-- ============ WHAT IS PEPTIDE ============ -->
-<section class="sec what" id="what">
+<!-- ============ LIFE / USAGE ============ -->
+<section class="sec life" id="life">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow reveal">What Is Peptide</div>
-      <h2 class="reveal d1">肽，是把蛋白质拆小之后的样子</h2>
-      <p class="reveal d2">一颗鸡蛋、一块鱼肉，都是长长的蛋白质链。身体要把它们切成小段才能用——这些小段，就是肽。</p>
+      <div class="eyebrow reveal">Daily Ritual</div>
+      <h2 class="reveal d1">从早到晚，怎么用</h2>
+      <p class="reveal d2">一支 128mg，撕开即饮；洁面后，半支温水调开轻拍。不用改变生活，把它放进已有的习惯里。</p>
     </div>
 
-    <div class="what-grid">
-      <div class="steps">
-        <article class="step reveal">
-          <span class="k">01</span>
-          <div>
-            <h3>蛋白质：太长了，进不去</h3>
-            <p>完整的蛋白质分子量大，要先在胃肠道被拆开，才能被吸收。</p>
-          </div>
-        </article>
-        <article class="step reveal d1">
-          <span class="k">02</span>
-          <div>
-            <h3>肽：拆到 2–12 个氨基酸</h3>
-            <p>这个长度叫「小分子肽」。分子量通常在 2000 道尔顿以下，结构简单、稳定。</p>
-          </div>
-        </article>
-        <article class="step reveal d2">
-          <span class="k">03</span>
-          <div>
-            <h3>身体直接用</h3>
-            <p>SMT 的肽 90.5% 在 1000 道尔顿以下，因此更容易被肠道完整吸收、进入循环。</p>
-          </div>
-        </article>
-      </div>
+    <div class="scene-grid">
+      <article class="scene reveal">
+        <div class="scene-img">
+          <img src="assets/img/vial-table.webp" alt="早晨餐桌上的 SMT 小瓶" loading="lazy">
+          <span class="scene-time">07:00</span>
+        </div>
+        <div class="scene-body">
+          <span class="scene-tag">内服 · 起床后</span>
+          <h3>空腹先喝一支</h3>
+          <p>直接倒入口中，温水送服。早餐前那一支，是最容易坚持的一支。</p>
+          <ol><li>早晚各一支</li><li>空腹</li><li>30 天一个周期</li></ol>
+        </div>
+      </article>
 
-      <figure class="what-media reveal d1">
-        <img src="assets/img/powder.webp" alt="SMT 纳米活性肽粉末与小瓶" loading="lazy">
-        <figcaption>一克粉末里，是 <b>7,212</b> 条被逐条点名的肽。</figcaption>
-      </figure>
+      <article class="scene reveal d1">
+        <div class="scene-img">
+          <img src="assets/img/powder.webp" alt="SMT 粉末与温水调开" loading="lazy">
+          <span class="scene-time">08:10</span>
+        </div>
+        <div class="scene-body">
+          <span class="scene-tag">外用 · 洁面后</span>
+          <h3>半支，轻拍至吸收</h3>
+          <p>洁面后取半支，用温水调开，轻拍至吸收，再叠加日常面霜。</p>
+          <ol><li>半支</li><li>温水调开</li><li>早晚各一次</li></ol>
+        </div>
+      </article>
+
+      <article class="scene reveal">
+        <div class="scene-img">
+          <img src="assets/img/giftbox.webp" alt="SMT 礼盒与独立小瓶" loading="lazy">
+          <span class="scene-time">13:00</span>
+        </div>
+        <div class="scene-body">
+          <span class="scene-tag">随身 · 出门</span>
+          <h3>包里放得下的一支</h3>
+          <p>独立小瓶，一盒三十支。出差、办公室、旅行，都不需要额外准备。</p>
+          <ol><li>一盒 30 支</li><li>独立密封</li><li>随手带走</li></ol>
+        </div>
+      </article>
+
+      <article class="scene reveal d1">
+        <div class="scene-img">
+          <img src="assets/img/bottle-dark-2.webp" alt="夜间灯光下的 SMT 小瓶" loading="lazy">
+          <span class="scene-time">22:30</span>
+        </div>
+        <div class="scene-body">
+          <span class="scene-tag">内服 · 睡前</span>
+          <h3>晚上那一支</h3>
+          <p>同样空腹喝。白天容易忘，把它放在刷牙前，最不容易漏。</p>
+          <ol><li>空腹</li><li>温水送服</li><li>固定时间</li></ol>
+        </div>
+      </article>
+    </div>
+
+    <div class="scene-strip reveal">
+      <figure><img src="assets/img/life-home.webp" alt="家中日常" loading="lazy"><figcaption>家中日常</figcaption></figure>
+      <figure><img src="assets/img/life-gala.webp" alt="品牌活动现场" loading="lazy"><figcaption>新加坡品牌活动</figcaption></figure>
+      <figure><img src="assets/img/lab-team.webp" alt="洁净车间" loading="lazy"><figcaption>33 道工序 · 洁净车间</figcaption></figure>
+      <figure><img src="assets/img/vial-box.webp" alt="产品包装" loading="lazy"><figcaption>独立小瓶 · 包装</figcaption></figure>
     </div>
 
     <div class="stats reveal">
@@ -659,25 +678,6 @@
   </div>
 </section>
 
-<!-- ============ LIFE ============ -->
-<section class="sec life" id="life">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow reveal">Everyday</div>
-      <h2 class="reveal d1">它出现在每天的生活里</h2>
-      <p class="reveal d2">一支 128mg，撕开即饮。早餐后、出差包里、送长辈的礼盒里。</p>
-    </div>
-    <div class="mosaic reveal">
-      <figure class="g1"><img src="assets/img/giftbox.webp" alt="SMT 礼盒装" loading="lazy"><figcaption>一盒三十瓶，刚好三个月</figcaption></figure>
-      <figure class="g2"><img src="assets/img/life-home.webp" alt="家中日常" loading="lazy"><figcaption>家中日常 · 一杯温水</figcaption></figure>
-      <figure class="g3"><img src="assets/img/vial-box.webp" alt="产品与包装" loading="lazy"><figcaption>独立小瓶 · 随身携带</figcaption></figure>
-      <figure class="g4"><img src="assets/img/lab-team.webp" alt="生产车间" loading="lazy"><figcaption>33 道工序 · 洁净车间</figcaption></figure>
-      <figure class="g5"><img src="assets/img/life-gala.webp" alt="品牌活动" loading="lazy"><figcaption>新加坡品牌活动现场</figcaption></figure>
-      <figure class="g6"><img src="assets/img/life-group.webp" alt="用户聚会" loading="lazy"><figcaption>老客户的聚会</figcaption></figure>
-    </div>
-  </div>
-</section>
-
 <!-- ============ PRODUCT ============ -->
 <section class="sec product" id="product">
   <div class="wrap">
@@ -768,7 +768,7 @@
       </div>
       <div>
         <h4>了解</h4>
-        <a href="#what">肽是什么</a>
+        <a href="#life">怎么用</a>
         <a href="#science">科学与研究</a>
         <a href="#honor">荣誉与分享</a>
       </div>
@@ -829,21 +829,36 @@
     targets.forEach(function(el){ io.observe(el); });
   }
 
-  /* 视频弹层 */
+  /* 见证：一个横屏视频，滚到可见自动静音播放；点按钮看完整访谈 */
+  var stage = document.getElementById('vstage');
+  var video = document.getElementById('vmain');
+  var fullBtn = document.getElementById('vfull');
   var modal = document.getElementById('vmodal');
   var player = document.getElementById('vplayer');
-  var close = document.getElementById('vclose');
+  var closeBtn = document.getElementById('vclose');
 
-  function openVideo(card){
-    var isM = window.matchMedia('(max-width:1040px)').matches;
-    player.src = card.getAttribute(isM ? 'data-src-m' : 'data-src');
+  if ('IntersectionObserver' in window && !reduce) {
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          var p = video.play();
+          if (p && p.catch) p.catch(function(){});
+        } else {
+          video.pause();
+        }
+      });
+    }, { threshold: 0.4 }).observe(stage);
+  }
+
+  function openFull(src){
+    player.src = src || '../demo/assets/video/v2.mp4';
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     var p = player.play();
     if (p && p.catch) p.catch(function(){});
   }
-  function closeVideo(){
+  function closeFull(){
     player.pause();
     player.removeAttribute('src');
     player.load();
@@ -851,15 +866,17 @@
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
-  document.querySelectorAll('.vcard').forEach(function(card){
-    card.addEventListener('click', function(){ openVideo(card); });
-    card.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openVideo(card); }
+  fullBtn.addEventListener('click', function(){ openFull('../demo/assets/video/v2.mp4'); });
+  document.querySelectorAll('.vmore button').forEach(function(b){
+    b.addEventListener('click', function(){
+      openFull('../demo/assets/video/' + b.getAttribute('data-full') + '.mp4');
     });
   });
-  close.addEventListener('click', closeVideo);
-  modal.addEventListener('click', function(e){ if (e.target === modal) closeVideo(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && modal.classList.contains('open')) closeVideo(); });
+  closeBtn.addEventListener('click', closeFull);
+  modal.addEventListener('click', function(e){ if (e.target === modal) closeFull(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeFull();
+  });
 })();
 </script>
 </body>

@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../demo/assets/favicon.png">
+<meta name="description" content="SMT 深海小分子肽 · Demo 新版（深海主题）">
+<title>SMT 深海小分子肽 · Demo</title>
+<link rel="preload" as="image" href="assets/img/hero-sea.webp">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+  :root{
+    --abyss:#03121A; --deeper:#041A24; --deep:#06222E;
+    --teal:#0E4A57; --sea:#17707A;
+    --aqua:#5AD1C4; --ice:#D6EFE9;
+    --sand:#F3ECDD; --sand2:#FBF7EE; --ink:#12262C; --ink2:#4C5F63;
+    --gold:#C9A96E;
+    --serif:'Cormorant Garamond','Noto Serif SC',Georgia,serif;
+    --sans:'Noto Sans SC',-apple-system,'Microsoft YaHei',sans-serif;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--abyss);color:var(--ice);font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  figure{margin:0}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;line-height:1.12;letter-spacing:.01em}
+  p{margin:0}
+  .wrap{width:min(1180px,92vw);margin:0 auto}
+  .eyebrow{font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--aqua);
+    display:flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.6}
+  .sec{position:relative;padding:clamp(72px,9vw,124px) 0}
+  .sec-head{max-width:44em}
+  .sec-head h2{font-size:clamp(1.9rem,3.4vw,2.9rem);margin-top:16px}
+  .sec-head p{margin-top:16px;color:rgba(214,239,233,.72);line-height:1.95;font-size:.96rem}
+  .light .sec-head p,.what .sec-head p,.product .sec-head p{color:var(--ink2)}
+  .light{background:var(--sand);color:var(--ink)}
+  .light .eyebrow{color:#2C7E7B}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    min-height:56px;padding:0 30px;border-radius:999px;font-size:1rem;font-weight:600;
+    letter-spacing:.02em;cursor:pointer;border:1px solid transparent;white-space:nowrap;
+    transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s}
+  .btn:active{transform:scale(.98)}
+  .btn-wa{background:#22C46E;color:#04231A;box-shadow:0 16px 38px rgba(34,196,110,.26)}
+  .btn-wa:hover{transform:translateY(-2px);box-shadow:0 22px 46px rgba(34,196,110,.34)}
+  .btn-aqua{background:linear-gradient(135deg,#78E4D6,#3CB5A8);color:#04211F;
+    box-shadow:0 16px 38px rgba(60,181,168,.24)}
+  .btn-aqua:hover{transform:translateY(-2px)}
+  .btn-ghost{border-color:rgba(214,239,233,.32);color:var(--ice);background:rgba(255,255,255,.04)}
+  .btn-ghost:hover{background:rgba(255,255,255,.09);border-color:rgba(214,239,233,.5)}
+  .btn svg{width:20px;height:20px;flex:0 0 auto}
+
+  /* ---------- nav ---------- */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s var(--ease)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+  .brand{font-family:var(--serif);font-size:1.5rem;letter-spacing:.34em;line-height:1}
+  .brand small{display:block;margin-top:5px;font-family:var(--sans);font-size:.55rem;
+    letter-spacing:.32em;color:var(--aqua)}
+  .demo-tag{display:inline-block;margin-left:8px;vertical-align:6px;font-size:.5rem;letter-spacing:.2em;
+    padding:3px 8px;border-radius:999px;border:1px solid rgba(90,209,196,.45);color:var(--aqua)}
+  .nav-links{display:flex;gap:30px;font-size:.86rem;color:rgba(214,239,233,.78)}
+  .nav-links a{position:relative;padding:6px 0}
+  .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
+    background:var(--aqua);transition:right .3s var(--ease)}
+  .nav-links a:hover{color:#fff}
+  .nav-links a:hover::after{right:0}
+  .nav-cta{min-height:46px;padding:0 22px;font-size:.88rem}
+  .nav.solid{background:rgba(3,18,26,.94);backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(90,209,196,.14)}
+  .nav.solid .nav-inner{padding:12px 0}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+    padding:132px 0 92px}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(90% 60% at 50% 0%,rgba(120,220,205,.16),transparent 62%),
+      linear-gradient(180deg,rgba(3,18,26,.62) 0%,rgba(3,18,26,.78) 58%,var(--abyss) 100%)}
+  .hero-glow{position:absolute;right:-6%;top:18%;width:54vw;height:54vw;z-index:0;pointer-events:none;
+    background:radial-gradient(circle,rgba(90,209,196,.18),rgba(90,209,196,0) 62%);filter:blur(18px)}
+  .hero-inner{position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(24px,4vw,64px);align-items:center}
+  .hero h1{font-size:clamp(2.6rem,5.4vw,4.5rem);line-height:1.1;margin-top:22px}
+  .hero h1 em{font-style:normal;color:var(--aqua)}
+  .hero .lead{margin-top:22px;max-width:27em;font-size:1.02rem;line-height:1.95;color:rgba(214,239,233,.82)}
+  .hero .lead b{color:#fff;font-weight:600}
+  .facts{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:12px;max-width:30em}
+  .facts li{display:flex;gap:14px;align-items:flex-start}
+  .facts .n{flex:0 0 auto;font-family:var(--serif);font-size:.9rem;color:var(--aqua);
+    border:1px solid rgba(90,209,196,.4);border-radius:50%;width:26px;height:26px;
+    display:grid;place-items:center;margin-top:2px}
+  .facts b{display:block;font-size:.92rem;font-weight:600;color:#fff}
+  .facts span{display:block;margin-top:3px;font-size:.84rem;line-height:1.7;color:rgba(214,239,233,.62)}
+  .hero-cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+  .hero-note{margin-top:16px;font-size:.72rem;color:rgba(214,239,233,.42);letter-spacing:.03em}
+  .hero-media{position:relative}
+  .hero-shot{position:relative;border-radius:26px;overflow:hidden;
+    border:1px solid rgba(90,209,196,.2);
+    box-shadow:0 50px 120px rgba(0,0,0,.55)}
+  .hero-shot img{width:100%;aspect-ratio:4/5;object-fit:cover}
+  .hero-shot::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(3,18,26,0) 45%,rgba(3,18,26,.82) 100%)}
+  .shot-badge{position:absolute;left:22px;right:22px;bottom:22px;z-index:2;
+    display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+  .shot-badge b{font-family:var(--serif);font-size:clamp(1.7rem,2.6vw,2.4rem);color:#fff;line-height:1}
+  .shot-badge small{display:block;margin-top:6px;font-size:.72rem;letter-spacing:.14em;
+    color:rgba(214,239,233,.7)}
+  .shot-pill{font-size:.68rem;letter-spacing:.1em;padding:7px 12px;border-radius:999px;
+    background:rgba(90,209,196,.16);border:1px solid rgba(90,209,196,.4);color:var(--aqua)}
+  .scroll-cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:3;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    font-size:.6rem;letter-spacing:.32em;color:rgba(214,239,233,.45);text-transform:uppercase}
+  .scroll-cue i{display:block;width:1px;height:30px;background:linear-gradient(180deg,var(--aqua),transparent)}
+
+  /* ---------- voices ---------- */
+  .voices{background:var(--deeper);position:relative}
+  .voices::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(90,209,196,.35),transparent)}
+  .vrow{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);margin-top:clamp(30px,4vw,46px)}
+  .vcard{position:relative;border-radius:20px;overflow:hidden;cursor:pointer;
+    border:1px solid rgba(214,239,233,.12);background:#081E28;text-align:left;
+    transition:transform .4s var(--ease),border-color .3s}
+  .vcard:hover{transform:translateY(-4px);border-color:rgba(90,209,196,.4)}
+  .vface{position:relative;aspect-ratio:4/5;display:grid;place-items:center;overflow:hidden;
+    background:
+      radial-gradient(120% 70% at 50% 0%,rgba(90,209,196,.2),rgba(90,209,196,0) 60%),
+      linear-gradient(160deg,#0B3340,#061C26 70%)}
+  .vface::before{content:"";position:absolute;inset:0;
+    background:url(assets/img/hero-sea.webp) center/cover;opacity:.16;filter:saturate(.7)}
+  .vface b{position:absolute;left:22px;top:16px;z-index:1;font-family:var(--serif);
+    font-size:clamp(3rem,4.6vw,4.2rem);font-weight:500;
+    color:rgba(214,239,233,.42);letter-spacing:.04em;line-height:1}
+  .vplay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;
+    width:64px;height:64px;border-radius:50%;background:rgba(3,18,26,.5);
+    border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(4px);display:grid;place-items:center;
+    transition:transform .3s var(--ease),background .3s}
+  .vcard:hover .vplay{transform:translate(-50%,-50%) scale(1.06);background:rgba(34,196,110,.85);
+    border-color:transparent}
+  .vplay::before{content:"";width:0;height:0;border-left:16px solid #fff;border-top:10px solid transparent;
+    border-bottom:10px solid transparent;margin-left:4px}
+  .vmeta{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;padding:18px 20px 20px}
+  .vmeta b{font-size:.98rem;color:#fff}
+  .vmeta span{display:block;margin-top:4px;font-size:.72rem;color:rgba(214,239,233,.6)}
+  .vtag{font-size:.62rem;padding:5px 10px;border-radius:999px;background:rgba(90,209,196,.16);
+    border:1px solid rgba(90,209,196,.35);color:var(--aqua);letter-spacing:.06em}
+  .qrow{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);margin-top:14px}
+  .qcard{padding:26px 24px;border-radius:18px;background:rgba(255,255,255,.035);
+    border:1px solid rgba(214,239,233,.1)}
+  .qcard p{font-size:.92rem;line-height:1.9;color:rgba(214,239,233,.86)}
+  .who{display:flex;align-items:center;gap:12px;margin-top:18px}
+  .avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+    background:rgba(90,209,196,.14);color:var(--aqua);font-family:var(--serif);font-size:.86rem;
+    border:1px solid rgba(90,209,196,.3)}
+  .who b{display:block;font-size:.84rem}
+  .who span{display:block;font-size:.7rem;color:rgba(214,239,233,.5);margin-top:2px}
+  .vnote{margin-top:18px;font-size:.74rem;color:rgba(214,239,233,.42);line-height:1.8}
+
+  /* ---------- what (light) ---------- */
+  .what{background:var(--sand);color:var(--ink)}
+  .what-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,70px);align-items:center;
+    margin-top:clamp(30px,4vw,50px)}
+  .steps{display:grid;gap:14px}
+  .step{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:22px 24px;border-radius:16px;
+    background:#fff;border:1px solid rgba(18,38,44,.08);box-shadow:0 10px 30px rgba(18,38,44,.04)}
+  .step .k{font-family:var(--serif);font-size:1.5rem;color:#2C7E7B;line-height:1}
+  .step h3{font-size:1.08rem}
+  .step p{margin-top:6px;font-size:.88rem;line-height:1.8;color:var(--ink2)}
+  .what-media{position:relative;border-radius:22px;overflow:hidden;background:#e6ddc9}
+  .what-media img{width:100%;aspect-ratio:4/5;object-fit:cover}
+  .what-media figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 24px 22px;
+    color:#fff;font-size:.95rem;line-height:1.7;
+    background:linear-gradient(180deg,transparent,rgba(6,20,24,.86))}
+  .what-media figcaption b{font-family:var(--serif);font-size:1.3rem}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:clamp(34px,4vw,52px);
+    background:rgba(18,38,44,.12);border-radius:16px;overflow:hidden}
+  .stat{background:var(--sand);padding:26px 22px}
+  .stat b{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.5rem);color:#17565B;line-height:1}
+  .stat span{display:block;margin-top:8px;font-size:.78rem;color:var(--ink2);letter-spacing:.02em}
+
+  /* ---------- science ---------- */
+  .science{background:var(--deep)}
+  .sci-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(28px,4vw,56px);align-items:center;
+    margin-top:clamp(30px,4vw,48px)}
+  .paper{padding:30px;border-radius:20px;background:rgba(255,255,255,.04);
+    border:1px solid rgba(214,239,233,.12)}
+  .paper .tag{font-size:.66rem;letter-spacing:.18em;color:var(--aqua);text-transform:uppercase}
+  .paper h3{font-size:1.24rem;line-height:1.55;margin-top:14px;color:#fff}
+  .paper .meta{margin-top:14px;font-size:.8rem;line-height:1.9;color:rgba(214,239,233,.6)}
+  .paper blockquote{margin:18px 0 0;padding:16px 18px;border-left:2px solid var(--aqua);
+    background:rgba(90,209,196,.06);font-size:.86rem;line-height:1.9;color:rgba(214,239,233,.85)}
+  .paper .disc{margin-top:14px;font-size:.68rem;color:rgba(214,239,233,.4)}
+  .sci-media{display:grid;grid-template-columns:1fr;gap:12px}
+  .sci-media figure{margin:0;border-radius:18px;overflow:hidden;position:relative;background:#08202A}
+  .sci-media img{width:100%;height:100%;object-fit:cover}
+  .sci-media .tall img{aspect-ratio:5/4}
+  .sci-media .wide img{aspect-ratio:16/10}
+  .sci-media figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 14px;
+    font-size:.7rem;color:rgba(255,255,255,.85);
+    background:linear-gradient(180deg,transparent,rgba(3,18,26,.85))}
+  .sci-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+  .sci-facts div{padding:20px;border-radius:14px;background:rgba(255,255,255,.03);
+    border:1px solid rgba(214,239,233,.1)}
+  .sci-facts b{display:block;font-family:var(--serif);font-size:1.7rem;color:var(--aqua);line-height:1}
+  .sci-facts span{display:block;margin-top:8px;font-size:.76rem;line-height:1.6;color:rgba(214,239,233,.6)}
+  .reports{display:flex;gap:14px;align-items:center;margin-top:22px;flex-wrap:wrap}
+  .reports img{width:96px;border-radius:8px;border:1px solid rgba(214,239,233,.16);opacity:.9}
+  .reports p{font-size:.74rem;line-height:1.8;color:rgba(214,239,233,.5);max-width:26em}
+
+  /* ---------- honour (light) ---------- */
+  .honor{background:var(--sand2);color:var(--ink)}
+  .honor-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,60px);align-items:center;
+    margin-top:clamp(30px,4vw,48px)}
+  .honor-media{border-radius:22px;overflow:hidden;position:relative;box-shadow:0 30px 70px rgba(18,38,44,.16)}
+  .honor-media img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .honor-media figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 24px 20px;color:#fff;
+    font-size:.86rem;line-height:1.7;background:linear-gradient(180deg,transparent,rgba(6,20,24,.86))}
+  .honor-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+  .honor-list li{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:18px 20px;border-radius:14px;
+    background:#fff;border:1px solid rgba(18,38,44,.08)}
+  .honor-list .ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    background:rgba(44,126,123,.1)}
+  .honor-list .ic svg{width:18px;height:18px;stroke:#2C7E7B;fill:none;stroke-width:1.6;
+    stroke-linecap:round;stroke-linejoin:round}
+  .honor-list b{font-size:.94rem}
+  .honor-list p{margin-top:4px;font-size:.8rem;line-height:1.75;color:var(--ink2)}
+  .faces{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,20px);margin-top:clamp(30px,4vw,46px)}
+  .face{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:16px;border-radius:18px;
+    background:#fff;border:1px solid rgba(18,38,44,.08);box-shadow:0 14px 34px rgba(18,38,44,.05)}
+  .face img{width:150px;height:172px;object-fit:cover;object-position:76% 20%;border-radius:12px}
+  .face.liu img{object-position:56% 44%}
+  .face .role{font-size:.66rem;letter-spacing:.16em;color:#2C7E7B;text-transform:uppercase}
+  .face b{display:block;margin-top:8px;font-family:var(--serif);font-size:1.16rem}
+  .face .en{font-size:.7rem;color:var(--ink2);letter-spacing:.06em}
+  .face p{margin-top:10px;font-size:.84rem;line-height:1.8;color:var(--ink2)}
+  .face .note{margin-top:8px;font-size:.66rem;color:rgba(18,38,44,.45)}
+
+  /* ---------- life ---------- */
+  .life{background:var(--deeper);padding-bottom:clamp(56px,7vw,90px)}
+  .mosaic{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(120px,14vw,180px);
+    gap:12px;margin-top:clamp(28px,4vw,44px)}
+  .mosaic figure{margin:0;position:relative;border-radius:16px;overflow:hidden;background:#08202A}
+  .mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+  .mosaic figure:hover img{transform:scale(1.05)}
+  .mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;
+    font-size:.72rem;color:rgba(255,255,255,.88);
+    background:linear-gradient(180deg,transparent,rgba(3,18,26,.8))}
+  .g1{grid-column:span 4;grid-row:span 2}
+  .g2{grid-column:span 2;grid-row:span 2}
+  .g3{grid-column:span 2;grid-row:span 1}
+  .g4{grid-column:span 2;grid-row:span 1}
+  .g5{grid-column:span 3;grid-row:span 1}
+  .g6{grid-column:span 3;grid-row:span 1}
+
+  /* ---------- product (light) ---------- */
+  .product{background:var(--sand);color:var(--ink)}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);
+    margin-top:clamp(30px,4vw,46px)}
+  .tier{background:#fff;border-radius:20px;overflow:hidden;border:1px solid rgba(18,38,44,.08);
+    box-shadow:0 16px 40px rgba(18,38,44,.06);display:flex;flex-direction:column;position:relative}
+  .tier .pic{aspect-ratio:4/3;background:#efe7d6;overflow:hidden}
+  .tier .pic img{width:100%;height:100%;object-fit:cover}
+  .tier .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .tier h3{font-size:1.1rem}
+  .tier .desc{font-size:.82rem;line-height:1.8;color:var(--ink2);min-height:3.1em}
+  .price{display:flex;align-items:baseline;gap:6px;margin-top:2px}
+  .price .cur{font-size:.7rem;letter-spacing:.14em;color:#2C7E7B}
+  .price .num{font-family:var(--serif);font-size:2.2rem;line-height:1;color:#123}
+  .price .was{font-size:.8rem;color:rgba(18,38,44,.4);text-decoration:line-through}
+  .tier .btn{margin-top:auto;width:100%}
+  .tag-hot{position:absolute;top:14px;left:14px;z-index:2;font-size:.66rem;letter-spacing:.08em;
+    padding:6px 12px;border-radius:999px;background:#17707A;color:#fff}
+
+  /* ---------- contact ---------- */
+  .contact{background:radial-gradient(120% 90% at 50% 0%,#0A303C 0%,var(--abyss) 62%)}
+  .wa-card{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;
+    padding:clamp(26px,4vw,42px);border-radius:24px;
+    background:rgba(34,196,110,.08);border:1px solid rgba(34,196,110,.3)}
+  .wa-card h2{font-size:clamp(1.7rem,3vw,2.4rem)}
+  .wa-card p{margin-top:12px;font-size:.92rem;line-height:1.9;color:rgba(214,239,233,.72);max-width:34em}
+  .wa-actions{display:grid;gap:10px}
+  .wa-actions .btn{min-width:260px}
+  .wa-num{font-size:.78rem;color:rgba(214,239,233,.55);text-align:center;letter-spacing:.06em}
+  .wa-num b{color:var(--aqua);font-weight:600}
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+  .cc{padding:22px;border-radius:16px;background:rgba(255,255,255,.03);
+    border:1px solid rgba(214,239,233,.1)}
+  .cc .k{font-size:.66rem;letter-spacing:.18em;color:var(--aqua);text-transform:uppercase}
+  .cc b{display:block;margin-top:10px;font-size:.9rem;line-height:1.7}
+  .cc span{display:block;margin-top:6px;font-size:.78rem;line-height:1.7;color:rgba(214,239,233,.55)}
+
+  /* ---------- footer ---------- */
+  footer{background:#020D13;padding:44px 0 60px;border-top:1px solid rgba(214,239,233,.08)}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+  .foot-grid p{margin-top:14px;font-size:.8rem;line-height:1.95;color:rgba(214,239,233,.5)}
+  .foot-grid h4{margin:0 0 14px;font-size:.7rem;letter-spacing:.2em;color:rgba(214,239,233,.4);
+    text-transform:uppercase;font-weight:500}
+  .foot-grid a{display:block;font-size:.84rem;color:rgba(214,239,233,.7);padding:5px 0}
+  .foot-grid a:hover{color:var(--aqua)}
+  .foot-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    margin-top:34px;padding-top:20px;border-top:1px solid rgba(214,239,233,.08);
+    font-size:.7rem;color:rgba(214,239,233,.35);line-height:1.8}
+
+  /* ---------- floating whatsapp ---------- */
+  .fab{position:fixed;right:22px;bottom:24px;z-index:120;width:62px;height:62px;border-radius:50%;
+    background:#22C46E;display:grid;place-items:center;box-shadow:0 18px 40px rgba(34,196,110,.4);
+    transition:transform .25s var(--ease)}
+  .fab:hover{transform:translateY(-3px) scale(1.03)}
+  .fab svg{width:32px;height:32px;fill:#04231A}
+  .fab::after{content:"";position:absolute;inset:-6px;border-radius:50%;
+    border:2px solid rgba(34,196,110,.35);animation:pulse 2.6s infinite}
+  @keyframes pulse{0%{transform:scale(.94);opacity:.7}70%{transform:scale(1.18);opacity:0}100%{opacity:0}}
+
+  /* ---------- video modal ---------- */
+  .vmodal{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:24px;
+    background:rgba(2,10,14,.9);opacity:0;pointer-events:none;transition:opacity .3s}
+  .vmodal.open{opacity:1;pointer-events:auto}
+  .vmodal video{width:min(920px,100%);max-height:80vh;border-radius:16px;background:#000}
+  .vmodal .x{position:absolute;top:20px;right:24px;width:44px;height:44px;border-radius:50%;
+    background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3);
+    font-size:1.2rem;cursor:pointer}
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1040px){
+    .nav-links{display:none}
+    .hero-grid{grid-template-columns:1fr;gap:34px}
+    .hero{padding-top:112px;min-height:100svh;min-height:100vh;display:flex;align-items:center}
+    .hero-media{display:none}
+    .scroll-cue{display:none}
+    .what-grid,.sci-grid,.honor-grid{grid-template-columns:1fr}
+    .what-media{order:-1}
+    .what-media img{aspect-ratio:16/10}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .faces{grid-template-columns:1fr}
+    .tiers{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .contact-grid{grid-template-columns:1fr}
+    .wa-card{grid-template-columns:1fr}
+    .wa-actions .btn{min-width:0;width:100%}
+    .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+    .g1{grid-column:span 2;grid-row:span 2}
+    .g2{grid-column:span 1;grid-row:span 1}
+    .g3,.g4,.g5,.g6{grid-column:span 1;grid-row:span 1}
+    .fab{width:56px;height:56px;right:14px;bottom:14px}
+    .vrow{grid-template-columns:repeat(3,minmax(240px,1fr));overflow-x:auto;scroll-snap-type:x mandatory;
+      padding-bottom:6px;margin-inline:-4vw;padding-inline:4vw}
+    .vcard{scroll-snap-align:start}
+    .qrow{grid-template-columns:1fr}
+  }
+  @media (max-width:640px){
+    .hero h1{font-size:2.5rem}
+    .facts{gap:10px}
+    .hero-cta .btn{flex:1 1 100%}
+    .nav-cta{padding:0;width:46px;min-height:46px;font-size:0;gap:0}
+    .nav-cta svg{width:22px;height:22px}
+    .sci-media{grid-template-columns:1fr}
+    .sci-media .tall img,.sci-media .wide img{aspect-ratio:16/10}
+    .sci-facts{grid-template-columns:1fr}
+    .face{grid-template-columns:92px 1fr;gap:14px;align-items:start}
+    .face img{width:92px;height:92px;border-radius:10px;object-position:76% 20%}
+    .face.liu img{object-position:56% 44%}
+    .stats{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">SMT<small>SINGAPORE</small><span class="demo-tag">DEMO</span></div>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#voices">真实反馈</a>
+      <a href="#what">肽是什么</a>
+      <a href="#science">科学与研究</a>
+      <a href="#honor">荣誉与分享</a>
+      <a href="#product">产品</a>
+    </nav>
+    <a class="btn btn-wa nav-cta" data-wa="你好，我想了解 SMT 深海小分子肽。" href="#contact" aria-label="WhatsApp 咨询">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3 0-1.5.8-2.2 1-2.5.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.5-.1l2 1c.2.1.4.2.4.3.1.2.1.8-.1 1.5z"/></svg>
+      WhatsApp 咨询
+    </a>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg"><img src="assets/img/hero-sea.webp" alt="深海光线" fetchpriority="high"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="hero-inner wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow reveal">Deep Sea · Nanoscale Peptide</div>
+        <h1 class="reveal d1">肽，<br><em>身体修护的原料</em></h1>
+        <p class="lead reveal d2">
+          取自深海巨型飞乌贼，酶解成 <b>7,212 条</b>小分子肽，
+          <b>90.5%</b> 在 1000 道尔顿以下。<br>分子够小，身体才认得出、用得上。
+        </p>
+
+        <ul class="facts reveal d3">
+          <li>
+            <span class="n">1</span>
+            <div><b>肽是什么</b><span>氨基酸连成的短链。蛋白质被酶解之后，就是这个形态。</span></div>
+          </li>
+          <li>
+            <span class="n">2</span>
+            <div><b>为什么需要</b><span>合成能力随年龄下降，日常饮食的蛋白质也未必吃够、吸收得了。</span></div>
+          </li>
+          <li>
+            <span class="n">3</span>
+            <div><b>为什么是 SMT</b><span>深海原料，7,212 条肽逐条鉴定，33 道工序做成一瓶。</span></div>
+          </li>
+        </ul>
+
+        <div class="hero-cta reveal d3">
+          <a class="btn btn-wa" data-wa="你好，我想了解 SMT 深海小分子肽，请问怎么开始？" href="#contact">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3 0-1.5.8-2.2 1-2.5.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.5-.1l2 1c.2.1.4.2.4.3.1.2.1.8-.1 1.5z"/></svg>
+            立即 WhatsApp 咨询
+          </a>
+          <a class="btn btn-ghost" href="#voices">看真实反馈</a>
+        </div>
+        <p class="hero-note">演示页面 · 内容为产品与品牌介绍，不构成医疗建议</p>
+      </div>
+
+      <div class="hero-media reveal d1">
+        <div class="hero-shot">
+          <img src="assets/img/bottle-dark-2.webp" alt="SMT 纳米活性肽小瓶">
+          <div class="shot-badge">
+            <div>
+              <b>7,212</b>
+              <small>条小分子肽 · 逐条鉴定</small>
+            </div>
+            <span class="shot-pill">90.5% ≤1000 Da</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Scroll<i></i></div>
+</section>
+
+<!-- ============ VOICES ============ -->
+<section class="sec voices" id="voices">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow reveal">Real Voices</div>
+      <h2 class="reveal d1">喝了才知道，他们怎么说</h2>
+      <p class="reveal d2">三位使用者的真实访谈，以及家属的反馈。个人感受因人而异，不作为效果保证，也不构成医疗建议。</p>
+    </div>
+
+    <div class="vrow reveal">
+      <figure class="vcard" data-src="../demo/assets/video/v1.mp4" data-src-m="../demo/assets/video/v1p.mp4" role="button" tabindex="0" aria-label="播放 Ms. Chen 的访谈">
+        <div class="vface"><b>C</b><span class="vplay" aria-hidden="true"></span></div>
+        <figcaption class="vmeta"><div><b>Ms. Chen</b><span>使用 5 个月 · 视频访谈</span></div><span class="vtag">2:10</span></figcaption>
+      </figure>
+      <figure class="vcard" data-src="../demo/assets/video/v2.mp4" data-src-m="../demo/assets/video/v2p.mp4" role="button" tabindex="0" aria-label="播放 Mr. Hong 的访谈">
+        <div class="vface"><b>H</b><span class="vplay" aria-hidden="true"></span></div>
+        <figcaption class="vmeta"><div><b>Mr. Hong</b><span>使用 8 年 · 视频访谈</span></div><span class="vtag">1:48</span></figcaption>
+      </figure>
+      <figure class="vcard" data-src="../demo/assets/video/v3.mp4" data-src-m="../demo/assets/video/v3p.mp4" role="button" tabindex="0" aria-label="播放 Ms. Lin 的访谈">
+        <div class="vface"><b>L</b><span class="vplay" aria-hidden="true"></span></div>
+        <figcaption class="vmeta"><div><b>Ms. Lin</b><span>使用 3 个月 · 视频访谈</span></div><span class="vtag">1:32</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="qrow">
+      <figure class="qcard reveal">
+        <p>「我妈妈用了几个月，人看着有精神了，气色也比之前好，头发有光泽了些。」</p>
+        <div class="who"><div class="avatar">CM</div><div><b>Charlie's Mother</b><span>新加坡 · 使用 6 个月</span></div></div>
+      </figure>
+      <figure class="qcard reveal d1">
+        <p>「她整个人有精神了，周围的人都说她看起来不一样了。」</p>
+        <div class="who"><div class="avatar">MW</div><div><b>Ms. Wu</b><span>新加坡 · 家属反馈</span></div></div>
+      </figure>
+      <figure class="qcard reveal d2">
+        <p>「坚持下来，最大的感受是白天不那么容易累，晚上睡得沉一些。」</p>
+        <div class="who"><div class="avatar">MX</div><div><b>Ms. Ma</b><span>新加坡 · 使用 4 个月</span></div></div>
+      </figure>
+    </div>
+    <p class="vnote">注：访谈人物姓名按授权要求以缩写呈现；正式上线前需完成每位出镜人的书面授权。</p>
+  </div>
+</section>
+
+<!-- ============ WHAT IS PEPTIDE ============ -->
+<section class="sec what" id="what">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow reveal">What Is Peptide</div>
+      <h2 class="reveal d1">肽，是把蛋白质拆小之后的样子</h2>
+      <p class="reveal d2">一颗鸡蛋、一块鱼肉，都是长长的蛋白质链。身体要把它们切成小段才能用——这些小段，就是肽。</p>
+    </div>
+
+    <div class="what-grid">
+      <div class="steps">
+        <article class="step reveal">
+          <span class="k">01</span>
+          <div>
+            <h3>蛋白质：太长了，进不去</h3>
+            <p>完整的蛋白质分子量大，要先在胃肠道被拆开，才能被吸收。</p>
+          </div>
+        </article>
+        <article class="step reveal d1">
+          <span class="k">02</span>
+          <div>
+            <h3>肽：拆到 2–12 个氨基酸</h3>
+            <p>这个长度叫「小分子肽」。分子量通常在 2000 道尔顿以下，结构简单、稳定。</p>
+          </div>
+        </article>
+        <article class="step reveal d2">
+          <span class="k">03</span>
+          <div>
+            <h3>身体直接用</h3>
+            <p>SMT 的肽 90.5% 在 1000 道尔顿以下，因此更容易被肠道完整吸收、进入循环。</p>
+          </div>
+        </article>
+      </div>
+
+      <figure class="what-media reveal d1">
+        <img src="assets/img/powder.webp" alt="SMT 纳米活性肽粉末与小瓶" loading="lazy">
+        <figcaption>一克粉末里，是 <b>7,212</b> 条被逐条点名的肽。</figcaption>
+      </figure>
+    </div>
+
+    <div class="stats reveal">
+      <div class="stat"><b>7,212</b><span>条肽 · 逐条鉴定</span></div>
+      <div class="stat"><b>90.5%</b><span>分子量 ≤1000 Da</span></div>
+      <div class="stat"><b>18</b><span>种氨基酸 · 总量 99.21%</span></div>
+      <div class="stat"><b>33</b><span>道工序 · 全程可追溯</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCIENCE ============ -->
+<section class="sec science" id="science">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow reveal">Science &amp; Research</div>
+      <h2 class="reveal d1">不是我们说的，是实验室测的</h2>
+      <p class="reveal d2">肽谱由第三方与高校实验室完成鉴定；功效研究以论文形式发表。以下数据均可在报告中核对。</p>
+    </div>
+
+    <div class="sci-grid">
+      <article class="paper reveal">
+        <span class="tag">研究论文</span>
+        <h3>基于 PI3K-Akt 信号通路探讨 SMT 改善失眠的分子作用机制</h3>
+        <div class="meta">
+          李典育 · 长春中医药大学 / 吉林省人参科学研究院<br>
+          分子药理实验室 · 2024
+        </div>
+        <blockquote>
+          通过 DENOVO 数据库分析，从 SMT 中鉴定出 7,212 条肽；长度主要集中在 7–14 个氨基酸，
+          分子量集中在 0.5–2.0 ×10³ Da。
+        </blockquote>
+        <p class="disc">论文为机制研究，不代表产品功效；引用已获作者授权，全文不在此展示。</p>
+      </article>
+
+      <div class="sci-media reveal d1">
+        <figure class="tall">
+          <img src="assets/img/lab-clean.webp" alt="实验室检测" loading="lazy">
+          <figcaption>洁净室 · 菌检与理化检测</figcaption>
+        </figure>
+        <figure class="wide">
+          <img src="assets/img/podium.webp" alt="长春中医药大学学术报告" loading="lazy">
+          <figcaption>长春中医药大学 · 课题报告</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="sci-facts reveal">
+      <div><b>7–14</b><span>肽链长度（氨基酸个数）</span></div>
+      <div><b>0.5–2.0×10³</b><span>分子量主要区间（Da）</span></div>
+      <div><b>6.11%</b><span>羟脯氨酸占比 · 胶原合成原料</span></div>
+    </div>
+
+    <div class="reports reveal">
+      <img src="assets/img/tuv-page.webp" alt="TÜV 检测报告" loading="lazy">
+      <img src="assets/img/tuv-amino.webp" alt="TÜV 氨基酸检测报告" loading="lazy">
+      <p>第三方检测：TÜV SÜD 氨基酸组成与重金属报告、SGS 分子量分布报告、COA 与 MSDS。
+        报告编号可在正式版中逐份核对。<br>（演示页面不展示完整报告扫描件。）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HONOUR ============ -->
+<section class="sec honor light" id="honor">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow reveal">Honours &amp; People</div>
+      <h2 class="reveal d1">2024 Brands for Good · Technology For Good</h2>
+      <p class="reveal d2">Sheng Peptide Biotechnology (S) Pte Ltd 获颁「Technology For Good Honouree」，
+        与新加坡本地品牌同台。</p>
+    </div>
+
+    <div class="honor-grid">
+      <figure class="honor-media reveal">
+        <img src="assets/img/award-stage.webp" alt="2024 Brands for Good 颁奖现场" loading="lazy">
+        <figcaption>Brands for Good 2024 · Technology For Good Honouree</figcaption>
+      </figure>
+      <ul class="honor-list reveal d1">
+        <li>
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M8 4h8v6a4 4 0 0 1-8 0z"/><path d="M8 6H5v2a3 3 0 0 0 3 3M16 6h3v2a3 3 0 0 1-3 3"/><path d="M12 14v3M9 20h6"/></svg></span>
+          <div><b>发明专利 ZL201210517035.3</b><p>小分子肽的制备工艺，中国发明专利。</p></div>
+        </li>
+        <li>
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 6-4.5 8.5-8 9-3.5-.5-8-3-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div><b>SC 食品生产许可 · 2026 版</b><p>SC12221028700015，有效期至 2031-01-20。</p></div>
+        </li>
+        <li>
+          <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <div><b>12 年研发 · 新加坡本地公司</b><p>UEN 202040732D，ACRA 注册，本地发货。</p></div>
+        </li>
+        <li>
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 19V5h16v14z"/><path d="M8 15l3-4 3 2 4-6"/></svg></span>
+          <div><b>品牌与资质可查</b><p>SMT® 新加坡注册商标 40202020018T（IPOS）。</p></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="faces">
+      <article class="face reveal">
+        <img src="assets/img/poster-chen.webp" alt="SMT 健康大使 陈之财" loading="lazy">
+        <div>
+          <span class="role">SMT 健康大使</span>
+          <b>陈之财 Edmund Chen</b>
+          <span class="en">演员 · 绘本作家 · 世界纪录保持者</span>
+          <p>「SMT 生命肽是我青春健康的选择。使用后，体力、耐力都增强了，睡眠更加深沉，皮肤更紧致有弹性，同时记忆力更好。」</p>
+          <span class="note">代言人个人分享，个人感受因人而异。</span>
+        </div>
+      </article>
+      <article class="face reveal d1 liu">
+        <img src="assets/img/poster-liu.webp" alt="SMT 特邀营养师 刘心宇" loading="lazy">
+        <div>
+          <span class="role">SMT 特邀营养师</span>
+          <b>刘心宇</b>
+          <span class="en">新加坡 · 营养健康学讲师</span>
+          <p>「从事营养健康学多年，与 SMT 生命肽共同实现人类健康长寿的重要目标。」</p>
+          <span class="note">营养师个人分享，专业意见请咨询医生。</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LIFE ============ -->
+<section class="sec life" id="life">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow reveal">Everyday</div>
+      <h2 class="reveal d1">它出现在每天的生活里</h2>
+      <p class="reveal d2">一支 128mg，撕开即饮。早餐后、出差包里、送长辈的礼盒里。</p>
+    </div>
+    <div class="mosaic reveal">
+      <figure class="g1"><img src="assets/img/giftbox.webp" alt="SMT 礼盒装" loading="lazy"><figcaption>一盒三十瓶，刚好三个月</figcaption></figure>
+      <figure class="g2"><img src="assets/img/life-home.webp" alt="家中日常" loading="lazy"><figcaption>家中日常 · 一杯温水</figcaption></figure>
+      <figure class="g3"><img src="assets/img/vial-box.webp" alt="产品与包装" loading="lazy"><figcaption>独立小瓶 · 随身携带</figcaption></figure>
+      <figure class="g4"><img src="assets/img/lab-team.webp" alt="生产车间" loading="lazy"><figcaption>33 道工序 · 洁净车间</figcaption></figure>
+      <figure class="g5"><img src="assets/img/life-gala.webp" alt="品牌活动" loading="lazy"><figcaption>新加坡品牌活动现场</figcaption></figure>
+      <figure class="g6"><img src="assets/img/life-group.webp" alt="用户聚会" loading="lazy"><figcaption>老客户的聚会</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT ============ -->
+<section class="sec product" id="product">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow reveal">The Product</div>
+      <h2 class="reveal d1">三种用量，同一种分子</h2>
+      <p class="reveal d2">每盒 128mg × 30 瓶独立装，冷萃取后直接灌装。先试十天，再决定要不要长期喝。</p>
+    </div>
+
+    <div class="tiers">
+      <article class="tier reveal">
+        <div class="pic"><img src="assets/products/tier-trial.jpg" alt="试用装 10 天" loading="lazy"></div>
+        <div class="body">
+          <h3>试用装 · 10 天</h3>
+          <p class="desc">先感受口感和身体的第一反应。</p>
+          <div class="price"><span class="cur">SGD</span><span class="num">38</span></div>
+          <a class="btn btn-aqua" data-wa="你好，我想订购 SMT 试用装（10 天，SGD 38）。" href="#contact">WhatsApp 订购</a>
+        </div>
+      </article>
+      <article class="tier reveal d1">
+        <span class="tag-hot">最多人选</span>
+        <div class="pic"><img src="assets/products/tier-1month.jpg" alt="一个月用量" loading="lazy"></div>
+        <div class="body">
+          <h3>一个月 · 30 天</h3>
+          <p class="desc">完整的第一个周期，适合开始建立节奏。</p>
+          <div class="price"><span class="cur">SGD</span><span class="num">128</span></div>
+          <a class="btn btn-wa" data-wa="你好，我想订购 SMT 一个月用量（30 天，SGD 128）。" href="#contact">WhatsApp 订购</a>
+        </div>
+      </article>
+      <article class="tier reveal d2">
+        <div class="pic"><img src="assets/products/tier-3month.jpg" alt="三个月用量" loading="lazy"></div>
+        <div class="body">
+          <h3>三个月 · 90 天</h3>
+          <p class="desc">把保养变成习惯，也是多数老客户的复购选择。</p>
+          <div class="price"><span class="cur">SGD</span><span class="num">348</span><span class="was">384</span></div>
+          <a class="btn btn-aqua" data-wa="你好，我想订购 SMT 三个月用量（90 天，SGD 348）。" href="#contact">WhatsApp 订购</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="wa-card reveal">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2 style="margin-top:14px">有问题，直接 WhatsApp 我们</h2>
+        <p>怎么喝、喝多久、适不适合你——发一条消息，我们会逐条回复。新加坡本地发货，通常 1–2 个工作日送达。</p>
+      </div>
+      <div class="wa-actions">
+        <a class="btn btn-wa" data-wa="你好，我想咨询 SMT 深海小分子肽。" href="https://wa.me/6500000000" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3 0-1.5.8-2.2 1-2.5.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.5-.1l2 1c.2.1.4.2.4.3.1.2.1.8-.1 1.5z"/></svg>
+          打开 WhatsApp
+        </a>
+        <span class="wa-num">演示号码 <b>+65 0000 0000</b> · 待品牌方提供</span>
+      </div>
+    </div>
+
+    <div class="contact-grid reveal d1">
+      <div class="cc">
+        <span class="k">公司</span>
+        <b>Sheng Peptide Biotechnology (S) Pte Ltd</b>
+        <span>UEN 202040732D</span>
+      </div>
+      <div class="cc">
+        <span class="k">地址</span>
+        <b>2 Jurong East Street 21</b>
+        <span>#02-146/147, IMM Building, Singapore 609601</span>
+      </div>
+      <div class="cc">
+        <span class="k">发货</span>
+        <b>新加坡本地发货</b>
+        <span>1–2 个工作日 · 批次可追溯</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="font-size:1.2rem">SMT<small>SINGAPORE</small></div>
+        <p>Sheng Peptide Biotechnology (S) Pte Ltd<br>UEN 202040732D<br>2 Jurong East Street 21, #02-146/147, IMM Building, Singapore 609601</p>
+      </div>
+      <div>
+        <h4>了解</h4>
+        <a href="#what">肽是什么</a>
+        <a href="#science">科学与研究</a>
+        <a href="#honor">荣誉与分享</a>
+      </div>
+      <div>
+        <h4>购买</h4>
+        <a href="#product">三种用量</a>
+        <a href="#contact">联系我们</a>
+        <a data-wa="你好，我想咨询 SMT。" href="#contact">WhatsApp</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Sheng Peptide Biotechnology (S) Pte Ltd</span>
+      <span>DEMO 演示页面 · 仅供客户预览，非对外销售页面 · 图片与人物素材上线前需经合规复核与授权确认</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="#contact" data-wa="你好，我想咨询 SMT 深海小分子肽。" aria-label="WhatsApp 咨询">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3 0-1.5.8-2.2 1-2.5.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.7.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1l.6-.7c.2-.2.3-.2.5-.1l2 1c.2.1.4.2.4.3.1.2.1.8-.1 1.5z"/></svg>
+</a>
+
+<div class="vmodal" id="vmodal" aria-hidden="true">
+  <button class="x" id="vclose" aria-label="关闭视频">×</button>
+  <video id="vplayer" controls playsinline preload="none"></video>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* WhatsApp 号码：品牌方提供真实号码后只改这一处 */
+  var WA_NUMBER = '6500000000';
+
+  document.querySelectorAll('[data-wa]').forEach(function(a){
+    var text = a.getAttribute('data-wa') || '';
+    a.setAttribute('href', 'https://wa.me/' + WA_NUMBER + (text ? '?text=' + encodeURIComponent(text) : ''));
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener');
+  });
+
+  /* nav 滚动态 */
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav.classList.toggle('solid', window.scrollY > 40); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* 渐显 */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var targets = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    targets.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    targets.forEach(function(el){ io.observe(el); });
+  }
+
+  /* 视频弹层 */
+  var modal = document.getElementById('vmodal');
+  var player = document.getElementById('vplayer');
+  var close = document.getElementById('vclose');
+
+  function openVideo(card){
+    var isM = window.matchMedia('(max-width:1040px)').matches;
+    player.src = card.getAttribute(isM ? 'data-src-m' : 'data-src');
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    var p = player.play();
+    if (p && p.catch) p.catch(function(){});
+  }
+  function closeVideo(){
+    player.pause();
+    player.removeAttribute('src');
+    player.load();
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.vcard').forEach(function(card){
+    card.addEventListener('click', function(){ openVideo(card); });
+    card.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openVideo(card); }
+    });
+  });
+  close.addEventListener('click', closeVideo);
+  modal.addEventListener('click', function(e){ if (e.target === modal) closeVideo(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && modal.classList.contains('open')) closeVideo(); });
+})();
+</script>
+</body>
+</html>
